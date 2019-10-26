@@ -7,7 +7,7 @@
 <script>
   const gitalk = new Gitalk({
     clientID: '04fb515964c291ec14f6',
-    clientSecret: '60f484a5ae4dd3b83224985bafba839333c80183',
+    clientSecret: 'd3f22dae66101b238ab91929dc6658952d0c4050',
     repo: 'ucore-analysis',
     owner: 'xyongcn',
     admin: ['xyongcn'],
@@ -20,7 +20,7 @@
   require(['gitbook'], function(gitbook) {
     const gitalk = new Gitalk({
       clientID: '04fb515964c291ec14f6',
-      clientSecret: '60f484a5ae4dd3b83224985bafba839333c80183',
+      clientSecret: 'd3f22dae66101b238ab91929dc6658952d0c4050',
       repo: 'ucore-analysis',
       owner: 'xyongcn',
       admin: ['xyongcn'],
@@ -29,7 +29,7 @@
     })
     gitbook.events.bind('page.change', initMygitalk)
     function initMygitalk() {
-      gitalk.render('gitalk-container')
+    document  gitalk.render('gitalk-container')
     }
   })
 </script>
