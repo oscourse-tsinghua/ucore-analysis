@@ -10,7 +10,7 @@
   ],
   "pluginsConfig": {
     "github": {
-      "url": "https://github.com/xy-plus/webdoc"
+      "url": "https://oscourse-tsinghua.gitbook.io/ucore-analysis/"
     },
     "localized-footer": {
       "filename": "gitbook/comment.html"
