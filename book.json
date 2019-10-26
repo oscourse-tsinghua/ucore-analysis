@@ -10,7 +10,7 @@
   ],
   "pluginsConfig": {
     "github": {
-      "url": "https://oscourse-tsinghua.github.io/ucore-analysis/"
+      "url": "https://oscourse-tsinghua.github.io/ucore-analysis"
     },
     "localized-footer": {
       "filename": "gitbook/comment.html"
