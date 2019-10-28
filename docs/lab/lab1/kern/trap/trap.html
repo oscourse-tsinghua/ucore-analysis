@@ -1,0 +1,915 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>trap · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../../../gitbook/gitbook-plugin-chapter-fold/chapter-fold.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../../gitbook/gitbook-plugin-code/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../../gitbook/gitbook-plugin-ancre-navigation/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../../../../gitbook/website.css">
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="trapentry.html" />
+    
+    
+    <link rel="prev" href="../../../../labmd/trap.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../../../">
+            
+                <a href="../../../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../../../../lab.html">
+            
+                <a href="../../../../lab.html">
+            
+                    
+                    lab
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../../../../labmd/lab1.html">
+            
+                <a href="../../../../labmd/lab1.html">
+            
+                    
+                    lab1
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.1" data-path="../../../../labmd/boot.html">
+            
+                <a href="../../../../labmd/boot.html">
+            
+                    
+                    boot
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.1.1" data-path="../../boot/bootasm.html">
+            
+                <a href="../../boot/bootasm.html">
+            
+                    
+                    bootasm
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.1.2" data-path="../../boot/bootmain.html">
+            
+                <a href="../../boot/bootmain.html">
+            
+                    
+                    bootmain
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2" data-path="../../../../labmd/kern.html">
+            
+                <a href="../../../../labmd/kern.html">
+            
+                    
+                    kern
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.2.1" data-path="../../../../labmd/debug.html">
+            
+                <a href="../../../../labmd/debug.html">
+            
+                    
+                    debug
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.2.1.1" data-path="../debug/kmonitor.html">
+            
+                <a href="../debug/kmonitor.html">
+            
+                    
+                    kmonitor
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2.1.2" data-path="../debug/panic.html">
+            
+                <a href="../debug/panic.html">
+            
+                    
+                    panic
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2.2" data-path="../../../../labmd/init.html">
+            
+                <a href="../../../../labmd/init.html">
+            
+                    
+                    init
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.2.2.1" data-path="../init/init.html">
+            
+                <a href="../init/init.html">
+            
+                    
+                    init
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2.3" data-path="../../../../labmd/libs.html">
+            
+                <a href="../../../../labmd/libs.html">
+            
+                    
+                    libs
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.2.3.1" data-path="../libs/readline.html">
+            
+                <a href="../libs/readline.html">
+            
+                    
+                    readline
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2.3.2" data-path="../../../alb1/kern/libs/stdio.md">
+            
+                <span>
+            
+                    
+                    stdio
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2.4" data-path="../../../../labmd/mm.html">
+            
+                <a href="../../../../labmd/mm.html">
+            
+                    
+                    mm
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.2.4.1" data-path="../mm/pmm.html">
+            
+                <a href="../mm/pmm.html">
+            
+                    
+                    pmm
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2.5" data-path="../../../../labmd/trap.html">
+            
+                <a href="../../../../labmd/trap.html">
+            
+                    
+                    trap
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.2.1.2.5.1" data-path="trap.html">
+            
+                <a href="trap.html">
+            
+                    
+                    trap
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2.5.2" data-path="trapentry.html">
+            
+                <a href="trapentry.html">
+            
+                    
+                    trapentry
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2.5.3" data-path="vectors.html">
+            
+                <a href="vectors.html">
+            
+                    
+                    vectors
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2.5.4" data-path="../../../../labmd/libs.html">
+            
+                <a href="../../../../labmd/libs.html">
+            
+                    
+                    libs
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2.5.5" data-path="../../../../labmd/tools.html">
+            
+                <a href="../../../../labmd/tools.html">
+            
+                    
+                    tools
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../../../../1. 编写文档.html">
+            
+                <a href="../../../../1. 编写文档.html">
+            
+                    
+                    1. 编写文档
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../../../../2. 本地浏览.html">
+            
+                <a href="../../../../2. 本地浏览.html">
+            
+                    
+                    2. 本地浏览
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../../../../3. 添加插件.html">
+            
+                <a href="../../../../3. 添加插件.html">
+            
+                    
+                    3. 添加插件
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../../../../3.1. 参考配置.html">
+            
+                <a href="../../../../3.1. 参考配置.html">
+            
+                    
+                    3.1. 参考配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../../../../3.2. 评论区.html">
+            
+                <a href="../../../../3.2. 评论区.html">
+            
+                    
+                    3.2. 评论区
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../../../../4. 部署网页.html">
+            
+                <a href="../../../../4. 部署网页.html">
+            
+                    
+                    4. 部署网页
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../../../.." >trap</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <pre><code>#include &lt;defs.h&gt;
+#include &lt;mmu.h&gt;
+#include &lt;memlayout.h&gt;
+#include &lt;clock.h&gt;
+#include &lt;trap.h&gt;
+#include &lt;x86.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;assert.h&gt;
+#include &lt;console.h&gt;
+#include &lt;kdebug.h&gt;
+
+#define TICK_NUM 100
+
+static void print_ticks() {
+    cprintf(&quot;%d ticks\n&quot;,TICK_NUM);
+#ifdef DEBUG_GRADE
+    cprintf(&quot;End of Test.\n&quot;);
+    panic(&quot;EOT: kernel seems ok.&quot;);
+#endif
+}
+
+/* *
+ * Interrupt descriptor table:
+ *
+ * Must be built at run time because shifted function addresses can&apos;t
+ * be represented in relocation records.
+ * */
+static struct gatedesc idt[256] = {{0}};
+
+static struct pseudodesc idt_pd = {
+    sizeof(idt) - 1, (uintptr_t)idt
+};
+
+/* idt_init - initialize IDT to each of the entry points in kern/trap/vectors.S */
+void
+idt_init(void) {
+     /* LAB1 YOUR CODE : STEP 2 */
+     /* (1) Where are the entry addrs of each Interrupt Service Routine (ISR)?
+      *     All ISR&apos;s entry addrs are stored in __vectors. where is uintptr_t __vectors[] ?
+      *     __vectors[] is in kern/trap/vector.S which is produced by tools/vector.c
+      *     (try &quot;make&quot; command in lab1, then you will find vector.S in kern/trap DIR)
+      *     You can use  &quot;extern uintptr_t __vectors[];&quot; to define this extern variable which will be used later.
+      * (2) Now you should setup the entries of ISR in Interrupt Description Table (IDT).
+      *     Can you see idt[256] in this file? Yes, it&apos;s IDT! you can use SETGATE macro to setup each item of IDT
+      * (3) After setup the contents of IDT, you will let CPU know where is the IDT by using &apos;lidt&apos; instruction.
+      *     You don&apos;t know the meaning of this instruction? just google it! and check the libs/x86.h to know more.
+      *     Notice: the argument of lidt is idt_pd. try to find it!
+      */
+}
+
+static const char *
+trapname(int trapno) {
+    static const char * const excnames[] = {
+        &quot;Divide error&quot;,
+        &quot;Debug&quot;,
+        &quot;Non-Maskable Interrupt&quot;,
+        &quot;Breakpoint&quot;,
+        &quot;Overflow&quot;,
+        &quot;BOUND Range Exceeded&quot;,
+        &quot;Invalid Opcode&quot;,
+        &quot;Device Not Available&quot;,
+        &quot;Double Fault&quot;,
+        &quot;Coprocessor Segment Overrun&quot;,
+        &quot;Invalid TSS&quot;,
+        &quot;Segment Not Present&quot;,
+        &quot;Stack Fault&quot;,
+        &quot;General Protection&quot;,
+        &quot;Page Fault&quot;,
+        &quot;(unknown trap)&quot;,
+        &quot;x87 FPU Floating-Point Error&quot;,
+        &quot;Alignment Check&quot;,
+        &quot;Machine-Check&quot;,
+        &quot;SIMD Floating-Point Exception&quot;
+    };
+
+    if (trapno &lt; sizeof(excnames)/sizeof(const char * const)) {
+        return excnames[trapno];
+    }
+    if (trapno &gt;= IRQ_OFFSET &amp;&amp; trapno &lt; IRQ_OFFSET + 16) {
+        return &quot;Hardware Interrupt&quot;;
+    }
+    return &quot;(unknown trap)&quot;;
+}
+
+/* trap_in_kernel - test if trap happened in kernel */
+bool
+trap_in_kernel(struct trapframe *tf) {
+    return (tf-&gt;tf_cs == (uint16_t)KERNEL_CS);
+}
+
+static const char *IA32flags[] = {
+    &quot;CF&quot;, NULL, &quot;PF&quot;, NULL, &quot;AF&quot;, NULL, &quot;ZF&quot;, &quot;SF&quot;,
+    &quot;TF&quot;, &quot;IF&quot;, &quot;DF&quot;, &quot;OF&quot;, NULL, NULL, &quot;NT&quot;, NULL,
+    &quot;RF&quot;, &quot;VM&quot;, &quot;AC&quot;, &quot;VIF&quot;, &quot;VIP&quot;, &quot;ID&quot;, NULL, NULL,
+};
+
+void
+print_trapframe(struct trapframe *tf) {
+    cprintf(&quot;trapframe at %p\n&quot;, tf);
+    print_regs(&amp;tf-&gt;tf_regs);
+    cprintf(&quot;  ds   0x----%04x\n&quot;, tf-&gt;tf_ds);
+    cprintf(&quot;  es   0x----%04x\n&quot;, tf-&gt;tf_es);
+    cprintf(&quot;  fs   0x----%04x\n&quot;, tf-&gt;tf_fs);
+    cprintf(&quot;  gs   0x----%04x\n&quot;, tf-&gt;tf_gs);
+    cprintf(&quot;  trap 0x%08x %s\n&quot;, tf-&gt;tf_trapno, trapname(tf-&gt;tf_trapno));
+    cprintf(&quot;  err  0x%08x\n&quot;, tf-&gt;tf_err);
+    cprintf(&quot;  eip  0x%08x\n&quot;, tf-&gt;tf_eip);
+    cprintf(&quot;  cs   0x----%04x\n&quot;, tf-&gt;tf_cs);
+    cprintf(&quot;  flag 0x%08x &quot;, tf-&gt;tf_eflags);
+
+    int i, j;
+    for (i = 0, j = 1; i &lt; sizeof(IA32flags) / sizeof(IA32flags[0]); i ++, j &lt;&lt;= 1) {
+        if ((tf-&gt;tf_eflags &amp; j) &amp;&amp; IA32flags[i] != NULL) {
+            cprintf(&quot;%s,&quot;, IA32flags[i]);
+        }
+    }
+    cprintf(&quot;IOPL=%d\n&quot;, (tf-&gt;tf_eflags &amp; FL_IOPL_MASK) &gt;&gt; 12);
+
+    if (!trap_in_kernel(tf)) {
+        cprintf(&quot;  esp  0x%08x\n&quot;, tf-&gt;tf_esp);
+        cprintf(&quot;  ss   0x----%04x\n&quot;, tf-&gt;tf_ss);
+    }
+}
+
+void
+print_regs(struct pushregs *regs) {
+    cprintf(&quot;  edi  0x%08x\n&quot;, regs-&gt;reg_edi);
+    cprintf(&quot;  esi  0x%08x\n&quot;, regs-&gt;reg_esi);
+    cprintf(&quot;  ebp  0x%08x\n&quot;, regs-&gt;reg_ebp);
+    cprintf(&quot;  oesp 0x%08x\n&quot;, regs-&gt;reg_oesp);
+    cprintf(&quot;  ebx  0x%08x\n&quot;, regs-&gt;reg_ebx);
+    cprintf(&quot;  edx  0x%08x\n&quot;, regs-&gt;reg_edx);
+    cprintf(&quot;  ecx  0x%08x\n&quot;, regs-&gt;reg_ecx);
+    cprintf(&quot;  eax  0x%08x\n&quot;, regs-&gt;reg_eax);
+}
+
+/* trap_dispatch - dispatch based on what type of trap occurred */
+static void
+trap_dispatch(struct trapframe *tf) {
+    char c;
+
+    switch (tf-&gt;tf_trapno) {
+    case IRQ_OFFSET + IRQ_TIMER:
+        /* LAB1 YOUR CODE : STEP 3 */
+        /* handle the timer interrupt */
+        /* (1) After a timer interrupt, you should record this event using a global variable (increase it), such as ticks in kern/driver/clock.c
+         * (2) Every TICK_NUM cycle, you can print some info using a funciton, such as print_ticks().
+         * (3) Too Simple? Yes, I think so!
+         */
+        break;
+    case IRQ_OFFSET + IRQ_COM1:
+        c = cons_getc();
+        cprintf(&quot;serial [%03d] %c\n&quot;, c, c);
+        break;
+    case IRQ_OFFSET + IRQ_KBD:
+        c = cons_getc();
+        cprintf(&quot;kbd [%03d] %c\n&quot;, c, c);
+        break;
+    //LAB1 CHALLENGE 1 : YOUR CODE you should modify below codes.
+    case T_SWITCH_TOU:
+    case T_SWITCH_TOK:
+        panic(&quot;T_SWITCH_** ??\n&quot;);
+        break;
+    case IRQ_OFFSET + IRQ_IDE1:
+    case IRQ_OFFSET + IRQ_IDE2:
+        /* do nothing */
+        break;
+    default:
+        // in kernel, it must be a mistake
+        if ((tf-&gt;tf_cs &amp; 3) == 0) {
+            print_trapframe(tf);
+            panic(&quot;unexpected trap in kernel.\n&quot;);
+        }
+    }
+}
+
+/* *
+ * trap - handles or dispatches an exception/interrupt. if and when trap() returns,
+ * the code in kern/trap/trapentry.S restores the old CPU state saved in the
+ * trapframe and then uses the iret instruction to return from the exception.
+ * */
+void
+trap(struct trapframe *tf) {
+    // dispatch based on what type of trap occurred
+    trap_dispatch(tf);
+}
+</code></pre><p><div id="page-footer" class="localized-footer"><hr><p><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css"></p>
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<div id="gitalk-container" style="margin: 5%"></div>
+<script>
+  const gitalk = new Gitalk({
+    clientID: '04fb515964c291ec14f6',
+    clientSecret: 'd3f22dae66101b238ab91929dc6658952d0c4050',
+    repo: 'ucore-analysis',
+    owner: 'oscourse-tsinghua',
+    admin: ['xyongcn'],
+    createIssueManually: true,
+    id: document.title
+  })
+  gitalk.render('gitalk-container')
+</script>
+<script>
+  require(['gitbook'], function(gitbook) {
+    const gitalk = new Gitalk({
+      clientID: '04fb515964c291ec14f6',
+      clientSecret: 'd3f22dae66101b238ab91929dc6658952d0c4050',
+      repo: 'ucore-analysis',
+      owner: 'oscourse-tsinghua',
+      admin: ['xyongcn'],
+      createIssueManually: true,
+      id: document.title
+    })
+    gitbook.events.bind('page.change', initMygitalk)
+    function initMygitalk() {
+      gitalk.render('gitalk-container')
+    }
+  })
+</script>
+</div></p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../../../../labmd/trap.html" class="navigation navigation-prev " aria-label="Previous page: trap">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="trapentry.html" class="navigation navigation-next " aria-label="Next page: trapentry">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"trap","level":"1.2.1.2.5.1","depth":5,"next":{"title":"trapentry","level":"1.2.1.2.5.2","depth":5,"path":"lab/lab1/kern/trap/trapentry.md","ref":"lab/lab1/kern/trap/trapentry.md","articles":[]},"previous":{"title":"trap","level":"1.2.1.2.5","depth":4,"path":"labmd/trap.md","ref":"labmd/trap.md","articles":[{"title":"trap","level":"1.2.1.2.5.1","depth":5,"path":"lab/lab1/kern/trap/trap.md","ref":"lab/lab1/kern/trap/trap.md","articles":[]},{"title":"trapentry","level":"1.2.1.2.5.2","depth":5,"path":"lab/lab1/kern/trap/trapentry.md","ref":"lab/lab1/kern/trap/trapentry.md","articles":[]},{"title":"vectors","level":"1.2.1.2.5.3","depth":5,"path":"lab/lab1/kern/trap/vectors.md","ref":"lab/lab1/kern/trap/vectors.md","articles":[]},{"title":"libs","level":"1.2.1.2.5.4","depth":5,"path":"labmd/libs.md","ref":"labmd/libs.md","articles":[]},{"title":"tools","level":"1.2.1.2.5.5","depth":5,"path":"labmd/tools.md","ref":"labmd/tools.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["chapter-fold","code","search-pro","github","localized-footer","ancre-navigation","-sharing"],"pluginsConfig":{"chapter-fold":{},"github":{"url":"https://oscourse-tsinghua.github.io/ucore-analysis"},"search-pro":{},"search":{},"localized-footer":{"filename":"gitbook/comment.html","hline":"true"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ancre-navigation":{"associatedWithSummary":true,"float":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showLevel":true},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"gitbook/website.css"}},"file":{"path":"lab/lab1/kern/trap/trap.md","mtime":"2019-10-28T08:12:41.482Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-10-28T08:22:11.334Z"},"basePath":"../../../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../../../gitbook/gitbook.js"></script>
+    <script src="../../../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../../../gitbook/gitbook-plugin-chapter-fold/chapter-fold.js"></script>
+        
+    
+        
+        <script src="../../../../gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="../../../../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../../../../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../../../../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../../../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
