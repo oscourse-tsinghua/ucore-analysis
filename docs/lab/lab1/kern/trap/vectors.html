@@ -424,12 +424,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2" data-path="../../../../1. 编写文档.html">
+        <li class="chapter " data-level="1.2" data-path="../../../../how_to_edit_this_doc.html">
             
-                <a href="../../../../1. 编写文档.html">
+                <a href="../../../../how_to_edit_this_doc.html">
             
                     
-                    1. 编写文档
+                    附录1：如何编辑该文档
             
                 </a>
             
@@ -437,70 +437,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3" data-path="../../../../2. 本地浏览.html">
+        <li class="chapter " data-level="1.3" data-path="../../../../test_for_html_support.html">
             
-                <a href="../../../../2. 本地浏览.html">
-            
-                    
-                    2. 本地浏览
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4" data-path="../../../../3. 添加插件.html">
-            
-                <a href="../../../../3. 添加插件.html">
+                <a href="../../../../test_for_html_support.html">
             
                     
-                    3. 添加插件
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.4.1" data-path="../../../../3.1. 参考配置.html">
-            
-                <a href="../../../../3.1. 参考配置.html">
-            
-                    
-                    3.1. 参考配置
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4.2" data-path="../../../../3.2. 评论区.html">
-            
-                <a href="../../../../3.2. 评论区.html">
-            
-                    
-                    3.2. 评论区
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5" data-path="../../../../4. 部署网页.html">
-            
-                <a href="../../../../4. 部署网页.html">
-            
-                    
-                    4. 部署网页
+                    测试：gitbook中markdown对html的支持
             
                 </a>
             
@@ -556,1543 +498,1543 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <pre><code class="lang-x86asm"># handler
-<span class="hljs-string">.text</span>
-<span class="hljs-string">.globl</span> __alltraps
-<span class="hljs-string">.globl</span> vector0
-<span class="hljs-symbol">vector0:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$0</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector1
-<span class="hljs-symbol">vector1:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$1</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector2
-<span class="hljs-symbol">vector2:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$2</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector3
-<span class="hljs-symbol">vector3:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$3</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector4
-<span class="hljs-symbol">vector4:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$4</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector5
-<span class="hljs-symbol">vector5:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$5</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector6
-<span class="hljs-symbol">vector6:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$6</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector7
-<span class="hljs-symbol">vector7:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$7</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector8
-<span class="hljs-symbol">vector8:</span>
-  pushl <span class="hljs-number">$8</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector9
-<span class="hljs-symbol">vector9:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$9</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector10
-<span class="hljs-symbol">vector10:</span>
-  pushl <span class="hljs-number">$10</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector11
-<span class="hljs-symbol">vector11:</span>
-  pushl <span class="hljs-number">$11</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector12
-<span class="hljs-symbol">vector12:</span>
-  pushl <span class="hljs-number">$12</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector13
-<span class="hljs-symbol">vector13:</span>
-  pushl <span class="hljs-number">$13</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector14
-<span class="hljs-symbol">vector14:</span>
-  pushl <span class="hljs-number">$14</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector15
-<span class="hljs-symbol">vector15:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$15</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector16
-<span class="hljs-symbol">vector16:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$16</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector17
-<span class="hljs-symbol">vector17:</span>
-  pushl <span class="hljs-number">$17</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector18
-<span class="hljs-symbol">vector18:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$18</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector19
-<span class="hljs-symbol">vector19:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$19</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector20
-<span class="hljs-symbol">vector20:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$20</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector21
-<span class="hljs-symbol">vector21:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$21</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector22
-<span class="hljs-symbol">vector22:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$22</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector23
-<span class="hljs-symbol">vector23:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$23</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector24
-<span class="hljs-symbol">vector24:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$24</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector25
-<span class="hljs-symbol">vector25:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$25</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector26
-<span class="hljs-symbol">vector26:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$26</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector27
-<span class="hljs-symbol">vector27:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$27</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector28
-<span class="hljs-symbol">vector28:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$28</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector29
-<span class="hljs-symbol">vector29:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$29</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector30
-<span class="hljs-symbol">vector30:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$30</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector31
-<span class="hljs-symbol">vector31:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$31</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector32
-<span class="hljs-symbol">vector32:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$32</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector33
-<span class="hljs-symbol">vector33:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$33</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector34
-<span class="hljs-symbol">vector34:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$34</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector35
-<span class="hljs-symbol">vector35:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$35</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector36
-<span class="hljs-symbol">vector36:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$36</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector37
-<span class="hljs-symbol">vector37:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$37</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector38
-<span class="hljs-symbol">vector38:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$38</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector39
-<span class="hljs-symbol">vector39:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$39</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector40
-<span class="hljs-symbol">vector40:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$40</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector41
-<span class="hljs-symbol">vector41:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$41</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector42
-<span class="hljs-symbol">vector42:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$42</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector43
-<span class="hljs-symbol">vector43:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$43</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector44
-<span class="hljs-symbol">vector44:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$44</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector45
-<span class="hljs-symbol">vector45:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$45</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector46
-<span class="hljs-symbol">vector46:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$46</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector47
-<span class="hljs-symbol">vector47:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$47</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector48
-<span class="hljs-symbol">vector48:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$48</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector49
-<span class="hljs-symbol">vector49:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$49</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector50
-<span class="hljs-symbol">vector50:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$50</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector51
-<span class="hljs-symbol">vector51:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$51</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector52
-<span class="hljs-symbol">vector52:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$52</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector53
-<span class="hljs-symbol">vector53:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$53</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector54
-<span class="hljs-symbol">vector54:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$54</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector55
-<span class="hljs-symbol">vector55:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$55</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector56
-<span class="hljs-symbol">vector56:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$56</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector57
-<span class="hljs-symbol">vector57:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$57</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector58
-<span class="hljs-symbol">vector58:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$58</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector59
-<span class="hljs-symbol">vector59:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$59</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector60
-<span class="hljs-symbol">vector60:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$60</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector61
-<span class="hljs-symbol">vector61:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$61</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector62
-<span class="hljs-symbol">vector62:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$62</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector63
-<span class="hljs-symbol">vector63:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$63</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector64
-<span class="hljs-symbol">vector64:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$64</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector65
-<span class="hljs-symbol">vector65:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$65</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector66
-<span class="hljs-symbol">vector66:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$66</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector67
-<span class="hljs-symbol">vector67:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$67</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector68
-<span class="hljs-symbol">vector68:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$68</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector69
-<span class="hljs-symbol">vector69:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$69</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector70
-<span class="hljs-symbol">vector70:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$70</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector71
-<span class="hljs-symbol">vector71:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$71</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector72
-<span class="hljs-symbol">vector72:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$72</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector73
-<span class="hljs-symbol">vector73:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$73</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector74
-<span class="hljs-symbol">vector74:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$74</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector75
-<span class="hljs-symbol">vector75:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$75</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector76
-<span class="hljs-symbol">vector76:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$76</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector77
-<span class="hljs-symbol">vector77:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$77</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector78
-<span class="hljs-symbol">vector78:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$78</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector79
-<span class="hljs-symbol">vector79:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$79</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector80
-<span class="hljs-symbol">vector80:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$80</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector81
-<span class="hljs-symbol">vector81:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$81</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector82
-<span class="hljs-symbol">vector82:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$82</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector83
-<span class="hljs-symbol">vector83:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$83</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector84
-<span class="hljs-symbol">vector84:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$84</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector85
-<span class="hljs-symbol">vector85:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$85</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector86
-<span class="hljs-symbol">vector86:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$86</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector87
-<span class="hljs-symbol">vector87:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$87</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector88
-<span class="hljs-symbol">vector88:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$88</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector89
-<span class="hljs-symbol">vector89:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$89</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector90
-<span class="hljs-symbol">vector90:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$90</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector91
-<span class="hljs-symbol">vector91:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$91</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector92
-<span class="hljs-symbol">vector92:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$92</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector93
-<span class="hljs-symbol">vector93:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$93</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector94
-<span class="hljs-symbol">vector94:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$94</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector95
-<span class="hljs-symbol">vector95:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$95</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector96
-<span class="hljs-symbol">vector96:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$96</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector97
-<span class="hljs-symbol">vector97:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$97</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector98
-<span class="hljs-symbol">vector98:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$98</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector99
-<span class="hljs-symbol">vector99:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$99</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector100
-<span class="hljs-symbol">vector100:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$100</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector101
-<span class="hljs-symbol">vector101:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$101</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector102
-<span class="hljs-symbol">vector102:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$102</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector103
-<span class="hljs-symbol">vector103:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$103</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector104
-<span class="hljs-symbol">vector104:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$104</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector105
-<span class="hljs-symbol">vector105:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$105</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector106
-<span class="hljs-symbol">vector106:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$106</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector107
-<span class="hljs-symbol">vector107:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$107</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector108
-<span class="hljs-symbol">vector108:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$108</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector109
-<span class="hljs-symbol">vector109:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$109</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector110
-<span class="hljs-symbol">vector110:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$110</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector111
-<span class="hljs-symbol">vector111:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$111</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector112
-<span class="hljs-symbol">vector112:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$112</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector113
-<span class="hljs-symbol">vector113:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$113</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector114
-<span class="hljs-symbol">vector114:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$114</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector115
-<span class="hljs-symbol">vector115:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$115</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector116
-<span class="hljs-symbol">vector116:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$116</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector117
-<span class="hljs-symbol">vector117:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$117</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector118
-<span class="hljs-symbol">vector118:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$118</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector119
-<span class="hljs-symbol">vector119:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$119</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector120
-<span class="hljs-symbol">vector120:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$120</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector121
-<span class="hljs-symbol">vector121:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$121</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector122
-<span class="hljs-symbol">vector122:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$122</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector123
-<span class="hljs-symbol">vector123:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$123</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector124
-<span class="hljs-symbol">vector124:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$124</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector125
-<span class="hljs-symbol">vector125:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$125</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector126
-<span class="hljs-symbol">vector126:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$126</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector127
-<span class="hljs-symbol">vector127:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$127</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector128
-<span class="hljs-symbol">vector128:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$128</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector129
-<span class="hljs-symbol">vector129:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$129</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector130
-<span class="hljs-symbol">vector130:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$130</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector131
-<span class="hljs-symbol">vector131:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$131</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector132
-<span class="hljs-symbol">vector132:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$132</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector133
-<span class="hljs-symbol">vector133:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$133</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector134
-<span class="hljs-symbol">vector134:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$134</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector135
-<span class="hljs-symbol">vector135:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$135</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector136
-<span class="hljs-symbol">vector136:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$136</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector137
-<span class="hljs-symbol">vector137:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$137</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector138
-<span class="hljs-symbol">vector138:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$138</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector139
-<span class="hljs-symbol">vector139:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$139</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector140
-<span class="hljs-symbol">vector140:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$140</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector141
-<span class="hljs-symbol">vector141:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$141</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector142
-<span class="hljs-symbol">vector142:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$142</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector143
-<span class="hljs-symbol">vector143:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$143</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector144
-<span class="hljs-symbol">vector144:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$144</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector145
-<span class="hljs-symbol">vector145:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$145</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector146
-<span class="hljs-symbol">vector146:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$146</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector147
-<span class="hljs-symbol">vector147:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$147</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector148
-<span class="hljs-symbol">vector148:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$148</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector149
-<span class="hljs-symbol">vector149:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$149</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector150
-<span class="hljs-symbol">vector150:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$150</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector151
-<span class="hljs-symbol">vector151:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$151</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector152
-<span class="hljs-symbol">vector152:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$152</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector153
-<span class="hljs-symbol">vector153:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$153</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector154
-<span class="hljs-symbol">vector154:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$154</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector155
-<span class="hljs-symbol">vector155:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$155</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector156
-<span class="hljs-symbol">vector156:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$156</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector157
-<span class="hljs-symbol">vector157:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$157</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector158
-<span class="hljs-symbol">vector158:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$158</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector159
-<span class="hljs-symbol">vector159:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$159</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector160
-<span class="hljs-symbol">vector160:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$160</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector161
-<span class="hljs-symbol">vector161:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$161</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector162
-<span class="hljs-symbol">vector162:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$162</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector163
-<span class="hljs-symbol">vector163:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$163</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector164
-<span class="hljs-symbol">vector164:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$164</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector165
-<span class="hljs-symbol">vector165:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$165</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector166
-<span class="hljs-symbol">vector166:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$166</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector167
-<span class="hljs-symbol">vector167:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$167</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector168
-<span class="hljs-symbol">vector168:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$168</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector169
-<span class="hljs-symbol">vector169:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$169</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector170
-<span class="hljs-symbol">vector170:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$170</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector171
-<span class="hljs-symbol">vector171:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$171</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector172
-<span class="hljs-symbol">vector172:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$172</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector173
-<span class="hljs-symbol">vector173:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$173</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector174
-<span class="hljs-symbol">vector174:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$174</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector175
-<span class="hljs-symbol">vector175:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$175</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector176
-<span class="hljs-symbol">vector176:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$176</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector177
-<span class="hljs-symbol">vector177:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$177</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector178
-<span class="hljs-symbol">vector178:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$178</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector179
-<span class="hljs-symbol">vector179:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$179</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector180
-<span class="hljs-symbol">vector180:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$180</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector181
-<span class="hljs-symbol">vector181:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$181</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector182
-<span class="hljs-symbol">vector182:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$182</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector183
-<span class="hljs-symbol">vector183:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$183</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector184
-<span class="hljs-symbol">vector184:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$184</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector185
-<span class="hljs-symbol">vector185:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$185</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector186
-<span class="hljs-symbol">vector186:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$186</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector187
-<span class="hljs-symbol">vector187:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$187</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector188
-<span class="hljs-symbol">vector188:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$188</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector189
-<span class="hljs-symbol">vector189:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$189</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector190
-<span class="hljs-symbol">vector190:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$190</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector191
-<span class="hljs-symbol">vector191:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$191</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector192
-<span class="hljs-symbol">vector192:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$192</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector193
-<span class="hljs-symbol">vector193:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$193</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector194
-<span class="hljs-symbol">vector194:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$194</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector195
-<span class="hljs-symbol">vector195:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$195</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector196
-<span class="hljs-symbol">vector196:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$196</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector197
-<span class="hljs-symbol">vector197:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$197</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector198
-<span class="hljs-symbol">vector198:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$198</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector199
-<span class="hljs-symbol">vector199:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$199</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector200
-<span class="hljs-symbol">vector200:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$200</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector201
-<span class="hljs-symbol">vector201:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$201</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector202
-<span class="hljs-symbol">vector202:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$202</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector203
-<span class="hljs-symbol">vector203:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$203</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector204
-<span class="hljs-symbol">vector204:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$204</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector205
-<span class="hljs-symbol">vector205:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$205</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector206
-<span class="hljs-symbol">vector206:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$206</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector207
-<span class="hljs-symbol">vector207:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$207</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector208
-<span class="hljs-symbol">vector208:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$208</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector209
-<span class="hljs-symbol">vector209:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$209</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector210
-<span class="hljs-symbol">vector210:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$210</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector211
-<span class="hljs-symbol">vector211:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$211</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector212
-<span class="hljs-symbol">vector212:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$212</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector213
-<span class="hljs-symbol">vector213:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$213</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector214
-<span class="hljs-symbol">vector214:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$214</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector215
-<span class="hljs-symbol">vector215:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$215</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector216
-<span class="hljs-symbol">vector216:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$216</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector217
-<span class="hljs-symbol">vector217:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$217</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector218
-<span class="hljs-symbol">vector218:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$218</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector219
-<span class="hljs-symbol">vector219:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$219</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector220
-<span class="hljs-symbol">vector220:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$220</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector221
-<span class="hljs-symbol">vector221:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$221</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector222
-<span class="hljs-symbol">vector222:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$222</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector223
-<span class="hljs-symbol">vector223:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$223</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector224
-<span class="hljs-symbol">vector224:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$224</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector225
-<span class="hljs-symbol">vector225:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$225</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector226
-<span class="hljs-symbol">vector226:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$226</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector227
-<span class="hljs-symbol">vector227:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$227</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector228
-<span class="hljs-symbol">vector228:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$228</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector229
-<span class="hljs-symbol">vector229:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$229</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector230
-<span class="hljs-symbol">vector230:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$230</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector231
-<span class="hljs-symbol">vector231:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$231</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector232
-<span class="hljs-symbol">vector232:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$232</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector233
-<span class="hljs-symbol">vector233:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$233</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector234
-<span class="hljs-symbol">vector234:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$234</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector235
-<span class="hljs-symbol">vector235:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$235</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector236
-<span class="hljs-symbol">vector236:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$236</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector237
-<span class="hljs-symbol">vector237:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$237</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector238
-<span class="hljs-symbol">vector238:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$238</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector239
-<span class="hljs-symbol">vector239:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$239</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector240
-<span class="hljs-symbol">vector240:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$240</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector241
-<span class="hljs-symbol">vector241:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$241</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector242
-<span class="hljs-symbol">vector242:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$242</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector243
-<span class="hljs-symbol">vector243:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$243</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector244
-<span class="hljs-symbol">vector244:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$244</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector245
-<span class="hljs-symbol">vector245:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$245</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector246
-<span class="hljs-symbol">vector246:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$246</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector247
-<span class="hljs-symbol">vector247:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$247</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector248
-<span class="hljs-symbol">vector248:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$248</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector249
-<span class="hljs-symbol">vector249:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$249</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector250
-<span class="hljs-symbol">vector250:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$250</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector251
-<span class="hljs-symbol">vector251:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$251</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector252
-<span class="hljs-symbol">vector252:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$252</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector253
-<span class="hljs-symbol">vector253:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$253</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector254
-<span class="hljs-symbol">vector254:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$254</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
-<span class="hljs-string">.globl</span> vector255
-<span class="hljs-symbol">vector255:</span>
-  pushl <span class="hljs-number">$0</span>
-  pushl <span class="hljs-number">$255</span>
-  <span class="hljs-keyword">jmp</span> __alltraps
+                                <pre><code class="lang-assembly"># handler
+.text
+.globl __alltraps
+.globl vector0
+vector0:
+  pushl $0
+  pushl $0
+  jmp __alltraps
+.globl vector1
+vector1:
+  pushl $0
+  pushl $1
+  jmp __alltraps
+.globl vector2
+vector2:
+  pushl $0
+  pushl $2
+  jmp __alltraps
+.globl vector3
+vector3:
+  pushl $0
+  pushl $3
+  jmp __alltraps
+.globl vector4
+vector4:
+  pushl $0
+  pushl $4
+  jmp __alltraps
+.globl vector5
+vector5:
+  pushl $0
+  pushl $5
+  jmp __alltraps
+.globl vector6
+vector6:
+  pushl $0
+  pushl $6
+  jmp __alltraps
+.globl vector7
+vector7:
+  pushl $0
+  pushl $7
+  jmp __alltraps
+.globl vector8
+vector8:
+  pushl $8
+  jmp __alltraps
+.globl vector9
+vector9:
+  pushl $0
+  pushl $9
+  jmp __alltraps
+.globl vector10
+vector10:
+  pushl $10
+  jmp __alltraps
+.globl vector11
+vector11:
+  pushl $11
+  jmp __alltraps
+.globl vector12
+vector12:
+  pushl $12
+  jmp __alltraps
+.globl vector13
+vector13:
+  pushl $13
+  jmp __alltraps
+.globl vector14
+vector14:
+  pushl $14
+  jmp __alltraps
+.globl vector15
+vector15:
+  pushl $0
+  pushl $15
+  jmp __alltraps
+.globl vector16
+vector16:
+  pushl $0
+  pushl $16
+  jmp __alltraps
+.globl vector17
+vector17:
+  pushl $17
+  jmp __alltraps
+.globl vector18
+vector18:
+  pushl $0
+  pushl $18
+  jmp __alltraps
+.globl vector19
+vector19:
+  pushl $0
+  pushl $19
+  jmp __alltraps
+.globl vector20
+vector20:
+  pushl $0
+  pushl $20
+  jmp __alltraps
+.globl vector21
+vector21:
+  pushl $0
+  pushl $21
+  jmp __alltraps
+.globl vector22
+vector22:
+  pushl $0
+  pushl $22
+  jmp __alltraps
+.globl vector23
+vector23:
+  pushl $0
+  pushl $23
+  jmp __alltraps
+.globl vector24
+vector24:
+  pushl $0
+  pushl $24
+  jmp __alltraps
+.globl vector25
+vector25:
+  pushl $0
+  pushl $25
+  jmp __alltraps
+.globl vector26
+vector26:
+  pushl $0
+  pushl $26
+  jmp __alltraps
+.globl vector27
+vector27:
+  pushl $0
+  pushl $27
+  jmp __alltraps
+.globl vector28
+vector28:
+  pushl $0
+  pushl $28
+  jmp __alltraps
+.globl vector29
+vector29:
+  pushl $0
+  pushl $29
+  jmp __alltraps
+.globl vector30
+vector30:
+  pushl $0
+  pushl $30
+  jmp __alltraps
+.globl vector31
+vector31:
+  pushl $0
+  pushl $31
+  jmp __alltraps
+.globl vector32
+vector32:
+  pushl $0
+  pushl $32
+  jmp __alltraps
+.globl vector33
+vector33:
+  pushl $0
+  pushl $33
+  jmp __alltraps
+.globl vector34
+vector34:
+  pushl $0
+  pushl $34
+  jmp __alltraps
+.globl vector35
+vector35:
+  pushl $0
+  pushl $35
+  jmp __alltraps
+.globl vector36
+vector36:
+  pushl $0
+  pushl $36
+  jmp __alltraps
+.globl vector37
+vector37:
+  pushl $0
+  pushl $37
+  jmp __alltraps
+.globl vector38
+vector38:
+  pushl $0
+  pushl $38
+  jmp __alltraps
+.globl vector39
+vector39:
+  pushl $0
+  pushl $39
+  jmp __alltraps
+.globl vector40
+vector40:
+  pushl $0
+  pushl $40
+  jmp __alltraps
+.globl vector41
+vector41:
+  pushl $0
+  pushl $41
+  jmp __alltraps
+.globl vector42
+vector42:
+  pushl $0
+  pushl $42
+  jmp __alltraps
+.globl vector43
+vector43:
+  pushl $0
+  pushl $43
+  jmp __alltraps
+.globl vector44
+vector44:
+  pushl $0
+  pushl $44
+  jmp __alltraps
+.globl vector45
+vector45:
+  pushl $0
+  pushl $45
+  jmp __alltraps
+.globl vector46
+vector46:
+  pushl $0
+  pushl $46
+  jmp __alltraps
+.globl vector47
+vector47:
+  pushl $0
+  pushl $47
+  jmp __alltraps
+.globl vector48
+vector48:
+  pushl $0
+  pushl $48
+  jmp __alltraps
+.globl vector49
+vector49:
+  pushl $0
+  pushl $49
+  jmp __alltraps
+.globl vector50
+vector50:
+  pushl $0
+  pushl $50
+  jmp __alltraps
+.globl vector51
+vector51:
+  pushl $0
+  pushl $51
+  jmp __alltraps
+.globl vector52
+vector52:
+  pushl $0
+  pushl $52
+  jmp __alltraps
+.globl vector53
+vector53:
+  pushl $0
+  pushl $53
+  jmp __alltraps
+.globl vector54
+vector54:
+  pushl $0
+  pushl $54
+  jmp __alltraps
+.globl vector55
+vector55:
+  pushl $0
+  pushl $55
+  jmp __alltraps
+.globl vector56
+vector56:
+  pushl $0
+  pushl $56
+  jmp __alltraps
+.globl vector57
+vector57:
+  pushl $0
+  pushl $57
+  jmp __alltraps
+.globl vector58
+vector58:
+  pushl $0
+  pushl $58
+  jmp __alltraps
+.globl vector59
+vector59:
+  pushl $0
+  pushl $59
+  jmp __alltraps
+.globl vector60
+vector60:
+  pushl $0
+  pushl $60
+  jmp __alltraps
+.globl vector61
+vector61:
+  pushl $0
+  pushl $61
+  jmp __alltraps
+.globl vector62
+vector62:
+  pushl $0
+  pushl $62
+  jmp __alltraps
+.globl vector63
+vector63:
+  pushl $0
+  pushl $63
+  jmp __alltraps
+.globl vector64
+vector64:
+  pushl $0
+  pushl $64
+  jmp __alltraps
+.globl vector65
+vector65:
+  pushl $0
+  pushl $65
+  jmp __alltraps
+.globl vector66
+vector66:
+  pushl $0
+  pushl $66
+  jmp __alltraps
+.globl vector67
+vector67:
+  pushl $0
+  pushl $67
+  jmp __alltraps
+.globl vector68
+vector68:
+  pushl $0
+  pushl $68
+  jmp __alltraps
+.globl vector69
+vector69:
+  pushl $0
+  pushl $69
+  jmp __alltraps
+.globl vector70
+vector70:
+  pushl $0
+  pushl $70
+  jmp __alltraps
+.globl vector71
+vector71:
+  pushl $0
+  pushl $71
+  jmp __alltraps
+.globl vector72
+vector72:
+  pushl $0
+  pushl $72
+  jmp __alltraps
+.globl vector73
+vector73:
+  pushl $0
+  pushl $73
+  jmp __alltraps
+.globl vector74
+vector74:
+  pushl $0
+  pushl $74
+  jmp __alltraps
+.globl vector75
+vector75:
+  pushl $0
+  pushl $75
+  jmp __alltraps
+.globl vector76
+vector76:
+  pushl $0
+  pushl $76
+  jmp __alltraps
+.globl vector77
+vector77:
+  pushl $0
+  pushl $77
+  jmp __alltraps
+.globl vector78
+vector78:
+  pushl $0
+  pushl $78
+  jmp __alltraps
+.globl vector79
+vector79:
+  pushl $0
+  pushl $79
+  jmp __alltraps
+.globl vector80
+vector80:
+  pushl $0
+  pushl $80
+  jmp __alltraps
+.globl vector81
+vector81:
+  pushl $0
+  pushl $81
+  jmp __alltraps
+.globl vector82
+vector82:
+  pushl $0
+  pushl $82
+  jmp __alltraps
+.globl vector83
+vector83:
+  pushl $0
+  pushl $83
+  jmp __alltraps
+.globl vector84
+vector84:
+  pushl $0
+  pushl $84
+  jmp __alltraps
+.globl vector85
+vector85:
+  pushl $0
+  pushl $85
+  jmp __alltraps
+.globl vector86
+vector86:
+  pushl $0
+  pushl $86
+  jmp __alltraps
+.globl vector87
+vector87:
+  pushl $0
+  pushl $87
+  jmp __alltraps
+.globl vector88
+vector88:
+  pushl $0
+  pushl $88
+  jmp __alltraps
+.globl vector89
+vector89:
+  pushl $0
+  pushl $89
+  jmp __alltraps
+.globl vector90
+vector90:
+  pushl $0
+  pushl $90
+  jmp __alltraps
+.globl vector91
+vector91:
+  pushl $0
+  pushl $91
+  jmp __alltraps
+.globl vector92
+vector92:
+  pushl $0
+  pushl $92
+  jmp __alltraps
+.globl vector93
+vector93:
+  pushl $0
+  pushl $93
+  jmp __alltraps
+.globl vector94
+vector94:
+  pushl $0
+  pushl $94
+  jmp __alltraps
+.globl vector95
+vector95:
+  pushl $0
+  pushl $95
+  jmp __alltraps
+.globl vector96
+vector96:
+  pushl $0
+  pushl $96
+  jmp __alltraps
+.globl vector97
+vector97:
+  pushl $0
+  pushl $97
+  jmp __alltraps
+.globl vector98
+vector98:
+  pushl $0
+  pushl $98
+  jmp __alltraps
+.globl vector99
+vector99:
+  pushl $0
+  pushl $99
+  jmp __alltraps
+.globl vector100
+vector100:
+  pushl $0
+  pushl $100
+  jmp __alltraps
+.globl vector101
+vector101:
+  pushl $0
+  pushl $101
+  jmp __alltraps
+.globl vector102
+vector102:
+  pushl $0
+  pushl $102
+  jmp __alltraps
+.globl vector103
+vector103:
+  pushl $0
+  pushl $103
+  jmp __alltraps
+.globl vector104
+vector104:
+  pushl $0
+  pushl $104
+  jmp __alltraps
+.globl vector105
+vector105:
+  pushl $0
+  pushl $105
+  jmp __alltraps
+.globl vector106
+vector106:
+  pushl $0
+  pushl $106
+  jmp __alltraps
+.globl vector107
+vector107:
+  pushl $0
+  pushl $107
+  jmp __alltraps
+.globl vector108
+vector108:
+  pushl $0
+  pushl $108
+  jmp __alltraps
+.globl vector109
+vector109:
+  pushl $0
+  pushl $109
+  jmp __alltraps
+.globl vector110
+vector110:
+  pushl $0
+  pushl $110
+  jmp __alltraps
+.globl vector111
+vector111:
+  pushl $0
+  pushl $111
+  jmp __alltraps
+.globl vector112
+vector112:
+  pushl $0
+  pushl $112
+  jmp __alltraps
+.globl vector113
+vector113:
+  pushl $0
+  pushl $113
+  jmp __alltraps
+.globl vector114
+vector114:
+  pushl $0
+  pushl $114
+  jmp __alltraps
+.globl vector115
+vector115:
+  pushl $0
+  pushl $115
+  jmp __alltraps
+.globl vector116
+vector116:
+  pushl $0
+  pushl $116
+  jmp __alltraps
+.globl vector117
+vector117:
+  pushl $0
+  pushl $117
+  jmp __alltraps
+.globl vector118
+vector118:
+  pushl $0
+  pushl $118
+  jmp __alltraps
+.globl vector119
+vector119:
+  pushl $0
+  pushl $119
+  jmp __alltraps
+.globl vector120
+vector120:
+  pushl $0
+  pushl $120
+  jmp __alltraps
+.globl vector121
+vector121:
+  pushl $0
+  pushl $121
+  jmp __alltraps
+.globl vector122
+vector122:
+  pushl $0
+  pushl $122
+  jmp __alltraps
+.globl vector123
+vector123:
+  pushl $0
+  pushl $123
+  jmp __alltraps
+.globl vector124
+vector124:
+  pushl $0
+  pushl $124
+  jmp __alltraps
+.globl vector125
+vector125:
+  pushl $0
+  pushl $125
+  jmp __alltraps
+.globl vector126
+vector126:
+  pushl $0
+  pushl $126
+  jmp __alltraps
+.globl vector127
+vector127:
+  pushl $0
+  pushl $127
+  jmp __alltraps
+.globl vector128
+vector128:
+  pushl $0
+  pushl $128
+  jmp __alltraps
+.globl vector129
+vector129:
+  pushl $0
+  pushl $129
+  jmp __alltraps
+.globl vector130
+vector130:
+  pushl $0
+  pushl $130
+  jmp __alltraps
+.globl vector131
+vector131:
+  pushl $0
+  pushl $131
+  jmp __alltraps
+.globl vector132
+vector132:
+  pushl $0
+  pushl $132
+  jmp __alltraps
+.globl vector133
+vector133:
+  pushl $0
+  pushl $133
+  jmp __alltraps
+.globl vector134
+vector134:
+  pushl $0
+  pushl $134
+  jmp __alltraps
+.globl vector135
+vector135:
+  pushl $0
+  pushl $135
+  jmp __alltraps
+.globl vector136
+vector136:
+  pushl $0
+  pushl $136
+  jmp __alltraps
+.globl vector137
+vector137:
+  pushl $0
+  pushl $137
+  jmp __alltraps
+.globl vector138
+vector138:
+  pushl $0
+  pushl $138
+  jmp __alltraps
+.globl vector139
+vector139:
+  pushl $0
+  pushl $139
+  jmp __alltraps
+.globl vector140
+vector140:
+  pushl $0
+  pushl $140
+  jmp __alltraps
+.globl vector141
+vector141:
+  pushl $0
+  pushl $141
+  jmp __alltraps
+.globl vector142
+vector142:
+  pushl $0
+  pushl $142
+  jmp __alltraps
+.globl vector143
+vector143:
+  pushl $0
+  pushl $143
+  jmp __alltraps
+.globl vector144
+vector144:
+  pushl $0
+  pushl $144
+  jmp __alltraps
+.globl vector145
+vector145:
+  pushl $0
+  pushl $145
+  jmp __alltraps
+.globl vector146
+vector146:
+  pushl $0
+  pushl $146
+  jmp __alltraps
+.globl vector147
+vector147:
+  pushl $0
+  pushl $147
+  jmp __alltraps
+.globl vector148
+vector148:
+  pushl $0
+  pushl $148
+  jmp __alltraps
+.globl vector149
+vector149:
+  pushl $0
+  pushl $149
+  jmp __alltraps
+.globl vector150
+vector150:
+  pushl $0
+  pushl $150
+  jmp __alltraps
+.globl vector151
+vector151:
+  pushl $0
+  pushl $151
+  jmp __alltraps
+.globl vector152
+vector152:
+  pushl $0
+  pushl $152
+  jmp __alltraps
+.globl vector153
+vector153:
+  pushl $0
+  pushl $153
+  jmp __alltraps
+.globl vector154
+vector154:
+  pushl $0
+  pushl $154
+  jmp __alltraps
+.globl vector155
+vector155:
+  pushl $0
+  pushl $155
+  jmp __alltraps
+.globl vector156
+vector156:
+  pushl $0
+  pushl $156
+  jmp __alltraps
+.globl vector157
+vector157:
+  pushl $0
+  pushl $157
+  jmp __alltraps
+.globl vector158
+vector158:
+  pushl $0
+  pushl $158
+  jmp __alltraps
+.globl vector159
+vector159:
+  pushl $0
+  pushl $159
+  jmp __alltraps
+.globl vector160
+vector160:
+  pushl $0
+  pushl $160
+  jmp __alltraps
+.globl vector161
+vector161:
+  pushl $0
+  pushl $161
+  jmp __alltraps
+.globl vector162
+vector162:
+  pushl $0
+  pushl $162
+  jmp __alltraps
+.globl vector163
+vector163:
+  pushl $0
+  pushl $163
+  jmp __alltraps
+.globl vector164
+vector164:
+  pushl $0
+  pushl $164
+  jmp __alltraps
+.globl vector165
+vector165:
+  pushl $0
+  pushl $165
+  jmp __alltraps
+.globl vector166
+vector166:
+  pushl $0
+  pushl $166
+  jmp __alltraps
+.globl vector167
+vector167:
+  pushl $0
+  pushl $167
+  jmp __alltraps
+.globl vector168
+vector168:
+  pushl $0
+  pushl $168
+  jmp __alltraps
+.globl vector169
+vector169:
+  pushl $0
+  pushl $169
+  jmp __alltraps
+.globl vector170
+vector170:
+  pushl $0
+  pushl $170
+  jmp __alltraps
+.globl vector171
+vector171:
+  pushl $0
+  pushl $171
+  jmp __alltraps
+.globl vector172
+vector172:
+  pushl $0
+  pushl $172
+  jmp __alltraps
+.globl vector173
+vector173:
+  pushl $0
+  pushl $173
+  jmp __alltraps
+.globl vector174
+vector174:
+  pushl $0
+  pushl $174
+  jmp __alltraps
+.globl vector175
+vector175:
+  pushl $0
+  pushl $175
+  jmp __alltraps
+.globl vector176
+vector176:
+  pushl $0
+  pushl $176
+  jmp __alltraps
+.globl vector177
+vector177:
+  pushl $0
+  pushl $177
+  jmp __alltraps
+.globl vector178
+vector178:
+  pushl $0
+  pushl $178
+  jmp __alltraps
+.globl vector179
+vector179:
+  pushl $0
+  pushl $179
+  jmp __alltraps
+.globl vector180
+vector180:
+  pushl $0
+  pushl $180
+  jmp __alltraps
+.globl vector181
+vector181:
+  pushl $0
+  pushl $181
+  jmp __alltraps
+.globl vector182
+vector182:
+  pushl $0
+  pushl $182
+  jmp __alltraps
+.globl vector183
+vector183:
+  pushl $0
+  pushl $183
+  jmp __alltraps
+.globl vector184
+vector184:
+  pushl $0
+  pushl $184
+  jmp __alltraps
+.globl vector185
+vector185:
+  pushl $0
+  pushl $185
+  jmp __alltraps
+.globl vector186
+vector186:
+  pushl $0
+  pushl $186
+  jmp __alltraps
+.globl vector187
+vector187:
+  pushl $0
+  pushl $187
+  jmp __alltraps
+.globl vector188
+vector188:
+  pushl $0
+  pushl $188
+  jmp __alltraps
+.globl vector189
+vector189:
+  pushl $0
+  pushl $189
+  jmp __alltraps
+.globl vector190
+vector190:
+  pushl $0
+  pushl $190
+  jmp __alltraps
+.globl vector191
+vector191:
+  pushl $0
+  pushl $191
+  jmp __alltraps
+.globl vector192
+vector192:
+  pushl $0
+  pushl $192
+  jmp __alltraps
+.globl vector193
+vector193:
+  pushl $0
+  pushl $193
+  jmp __alltraps
+.globl vector194
+vector194:
+  pushl $0
+  pushl $194
+  jmp __alltraps
+.globl vector195
+vector195:
+  pushl $0
+  pushl $195
+  jmp __alltraps
+.globl vector196
+vector196:
+  pushl $0
+  pushl $196
+  jmp __alltraps
+.globl vector197
+vector197:
+  pushl $0
+  pushl $197
+  jmp __alltraps
+.globl vector198
+vector198:
+  pushl $0
+  pushl $198
+  jmp __alltraps
+.globl vector199
+vector199:
+  pushl $0
+  pushl $199
+  jmp __alltraps
+.globl vector200
+vector200:
+  pushl $0
+  pushl $200
+  jmp __alltraps
+.globl vector201
+vector201:
+  pushl $0
+  pushl $201
+  jmp __alltraps
+.globl vector202
+vector202:
+  pushl $0
+  pushl $202
+  jmp __alltraps
+.globl vector203
+vector203:
+  pushl $0
+  pushl $203
+  jmp __alltraps
+.globl vector204
+vector204:
+  pushl $0
+  pushl $204
+  jmp __alltraps
+.globl vector205
+vector205:
+  pushl $0
+  pushl $205
+  jmp __alltraps
+.globl vector206
+vector206:
+  pushl $0
+  pushl $206
+  jmp __alltraps
+.globl vector207
+vector207:
+  pushl $0
+  pushl $207
+  jmp __alltraps
+.globl vector208
+vector208:
+  pushl $0
+  pushl $208
+  jmp __alltraps
+.globl vector209
+vector209:
+  pushl $0
+  pushl $209
+  jmp __alltraps
+.globl vector210
+vector210:
+  pushl $0
+  pushl $210
+  jmp __alltraps
+.globl vector211
+vector211:
+  pushl $0
+  pushl $211
+  jmp __alltraps
+.globl vector212
+vector212:
+  pushl $0
+  pushl $212
+  jmp __alltraps
+.globl vector213
+vector213:
+  pushl $0
+  pushl $213
+  jmp __alltraps
+.globl vector214
+vector214:
+  pushl $0
+  pushl $214
+  jmp __alltraps
+.globl vector215
+vector215:
+  pushl $0
+  pushl $215
+  jmp __alltraps
+.globl vector216
+vector216:
+  pushl $0
+  pushl $216
+  jmp __alltraps
+.globl vector217
+vector217:
+  pushl $0
+  pushl $217
+  jmp __alltraps
+.globl vector218
+vector218:
+  pushl $0
+  pushl $218
+  jmp __alltraps
+.globl vector219
+vector219:
+  pushl $0
+  pushl $219
+  jmp __alltraps
+.globl vector220
+vector220:
+  pushl $0
+  pushl $220
+  jmp __alltraps
+.globl vector221
+vector221:
+  pushl $0
+  pushl $221
+  jmp __alltraps
+.globl vector222
+vector222:
+  pushl $0
+  pushl $222
+  jmp __alltraps
+.globl vector223
+vector223:
+  pushl $0
+  pushl $223
+  jmp __alltraps
+.globl vector224
+vector224:
+  pushl $0
+  pushl $224
+  jmp __alltraps
+.globl vector225
+vector225:
+  pushl $0
+  pushl $225
+  jmp __alltraps
+.globl vector226
+vector226:
+  pushl $0
+  pushl $226
+  jmp __alltraps
+.globl vector227
+vector227:
+  pushl $0
+  pushl $227
+  jmp __alltraps
+.globl vector228
+vector228:
+  pushl $0
+  pushl $228
+  jmp __alltraps
+.globl vector229
+vector229:
+  pushl $0
+  pushl $229
+  jmp __alltraps
+.globl vector230
+vector230:
+  pushl $0
+  pushl $230
+  jmp __alltraps
+.globl vector231
+vector231:
+  pushl $0
+  pushl $231
+  jmp __alltraps
+.globl vector232
+vector232:
+  pushl $0
+  pushl $232
+  jmp __alltraps
+.globl vector233
+vector233:
+  pushl $0
+  pushl $233
+  jmp __alltraps
+.globl vector234
+vector234:
+  pushl $0
+  pushl $234
+  jmp __alltraps
+.globl vector235
+vector235:
+  pushl $0
+  pushl $235
+  jmp __alltraps
+.globl vector236
+vector236:
+  pushl $0
+  pushl $236
+  jmp __alltraps
+.globl vector237
+vector237:
+  pushl $0
+  pushl $237
+  jmp __alltraps
+.globl vector238
+vector238:
+  pushl $0
+  pushl $238
+  jmp __alltraps
+.globl vector239
+vector239:
+  pushl $0
+  pushl $239
+  jmp __alltraps
+.globl vector240
+vector240:
+  pushl $0
+  pushl $240
+  jmp __alltraps
+.globl vector241
+vector241:
+  pushl $0
+  pushl $241
+  jmp __alltraps
+.globl vector242
+vector242:
+  pushl $0
+  pushl $242
+  jmp __alltraps
+.globl vector243
+vector243:
+  pushl $0
+  pushl $243
+  jmp __alltraps
+.globl vector244
+vector244:
+  pushl $0
+  pushl $244
+  jmp __alltraps
+.globl vector245
+vector245:
+  pushl $0
+  pushl $245
+  jmp __alltraps
+.globl vector246
+vector246:
+  pushl $0
+  pushl $246
+  jmp __alltraps
+.globl vector247
+vector247:
+  pushl $0
+  pushl $247
+  jmp __alltraps
+.globl vector248
+vector248:
+  pushl $0
+  pushl $248
+  jmp __alltraps
+.globl vector249
+vector249:
+  pushl $0
+  pushl $249
+  jmp __alltraps
+.globl vector250
+vector250:
+  pushl $0
+  pushl $250
+  jmp __alltraps
+.globl vector251
+vector251:
+  pushl $0
+  pushl $251
+  jmp __alltraps
+.globl vector252
+vector252:
+  pushl $0
+  pushl $252
+  jmp __alltraps
+.globl vector253
+vector253:
+  pushl $0
+  pushl $253
+  jmp __alltraps
+.globl vector254
+vector254:
+  pushl $0
+  pushl $254
+  jmp __alltraps
+.globl vector255
+vector255:
+  pushl $0
+  pushl $255
+  jmp __alltraps
 
 # vector table
-<span class="hljs-string">.data</span>
-<span class="hljs-string">.globl</span> __vectors
-<span class="hljs-symbol">__vectors:</span>
-  <span class="hljs-string">.long</span> vector0
-  <span class="hljs-string">.long</span> vector1
-  <span class="hljs-string">.long</span> vector2
-  <span class="hljs-string">.long</span> vector3
-  <span class="hljs-string">.long</span> vector4
-  <span class="hljs-string">.long</span> vector5
-  <span class="hljs-string">.long</span> vector6
-  <span class="hljs-string">.long</span> vector7
-  <span class="hljs-string">.long</span> vector8
-  <span class="hljs-string">.long</span> vector9
-  <span class="hljs-string">.long</span> vector10
-  <span class="hljs-string">.long</span> vector11
-  <span class="hljs-string">.long</span> vector12
-  <span class="hljs-string">.long</span> vector13
-  <span class="hljs-string">.long</span> vector14
-  <span class="hljs-string">.long</span> vector15
-  <span class="hljs-string">.long</span> vector16
-  <span class="hljs-string">.long</span> vector17
-  <span class="hljs-string">.long</span> vector18
-  <span class="hljs-string">.long</span> vector19
-  <span class="hljs-string">.long</span> vector20
-  <span class="hljs-string">.long</span> vector21
-  <span class="hljs-string">.long</span> vector22
-  <span class="hljs-string">.long</span> vector23
-  <span class="hljs-string">.long</span> vector24
-  <span class="hljs-string">.long</span> vector25
-  <span class="hljs-string">.long</span> vector26
-  <span class="hljs-string">.long</span> vector27
-  <span class="hljs-string">.long</span> vector28
-  <span class="hljs-string">.long</span> vector29
-  <span class="hljs-string">.long</span> vector30
-  <span class="hljs-string">.long</span> vector31
-  <span class="hljs-string">.long</span> vector32
-  <span class="hljs-string">.long</span> vector33
-  <span class="hljs-string">.long</span> vector34
-  <span class="hljs-string">.long</span> vector35
-  <span class="hljs-string">.long</span> vector36
-  <span class="hljs-string">.long</span> vector37
-  <span class="hljs-string">.long</span> vector38
-  <span class="hljs-string">.long</span> vector39
-  <span class="hljs-string">.long</span> vector40
-  <span class="hljs-string">.long</span> vector41
-  <span class="hljs-string">.long</span> vector42
-  <span class="hljs-string">.long</span> vector43
-  <span class="hljs-string">.long</span> vector44
-  <span class="hljs-string">.long</span> vector45
-  <span class="hljs-string">.long</span> vector46
-  <span class="hljs-string">.long</span> vector47
-  <span class="hljs-string">.long</span> vector48
-  <span class="hljs-string">.long</span> vector49
-  <span class="hljs-string">.long</span> vector50
-  <span class="hljs-string">.long</span> vector51
-  <span class="hljs-string">.long</span> vector52
-  <span class="hljs-string">.long</span> vector53
-  <span class="hljs-string">.long</span> vector54
-  <span class="hljs-string">.long</span> vector55
-  <span class="hljs-string">.long</span> vector56
-  <span class="hljs-string">.long</span> vector57
-  <span class="hljs-string">.long</span> vector58
-  <span class="hljs-string">.long</span> vector59
-  <span class="hljs-string">.long</span> vector60
-  <span class="hljs-string">.long</span> vector61
-  <span class="hljs-string">.long</span> vector62
-  <span class="hljs-string">.long</span> vector63
-  <span class="hljs-string">.long</span> vector64
-  <span class="hljs-string">.long</span> vector65
-  <span class="hljs-string">.long</span> vector66
-  <span class="hljs-string">.long</span> vector67
-  <span class="hljs-string">.long</span> vector68
-  <span class="hljs-string">.long</span> vector69
-  <span class="hljs-string">.long</span> vector70
-  <span class="hljs-string">.long</span> vector71
-  <span class="hljs-string">.long</span> vector72
-  <span class="hljs-string">.long</span> vector73
-  <span class="hljs-string">.long</span> vector74
-  <span class="hljs-string">.long</span> vector75
-  <span class="hljs-string">.long</span> vector76
-  <span class="hljs-string">.long</span> vector77
-  <span class="hljs-string">.long</span> vector78
-  <span class="hljs-string">.long</span> vector79
-  <span class="hljs-string">.long</span> vector80
-  <span class="hljs-string">.long</span> vector81
-  <span class="hljs-string">.long</span> vector82
-  <span class="hljs-string">.long</span> vector83
-  <span class="hljs-string">.long</span> vector84
-  <span class="hljs-string">.long</span> vector85
-  <span class="hljs-string">.long</span> vector86
-  <span class="hljs-string">.long</span> vector87
-  <span class="hljs-string">.long</span> vector88
-  <span class="hljs-string">.long</span> vector89
-  <span class="hljs-string">.long</span> vector90
-  <span class="hljs-string">.long</span> vector91
-  <span class="hljs-string">.long</span> vector92
-  <span class="hljs-string">.long</span> vector93
-  <span class="hljs-string">.long</span> vector94
-  <span class="hljs-string">.long</span> vector95
-  <span class="hljs-string">.long</span> vector96
-  <span class="hljs-string">.long</span> vector97
-  <span class="hljs-string">.long</span> vector98
-  <span class="hljs-string">.long</span> vector99
-  <span class="hljs-string">.long</span> vector100
-  <span class="hljs-string">.long</span> vector101
-  <span class="hljs-string">.long</span> vector102
-  <span class="hljs-string">.long</span> vector103
-  <span class="hljs-string">.long</span> vector104
-  <span class="hljs-string">.long</span> vector105
-  <span class="hljs-string">.long</span> vector106
-  <span class="hljs-string">.long</span> vector107
-  <span class="hljs-string">.long</span> vector108
-  <span class="hljs-string">.long</span> vector109
-  <span class="hljs-string">.long</span> vector110
-  <span class="hljs-string">.long</span> vector111
-  <span class="hljs-string">.long</span> vector112
-  <span class="hljs-string">.long</span> vector113
-  <span class="hljs-string">.long</span> vector114
-  <span class="hljs-string">.long</span> vector115
-  <span class="hljs-string">.long</span> vector116
-  <span class="hljs-string">.long</span> vector117
-  <span class="hljs-string">.long</span> vector118
-  <span class="hljs-string">.long</span> vector119
-  <span class="hljs-string">.long</span> vector120
-  <span class="hljs-string">.long</span> vector121
-  <span class="hljs-string">.long</span> vector122
-  <span class="hljs-string">.long</span> vector123
-  <span class="hljs-string">.long</span> vector124
-  <span class="hljs-string">.long</span> vector125
-  <span class="hljs-string">.long</span> vector126
-  <span class="hljs-string">.long</span> vector127
-  <span class="hljs-string">.long</span> vector128
-  <span class="hljs-string">.long</span> vector129
-  <span class="hljs-string">.long</span> vector130
-  <span class="hljs-string">.long</span> vector131
-  <span class="hljs-string">.long</span> vector132
-  <span class="hljs-string">.long</span> vector133
-  <span class="hljs-string">.long</span> vector134
-  <span class="hljs-string">.long</span> vector135
-  <span class="hljs-string">.long</span> vector136
-  <span class="hljs-string">.long</span> vector137
-  <span class="hljs-string">.long</span> vector138
-  <span class="hljs-string">.long</span> vector139
-  <span class="hljs-string">.long</span> vector140
-  <span class="hljs-string">.long</span> vector141
-  <span class="hljs-string">.long</span> vector142
-  <span class="hljs-string">.long</span> vector143
-  <span class="hljs-string">.long</span> vector144
-  <span class="hljs-string">.long</span> vector145
-  <span class="hljs-string">.long</span> vector146
-  <span class="hljs-string">.long</span> vector147
-  <span class="hljs-string">.long</span> vector148
-  <span class="hljs-string">.long</span> vector149
-  <span class="hljs-string">.long</span> vector150
-  <span class="hljs-string">.long</span> vector151
-  <span class="hljs-string">.long</span> vector152
-  <span class="hljs-string">.long</span> vector153
-  <span class="hljs-string">.long</span> vector154
-  <span class="hljs-string">.long</span> vector155
-  <span class="hljs-string">.long</span> vector156
-  <span class="hljs-string">.long</span> vector157
-  <span class="hljs-string">.long</span> vector158
-  <span class="hljs-string">.long</span> vector159
-  <span class="hljs-string">.long</span> vector160
-  <span class="hljs-string">.long</span> vector161
-  <span class="hljs-string">.long</span> vector162
-  <span class="hljs-string">.long</span> vector163
-  <span class="hljs-string">.long</span> vector164
-  <span class="hljs-string">.long</span> vector165
-  <span class="hljs-string">.long</span> vector166
-  <span class="hljs-string">.long</span> vector167
-  <span class="hljs-string">.long</span> vector168
-  <span class="hljs-string">.long</span> vector169
-  <span class="hljs-string">.long</span> vector170
-  <span class="hljs-string">.long</span> vector171
-  <span class="hljs-string">.long</span> vector172
-  <span class="hljs-string">.long</span> vector173
-  <span class="hljs-string">.long</span> vector174
-  <span class="hljs-string">.long</span> vector175
-  <span class="hljs-string">.long</span> vector176
-  <span class="hljs-string">.long</span> vector177
-  <span class="hljs-string">.long</span> vector178
-  <span class="hljs-string">.long</span> vector179
-  <span class="hljs-string">.long</span> vector180
-  <span class="hljs-string">.long</span> vector181
-  <span class="hljs-string">.long</span> vector182
-  <span class="hljs-string">.long</span> vector183
-  <span class="hljs-string">.long</span> vector184
-  <span class="hljs-string">.long</span> vector185
-  <span class="hljs-string">.long</span> vector186
-  <span class="hljs-string">.long</span> vector187
-  <span class="hljs-string">.long</span> vector188
-  <span class="hljs-string">.long</span> vector189
-  <span class="hljs-string">.long</span> vector190
-  <span class="hljs-string">.long</span> vector191
-  <span class="hljs-string">.long</span> vector192
-  <span class="hljs-string">.long</span> vector193
-  <span class="hljs-string">.long</span> vector194
-  <span class="hljs-string">.long</span> vector195
-  <span class="hljs-string">.long</span> vector196
-  <span class="hljs-string">.long</span> vector197
-  <span class="hljs-string">.long</span> vector198
-  <span class="hljs-string">.long</span> vector199
-  <span class="hljs-string">.long</span> vector200
-  <span class="hljs-string">.long</span> vector201
-  <span class="hljs-string">.long</span> vector202
-  <span class="hljs-string">.long</span> vector203
-  <span class="hljs-string">.long</span> vector204
-  <span class="hljs-string">.long</span> vector205
-  <span class="hljs-string">.long</span> vector206
-  <span class="hljs-string">.long</span> vector207
-  <span class="hljs-string">.long</span> vector208
-  <span class="hljs-string">.long</span> vector209
-  <span class="hljs-string">.long</span> vector210
-  <span class="hljs-string">.long</span> vector211
-  <span class="hljs-string">.long</span> vector212
-  <span class="hljs-string">.long</span> vector213
-  <span class="hljs-string">.long</span> vector214
-  <span class="hljs-string">.long</span> vector215
-  <span class="hljs-string">.long</span> vector216
-  <span class="hljs-string">.long</span> vector217
-  <span class="hljs-string">.long</span> vector218
-  <span class="hljs-string">.long</span> vector219
-  <span class="hljs-string">.long</span> vector220
-  <span class="hljs-string">.long</span> vector221
-  <span class="hljs-string">.long</span> vector222
-  <span class="hljs-string">.long</span> vector223
-  <span class="hljs-string">.long</span> vector224
-  <span class="hljs-string">.long</span> vector225
-  <span class="hljs-string">.long</span> vector226
-  <span class="hljs-string">.long</span> vector227
-  <span class="hljs-string">.long</span> vector228
-  <span class="hljs-string">.long</span> vector229
-  <span class="hljs-string">.long</span> vector230
-  <span class="hljs-string">.long</span> vector231
-  <span class="hljs-string">.long</span> vector232
-  <span class="hljs-string">.long</span> vector233
-  <span class="hljs-string">.long</span> vector234
-  <span class="hljs-string">.long</span> vector235
-  <span class="hljs-string">.long</span> vector236
-  <span class="hljs-string">.long</span> vector237
-  <span class="hljs-string">.long</span> vector238
-  <span class="hljs-string">.long</span> vector239
-  <span class="hljs-string">.long</span> vector240
-  <span class="hljs-string">.long</span> vector241
-  <span class="hljs-string">.long</span> vector242
-  <span class="hljs-string">.long</span> vector243
-  <span class="hljs-string">.long</span> vector244
-  <span class="hljs-string">.long</span> vector245
-  <span class="hljs-string">.long</span> vector246
-  <span class="hljs-string">.long</span> vector247
-  <span class="hljs-string">.long</span> vector248
-  <span class="hljs-string">.long</span> vector249
-  <span class="hljs-string">.long</span> vector250
-  <span class="hljs-string">.long</span> vector251
-  <span class="hljs-string">.long</span> vector252
-  <span class="hljs-string">.long</span> vector253
-  <span class="hljs-string">.long</span> vector254
-  <span class="hljs-string">.long</span> vector255
+.data
+.globl __vectors
+__vectors:
+  .long vector0
+  .long vector1
+  .long vector2
+  .long vector3
+  .long vector4
+  .long vector5
+  .long vector6
+  .long vector7
+  .long vector8
+  .long vector9
+  .long vector10
+  .long vector11
+  .long vector12
+  .long vector13
+  .long vector14
+  .long vector15
+  .long vector16
+  .long vector17
+  .long vector18
+  .long vector19
+  .long vector20
+  .long vector21
+  .long vector22
+  .long vector23
+  .long vector24
+  .long vector25
+  .long vector26
+  .long vector27
+  .long vector28
+  .long vector29
+  .long vector30
+  .long vector31
+  .long vector32
+  .long vector33
+  .long vector34
+  .long vector35
+  .long vector36
+  .long vector37
+  .long vector38
+  .long vector39
+  .long vector40
+  .long vector41
+  .long vector42
+  .long vector43
+  .long vector44
+  .long vector45
+  .long vector46
+  .long vector47
+  .long vector48
+  .long vector49
+  .long vector50
+  .long vector51
+  .long vector52
+  .long vector53
+  .long vector54
+  .long vector55
+  .long vector56
+  .long vector57
+  .long vector58
+  .long vector59
+  .long vector60
+  .long vector61
+  .long vector62
+  .long vector63
+  .long vector64
+  .long vector65
+  .long vector66
+  .long vector67
+  .long vector68
+  .long vector69
+  .long vector70
+  .long vector71
+  .long vector72
+  .long vector73
+  .long vector74
+  .long vector75
+  .long vector76
+  .long vector77
+  .long vector78
+  .long vector79
+  .long vector80
+  .long vector81
+  .long vector82
+  .long vector83
+  .long vector84
+  .long vector85
+  .long vector86
+  .long vector87
+  .long vector88
+  .long vector89
+  .long vector90
+  .long vector91
+  .long vector92
+  .long vector93
+  .long vector94
+  .long vector95
+  .long vector96
+  .long vector97
+  .long vector98
+  .long vector99
+  .long vector100
+  .long vector101
+  .long vector102
+  .long vector103
+  .long vector104
+  .long vector105
+  .long vector106
+  .long vector107
+  .long vector108
+  .long vector109
+  .long vector110
+  .long vector111
+  .long vector112
+  .long vector113
+  .long vector114
+  .long vector115
+  .long vector116
+  .long vector117
+  .long vector118
+  .long vector119
+  .long vector120
+  .long vector121
+  .long vector122
+  .long vector123
+  .long vector124
+  .long vector125
+  .long vector126
+  .long vector127
+  .long vector128
+  .long vector129
+  .long vector130
+  .long vector131
+  .long vector132
+  .long vector133
+  .long vector134
+  .long vector135
+  .long vector136
+  .long vector137
+  .long vector138
+  .long vector139
+  .long vector140
+  .long vector141
+  .long vector142
+  .long vector143
+  .long vector144
+  .long vector145
+  .long vector146
+  .long vector147
+  .long vector148
+  .long vector149
+  .long vector150
+  .long vector151
+  .long vector152
+  .long vector153
+  .long vector154
+  .long vector155
+  .long vector156
+  .long vector157
+  .long vector158
+  .long vector159
+  .long vector160
+  .long vector161
+  .long vector162
+  .long vector163
+  .long vector164
+  .long vector165
+  .long vector166
+  .long vector167
+  .long vector168
+  .long vector169
+  .long vector170
+  .long vector171
+  .long vector172
+  .long vector173
+  .long vector174
+  .long vector175
+  .long vector176
+  .long vector177
+  .long vector178
+  .long vector179
+  .long vector180
+  .long vector181
+  .long vector182
+  .long vector183
+  .long vector184
+  .long vector185
+  .long vector186
+  .long vector187
+  .long vector188
+  .long vector189
+  .long vector190
+  .long vector191
+  .long vector192
+  .long vector193
+  .long vector194
+  .long vector195
+  .long vector196
+  .long vector197
+  .long vector198
+  .long vector199
+  .long vector200
+  .long vector201
+  .long vector202
+  .long vector203
+  .long vector204
+  .long vector205
+  .long vector206
+  .long vector207
+  .long vector208
+  .long vector209
+  .long vector210
+  .long vector211
+  .long vector212
+  .long vector213
+  .long vector214
+  .long vector215
+  .long vector216
+  .long vector217
+  .long vector218
+  .long vector219
+  .long vector220
+  .long vector221
+  .long vector222
+  .long vector223
+  .long vector224
+  .long vector225
+  .long vector226
+  .long vector227
+  .long vector228
+  .long vector229
+  .long vector230
+  .long vector231
+  .long vector232
+  .long vector233
+  .long vector234
+  .long vector235
+  .long vector236
+  .long vector237
+  .long vector238
+  .long vector239
+  .long vector240
+  .long vector241
+  .long vector242
+  .long vector243
+  .long vector244
+  .long vector245
+  .long vector246
+  .long vector247
+  .long vector248
+  .long vector249
+  .long vector250
+  .long vector251
+  .long vector252
+  .long vector253
+  .long vector254
+  .long vector255
 </code></pre>
 <p><div id="page-footer" class="localized-footer"><hr><p><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css"></p>
 <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
@@ -2186,7 +2128,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"vectors","level":"1.1.1.2.5.3","depth":5,"next":{"title":"libs","level":"1.1.1.3","depth":3,"path":"lab/lab1/libs/README.md","ref":"lab/lab1/libs/README.md","articles":[]},"previous":{"title":"trapentry","level":"1.1.1.2.5.2","depth":5,"path":"lab/lab1/kern/trap/trapentry.md","ref":"lab/lab1/kern/trap/trapentry.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["chapter-fold","code","search-pro","github","localized-footer","ancre-navigation","-sharing"],"pluginsConfig":{"chapter-fold":{},"github":{"url":"https://oscourse-tsinghua.github.io/ucore-analysis"},"search-pro":{},"search":{},"localized-footer":{"filename":"gitbook/comment.html","hline":"true"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ancre-navigation":{"associatedWithSummary":true,"float":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showLevel":true},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"gitbook/website.css"}},"file":{"path":"lab/lab1/kern/trap/vectors.md","mtime":"2019-10-29T02:36:23.366Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-10-29T02:43:28.696Z"},"basePath":"../../../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"vectors","level":"1.1.1.2.5.3","depth":5,"next":{"title":"libs","level":"1.1.1.3","depth":3,"path":"lab/lab1/libs/README.md","ref":"lab/lab1/libs/README.md","articles":[]},"previous":{"title":"trapentry","level":"1.1.1.2.5.2","depth":5,"path":"lab/lab1/kern/trap/trapentry.md","ref":"lab/lab1/kern/trap/trapentry.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["chapter-fold","code","search-pro","github","localized-footer","ancre-navigation","-sharing"],"pluginsConfig":{"chapter-fold":{},"github":{"url":"https://oscourse-tsinghua.github.io/ucore-analysis"},"search-pro":{},"search":{},"localized-footer":{"filename":"gitbook/comment.html","hline":"true"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ancre-navigation":{"associatedWithSummary":true,"float":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showLevel":true},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"gitbook/website.css"}},"file":{"path":"lab/lab1/kern/trap/vectors.md","mtime":"2019-10-29T08:21:38.563Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-10-29T08:25:57.556Z"},"basePath":"../../../..","book":{"language":""}});
         });
     </script>
 </div>

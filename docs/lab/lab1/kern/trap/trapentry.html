@@ -424,12 +424,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2" data-path="../../../../1. 编写文档.html">
+        <li class="chapter " data-level="1.2" data-path="../../../../how_to_edit_this_doc.html">
             
-                <a href="../../../../1. 编写文档.html">
+                <a href="../../../../how_to_edit_this_doc.html">
             
                     
-                    1. 编写文档
+                    附录1：如何编辑该文档
             
                 </a>
             
@@ -437,70 +437,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3" data-path="../../../../2. 本地浏览.html">
+        <li class="chapter " data-level="1.3" data-path="../../../../test_for_html_support.html">
             
-                <a href="../../../../2. 本地浏览.html">
-            
-                    
-                    2. 本地浏览
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4" data-path="../../../../3. 添加插件.html">
-            
-                <a href="../../../../3. 添加插件.html">
+                <a href="../../../../test_for_html_support.html">
             
                     
-                    3. 添加插件
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.4.1" data-path="../../../../3.1. 参考配置.html">
-            
-                <a href="../../../../3.1. 参考配置.html">
-            
-                    
-                    3.1. 参考配置
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4.2" data-path="../../../../3.2. 评论区.html">
-            
-                <a href="../../../../3.2. 评论区.html">
-            
-                    
-                    3.2. 评论区
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5" data-path="../../../../4. 部署网页.html">
-            
-                <a href="../../../../4. 部署网页.html">
-            
-                    
-                    4. 部署网页
+                    测试：gitbook中markdown对html的支持
             
                 </a>
             
@@ -556,13 +498,13 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <pre><code class="lang-x86asm">#include &lt;memlayout.h&gt;
+                                <pre><code class="lang-assembly">#include &lt;memlayout.h&gt;
 
 # vectors.S sends all traps here.
-<span class="hljs-string">.text</span>
-<span class="hljs-string">.globl</span> __alltraps
-<span class="hljs-symbol">__alltraps:</span>
-    # <span class="hljs-keyword">push</span> registers to build a trap frame
+.text
+.globl __alltraps
+__alltraps:
+    # push registers to build a trap frame
     # therefore make the stack look like a struct trapframe
     pushl %ds
     pushl %es
@@ -570,35 +512,35 @@
     pushl %gs
     pushal
 
-    # load GD_KDATA <span class="hljs-keyword">into</span> %ds <span class="hljs-keyword">and</span> %es to set <span class="hljs-meta">up</span> data segments for kernel
+    # load GD_KDATA into %ds and %es to set up data segments for kernel
     movl $GD_KDATA, %eax
     movw %ax, %ds
     movw %ax, %es
 
-    # <span class="hljs-keyword">push</span> %esp to pass a pointer to the trapframe as an argument to trap()
+    # push %esp to pass a pointer to the trapframe as an argument to trap()
     pushl %esp
 
-    # <span class="hljs-keyword">call</span> trap(tf), where tf=%esp
-    <span class="hljs-keyword">call</span> trap
+    # call trap(tf), where tf=%esp
+    call trap
 
-    # <span class="hljs-keyword">pop</span> the pushed stack pointer
+    # pop the pushed stack pointer
     popl %esp
 
     # return falls through to trapret...
-<span class="hljs-string">.globl</span> __trapret
-<span class="hljs-symbol">__trapret:</span>
+.globl __trapret
+__trapret:
     # restore registers from stack
     popal
 
-    # restore %ds, %es, %fs <span class="hljs-keyword">and</span> %gs
+    # restore %ds, %es, %fs and %gs
     popl %gs
     popl %fs
     popl %es
     popl %ds
 
-    # get rid of the trap number <span class="hljs-keyword">and</span> error code
-    addl <span class="hljs-number">$0</span>x8, %esp
-    <span class="hljs-keyword">iret</span>
+    # get rid of the trap number and error code
+    addl $0x8, %esp
+    iret
 </code></pre>
 <p><div id="page-footer" class="localized-footer"><hr><p><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css"></p>
 <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
@@ -692,7 +634,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"trapentry","level":"1.1.1.2.5.2","depth":5,"next":{"title":"vectors","level":"1.1.1.2.5.3","depth":5,"path":"lab/lab1/kern/trap/vectors.md","ref":"lab/lab1/kern/trap/vectors.md","articles":[]},"previous":{"title":"trap","level":"1.1.1.2.5.1","depth":5,"path":"lab/lab1/kern/trap/trap.md","ref":"lab/lab1/kern/trap/trap.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["chapter-fold","code","search-pro","github","localized-footer","ancre-navigation","-sharing"],"pluginsConfig":{"chapter-fold":{},"github":{"url":"https://oscourse-tsinghua.github.io/ucore-analysis"},"search-pro":{},"search":{},"localized-footer":{"filename":"gitbook/comment.html","hline":"true"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ancre-navigation":{"associatedWithSummary":true,"float":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showLevel":true},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"gitbook/website.css"}},"file":{"path":"lab/lab1/kern/trap/trapentry.md","mtime":"2019-10-29T02:36:38.238Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-10-29T02:43:28.696Z"},"basePath":"../../../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"trapentry","level":"1.1.1.2.5.2","depth":5,"next":{"title":"vectors","level":"1.1.1.2.5.3","depth":5,"path":"lab/lab1/kern/trap/vectors.md","ref":"lab/lab1/kern/trap/vectors.md","articles":[]},"previous":{"title":"trap","level":"1.1.1.2.5.1","depth":5,"path":"lab/lab1/kern/trap/trap.md","ref":"lab/lab1/kern/trap/trap.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["chapter-fold","code","search-pro","github","localized-footer","ancre-navigation","-sharing"],"pluginsConfig":{"chapter-fold":{},"github":{"url":"https://oscourse-tsinghua.github.io/ucore-analysis"},"search-pro":{},"search":{},"localized-footer":{"filename":"gitbook/comment.html","hline":"true"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ancre-navigation":{"associatedWithSummary":true,"float":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showLevel":true},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"gitbook/website.css"}},"file":{"path":"lab/lab1/kern/trap/trapentry.md","mtime":"2019-10-29T08:21:28.187Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-10-29T08:25:57.556Z"},"basePath":"../../../..","book":{"language":""}});
         });
     </script>
 </div>

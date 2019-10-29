@@ -424,12 +424,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2" data-path="../../../../1. 编写文档.html">
+        <li class="chapter " data-level="1.2" data-path="../../../../how_to_edit_this_doc.html">
             
-                <a href="../../../../1. 编写文档.html">
+                <a href="../../../../how_to_edit_this_doc.html">
             
                     
-                    1. 编写文档
+                    附录1：如何编辑该文档
             
                 </a>
             
@@ -437,70 +437,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3" data-path="../../../../2. 本地浏览.html">
+        <li class="chapter " data-level="1.3" data-path="../../../../test_for_html_support.html">
             
-                <a href="../../../../2. 本地浏览.html">
-            
-                    
-                    2. 本地浏览
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4" data-path="../../../../3. 添加插件.html">
-            
-                <a href="../../../../3. 添加插件.html">
+                <a href="../../../../test_for_html_support.html">
             
                     
-                    3. 添加插件
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.4.1" data-path="../../../../3.1. 参考配置.html">
-            
-                <a href="../../../../3.1. 参考配置.html">
-            
-                    
-                    3.1. 参考配置
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4.2" data-path="../../../../3.2. 评论区.html">
-            
-                <a href="../../../../3.2. 评论区.html">
-            
-                    
-                    3.2. 评论区
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5" data-path="../../../../4. 部署网页.html">
-            
-                <a href="../../../../4. 部署网页.html">
-            
-                    
-                    4. 部署网页
+                    测试：gitbook中markdown对html的支持
             
                 </a>
             
@@ -556,59 +498,60 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <pre><code>#include &lt;defs.h&gt;
-#include &lt;stdio.h&gt;
-#include &lt;intr.h&gt;
-#include &lt;kmonitor.h&gt;
+                                <pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;defs.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;intr.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;kmonitor.h&gt;</span></span>
 
-static bool is_panic = 0;
+<span class="hljs-keyword">static</span> <span class="hljs-keyword">bool</span> is_panic = <span class="hljs-number">0</span>;
 
-/* *
+<span class="hljs-comment">/* *
  * __panic - __panic is called on unresolvable fatal errors. it prints
  * &quot;panic: &apos;message&apos;&quot;, and then enters the kernel monitor.
- * */
-void
-__panic(const char *file, int line, const char *fmt, ...) {
-    if (is_panic) {
-        goto panic_dead;
+ * */</span>
+<span class="hljs-keyword">void</span>
+__panic(<span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> *file, <span class="hljs-keyword">int</span> line, <span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> *fmt, ...) {
+    <span class="hljs-keyword">if</span> (is_panic) {
+        <span class="hljs-keyword">goto</span> panic_dead;
     }
-    is_panic = 1;
+    is_panic = <span class="hljs-number">1</span>;
 
-    // print the &apos;message&apos;
+    <span class="hljs-comment">// print the &apos;message&apos;</span>
     va_list ap;
     va_start(ap, fmt);
-    cprintf(&quot;kernel panic at %s:%d:\n    &quot;, file, line);
+    cprintf(<span class="hljs-string">&quot;kernel panic at %s:%d:\n    &quot;</span>, file, line);
     vcprintf(fmt, ap);
-    cprintf(&quot;\n&quot;);
+    cprintf(<span class="hljs-string">&quot;\n&quot;</span>);
 
-    cprintf(&quot;stack trackback:\n&quot;);
+    cprintf(<span class="hljs-string">&quot;stack trackback:\n&quot;</span>);
     print_stackframe();
 
     va_end(ap);
 
 panic_dead:
     intr_disable();
-    while (1) {
-        kmonitor(NULL);
+    <span class="hljs-keyword">while</span> (<span class="hljs-number">1</span>) {
+        kmonitor(<span class="hljs-literal">NULL</span>);
     }
 }
 
-/* __warn - like panic, but don&apos;t */
-void
-__warn(const char *file, int line, const char *fmt, ...) {
+<span class="hljs-comment">/* __warn - like panic, but don&apos;t */</span>
+<span class="hljs-keyword">void</span>
+__warn(<span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> *file, <span class="hljs-keyword">int</span> line, <span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> *fmt, ...) {
     va_list ap;
     va_start(ap, fmt);
-    cprintf(&quot;kernel warning at %s:%d:\n    &quot;, file, line);
+    cprintf(<span class="hljs-string">&quot;kernel warning at %s:%d:\n    &quot;</span>, file, line);
     vcprintf(fmt, ap);
-    cprintf(&quot;\n&quot;);
+    cprintf(<span class="hljs-string">&quot;\n&quot;</span>);
     va_end(ap);
 }
 
-bool
-is_kernel_panic(void) {
-    return is_panic;
+<span class="hljs-function"><span class="hljs-keyword">bool</span>
+<span class="hljs-title">is_kernel_panic</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span> </span>{
+    <span class="hljs-keyword">return</span> is_panic;
 }
-</code></pre><p><div id="page-footer" class="localized-footer"><hr><p><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css"></p>
+</code></pre>
+<p><div id="page-footer" class="localized-footer"><hr><p><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css"></p>
 <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
 <div id="gitalk-container" style="margin: 5%"></div>
 <script>
@@ -700,7 +643,7 @@ is_kernel_panic(void) {
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"panic","level":"1.1.1.2.1.2","depth":5,"next":{"title":"init","level":"1.1.1.2.2","depth":4,"path":"lab/lab1/kern/init/README.md","ref":"lab/lab1/kern/init/README.md","articles":[{"title":"init","level":"1.1.1.2.2.1","depth":5,"path":"lab/lab1/kern/init/init.md","ref":"lab/lab1/kern/init/init.md","articles":[]}]},"previous":{"title":"kmonitor","level":"1.1.1.2.1.1","depth":5,"path":"lab/lab1/kern/debug/kmonitor.md","ref":"lab/lab1/kern/debug/kmonitor.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["chapter-fold","code","search-pro","github","localized-footer","ancre-navigation","-sharing"],"pluginsConfig":{"chapter-fold":{},"github":{"url":"https://oscourse-tsinghua.github.io/ucore-analysis"},"search-pro":{},"search":{},"localized-footer":{"filename":"gitbook/comment.html","hline":"true"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ancre-navigation":{"associatedWithSummary":true,"float":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showLevel":true},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"gitbook/website.css"}},"file":{"path":"lab/lab1/kern/debug/panic.md","mtime":"2019-10-28T08:06:51.472Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-10-29T02:43:28.696Z"},"basePath":"../../../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"panic","level":"1.1.1.2.1.2","depth":5,"next":{"title":"init","level":"1.1.1.2.2","depth":4,"path":"lab/lab1/kern/init/README.md","ref":"lab/lab1/kern/init/README.md","articles":[{"title":"init","level":"1.1.1.2.2.1","depth":5,"path":"lab/lab1/kern/init/init.md","ref":"lab/lab1/kern/init/init.md","articles":[]}]},"previous":{"title":"kmonitor","level":"1.1.1.2.1.1","depth":5,"path":"lab/lab1/kern/debug/kmonitor.md","ref":"lab/lab1/kern/debug/kmonitor.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["chapter-fold","code","search-pro","github","localized-footer","ancre-navigation","-sharing"],"pluginsConfig":{"chapter-fold":{},"github":{"url":"https://oscourse-tsinghua.github.io/ucore-analysis"},"search-pro":{},"search":{},"localized-footer":{"filename":"gitbook/comment.html","hline":"true"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ancre-navigation":{"associatedWithSummary":true,"float":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showLevel":true},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"gitbook/website.css"}},"file":{"path":"lab/lab1/kern/debug/panic.md","mtime":"2019-10-29T08:20:20.967Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-10-29T08:25:57.556Z"},"basePath":"../../../..","book":{"language":""}});
         });
     </script>
 </div>

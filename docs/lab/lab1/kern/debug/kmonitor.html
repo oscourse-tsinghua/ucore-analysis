@@ -424,12 +424,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2" data-path="../../../../1. 编写文档.html">
+        <li class="chapter " data-level="1.2" data-path="../../../../how_to_edit_this_doc.html">
             
-                <a href="../../../../1. 编写文档.html">
+                <a href="../../../../how_to_edit_this_doc.html">
             
                     
-                    1. 编写文档
+                    附录1：如何编辑该文档
             
                 </a>
             
@@ -437,70 +437,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3" data-path="../../../../2. 本地浏览.html">
+        <li class="chapter " data-level="1.3" data-path="../../../../test_for_html_support.html">
             
-                <a href="../../../../2. 本地浏览.html">
-            
-                    
-                    2. 本地浏览
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4" data-path="../../../../3. 添加插件.html">
-            
-                <a href="../../../../3. 添加插件.html">
+                <a href="../../../../test_for_html_support.html">
             
                     
-                    3. 添加插件
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.4.1" data-path="../../../../3.1. 参考配置.html">
-            
-                <a href="../../../../3.1. 参考配置.html">
-            
-                    
-                    3.1. 参考配置
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4.2" data-path="../../../../3.2. 评论区.html">
-            
-                <a href="../../../../3.2. 评论区.html">
-            
-                    
-                    3.2. 评论区
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5" data-path="../../../../4. 部署网页.html">
-            
-                <a href="../../../../4. 部署网页.html">
-            
-                    
-                    4. 部署网页
+                    测试：gitbook中markdown对html的支持
             
                 </a>
             
@@ -556,134 +498,135 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <pre><code>#include &lt;stdio.h&gt;
-#include &lt;string.h&gt;
-#include &lt;trap.h&gt;
-#include &lt;kmonitor.h&gt;
-#include &lt;kdebug.h&gt;
+                                <pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;string.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;trap.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;kmonitor.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;kdebug.h&gt;</span></span>
 
-/* *
+<span class="hljs-comment">/* *
  * Simple command-line kernel monitor useful for controlling the
  * kernel and exploring the system interactively.
- * */
+ * */</span>
 
-struct command {
-    const char *name;
-    const char *desc;
-    // return -1 to force monitor to exit
-    int(*func)(int argc, char **argv, struct trapframe *tf);
+<span class="hljs-keyword">struct</span> command {
+    <span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> *name;
+    <span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> *desc;
+    <span class="hljs-comment">// return -1 to force monitor to exit</span>
+    <span class="hljs-keyword">int</span>(*func)(<span class="hljs-keyword">int</span> argc, <span class="hljs-keyword">char</span> **argv, <span class="hljs-keyword">struct</span> trapframe *tf);
 };
 
-static struct command commands[] = {
-    {&quot;help&quot;, &quot;Display this list of commands.&quot;, mon_help},
-    {&quot;kerninfo&quot;, &quot;Display information about the kernel.&quot;, mon_kerninfo},
-    {&quot;backtrace&quot;, &quot;Print backtrace of stack frame.&quot;, mon_backtrace},
+<span class="hljs-keyword">static</span> <span class="hljs-keyword">struct</span> command commands[] = {
+    {<span class="hljs-string">&quot;help&quot;</span>, <span class="hljs-string">&quot;Display this list of commands.&quot;</span>, mon_help},
+    {<span class="hljs-string">&quot;kerninfo&quot;</span>, <span class="hljs-string">&quot;Display information about the kernel.&quot;</span>, mon_kerninfo},
+    {<span class="hljs-string">&quot;backtrace&quot;</span>, <span class="hljs-string">&quot;Print backtrace of stack frame.&quot;</span>, mon_backtrace},
 };
 
-#define NCOMMANDS (sizeof(commands)/sizeof(struct command))
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> NCOMMANDS (sizeof(commands)/sizeof(struct command))</span>
 
-/***** Kernel monitor command interpreter *****/
+<span class="hljs-comment">/***** Kernel monitor command interpreter *****/</span>
 
-#define MAXARGS         16
-#define WHITESPACE      &quot; \t\n\r&quot;
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> MAXARGS         16</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> WHITESPACE      <span class="hljs-string">&quot; \t\n\r&quot;</span></span>
 
-/* parse - parse the command buffer into whitespace-separated arguments */
-static int
-parse(char *buf, char **argv) {
-    int argc = 0;
-    while (1) {
-        // find global whitespace
-        while (*buf != &apos;\0&apos; &amp;&amp; strchr(WHITESPACE, *buf) != NULL) {
-            *buf ++ = &apos;\0&apos;;
+<span class="hljs-comment">/* parse - parse the command buffer into whitespace-separated arguments */</span>
+<span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span>
+<span class="hljs-title">parse</span><span class="hljs-params">(<span class="hljs-keyword">char</span> *buf, <span class="hljs-keyword">char</span> **argv)</span> </span>{
+    <span class="hljs-keyword">int</span> argc = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">while</span> (<span class="hljs-number">1</span>) {
+        <span class="hljs-comment">// find global whitespace</span>
+        <span class="hljs-keyword">while</span> (*buf != <span class="hljs-string">&apos;\0&apos;</span> &amp;&amp; <span class="hljs-built_in">strchr</span>(WHITESPACE, *buf) != <span class="hljs-literal">NULL</span>) {
+            *buf ++ = <span class="hljs-string">&apos;\0&apos;</span>;
         }
-        if (*buf == &apos;\0&apos;) {
-            break;
+        <span class="hljs-keyword">if</span> (*buf == <span class="hljs-string">&apos;\0&apos;</span>) {
+            <span class="hljs-keyword">break</span>;
         }
 
-        // save and scan past next arg
-        if (argc == MAXARGS - 1) {
-            cprintf(&quot;Too many arguments (max %d).\n&quot;, MAXARGS);
+        <span class="hljs-comment">// save and scan past next arg</span>
+        <span class="hljs-keyword">if</span> (argc == MAXARGS - <span class="hljs-number">1</span>) {
+            cprintf(<span class="hljs-string">&quot;Too many arguments (max %d).\n&quot;</span>, MAXARGS);
         }
         argv[argc ++] = buf;
-        while (*buf != &apos;\0&apos; &amp;&amp; strchr(WHITESPACE, *buf) == NULL) {
+        <span class="hljs-keyword">while</span> (*buf != <span class="hljs-string">&apos;\0&apos;</span> &amp;&amp; <span class="hljs-built_in">strchr</span>(WHITESPACE, *buf) == <span class="hljs-literal">NULL</span>) {
             buf ++;
         }
     }
-    return argc;
+    <span class="hljs-keyword">return</span> argc;
 }
 
-/* *
+<span class="hljs-comment">/* *
  * runcmd - parse the input string, split it into separated arguments
  * and then lookup and invoke some related commands/
- * */
-static int
-runcmd(char *buf, struct trapframe *tf) {
-    char *argv[MAXARGS];
-    int argc = parse(buf, argv);
-    if (argc == 0) {
-        return 0;
+ * */</span>
+<span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span>
+<span class="hljs-title">runcmd</span><span class="hljs-params">(<span class="hljs-keyword">char</span> *buf, <span class="hljs-keyword">struct</span> trapframe *tf)</span> </span>{
+    <span class="hljs-keyword">char</span> *argv[MAXARGS];
+    <span class="hljs-keyword">int</span> argc = parse(buf, argv);
+    <span class="hljs-keyword">if</span> (argc == <span class="hljs-number">0</span>) {
+        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
     }
-    int i;
-    for (i = 0; i &lt; NCOMMANDS; i ++) {
-        if (strcmp(commands[i].name, argv[0]) == 0) {
-            return commands[i].func(argc - 1, argv + 1, tf);
+    <span class="hljs-keyword">int</span> i;
+    <span class="hljs-keyword">for</span> (i = <span class="hljs-number">0</span>; i &lt; NCOMMANDS; i ++) {
+        <span class="hljs-keyword">if</span> (<span class="hljs-built_in">strcmp</span>(commands[i].name, argv[<span class="hljs-number">0</span>]) == <span class="hljs-number">0</span>) {
+            <span class="hljs-keyword">return</span> commands[i].func(argc - <span class="hljs-number">1</span>, argv + <span class="hljs-number">1</span>, tf);
         }
     }
-    cprintf(&quot;Unknown command &apos;%s&apos;\n&quot;, argv[0]);
-    return 0;
+    cprintf(<span class="hljs-string">&quot;Unknown command &apos;%s&apos;\n&quot;</span>, argv[<span class="hljs-number">0</span>]);
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
 }
 
-/***** Implementations of basic kernel monitor commands *****/
+<span class="hljs-comment">/***** Implementations of basic kernel monitor commands *****/</span>
 
-void
-kmonitor(struct trapframe *tf) {
-    cprintf(&quot;Welcome to the kernel debug monitor!!\n&quot;);
-    cprintf(&quot;Type &apos;help&apos; for a list of commands.\n&quot;);
+<span class="hljs-function"><span class="hljs-keyword">void</span>
+<span class="hljs-title">kmonitor</span><span class="hljs-params">(<span class="hljs-keyword">struct</span> trapframe *tf)</span> </span>{
+    cprintf(<span class="hljs-string">&quot;Welcome to the kernel debug monitor!!\n&quot;</span>);
+    cprintf(<span class="hljs-string">&quot;Type &apos;help&apos; for a list of commands.\n&quot;</span>);
 
-    if (tf != NULL) {
+    <span class="hljs-keyword">if</span> (tf != <span class="hljs-literal">NULL</span>) {
         print_trapframe(tf);
     }
 
-    char *buf;
-    while (1) {
-        if ((buf = readline(&quot;K&gt; &quot;)) != NULL) {
-            if (runcmd(buf, tf) &lt; 0) {
-                break;
+    <span class="hljs-keyword">char</span> *buf;
+    <span class="hljs-keyword">while</span> (<span class="hljs-number">1</span>) {
+        <span class="hljs-keyword">if</span> ((buf = readline(<span class="hljs-string">&quot;K&gt; &quot;</span>)) != <span class="hljs-literal">NULL</span>) {
+            <span class="hljs-keyword">if</span> (runcmd(buf, tf) &lt; <span class="hljs-number">0</span>) {
+                <span class="hljs-keyword">break</span>;
             }
         }
     }
 }
 
-/* mon_help - print the information about mon_* functions */
-int
-mon_help(int argc, char **argv, struct trapframe *tf) {
-    int i;
-    for (i = 0; i &lt; NCOMMANDS; i ++) {
-        cprintf(&quot;%s - %s\n&quot;, commands[i].name, commands[i].desc);
+<span class="hljs-comment">/* mon_help - print the information about mon_* functions */</span>
+<span class="hljs-function"><span class="hljs-keyword">int</span>
+<span class="hljs-title">mon_help</span><span class="hljs-params">(<span class="hljs-keyword">int</span> argc, <span class="hljs-keyword">char</span> **argv, <span class="hljs-keyword">struct</span> trapframe *tf)</span> </span>{
+    <span class="hljs-keyword">int</span> i;
+    <span class="hljs-keyword">for</span> (i = <span class="hljs-number">0</span>; i &lt; NCOMMANDS; i ++) {
+        cprintf(<span class="hljs-string">&quot;%s - %s\n&quot;</span>, commands[i].name, commands[i].desc);
     }
-    return 0;
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
 }
 
-/* *
+<span class="hljs-comment">/* *
  * mon_kerninfo - call print_kerninfo in kern/debug/kdebug.c to
  * print the memory occupancy in kernel.
- * */
-int
-mon_kerninfo(int argc, char **argv, struct trapframe *tf) {
+ * */</span>
+<span class="hljs-function"><span class="hljs-keyword">int</span>
+<span class="hljs-title">mon_kerninfo</span><span class="hljs-params">(<span class="hljs-keyword">int</span> argc, <span class="hljs-keyword">char</span> **argv, <span class="hljs-keyword">struct</span> trapframe *tf)</span> </span>{
     print_kerninfo();
-    return 0;
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
 }
 
-/* *
+<span class="hljs-comment">/* *
  * mon_backtrace - call print_stackframe in kern/debug/kdebug.c to
  * print a backtrace of the stack.
- * */
-int
-mon_backtrace(int argc, char **argv, struct trapframe *tf) {
+ * */</span>
+<span class="hljs-function"><span class="hljs-keyword">int</span>
+<span class="hljs-title">mon_backtrace</span><span class="hljs-params">(<span class="hljs-keyword">int</span> argc, <span class="hljs-keyword">char</span> **argv, <span class="hljs-keyword">struct</span> trapframe *tf)</span> </span>{
     print_stackframe();
-    return 0;
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
 }
-</code></pre><p><div id="page-footer" class="localized-footer"><hr><p><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css"></p>
+</code></pre>
+<p><div id="page-footer" class="localized-footer"><hr><p><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css"></p>
 <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
 <div id="gitalk-container" style="margin: 5%"></div>
 <script>
@@ -775,7 +718,7 @@ mon_backtrace(int argc, char **argv, struct trapframe *tf) {
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"kmonitor","level":"1.1.1.2.1.1","depth":5,"next":{"title":"panic","level":"1.1.1.2.1.2","depth":5,"path":"lab/lab1/kern/debug/panic.md","ref":"lab/lab1/kern/debug/panic.md","articles":[]},"previous":{"title":"debug","level":"1.1.1.2.1","depth":4,"path":"lab/lab1/kern/debug/README.md","ref":"lab/lab1/kern/debug/README.md","articles":[{"title":"kmonitor","level":"1.1.1.2.1.1","depth":5,"path":"lab/lab1/kern/debug/kmonitor.md","ref":"lab/lab1/kern/debug/kmonitor.md","articles":[]},{"title":"panic","level":"1.1.1.2.1.2","depth":5,"path":"lab/lab1/kern/debug/panic.md","ref":"lab/lab1/kern/debug/panic.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["chapter-fold","code","search-pro","github","localized-footer","ancre-navigation","-sharing"],"pluginsConfig":{"chapter-fold":{},"github":{"url":"https://oscourse-tsinghua.github.io/ucore-analysis"},"search-pro":{},"search":{},"localized-footer":{"filename":"gitbook/comment.html","hline":"true"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ancre-navigation":{"associatedWithSummary":true,"float":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showLevel":true},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"gitbook/website.css"}},"file":{"path":"lab/lab1/kern/debug/kmonitor.md","mtime":"2019-10-28T08:07:16.666Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-10-29T02:43:28.696Z"},"basePath":"../../../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"kmonitor","level":"1.1.1.2.1.1","depth":5,"next":{"title":"panic","level":"1.1.1.2.1.2","depth":5,"path":"lab/lab1/kern/debug/panic.md","ref":"lab/lab1/kern/debug/panic.md","articles":[]},"previous":{"title":"debug","level":"1.1.1.2.1","depth":4,"path":"lab/lab1/kern/debug/README.md","ref":"lab/lab1/kern/debug/README.md","articles":[{"title":"kmonitor","level":"1.1.1.2.1.1","depth":5,"path":"lab/lab1/kern/debug/kmonitor.md","ref":"lab/lab1/kern/debug/kmonitor.md","articles":[]},{"title":"panic","level":"1.1.1.2.1.2","depth":5,"path":"lab/lab1/kern/debug/panic.md","ref":"lab/lab1/kern/debug/panic.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["chapter-fold","code","search-pro","github","localized-footer","ancre-navigation","-sharing"],"pluginsConfig":{"chapter-fold":{},"github":{"url":"https://oscourse-tsinghua.github.io/ucore-analysis"},"search-pro":{},"search":{},"localized-footer":{"filename":"gitbook/comment.html","hline":"true"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ancre-navigation":{"associatedWithSummary":true,"float":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showLevel":true},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"gitbook/website.css"}},"file":{"path":"lab/lab1/kern/debug/kmonitor.md","mtime":"2019-10-29T08:20:15.697Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-10-29T08:25:57.556Z"},"basePath":"../../../..","book":{"language":""}});
         });
     </script>
 </div>

@@ -424,12 +424,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2" data-path="../../../1. 编写文档.html">
+        <li class="chapter " data-level="1.2" data-path="../../../how_to_edit_this_doc.html">
             
-                <a href="../../../1. 编写文档.html">
+                <a href="../../../how_to_edit_this_doc.html">
             
                     
-                    1. 编写文档
+                    附录1：如何编辑该文档
             
                 </a>
             
@@ -437,70 +437,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3" data-path="../../../2. 本地浏览.html">
+        <li class="chapter " data-level="1.3" data-path="../../../test_for_html_support.html">
             
-                <a href="../../../2. 本地浏览.html">
-            
-                    
-                    2. 本地浏览
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4" data-path="../../../3. 添加插件.html">
-            
-                <a href="../../../3. 添加插件.html">
+                <a href="../../../test_for_html_support.html">
             
                     
-                    3. 添加插件
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.4.1" data-path="../../../3.1. 参考配置.html">
-            
-                <a href="../../../3.1. 参考配置.html">
-            
-                    
-                    3.1. 参考配置
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4.2" data-path="../../../3.2. 评论区.html">
-            
-                <a href="../../../3.2. 评论区.html">
-            
-                    
-                    3.2. 评论区
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5" data-path="../../../4. 部署网页.html">
-            
-                <a href="../../../4. 部署网页.html">
-            
-                    
-                    4. 部署网页
+                    测试：gitbook中markdown对html的支持
             
                 </a>
             
@@ -556,42 +498,41 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-anchor"></i><ul><li><span class="title-icon "></span><a href="#&#x7F16;&#x5199;&#x6587;&#x6863;"><b></b>&#x7F16;&#x5199;&#x6587;&#x6863;</a></li></ul></div><a href="#&#x7F16;&#x5199;&#x6587;&#x6863;" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="&#x7F16;&#x5199;&#x6587;&#x6863;"><a name="&#x7F16;&#x5199;&#x6587;&#x6863;" class="anchor-navigation-ex-anchor" href="#&#x7F16;&#x5199;&#x6587;&#x6863;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7F16;&#x5199;&#x6587;&#x6863;</h1>
-<pre><code class="lang-x86asm">#include &lt;asm.h&gt;
+                                <pre><code class="lang-assembly">#include &lt;asm.h&gt;
 
-# Start the <span class="hljs-meta">CPU</span>: switch to <span class="hljs-number">32</span>-bit protected mode, jump <span class="hljs-keyword">into</span> C.
-# The BIOS loads this code from the first sector of the hard disk <span class="hljs-keyword">into</span>
-# memory <span class="hljs-meta">at</span> physical address <span class="hljs-number">0x7c00</span> <span class="hljs-keyword">and</span> starts executing <span class="hljs-keyword">in</span> real mode
-# with %cs=<span class="hljs-number">0</span> %ip=7c00.
+# Start the CPU: switch to 32-bit protected mode, jump into C.
+# The BIOS loads this code from the first sector of the hard disk into
+# memory at physical address 0x7c00 and starts executing in real mode
+# with %cs=0 %ip=7c00.
 
-<span class="hljs-string">.set</span> PROT_MODE_CSEG,        <span class="hljs-number">0x8</span>                     # kernel code <span class="hljs-meta">segment</span> selector
-<span class="hljs-string">.set</span> PROT_MODE_DSEG,        <span class="hljs-number">0x10</span>                    # kernel data <span class="hljs-meta">segment</span> selector
-<span class="hljs-string">.set</span> CR0_PE_ON,             <span class="hljs-number">0x1</span>                     # protected mode enable flag
+.set PROT_MODE_CSEG,        0x8                     # kernel code segment selector
+.set PROT_MODE_DSEG,        0x10                    # kernel data segment selector
+.set CR0_PE_ON,             0x1                     # protected mode enable flag
 
-# start address should be <span class="hljs-number">0</span>:7c00, <span class="hljs-keyword">in</span> real mode, the beginning address of the running bootloader
-<span class="hljs-string">.globl</span> start
-<span class="hljs-symbol">start:</span>
-<span class="hljs-string">.code16</span>                                             # Assemble for <span class="hljs-number">16</span>-bit mode
-    <span class="hljs-keyword">cli</span>                                             # Disable interrupts
-    <span class="hljs-keyword">cld</span>                                             # String operations increment
+# start address should be 0:7c00, in real mode, the beginning address of the running bootloader
+.globl start
+start:
+.code16                                             # Assemble for 16-bit mode
+    cli                                             # Disable interrupts
+    cld                                             # String operations increment
 
-    # Set <span class="hljs-meta">up</span> the important data <span class="hljs-meta">segment</span> registers (<span class="hljs-built_in">DS</span>, <span class="hljs-built_in">ES</span>, <span class="hljs-built_in">SS</span>).
-    xorw %ax, %ax                                   # <span class="hljs-meta">Segment</span> number <span class="hljs-meta">zero</span>
-    movw %ax, %ds                                   # -&gt; Data <span class="hljs-meta">Segment</span>
-    movw %ax, %es                                   # -&gt; Extra <span class="hljs-meta">Segment</span>
-    movw %ax, %ss                                   # -&gt; Stack <span class="hljs-meta">Segment</span>
+    # Set up the important data segment registers (DS, ES, SS).
+    xorw %ax, %ax                                   # Segment number zero
+    movw %ax, %ds                                   # -&gt; Data Segment
+    movw %ax, %es                                   # -&gt; Extra Segment
+    movw %ax, %ss                                   # -&gt; Stack Segment
 
     # Enable A20:
     #  For backwards compatibility with the earliest PCs, physical
-    #  address line <span class="hljs-number">20</span> is tied low, so that addresses higher than
-    #  1MB wrap around to <span class="hljs-meta">zero</span> by <span class="hljs-meta">default</span>. This code undoes this.
-<span class="hljs-symbol">seta20.1:</span>
-    inb <span class="hljs-number">$0</span>x64, %al                                  # Wait for <span class="hljs-keyword">not</span> busy(<span class="hljs-number">8042</span> input buffer empty).
-    testb <span class="hljs-number">$0</span>x2, %al
-    <span class="hljs-keyword">jnz</span> seta20<span class="hljs-string">.1</span>
+    #  address line 20 is tied low, so that addresses higher than
+    #  1MB wrap around to zero by default. This code undoes this.
+seta20.1:
+    inb $0x64, %al                                  # Wait for not busy(8042 input buffer empty).
+    testb $0x2, %al
+    jnz seta20.1
 
-    movb <span class="hljs-number">$0</span>xd1, %al                                 # <span class="hljs-number">0xd1</span> -&gt; port <span class="hljs-number">0x64</span>
-    outb %al, <span class="hljs-number">$0</span>x64                                 # <span class="hljs-number">0xd1</span> means: write data to <span class="hljs-number">8042</span><span class="hljs-string">&apos;s P2 port
+    movb $0xd1, %al                                 # 0xd1 -&gt; port 0x64
+    outb %al, $0x64                                 # 0xd1 means: write data to 8042&apos;s P2 port
 
 seta20.2:
     inb $0x64, %al                                  # Wait for not busy(8042 input buffer empty).
@@ -599,37 +540,37 @@ seta20.2:
     jnz seta20.2
 
     movb $0xdf, %al                                 # 0xdf -&gt; port 0x60
-    outb %al, $0x60                                 # 0xdf = 11011111, means set P2&apos;</span>s A20 bit(the <span class="hljs-number">1</span> bit) to <span class="hljs-number">1</span>
+    outb %al, $0x60                                 # 0xdf = 11011111, means set P2&apos;s A20 bit(the 1 bit) to 1
 
     # Switch from real to protected mode, using a bootstrap GDT
-    # <span class="hljs-keyword">and</span> <span class="hljs-meta">segment</span> translation that makes virtual addresses
+    # and segment translation that makes virtual addresses
     # identical to physical addresses, so that the
-    # effective memory map does <span class="hljs-keyword">not</span> change during the switch.
-    <span class="hljs-keyword">lgdt</span> gdtdesc
+    # effective memory map does not change during the switch.
+    lgdt gdtdesc
     movl %cr0, %eax
     orl $CR0_PE_ON, %eax
     movl %eax, %cr0
 
-    # Jump to next instruction, but <span class="hljs-keyword">in</span> <span class="hljs-number">32</span>-bit code <span class="hljs-meta">segment</span>.
-    # Switches processor <span class="hljs-keyword">into</span> <span class="hljs-number">32</span>-bit mode.
+    # Jump to next instruction, but in 32-bit code segment.
+    # Switches processor into 32-bit mode.
     ljmp $PROT_MODE_CSEG, $protcseg
 
-<span class="hljs-string">.code32</span>                                             # Assemble for <span class="hljs-number">32</span>-bit mode
-<span class="hljs-symbol">protcseg:</span>
-    # Set <span class="hljs-meta">up</span> the protected-mode data <span class="hljs-meta">segment</span> registers
-    movw $PROT_MODE_DSEG, %ax                       # Our data <span class="hljs-meta">segment</span> selector
-    movw %ax, %ds                                   # -&gt; <span class="hljs-built_in">DS</span>: Data <span class="hljs-meta">Segment</span>
-    movw %ax, %es                                   # -&gt; <span class="hljs-built_in">ES</span>: Extra <span class="hljs-meta">Segment</span>
-    movw %ax, %fs                                   # -&gt; <span class="hljs-built_in">FS</span>
-    movw %ax, %gs                                   # -&gt; <span class="hljs-built_in">GS</span>
-    movw %ax, %ss                                   # -&gt; <span class="hljs-built_in">SS</span>: Stack <span class="hljs-meta">Segment</span>
+.code32                                             # Assemble for 32-bit mode
+protcseg:
+    # Set up the protected-mode data segment registers
+    movw $PROT_MODE_DSEG, %ax                       # Our data segment selector
+    movw %ax, %ds                                   # -&gt; DS: Data Segment
+    movw %ax, %es                                   # -&gt; ES: Extra Segment
+    movw %ax, %fs                                   # -&gt; FS
+    movw %ax, %gs                                   # -&gt; GS
+    movw %ax, %ss                                   # -&gt; SS: Stack Segment
 
-    # Set <span class="hljs-meta">up</span> the stack pointer <span class="hljs-keyword">and</span> <span class="hljs-keyword">call</span> <span class="hljs-keyword">into</span> C. The stack region is from <span class="hljs-number">0</span>--start(<span class="hljs-number">0x7c00</span>)
-    movl <span class="hljs-number">$0</span>x0, %ebp
+    # Set up the stack pointer and call into C. The stack region is from 0--start(0x7c00)
+    movl $0x0, %ebp
     movl $start, %esp
-    <span class="hljs-keyword">call</span> bootmain
+    call bootmain
 
-    # If bootmain returns (it shouldn<span class="hljs-string">&apos;t), loop.
+    # If bootmain returns (it shouldn&apos;t), loop.
 spin:
     jmp spin
 
@@ -643,7 +584,7 @@ gdt:
 gdtdesc:
     .word 0x17                                      # sizeof(gdt) - 1
     .long gdt                                       # address gdt
-</span></code></pre>
+</code></pre>
 <p><div id="page-footer" class="localized-footer"><hr><p><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css"></p>
 <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
 <div id="gitalk-container" style="margin: 5%"></div>
@@ -736,7 +677,7 @@ gdtdesc:
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"bootasm","level":"1.1.1.1.1","depth":4,"next":{"title":"bootmain","level":"1.1.1.1.2","depth":4,"path":"lab/lab1/boot/bootmain.md","ref":"lab/lab1/boot/bootmain.md","articles":[]},"previous":{"title":"boot","level":"1.1.1.1","depth":3,"path":"lab/lab1/boot/README.md","ref":"lab/lab1/boot/README.md","articles":[{"title":"bootasm","level":"1.1.1.1.1","depth":4,"path":"lab/lab1/boot/bootasm.md","ref":"lab/lab1/boot/bootasm.md","articles":[]},{"title":"bootmain","level":"1.1.1.1.2","depth":4,"path":"lab/lab1/boot/bootmain.md","ref":"lab/lab1/boot/bootmain.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["chapter-fold","code","search-pro","github","localized-footer","ancre-navigation","-sharing"],"pluginsConfig":{"chapter-fold":{},"github":{"url":"https://oscourse-tsinghua.github.io/ucore-analysis"},"search-pro":{},"search":{},"localized-footer":{"filename":"gitbook/comment.html","hline":"true"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ancre-navigation":{"associatedWithSummary":true,"float":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showLevel":true},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"gitbook/website.css"}},"file":{"path":"lab/lab1/boot/bootasm.md","mtime":"2019-10-29T02:14:31.827Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-10-29T02:43:28.696Z"},"basePath":"../../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"bootasm","level":"1.1.1.1.1","depth":4,"next":{"title":"bootmain","level":"1.1.1.1.2","depth":4,"path":"lab/lab1/boot/bootmain.md","ref":"lab/lab1/boot/bootmain.md","articles":[]},"previous":{"title":"boot","level":"1.1.1.1","depth":3,"path":"lab/lab1/boot/README.md","ref":"lab/lab1/boot/README.md","articles":[{"title":"bootasm","level":"1.1.1.1.1","depth":4,"path":"lab/lab1/boot/bootasm.md","ref":"lab/lab1/boot/bootasm.md","articles":[]},{"title":"bootmain","level":"1.1.1.1.2","depth":4,"path":"lab/lab1/boot/bootmain.md","ref":"lab/lab1/boot/bootmain.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["chapter-fold","code","search-pro","github","localized-footer","ancre-navigation","-sharing"],"pluginsConfig":{"chapter-fold":{},"github":{"url":"https://oscourse-tsinghua.github.io/ucore-analysis"},"search-pro":{},"search":{},"localized-footer":{"filename":"gitbook/comment.html","hline":"true"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ancre-navigation":{"associatedWithSummary":true,"float":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showLevel":true},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"gitbook/website.css"}},"file":{"path":"lab/lab1/boot/bootasm.md","mtime":"2019-10-29T08:19:56.720Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-10-29T08:25:57.556Z"},"basePath":"../../..","book":{"language":""}});
         });
     </script>
 </div>

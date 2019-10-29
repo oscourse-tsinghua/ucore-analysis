@@ -424,12 +424,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2" data-path="../../../../1. 编写文档.html">
+        <li class="chapter " data-level="1.2" data-path="../../../../how_to_edit_this_doc.html">
             
-                <a href="../../../../1. 编写文档.html">
+                <a href="../../../../how_to_edit_this_doc.html">
             
                     
-                    1. 编写文档
+                    附录1：如何编辑该文档
             
                 </a>
             
@@ -437,70 +437,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3" data-path="../../../../2. 本地浏览.html">
+        <li class="chapter " data-level="1.3" data-path="../../../../test_for_html_support.html">
             
-                <a href="../../../../2. 本地浏览.html">
-            
-                    
-                    2. 本地浏览
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4" data-path="../../../../3. 添加插件.html">
-            
-                <a href="../../../../3. 添加插件.html">
+                <a href="../../../../test_for_html_support.html">
             
                     
-                    3. 添加插件
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.4.1" data-path="../../../../3.1. 参考配置.html">
-            
-                <a href="../../../../3.1. 参考配置.html">
-            
-                    
-                    3.1. 参考配置
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4.2" data-path="../../../../3.2. 评论区.html">
-            
-                <a href="../../../../3.2. 评论区.html">
-            
-                    
-                    3.2. 评论区
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5" data-path="../../../../4. 部署网页.html">
-            
-                <a href="../../../../4. 部署网页.html">
-            
-                    
-                    4. 部署网页
+                    测试：gitbook中markdown对html的支持
             
                 </a>
             
@@ -556,44 +498,44 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <pre><code>#include &lt;defs.h&gt;
-#include &lt;mmu.h&gt;
-#include &lt;memlayout.h&gt;
-#include &lt;clock.h&gt;
-#include &lt;trap.h&gt;
-#include &lt;x86.h&gt;
-#include &lt;stdio.h&gt;
-#include &lt;assert.h&gt;
-#include &lt;console.h&gt;
-#include &lt;kdebug.h&gt;
+                                <pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;defs.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;mmu.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;memlayout.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;clock.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;trap.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;x86.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;assert.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;console.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;kdebug.h&gt;</span></span>
 
-#define TICK_NUM 100
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> TICK_NUM 100</span>
 
-static void print_ticks() {
-    cprintf(&quot;%d ticks\n&quot;,TICK_NUM);
-#ifdef DEBUG_GRADE
-    cprintf(&quot;End of Test.\n&quot;);
-    panic(&quot;EOT: kernel seems ok.&quot;);
-#endif
+<span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">print_ticks</span><span class="hljs-params">()</span> </span>{
+    cprintf(<span class="hljs-string">&quot;%d ticks\n&quot;</span>,TICK_NUM);
+<span class="hljs-meta">#<span class="hljs-meta-keyword">ifdef</span> DEBUG_GRADE</span>
+    cprintf(<span class="hljs-string">&quot;End of Test.\n&quot;</span>);
+    panic(<span class="hljs-string">&quot;EOT: kernel seems ok.&quot;</span>);
+<span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span>
 }
 
-/* *
+<span class="hljs-comment">/* *
  * Interrupt descriptor table:
  *
  * Must be built at run time because shifted function addresses can&apos;t
  * be represented in relocation records.
- * */
-static struct gatedesc idt[256] = {{0}};
+ * */</span>
+<span class="hljs-keyword">static</span> <span class="hljs-keyword">struct</span> gatedesc idt[<span class="hljs-number">256</span>] = {{<span class="hljs-number">0</span>}};
 
-static struct pseudodesc idt_pd = {
-    sizeof(idt) - 1, (uintptr_t)idt
+<span class="hljs-keyword">static</span> <span class="hljs-keyword">struct</span> pseudodesc idt_pd = {
+    <span class="hljs-keyword">sizeof</span>(idt) - <span class="hljs-number">1</span>, (<span class="hljs-keyword">uintptr_t</span>)idt
 };
 
-/* idt_init - initialize IDT to each of the entry points in kern/trap/vectors.S */
-void
-idt_init(void) {
-     /* LAB1 YOUR CODE : STEP 2 */
-     /* (1) Where are the entry addrs of each Interrupt Service Routine (ISR)?
+<span class="hljs-comment">/* idt_init - initialize IDT to each of the entry points in kern/trap/vectors.S */</span>
+<span class="hljs-function"><span class="hljs-keyword">void</span>
+<span class="hljs-title">idt_init</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span> </span>{
+     <span class="hljs-comment">/* LAB1 YOUR CODE : STEP 2 */</span>
+     <span class="hljs-comment">/* (1) Where are the entry addrs of each Interrupt Service Routine (ISR)?
       *     All ISR&apos;s entry addrs are stored in __vectors. where is uintptr_t __vectors[] ?
       *     __vectors[] is in kern/trap/vector.S which is produced by tools/vector.c
       *     (try &quot;make&quot; command in lab1, then you will find vector.S in kern/trap DIR)
@@ -603,146 +545,147 @@ idt_init(void) {
       * (3) After setup the contents of IDT, you will let CPU know where is the IDT by using &apos;lidt&apos; instruction.
       *     You don&apos;t know the meaning of this instruction? just google it! and check the libs/x86.h to know more.
       *     Notice: the argument of lidt is idt_pd. try to find it!
-      */
+      */</span>
 }
 
-static const char *
-trapname(int trapno) {
-    static const char * const excnames[] = {
-        &quot;Divide error&quot;,
-        &quot;Debug&quot;,
-        &quot;Non-Maskable Interrupt&quot;,
-        &quot;Breakpoint&quot;,
-        &quot;Overflow&quot;,
-        &quot;BOUND Range Exceeded&quot;,
-        &quot;Invalid Opcode&quot;,
-        &quot;Device Not Available&quot;,
-        &quot;Double Fault&quot;,
-        &quot;Coprocessor Segment Overrun&quot;,
-        &quot;Invalid TSS&quot;,
-        &quot;Segment Not Present&quot;,
-        &quot;Stack Fault&quot;,
-        &quot;General Protection&quot;,
-        &quot;Page Fault&quot;,
-        &quot;(unknown trap)&quot;,
-        &quot;x87 FPU Floating-Point Error&quot;,
-        &quot;Alignment Check&quot;,
-        &quot;Machine-Check&quot;,
-        &quot;SIMD Floating-Point Exception&quot;
+<span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> *
+<span class="hljs-title">trapname</span><span class="hljs-params">(<span class="hljs-keyword">int</span> trapno)</span> </span>{
+    <span class="hljs-keyword">static</span> <span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> * <span class="hljs-keyword">const</span> excnames[] = {
+        <span class="hljs-string">&quot;Divide error&quot;</span>,
+        <span class="hljs-string">&quot;Debug&quot;</span>,
+        <span class="hljs-string">&quot;Non-Maskable Interrupt&quot;</span>,
+        <span class="hljs-string">&quot;Breakpoint&quot;</span>,
+        <span class="hljs-string">&quot;Overflow&quot;</span>,
+        <span class="hljs-string">&quot;BOUND Range Exceeded&quot;</span>,
+        <span class="hljs-string">&quot;Invalid Opcode&quot;</span>,
+        <span class="hljs-string">&quot;Device Not Available&quot;</span>,
+        <span class="hljs-string">&quot;Double Fault&quot;</span>,
+        <span class="hljs-string">&quot;Coprocessor Segment Overrun&quot;</span>,
+        <span class="hljs-string">&quot;Invalid TSS&quot;</span>,
+        <span class="hljs-string">&quot;Segment Not Present&quot;</span>,
+        <span class="hljs-string">&quot;Stack Fault&quot;</span>,
+        <span class="hljs-string">&quot;General Protection&quot;</span>,
+        <span class="hljs-string">&quot;Page Fault&quot;</span>,
+        <span class="hljs-string">&quot;(unknown trap)&quot;</span>,
+        <span class="hljs-string">&quot;x87 FPU Floating-Point Error&quot;</span>,
+        <span class="hljs-string">&quot;Alignment Check&quot;</span>,
+        <span class="hljs-string">&quot;Machine-Check&quot;</span>,
+        <span class="hljs-string">&quot;SIMD Floating-Point Exception&quot;</span>
     };
 
-    if (trapno &lt; sizeof(excnames)/sizeof(const char * const)) {
-        return excnames[trapno];
+    <span class="hljs-keyword">if</span> (trapno &lt; <span class="hljs-keyword">sizeof</span>(excnames)/<span class="hljs-keyword">sizeof</span>(<span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> * <span class="hljs-keyword">const</span>)) {
+        <span class="hljs-keyword">return</span> excnames[trapno];
     }
-    if (trapno &gt;= IRQ_OFFSET &amp;&amp; trapno &lt; IRQ_OFFSET + 16) {
-        return &quot;Hardware Interrupt&quot;;
+    <span class="hljs-keyword">if</span> (trapno &gt;= IRQ_OFFSET &amp;&amp; trapno &lt; IRQ_OFFSET + <span class="hljs-number">16</span>) {
+        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;Hardware Interrupt&quot;</span>;
     }
-    return &quot;(unknown trap)&quot;;
+    <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;(unknown trap)&quot;</span>;
 }
 
-/* trap_in_kernel - test if trap happened in kernel */
-bool
-trap_in_kernel(struct trapframe *tf) {
-    return (tf-&gt;tf_cs == (uint16_t)KERNEL_CS);
+<span class="hljs-comment">/* trap_in_kernel - test if trap happened in kernel */</span>
+<span class="hljs-function"><span class="hljs-keyword">bool</span>
+<span class="hljs-title">trap_in_kernel</span><span class="hljs-params">(<span class="hljs-keyword">struct</span> trapframe *tf)</span> </span>{
+    <span class="hljs-keyword">return</span> (tf-&gt;tf_cs == (<span class="hljs-keyword">uint16_t</span>)KERNEL_CS);
 }
 
-static const char *IA32flags[] = {
-    &quot;CF&quot;, NULL, &quot;PF&quot;, NULL, &quot;AF&quot;, NULL, &quot;ZF&quot;, &quot;SF&quot;,
-    &quot;TF&quot;, &quot;IF&quot;, &quot;DF&quot;, &quot;OF&quot;, NULL, NULL, &quot;NT&quot;, NULL,
-    &quot;RF&quot;, &quot;VM&quot;, &quot;AC&quot;, &quot;VIF&quot;, &quot;VIP&quot;, &quot;ID&quot;, NULL, NULL,
+<span class="hljs-keyword">static</span> <span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> *IA32flags[] = {
+    <span class="hljs-string">&quot;CF&quot;</span>, <span class="hljs-literal">NULL</span>, <span class="hljs-string">&quot;PF&quot;</span>, <span class="hljs-literal">NULL</span>, <span class="hljs-string">&quot;AF&quot;</span>, <span class="hljs-literal">NULL</span>, <span class="hljs-string">&quot;ZF&quot;</span>, <span class="hljs-string">&quot;SF&quot;</span>,
+    <span class="hljs-string">&quot;TF&quot;</span>, <span class="hljs-string">&quot;IF&quot;</span>, <span class="hljs-string">&quot;DF&quot;</span>, <span class="hljs-string">&quot;OF&quot;</span>, <span class="hljs-literal">NULL</span>, <span class="hljs-literal">NULL</span>, <span class="hljs-string">&quot;NT&quot;</span>, <span class="hljs-literal">NULL</span>,
+    <span class="hljs-string">&quot;RF&quot;</span>, <span class="hljs-string">&quot;VM&quot;</span>, <span class="hljs-string">&quot;AC&quot;</span>, <span class="hljs-string">&quot;VIF&quot;</span>, <span class="hljs-string">&quot;VIP&quot;</span>, <span class="hljs-string">&quot;ID&quot;</span>, <span class="hljs-literal">NULL</span>, <span class="hljs-literal">NULL</span>,
 };
 
-void
-print_trapframe(struct trapframe *tf) {
-    cprintf(&quot;trapframe at %p\n&quot;, tf);
+<span class="hljs-function"><span class="hljs-keyword">void</span>
+<span class="hljs-title">print_trapframe</span><span class="hljs-params">(<span class="hljs-keyword">struct</span> trapframe *tf)</span> </span>{
+    cprintf(<span class="hljs-string">&quot;trapframe at %p\n&quot;</span>, tf);
     print_regs(&amp;tf-&gt;tf_regs);
-    cprintf(&quot;  ds   0x----%04x\n&quot;, tf-&gt;tf_ds);
-    cprintf(&quot;  es   0x----%04x\n&quot;, tf-&gt;tf_es);
-    cprintf(&quot;  fs   0x----%04x\n&quot;, tf-&gt;tf_fs);
-    cprintf(&quot;  gs   0x----%04x\n&quot;, tf-&gt;tf_gs);
-    cprintf(&quot;  trap 0x%08x %s\n&quot;, tf-&gt;tf_trapno, trapname(tf-&gt;tf_trapno));
-    cprintf(&quot;  err  0x%08x\n&quot;, tf-&gt;tf_err);
-    cprintf(&quot;  eip  0x%08x\n&quot;, tf-&gt;tf_eip);
-    cprintf(&quot;  cs   0x----%04x\n&quot;, tf-&gt;tf_cs);
-    cprintf(&quot;  flag 0x%08x &quot;, tf-&gt;tf_eflags);
+    cprintf(<span class="hljs-string">&quot;  ds   0x----%04x\n&quot;</span>, tf-&gt;tf_ds);
+    cprintf(<span class="hljs-string">&quot;  es   0x----%04x\n&quot;</span>, tf-&gt;tf_es);
+    cprintf(<span class="hljs-string">&quot;  fs   0x----%04x\n&quot;</span>, tf-&gt;tf_fs);
+    cprintf(<span class="hljs-string">&quot;  gs   0x----%04x\n&quot;</span>, tf-&gt;tf_gs);
+    cprintf(<span class="hljs-string">&quot;  trap 0x%08x %s\n&quot;</span>, tf-&gt;tf_trapno, trapname(tf-&gt;tf_trapno));
+    cprintf(<span class="hljs-string">&quot;  err  0x%08x\n&quot;</span>, tf-&gt;tf_err);
+    cprintf(<span class="hljs-string">&quot;  eip  0x%08x\n&quot;</span>, tf-&gt;tf_eip);
+    cprintf(<span class="hljs-string">&quot;  cs   0x----%04x\n&quot;</span>, tf-&gt;tf_cs);
+    cprintf(<span class="hljs-string">&quot;  flag 0x%08x &quot;</span>, tf-&gt;tf_eflags);
 
-    int i, j;
-    for (i = 0, j = 1; i &lt; sizeof(IA32flags) / sizeof(IA32flags[0]); i ++, j &lt;&lt;= 1) {
-        if ((tf-&gt;tf_eflags &amp; j) &amp;&amp; IA32flags[i] != NULL) {
-            cprintf(&quot;%s,&quot;, IA32flags[i]);
+    <span class="hljs-keyword">int</span> i, j;
+    <span class="hljs-keyword">for</span> (i = <span class="hljs-number">0</span>, j = <span class="hljs-number">1</span>; i &lt; <span class="hljs-keyword">sizeof</span>(IA32flags) / <span class="hljs-keyword">sizeof</span>(IA32flags[<span class="hljs-number">0</span>]); i ++, j &lt;&lt;= <span class="hljs-number">1</span>) {
+        <span class="hljs-keyword">if</span> ((tf-&gt;tf_eflags &amp; j) &amp;&amp; IA32flags[i] != <span class="hljs-literal">NULL</span>) {
+            cprintf(<span class="hljs-string">&quot;%s,&quot;</span>, IA32flags[i]);
         }
     }
-    cprintf(&quot;IOPL=%d\n&quot;, (tf-&gt;tf_eflags &amp; FL_IOPL_MASK) &gt;&gt; 12);
+    cprintf(<span class="hljs-string">&quot;IOPL=%d\n&quot;</span>, (tf-&gt;tf_eflags &amp; FL_IOPL_MASK) &gt;&gt; <span class="hljs-number">12</span>);
 
-    if (!trap_in_kernel(tf)) {
-        cprintf(&quot;  esp  0x%08x\n&quot;, tf-&gt;tf_esp);
-        cprintf(&quot;  ss   0x----%04x\n&quot;, tf-&gt;tf_ss);
+    <span class="hljs-keyword">if</span> (!trap_in_kernel(tf)) {
+        cprintf(<span class="hljs-string">&quot;  esp  0x%08x\n&quot;</span>, tf-&gt;tf_esp);
+        cprintf(<span class="hljs-string">&quot;  ss   0x----%04x\n&quot;</span>, tf-&gt;tf_ss);
     }
 }
 
-void
-print_regs(struct pushregs *regs) {
-    cprintf(&quot;  edi  0x%08x\n&quot;, regs-&gt;reg_edi);
-    cprintf(&quot;  esi  0x%08x\n&quot;, regs-&gt;reg_esi);
-    cprintf(&quot;  ebp  0x%08x\n&quot;, regs-&gt;reg_ebp);
-    cprintf(&quot;  oesp 0x%08x\n&quot;, regs-&gt;reg_oesp);
-    cprintf(&quot;  ebx  0x%08x\n&quot;, regs-&gt;reg_ebx);
-    cprintf(&quot;  edx  0x%08x\n&quot;, regs-&gt;reg_edx);
-    cprintf(&quot;  ecx  0x%08x\n&quot;, regs-&gt;reg_ecx);
-    cprintf(&quot;  eax  0x%08x\n&quot;, regs-&gt;reg_eax);
+<span class="hljs-function"><span class="hljs-keyword">void</span>
+<span class="hljs-title">print_regs</span><span class="hljs-params">(<span class="hljs-keyword">struct</span> pushregs *regs)</span> </span>{
+    cprintf(<span class="hljs-string">&quot;  edi  0x%08x\n&quot;</span>, regs-&gt;reg_edi);
+    cprintf(<span class="hljs-string">&quot;  esi  0x%08x\n&quot;</span>, regs-&gt;reg_esi);
+    cprintf(<span class="hljs-string">&quot;  ebp  0x%08x\n&quot;</span>, regs-&gt;reg_ebp);
+    cprintf(<span class="hljs-string">&quot;  oesp 0x%08x\n&quot;</span>, regs-&gt;reg_oesp);
+    cprintf(<span class="hljs-string">&quot;  ebx  0x%08x\n&quot;</span>, regs-&gt;reg_ebx);
+    cprintf(<span class="hljs-string">&quot;  edx  0x%08x\n&quot;</span>, regs-&gt;reg_edx);
+    cprintf(<span class="hljs-string">&quot;  ecx  0x%08x\n&quot;</span>, regs-&gt;reg_ecx);
+    cprintf(<span class="hljs-string">&quot;  eax  0x%08x\n&quot;</span>, regs-&gt;reg_eax);
 }
 
-/* trap_dispatch - dispatch based on what type of trap occurred */
-static void
-trap_dispatch(struct trapframe *tf) {
-    char c;
+<span class="hljs-comment">/* trap_dispatch - dispatch based on what type of trap occurred */</span>
+<span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span>
+<span class="hljs-title">trap_dispatch</span><span class="hljs-params">(<span class="hljs-keyword">struct</span> trapframe *tf)</span> </span>{
+    <span class="hljs-keyword">char</span> c;
 
-    switch (tf-&gt;tf_trapno) {
-    case IRQ_OFFSET + IRQ_TIMER:
-        /* LAB1 YOUR CODE : STEP 3 */
-        /* handle the timer interrupt */
-        /* (1) After a timer interrupt, you should record this event using a global variable (increase it), such as ticks in kern/driver/clock.c
+    <span class="hljs-keyword">switch</span> (tf-&gt;tf_trapno) {
+    <span class="hljs-keyword">case</span> IRQ_OFFSET + IRQ_TIMER:
+        <span class="hljs-comment">/* LAB1 YOUR CODE : STEP 3 */</span>
+        <span class="hljs-comment">/* handle the timer interrupt */</span>
+        <span class="hljs-comment">/* (1) After a timer interrupt, you should record this event using a global variable (increase it), such as ticks in kern/driver/clock.c
          * (2) Every TICK_NUM cycle, you can print some info using a funciton, such as print_ticks().
          * (3) Too Simple? Yes, I think so!
-         */
-        break;
-    case IRQ_OFFSET + IRQ_COM1:
+         */</span>
+        <span class="hljs-keyword">break</span>;
+    <span class="hljs-keyword">case</span> IRQ_OFFSET + IRQ_COM1:
         c = cons_getc();
-        cprintf(&quot;serial [%03d] %c\n&quot;, c, c);
-        break;
-    case IRQ_OFFSET + IRQ_KBD:
+        cprintf(<span class="hljs-string">&quot;serial [%03d] %c\n&quot;</span>, c, c);
+        <span class="hljs-keyword">break</span>;
+    <span class="hljs-keyword">case</span> IRQ_OFFSET + IRQ_KBD:
         c = cons_getc();
-        cprintf(&quot;kbd [%03d] %c\n&quot;, c, c);
-        break;
-    //LAB1 CHALLENGE 1 : YOUR CODE you should modify below codes.
-    case T_SWITCH_TOU:
-    case T_SWITCH_TOK:
-        panic(&quot;T_SWITCH_** ??\n&quot;);
-        break;
-    case IRQ_OFFSET + IRQ_IDE1:
-    case IRQ_OFFSET + IRQ_IDE2:
-        /* do nothing */
-        break;
-    default:
-        // in kernel, it must be a mistake
-        if ((tf-&gt;tf_cs &amp; 3) == 0) {
+        cprintf(<span class="hljs-string">&quot;kbd [%03d] %c\n&quot;</span>, c, c);
+        <span class="hljs-keyword">break</span>;
+    <span class="hljs-comment">//LAB1 CHALLENGE 1 : YOUR CODE you should modify below codes.</span>
+    <span class="hljs-keyword">case</span> T_SWITCH_TOU:
+    <span class="hljs-keyword">case</span> T_SWITCH_TOK:
+        panic(<span class="hljs-string">&quot;T_SWITCH_** ??\n&quot;</span>);
+        <span class="hljs-keyword">break</span>;
+    <span class="hljs-keyword">case</span> IRQ_OFFSET + IRQ_IDE1:
+    <span class="hljs-keyword">case</span> IRQ_OFFSET + IRQ_IDE2:
+        <span class="hljs-comment">/* do nothing */</span>
+        <span class="hljs-keyword">break</span>;
+    <span class="hljs-keyword">default</span>:
+        <span class="hljs-comment">// in kernel, it must be a mistake</span>
+        <span class="hljs-keyword">if</span> ((tf-&gt;tf_cs &amp; <span class="hljs-number">3</span>) == <span class="hljs-number">0</span>) {
             print_trapframe(tf);
-            panic(&quot;unexpected trap in kernel.\n&quot;);
+            panic(<span class="hljs-string">&quot;unexpected trap in kernel.\n&quot;</span>);
         }
     }
 }
 
-/* *
+<span class="hljs-comment">/* *
  * trap - handles or dispatches an exception/interrupt. if and when trap() returns,
  * the code in kern/trap/trapentry.S restores the old CPU state saved in the
  * trapframe and then uses the iret instruction to return from the exception.
- * */
-void
-trap(struct trapframe *tf) {
-    // dispatch based on what type of trap occurred
+ * */</span>
+<span class="hljs-function"><span class="hljs-keyword">void</span>
+<span class="hljs-title">trap</span><span class="hljs-params">(<span class="hljs-keyword">struct</span> trapframe *tf)</span> </span>{
+    <span class="hljs-comment">// dispatch based on what type of trap occurred</span>
     trap_dispatch(tf);
 }
-</code></pre><p><div id="page-footer" class="localized-footer"><hr><p><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css"></p>
+</code></pre>
+<p><div id="page-footer" class="localized-footer"><hr><p><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css"></p>
 <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
 <div id="gitalk-container" style="margin: 5%"></div>
 <script>
@@ -834,7 +777,7 @@ trap(struct trapframe *tf) {
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"trap","level":"1.1.1.2.5.1","depth":5,"next":{"title":"trapentry","level":"1.1.1.2.5.2","depth":5,"path":"lab/lab1/kern/trap/trapentry.md","ref":"lab/lab1/kern/trap/trapentry.md","articles":[]},"previous":{"title":"trap","level":"1.1.1.2.5","depth":4,"path":"lab/lab1/kern/trap/README.md","ref":"lab/lab1/kern/trap/README.md","articles":[{"title":"trap","level":"1.1.1.2.5.1","depth":5,"path":"lab/lab1/kern/trap/trap.md","ref":"lab/lab1/kern/trap/trap.md","articles":[]},{"title":"trapentry","level":"1.1.1.2.5.2","depth":5,"path":"lab/lab1/kern/trap/trapentry.md","ref":"lab/lab1/kern/trap/trapentry.md","articles":[]},{"title":"vectors","level":"1.1.1.2.5.3","depth":5,"path":"lab/lab1/kern/trap/vectors.md","ref":"lab/lab1/kern/trap/vectors.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["chapter-fold","code","search-pro","github","localized-footer","ancre-navigation","-sharing"],"pluginsConfig":{"chapter-fold":{},"github":{"url":"https://oscourse-tsinghua.github.io/ucore-analysis"},"search-pro":{},"search":{},"localized-footer":{"filename":"gitbook/comment.html","hline":"true"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ancre-navigation":{"associatedWithSummary":true,"float":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showLevel":true},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"gitbook/website.css"}},"file":{"path":"lab/lab1/kern/trap/trap.md","mtime":"2019-10-28T08:12:41.482Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-10-29T02:43:28.696Z"},"basePath":"../../../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"trap","level":"1.1.1.2.5.1","depth":5,"next":{"title":"trapentry","level":"1.1.1.2.5.2","depth":5,"path":"lab/lab1/kern/trap/trapentry.md","ref":"lab/lab1/kern/trap/trapentry.md","articles":[]},"previous":{"title":"trap","level":"1.1.1.2.5","depth":4,"path":"lab/lab1/kern/trap/README.md","ref":"lab/lab1/kern/trap/README.md","articles":[{"title":"trap","level":"1.1.1.2.5.1","depth":5,"path":"lab/lab1/kern/trap/trap.md","ref":"lab/lab1/kern/trap/trap.md","articles":[]},{"title":"trapentry","level":"1.1.1.2.5.2","depth":5,"path":"lab/lab1/kern/trap/trapentry.md","ref":"lab/lab1/kern/trap/trapentry.md","articles":[]},{"title":"vectors","level":"1.1.1.2.5.3","depth":5,"path":"lab/lab1/kern/trap/vectors.md","ref":"lab/lab1/kern/trap/vectors.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["chapter-fold","code","search-pro","github","localized-footer","ancre-navigation","-sharing"],"pluginsConfig":{"chapter-fold":{},"github":{"url":"https://oscourse-tsinghua.github.io/ucore-analysis"},"search-pro":{},"search":{},"localized-footer":{"filename":"gitbook/comment.html","hline":"true"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ancre-navigation":{"associatedWithSummary":true,"float":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showLevel":true},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"gitbook/website.css"}},"file":{"path":"lab/lab1/kern/trap/trap.md","mtime":"2019-10-29T08:23:12.723Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-10-29T08:25:57.556Z"},"basePath":"../../../..","book":{"language":""}});
         });
     </script>
 </div>
