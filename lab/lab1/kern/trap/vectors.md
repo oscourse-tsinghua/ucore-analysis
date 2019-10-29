@@ -1,4 +1,4 @@
-```
+```x86asm
 # handler
 .text
 .globl __alltraps

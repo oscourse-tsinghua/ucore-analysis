@@ -1,3 +1,4 @@
+```cpp
 #include <stdio.h>
 
 #define BUFSIZE    1024
@@ -47,4 +48,4 @@ readline(const char *prompt) {
         }
     }
 }
-
+```

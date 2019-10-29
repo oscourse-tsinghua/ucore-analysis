@@ -1,5 +1,5 @@
 # 编写文档
-```
+```x86asm
 #include <asm.h>
 
 # Start the CPU: switch to 32-bit protected mode, jump into C.
