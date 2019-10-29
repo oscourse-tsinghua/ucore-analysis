@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>bootmain · GitBook</title>
+        <title>boot · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -65,10 +65,10 @@
     <link rel="shortcut icon" href="../../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="../kern/" />
+    <link rel="next" href="bootasm.html" />
     
     
-    <link rel="prev" href="bootasm.html" />
+    <link rel="prev" href="../" />
     
 
     </head>
@@ -125,7 +125,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.1.1.1" data-path="./">
+        <li class="chapter active" data-level="1.1.1.1" data-path="./">
             
                 <a href="./">
             
@@ -152,7 +152,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.1.1.1.2" data-path="bootmain.html">
+        <li class="chapter " data-level="1.1.1.1.2" data-path="bootmain.html">
             
                 <a href="bootmain.html">
             
@@ -538,7 +538,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../../.." >bootmain</a>
+        <a href="../../.." >boot</a>
     </h1>
 </div>
 
@@ -556,122 +556,7 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <pre><code class="lang-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;defs.h&gt;</span></span>
-<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;x86.h&gt;</span></span>
-<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;elf.h&gt;</span></span>
-
-<span class="hljs-comment">/* *********************************************************************
- * This a dirt simple boot loader, whose sole job is to boot
- * an ELF kernel image from the first IDE hard disk.
- *
- * DISK LAYOUT
- *  * This program(bootasm.S and bootmain.c) is the bootloader.
- *    It should be stored in the first sector of the disk.
- *
- *  * The 2nd sector onward holds the kernel image.
- *
- *  * The kernel image must be in ELF format.
- *
- * BOOT UP STEPS
- *  * when the CPU boots it loads the BIOS into memory and executes it
- *
- *  * the BIOS intializes devices, sets of the interrupt routines, and
- *    reads the first sector of the boot device(e.g., hard-drive)
- *    into memory and jumps to it.
- *
- *  * Assuming this boot loader is stored in the first sector of the
- *    hard-drive, this code takes over...
- *
- *  * control starts in bootasm.S -- which sets up protected mode,
- *    and a stack so C code then run, then calls bootmain()
- *
- *  * bootmain() in this file takes over, reads in the kernel and jumps to it.
- * */</span>
-
-<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> SECTSIZE        512</span>
-<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> ELFHDR          ((struct elfhdr *)0x10000)      <span class="hljs-comment">// scratch space</span></span>
-
-<span class="hljs-comment">/* waitdisk - wait for disk ready */</span>
-<span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span>
-<span class="hljs-title">waitdisk</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span> </span>{
-    <span class="hljs-keyword">while</span> ((inb(<span class="hljs-number">0x1F7</span>) &amp; <span class="hljs-number">0xC0</span>) != <span class="hljs-number">0x40</span>)
-        <span class="hljs-comment">/* do nothing */</span>;
-}
-
-<span class="hljs-comment">/* readsect - read a single sector at @secno into @dst */</span>
-<span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span>
-<span class="hljs-title">readsect</span><span class="hljs-params">(<span class="hljs-keyword">void</span> *dst, uint32_t secno)</span> </span>{
-    <span class="hljs-comment">// wait for disk to be ready</span>
-    waitdisk();
-
-    outb(<span class="hljs-number">0x1F2</span>, <span class="hljs-number">1</span>);                         <span class="hljs-comment">// count = 1</span>
-    outb(<span class="hljs-number">0x1F3</span>, secno &amp; <span class="hljs-number">0xFF</span>);
-    outb(<span class="hljs-number">0x1F4</span>, (secno &gt;&gt; <span class="hljs-number">8</span>) &amp; <span class="hljs-number">0xFF</span>);
-    outb(<span class="hljs-number">0x1F5</span>, (secno &gt;&gt; <span class="hljs-number">16</span>) &amp; <span class="hljs-number">0xFF</span>);
-    outb(<span class="hljs-number">0x1F6</span>, ((secno &gt;&gt; <span class="hljs-number">24</span>) &amp; <span class="hljs-number">0xF</span>) | <span class="hljs-number">0xE0</span>);
-    outb(<span class="hljs-number">0x1F7</span>, <span class="hljs-number">0x20</span>);                      <span class="hljs-comment">// cmd 0x20 - read sectors</span>
-
-    <span class="hljs-comment">// wait for disk to be ready</span>
-    waitdisk();
-
-    <span class="hljs-comment">// read a sector</span>
-    insl(<span class="hljs-number">0x1F0</span>, dst, SECTSIZE / <span class="hljs-number">4</span>);
-}
-
-<span class="hljs-comment">/* *
- * readseg - read @count bytes at @offset from kernel into virtual address @va,
- * might copy more than asked.
- * */</span>
-<span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span>
-<span class="hljs-title">readseg</span><span class="hljs-params">(uintptr_t va, uint32_t count, uint32_t offset)</span> </span>{
-    <span class="hljs-keyword">uintptr_t</span> end_va = va + count;
-
-    <span class="hljs-comment">// round down to sector boundary</span>
-    va -= offset % SECTSIZE;
-
-    <span class="hljs-comment">// translate from bytes to sectors; kernel starts at sector 1</span>
-    <span class="hljs-keyword">uint32_t</span> secno = (offset / SECTSIZE) + <span class="hljs-number">1</span>;
-
-    <span class="hljs-comment">// If this is too slow, we could read lots of sectors at a time.</span>
-    <span class="hljs-comment">// We&apos;d write more to memory than asked, but it doesn&apos;t matter --</span>
-    <span class="hljs-comment">// we load in increasing order.</span>
-    <span class="hljs-keyword">for</span> (; va &lt; end_va; va += SECTSIZE, secno ++) {
-        readsect((<span class="hljs-keyword">void</span> *)va, secno);
-    }
-}
-
-<span class="hljs-comment">/* bootmain - the entry of bootloader */</span>
-<span class="hljs-function"><span class="hljs-keyword">void</span>
-<span class="hljs-title">bootmain</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span> </span>{
-    <span class="hljs-comment">// read the 1st page off disk</span>
-    readseg((<span class="hljs-keyword">uintptr_t</span>)ELFHDR, SECTSIZE * <span class="hljs-number">8</span>, <span class="hljs-number">0</span>);
-
-    <span class="hljs-comment">// is this a valid ELF?</span>
-    <span class="hljs-keyword">if</span> (ELFHDR-&gt;e_magic != ELF_MAGIC) {
-        <span class="hljs-keyword">goto</span> bad;
-    }
-
-    <span class="hljs-keyword">struct</span> proghdr *ph, *eph;
-
-    <span class="hljs-comment">// load each program segment (ignores ph flags)</span>
-    ph = (<span class="hljs-keyword">struct</span> proghdr *)((<span class="hljs-keyword">uintptr_t</span>)ELFHDR + ELFHDR-&gt;e_phoff);
-    eph = ph + ELFHDR-&gt;e_phnum;
-    <span class="hljs-keyword">for</span> (; ph &lt; eph; ph ++) {
-        readseg(ph-&gt;p_va &amp; <span class="hljs-number">0xFFFFFF</span>, ph-&gt;p_memsz, ph-&gt;p_offset);
-    }
-
-    <span class="hljs-comment">// call the entry point from the ELF header</span>
-    <span class="hljs-comment">// note: does not return</span>
-    ((<span class="hljs-keyword">void</span> (*)(<span class="hljs-keyword">void</span>))(ELFHDR-&gt;e_entry &amp; <span class="hljs-number">0xFFFFFF</span>))();
-
-bad:
-    outw(<span class="hljs-number">0x8A00</span>, <span class="hljs-number">0x8A00</span>);
-    outw(<span class="hljs-number">0x8A00</span>, <span class="hljs-number">0x8E00</span>);
-
-    <span class="hljs-comment">/* do nothing */</span>
-    <span class="hljs-keyword">while</span> (<span class="hljs-number">1</span>);
-}
-</code></pre>
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-anchor"></i><ul><li><span class="title-icon "></span><a href="#boot"><b></b>boot</a></li></ul></div><a href="#boot" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="boot"><a name="boot" class="anchor-navigation-ex-anchor" href="#boot"><i class="fa fa-link" aria-hidden="true"></i></a>boot</h1>
 <p><div id="page-footer" class="localized-footer"><hr><p><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css"></p>
 <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
 <div id="gitalk-container" style="margin: 5%"></div>
@@ -748,12 +633,12 @@ bad:
 
             
                 
-                <a href="bootasm.html" class="navigation navigation-prev " aria-label="Previous page: bootasm">
+                <a href="../" class="navigation navigation-prev " aria-label="Previous page: lab1">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="../kern/" class="navigation navigation-next " aria-label="Next page: kern">
+                <a href="bootasm.html" class="navigation navigation-next " aria-label="Next page: bootasm">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -764,7 +649,7 @@ bad:
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"bootmain","level":"1.1.1.1.2","depth":4,"next":{"title":"kern","level":"1.1.1.2","depth":3,"path":"lab/lab1/kern/README.md","ref":"lab/lab1/kern/README.md","articles":[{"title":"debug","level":"1.1.1.2.1","depth":4,"path":"lab/lab1/kern/debug/README.md","ref":"lab/lab1/kern/debug/README.md","articles":[{"title":"kmonitor","level":"1.1.1.2.1.1","depth":5,"path":"lab/lab1/kern/debug/kmonitor.md","ref":"lab/lab1/kern/debug/kmonitor.md","articles":[]},{"title":"panic","level":"1.1.1.2.1.2","depth":5,"path":"lab/lab1/kern/debug/panic.md","ref":"lab/lab1/kern/debug/panic.md","articles":[]}]},{"title":"init","level":"1.1.1.2.2","depth":4,"path":"lab/lab1/kern/init/README.md","ref":"lab/lab1/kern/init/README.md","articles":[{"title":"init","level":"1.1.1.2.2.1","depth":5,"path":"lab/lab1/kern/init/init.md","ref":"lab/lab1/kern/init/init.md","articles":[]}]},{"title":"libs","level":"1.1.1.2.3","depth":4,"path":"lab/lab1/kern/libs/README.md","ref":"lab/lab1/kern/libs/README.md","articles":[{"title":"readline","level":"1.1.1.2.3.1","depth":5,"path":"lab/lab1/kern/libs/readline.md","ref":"lab/lab1/kern/libs/readline.md","articles":[]}]},{"title":"mm","level":"1.1.1.2.4","depth":4,"path":"lab/lab1/kern/mm/README.md","ref":"lab/lab1/kern/mm/README.md","articles":[{"title":"pmm","level":"1.1.1.2.4.1","depth":5,"path":"lab/lab1/kern/mm/pmm.md","ref":"lab/lab1/kern/mm/pmm.md","articles":[]}]},{"title":"trap","level":"1.1.1.2.5","depth":4,"path":"lab/lab1/kern/trap/README.md","ref":"lab/lab1/kern/trap/README.md","articles":[{"title":"trap","level":"1.1.1.2.5.1","depth":5,"path":"lab/lab1/kern/trap/trap.md","ref":"lab/lab1/kern/trap/trap.md","articles":[]},{"title":"trapentry","level":"1.1.1.2.5.2","depth":5,"path":"lab/lab1/kern/trap/trapentry.md","ref":"lab/lab1/kern/trap/trapentry.md","articles":[]},{"title":"vectors","level":"1.1.1.2.5.3","depth":5,"path":"lab/lab1/kern/trap/vectors.md","ref":"lab/lab1/kern/trap/vectors.md","articles":[]}]}]},"previous":{"title":"bootasm","level":"1.1.1.1.1","depth":4,"path":"lab/lab1/boot/bootasm.md","ref":"lab/lab1/boot/bootasm.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["chapter-fold","code","search-pro","github","localized-footer","ancre-navigation","-sharing"],"pluginsConfig":{"chapter-fold":{},"github":{"url":"https://oscourse-tsinghua.github.io/ucore-analysis"},"search-pro":{},"search":{},"localized-footer":{"filename":"gitbook/comment.html","hline":"true"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ancre-navigation":{"associatedWithSummary":true,"float":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showLevel":true},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"gitbook/website.css"}},"file":{"path":"lab/lab1/boot/bootmain.md","mtime":"2019-10-29T02:14:36.563Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-10-29T02:43:28.696Z"},"basePath":"../../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"boot","level":"1.1.1.1","depth":3,"next":{"title":"bootasm","level":"1.1.1.1.1","depth":4,"path":"lab/lab1/boot/bootasm.md","ref":"lab/lab1/boot/bootasm.md","articles":[]},"previous":{"title":"lab1","level":"1.1.1","depth":2,"path":"lab/lab1/README.md","ref":"lab/lab1/README.md","articles":[{"title":"boot","level":"1.1.1.1","depth":3,"path":"lab/lab1/boot/README.md","ref":"lab/lab1/boot/README.md","articles":[{"title":"bootasm","level":"1.1.1.1.1","depth":4,"path":"lab/lab1/boot/bootasm.md","ref":"lab/lab1/boot/bootasm.md","articles":[]},{"title":"bootmain","level":"1.1.1.1.2","depth":4,"path":"lab/lab1/boot/bootmain.md","ref":"lab/lab1/boot/bootmain.md","articles":[]}]},{"title":"kern","level":"1.1.1.2","depth":3,"path":"lab/lab1/kern/README.md","ref":"lab/lab1/kern/README.md","articles":[{"title":"debug","level":"1.1.1.2.1","depth":4,"path":"lab/lab1/kern/debug/README.md","ref":"lab/lab1/kern/debug/README.md","articles":[{"title":"kmonitor","level":"1.1.1.2.1.1","depth":5,"path":"lab/lab1/kern/debug/kmonitor.md","ref":"lab/lab1/kern/debug/kmonitor.md","articles":[]},{"title":"panic","level":"1.1.1.2.1.2","depth":5,"path":"lab/lab1/kern/debug/panic.md","ref":"lab/lab1/kern/debug/panic.md","articles":[]}]},{"title":"init","level":"1.1.1.2.2","depth":4,"path":"lab/lab1/kern/init/README.md","ref":"lab/lab1/kern/init/README.md","articles":[{"title":"init","level":"1.1.1.2.2.1","depth":5,"path":"lab/lab1/kern/init/init.md","ref":"lab/lab1/kern/init/init.md","articles":[]}]},{"title":"libs","level":"1.1.1.2.3","depth":4,"path":"lab/lab1/kern/libs/README.md","ref":"lab/lab1/kern/libs/README.md","articles":[{"title":"readline","level":"1.1.1.2.3.1","depth":5,"path":"lab/lab1/kern/libs/readline.md","ref":"lab/lab1/kern/libs/readline.md","articles":[]}]},{"title":"mm","level":"1.1.1.2.4","depth":4,"path":"lab/lab1/kern/mm/README.md","ref":"lab/lab1/kern/mm/README.md","articles":[{"title":"pmm","level":"1.1.1.2.4.1","depth":5,"path":"lab/lab1/kern/mm/pmm.md","ref":"lab/lab1/kern/mm/pmm.md","articles":[]}]},{"title":"trap","level":"1.1.1.2.5","depth":4,"path":"lab/lab1/kern/trap/README.md","ref":"lab/lab1/kern/trap/README.md","articles":[{"title":"trap","level":"1.1.1.2.5.1","depth":5,"path":"lab/lab1/kern/trap/trap.md","ref":"lab/lab1/kern/trap/trap.md","articles":[]},{"title":"trapentry","level":"1.1.1.2.5.2","depth":5,"path":"lab/lab1/kern/trap/trapentry.md","ref":"lab/lab1/kern/trap/trapentry.md","articles":[]},{"title":"vectors","level":"1.1.1.2.5.3","depth":5,"path":"lab/lab1/kern/trap/vectors.md","ref":"lab/lab1/kern/trap/vectors.md","articles":[]}]}]},{"title":"libs","level":"1.1.1.3","depth":3,"path":"lab/lab1/libs/README.md","ref":"lab/lab1/libs/README.md","articles":[]},{"title":"tools","level":"1.1.1.4","depth":3,"path":"lab/lab1/tools/README.md","ref":"lab/lab1/tools/README.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["chapter-fold","code","search-pro","github","localized-footer","ancre-navigation","-sharing"],"pluginsConfig":{"chapter-fold":{},"github":{"url":"https://oscourse-tsinghua.github.io/ucore-analysis"},"search-pro":{},"search":{},"localized-footer":{"filename":"gitbook/comment.html","hline":"true"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ancre-navigation":{"associatedWithSummary":true,"float":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showLevel":true},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"gitbook/website.css"}},"file":{"path":"lab/lab1/boot/README.md","mtime":"2019-10-29T02:17:58.863Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-10-29T02:43:28.696Z"},"basePath":"../../..","book":{"language":""}});
         });
     </script>
 </div>
