@@ -1,0 +1,3162 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>x86.h · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-chapter-fold/chapter-fold.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-code/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-ancre-navigation/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../../gitbook/website.css">
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../tools/" />
+    
+    
+    <link rel="prev" href="unistd_h.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.1" data-path="../../lab/lab1/">
+            
+                <a href="../../lab/lab1/">
+            
+                    
+                    lab1
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.1.1" data-path="../../lab/lab1/boot/">
+            
+                <a href="../../lab/lab1/boot/">
+            
+                    
+                    boot
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.1.1.1" data-path="../../lab/lab1/boot/bootasm.html">
+            
+                <a href="../../lab/lab1/boot/bootasm.html">
+            
+                    
+                    bootasm
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.1.1.2" data-path="../../lab/lab1/boot/bootmain.html">
+            
+                <a href="../../lab/lab1/boot/bootmain.html">
+            
+                    
+                    bootmain
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.1.2" data-path="../../lab/lab1/kern/">
+            
+                <a href="../../lab/lab1/kern/">
+            
+                    
+                    kern
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.1.2.1" data-path="../../lab/lab1/kern/debug/">
+            
+                <a href="../../lab/lab1/kern/debug/">
+            
+                    
+                    debug
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.1.2.1.1" data-path="../../lab/lab1/kern/debug/kmonitor.html">
+            
+                <a href="../../lab/lab1/kern/debug/kmonitor.html">
+            
+                    
+                    kmonitor
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.1.2.1.2" data-path="../../lab/lab1/kern/debug/panic.html">
+            
+                <a href="../../lab/lab1/kern/debug/panic.html">
+            
+                    
+                    panic
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.1.2.2" data-path="../../lab/lab1/kern/init/">
+            
+                <a href="../../lab/lab1/kern/init/">
+            
+                    
+                    init
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.1.2.2.1" data-path="../../lab/lab1/kern/init/init.html">
+            
+                <a href="../../lab/lab1/kern/init/init.html">
+            
+                    
+                    init
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.1.2.3" data-path="../../lab/lab1/kern/libs/">
+            
+                <a href="../../lab/lab1/kern/libs/">
+            
+                    
+                    libs
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.1.2.3.1" data-path="../../lab/lab1/kern/libs/readline.html">
+            
+                <a href="../../lab/lab1/kern/libs/readline.html">
+            
+                    
+                    readline
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.1.2.4" data-path="../../lab/lab1/kern/mm/">
+            
+                <a href="../../lab/lab1/kern/mm/">
+            
+                    
+                    mm
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.1.2.4.1" data-path="../../lab/lab1/kern/mm/pmm.html">
+            
+                <a href="../../lab/lab1/kern/mm/pmm.html">
+            
+                    
+                    pmm
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.1.2.5" data-path="../../lab/lab1/kern/trap/">
+            
+                <a href="../../lab/lab1/kern/trap/">
+            
+                    
+                    trap
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.1.2.5.1" data-path="../../lab/lab1/kern/trap/trap.html">
+            
+                <a href="../../lab/lab1/kern/trap/trap.html">
+            
+                    
+                    trap
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.1.2.5.2" data-path="../../lab/lab1/kern/trap/trapentry.html">
+            
+                <a href="../../lab/lab1/kern/trap/trapentry.html">
+            
+                    
+                    trapentry
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.1.2.5.3" data-path="../../lab/lab1/kern/trap/vectors.html">
+            
+                <a href="../../lab/lab1/kern/trap/vectors.html">
+            
+                    
+                    vectors
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.1.3" data-path="../../lab/lab1/libs/">
+            
+                <a href="../../lab/lab1/libs/">
+            
+                    
+                    libs
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.1.4" data-path="../../lab/lab1/tools/">
+            
+                <a href="../../lab/lab1/tools/">
+            
+                    
+                    tools
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../../labs/">
+            
+                <a href="../../labs/">
+            
+                    
+                    LABS
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../../labs/lab1.html">
+            
+                <a href="../../labs/lab1.html">
+            
+                    
+                    lab1
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../../labs/lab2.html">
+            
+                <a href="../../labs/lab2.html">
+            
+                    
+                    lab2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../../labs/lab3.html">
+            
+                <a href="../../labs/lab3.html">
+            
+                    
+                    lab3
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../../labs/lab4.html">
+            
+                <a href="../../labs/lab4.html">
+            
+                    
+                    lab4
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../../labs/lab5.html">
+            
+                <a href="../../labs/lab5.html">
+            
+                    
+                    lab5
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="../../labs/lab6.html">
+            
+                <a href="../../labs/lab6.html">
+            
+                    
+                    lab6
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="../../labs/lab7.html">
+            
+                <a href="../../labs/lab7.html">
+            
+                    
+                    lab7
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="../../labs/lab8.html">
+            
+                <a href="../../labs/lab8.html">
+            
+                    
+                    lab8
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    uCore代码分析
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../boot/">
+            
+                <a href="../boot/">
+            
+                    
+                    boot
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1.1" data-path="../boot/asm_h.html">
+            
+                <a href="../boot/asm_h.html">
+            
+                    
+                    asm.h
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.2" data-path="../boot/bootasm_S.html">
+            
+                <a href="../boot/bootasm_S.html">
+            
+                    
+                    bootasm.S
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.3" data-path="../boot/bootmain_c.html">
+            
+                <a href="../boot/bootmain_c.html">
+            
+                    
+                    bootmain.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.4" data-path="../boot/bootasm_S_lab1.html">
+            
+                <a href="../boot/bootasm_S_lab1.html">
+            
+                    
+                    (lab1) bootasm.S
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../kern/">
+            
+                <a href="../kern/">
+            
+                    
+                    kern
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.2.1" data-path="../kern/debug/">
+            
+                <a href="../kern/debug/">
+            
+                    
+                    debug
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.2.1.1" data-path="../kern/debug/assert_h.html">
+            
+                <a href="../kern/debug/assert_h.html">
+            
+                    
+                    assert.h
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.1.2" data-path="../kern/debug/kdebug_c.html">
+            
+                <a href="../kern/debug/kdebug_c.html">
+            
+                    
+                    kdebug.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.1.3" data-path="../kern/debug/kdebug_h.html">
+            
+                <a href="../kern/debug/kdebug_h.html">
+            
+                    
+                    kdebug.h
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.1.4" data-path="../kern/debug/kmonitor_c.html">
+            
+                <a href="../kern/debug/kmonitor_c.html">
+            
+                    
+                    kmonitor.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.1.5" data-path="../kern/debug/kmonitor_h.html">
+            
+                <a href="../kern/debug/kmonitor_h.html">
+            
+                    
+                    kmonitor.h
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.1.6" data-path="../kern/debug/panic_c.html">
+            
+                <a href="../kern/debug/panic_c.html">
+            
+                    
+                    panic.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.1.7" data-path="../kern/debug/stab_h.html">
+            
+                <a href="../kern/debug/stab_h.html">
+            
+                    
+                    stab.h
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.1.8" data-path="../kern/debug/kdebug_c_lab1.html">
+            
+                <a href="../kern/debug/kdebug_c_lab1.html">
+            
+                    
+                    (lab1) kdebug.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.2" data-path="../kern/driver/">
+            
+                <a href="../kern/driver/">
+            
+                    
+                    driver
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.2.2.1" data-path="../kern/driver/assert_h.md">
+            
+                <span>
+            
+                    
+                    assert.h
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.2.2" data-path="../kern/driver/kdebug_c.md">
+            
+                <span>
+            
+                    
+                    kdebug.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.2.3" data-path="../kern/driver/kdebug_h.md">
+            
+                <span>
+            
+                    
+                    kdebug.h
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.2.4" data-path="../kern/driver/kmonitor_c.md">
+            
+                <span>
+            
+                    
+                    kmonitor.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.2.5" data-path="../kern/driver/kmonitor_h.md">
+            
+                <span>
+            
+                    
+                    kmonitor.h
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.2.6" data-path="../kern/driver/panic_c.md">
+            
+                <span>
+            
+                    
+                    panic.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.2.7" data-path="../kern/driver/stab_h.md">
+            
+                <span>
+            
+                    
+                    stab.h
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.3" data-path="../kern/fs/">
+            
+                <a href="../kern/fs/">
+            
+                    
+                    fs
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.2.3.1" data-path="../kern/fs/file_c.html">
+            
+                <a href="../kern/fs/file_c.html">
+            
+                    
+                    file.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.3.2" data-path="../kern/fs/file_h.html">
+            
+                <a href="../kern/fs/file_h.html">
+            
+                    
+                    file.h
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.3.3" data-path="../kern/fs/fs_c.html">
+            
+                <a href="../kern/fs/fs_c.html">
+            
+                    
+                    fs.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.3.4" data-path="../kern/fs/fs_h.html">
+            
+                <a href="../kern/fs/fs_h.html">
+            
+                    
+                    fs.h
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.3.5" data-path="../kern/fs/iobuf_c.html">
+            
+                <a href="../kern/fs/iobuf_c.html">
+            
+                    
+                    iobuf.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.3.6" data-path="../kern/fs/iobuf_h.html">
+            
+                <a href="../kern/fs/iobuf_h.html">
+            
+                    
+                    iobuf.h
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.3.7" data-path="../kern/fs/sysfile_c.html">
+            
+                <a href="../kern/fs/sysfile_c.html">
+            
+                    
+                    sysfile.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.3.8" data-path="../kern/fs/sysfile_h.html">
+            
+                <a href="../kern/fs/sysfile_h.html">
+            
+                    
+                    sysfile.h
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.4" data-path="../kern/init/">
+            
+                <a href="../kern/init/">
+            
+                    
+                    init
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.2.4.1" data-path="../kern/init/entry_S.html">
+            
+                <a href="../kern/init/entry_S.html">
+            
+                    
+                    entry.S
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.4.2" data-path="../kern/init/init_c.html">
+            
+                <a href="../kern/init/init_c.html">
+            
+                    
+                    init.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.4.3" data-path="../kern/init/init_c_lab1.html">
+            
+                <a href="../kern/init/init_c_lab1.html">
+            
+                    
+                    (lab1) init.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.5" data-path="../kern/libs/">
+            
+                <a href="../kern/libs/">
+            
+                    
+                    libs
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.2.5.1" data-path="../kern/libs/readline_c.html">
+            
+                <a href="../kern/libs/readline_c.html">
+            
+                    
+                    readline.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.5.2" data-path="../kern/libs/stdio_c.html">
+            
+                <a href="../kern/libs/stdio_c.html">
+            
+                    
+                    stdio.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.5.3" data-path="../kern/libs/string_c.html">
+            
+                <a href="../kern/libs/string_c.html">
+            
+                    
+                    string.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.6" data-path="../kern/mm/">
+            
+                <a href="../kern/mm/">
+            
+                    
+                    mm
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.2.6.1" data-path="../kern/mm/default_pmm_c.html">
+            
+                <a href="../kern/mm/default_pmm_c.html">
+            
+                    
+                    default_pmm.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.6.2" data-path="../kern/mm/default_pmm_h.html">
+            
+                <a href="../kern/mm/default_pmm_h.html">
+            
+                    
+                    default_pmm.h
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.6.3" data-path="../kern/mm/kmalloc_c.html">
+            
+                <a href="../kern/mm/kmalloc_c.html">
+            
+                    
+                    kmalloc.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.6.4" data-path="../kern/mm/kmalloc_h.html">
+            
+                <a href="../kern/mm/kmalloc_h.html">
+            
+                    
+                    kmalloc.h
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.6.5" data-path="../kern/mm/memlayout_h.html">
+            
+                <a href="../kern/mm/memlayout_h.html">
+            
+                    
+                    memlayout.h
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.6.6" data-path="../kern/mm/mmu_h.html">
+            
+                <a href="../kern/mm/mmu_h.html">
+            
+                    
+                    mmu.h
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.6.7" data-path="../kern/mm/pmm_c.html">
+            
+                <a href="../kern/mm/pmm_c.html">
+            
+                    
+                    pmm.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.6.8" data-path="../kern/mm/pmm_h.html">
+            
+                <a href="../kern/mm/pmm_h.html">
+            
+                    
+                    pmm.h
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.6.9" data-path="../kern/mm/swap_c.html">
+            
+                <a href="../kern/mm/swap_c.html">
+            
+                    
+                    swap.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.6.10" data-path="../kern/mm/swap_fifo_c.html">
+            
+                <a href="../kern/mm/swap_fifo_c.html">
+            
+                    
+                    swap_fifo.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.6.11" data-path="../kern/mm/swap_fifo_h.html">
+            
+                <a href="../kern/mm/swap_fifo_h.html">
+            
+                    
+                    swap_fifo.h
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.6.12" data-path="../kern/mm/swap_h.html">
+            
+                <a href="../kern/mm/swap_h.html">
+            
+                    
+                    swap.h
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.6.13" data-path="../kern/mm/vmm_c.html">
+            
+                <a href="../kern/mm/vmm_c.html">
+            
+                    
+                    vmm.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.6.14" data-path="../kern/mm/vmm_h.html">
+            
+                <a href="../kern/mm/vmm_h.html">
+            
+                    
+                    vmm.h
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.7" data-path="../kern/process/">
+            
+                <a href="../kern/process/">
+            
+                    
+                    process
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.2.7.1" data-path="../kern/process/entry_S.html">
+            
+                <a href="../kern/process/entry_S.html">
+            
+                    
+                    entry.S
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.7.2" data-path="../kern/process/proc_c.html">
+            
+                <a href="../kern/process/proc_c.html">
+            
+                    
+                    proc.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.7.3" data-path="../kern/process/proc_h.html">
+            
+                <a href="../kern/process/proc_h.html">
+            
+                    
+                    proc.h
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.7.4" data-path="../kern/process/switch_S.html">
+            
+                <a href="../kern/process/switch_S.html">
+            
+                    
+                    switch.S
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.8" data-path="../kern/schedule/">
+            
+                <a href="../kern/schedule/">
+            
+                    
+                    schedule
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.2.8.1" data-path="../kern/schedule/default_sched_c.html">
+            
+                <a href="../kern/schedule/default_sched_c.html">
+            
+                    
+                    default_sched.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.8.2" data-path="../kern/schedule/default_sched_h.html">
+            
+                <a href="../kern/schedule/default_sched_h.html">
+            
+                    
+                    default_sched.h
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.8.3" data-path="../kern/schedule/default_sched_stride_c.html">
+            
+                <a href="../kern/schedule/default_sched_stride_c.html">
+            
+                    
+                    default_sched_stride.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.8.4" data-path="../kern/schedule/sched_c.html">
+            
+                <a href="../kern/schedule/sched_c.html">
+            
+                    
+                    sched.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.8.5" data-path="../kern/schedule/sched_h.html">
+            
+                <a href="../kern/schedule/sched_h.html">
+            
+                    
+                    sched.h
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.9" data-path="../kern/sync/">
+            
+                <a href="../kern/sync/">
+            
+                    
+                    sync
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.2.9.1" data-path="../kern/sync/check_sync_c.html">
+            
+                <a href="../kern/sync/check_sync_c.html">
+            
+                    
+                    check_sync.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.9.2" data-path="../kern/sync/monitor_c.html">
+            
+                <a href="../kern/sync/monitor_c.html">
+            
+                    
+                    monitor.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.9.3" data-path="../kern/sync/monitor_h.html">
+            
+                <a href="../kern/sync/monitor_h.html">
+            
+                    
+                    monitor.h
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.9.4" data-path="../kern/sync/sem_c.html">
+            
+                <a href="../kern/sync/sem_c.html">
+            
+                    
+                    sem.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.9.5" data-path="../kern/sync/sem_h.html">
+            
+                <a href="../kern/sync/sem_h.html">
+            
+                    
+                    sem.h
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.9.6" data-path="../kern/sync/sync_h.html">
+            
+                <a href="../kern/sync/sync_h.html">
+            
+                    
+                    sync.h
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.9.7" data-path="../kern/sync/wait_c.html">
+            
+                <a href="../kern/sync/wait_c.html">
+            
+                    
+                    wait.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.9.8" data-path="../kern/sync/wait_h.html">
+            
+                <a href="../kern/sync/wait_h.html">
+            
+                    
+                    wait.h
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.10" data-path="../kern/syscall/">
+            
+                <a href="../kern/syscall/">
+            
+                    
+                    syscall
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.2.10.1" data-path="../kern/syscall/syscall_c.html">
+            
+                <a href="../kern/syscall/syscall_c.html">
+            
+                    
+                    syscall.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.10.2" data-path="../kern/syscall/syscall_h.html">
+            
+                <a href="../kern/syscall/syscall_h.html">
+            
+                    
+                    syscall.h
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.11" data-path="../kern/trap/">
+            
+                <a href="../kern/trap/">
+            
+                    
+                    trap
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.2.11.1" data-path="../kern/trap/trap_c.html">
+            
+                <a href="../kern/trap/trap_c.html">
+            
+                    
+                    trap.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.11.2" data-path="../kern/trap/trapentry_S.html">
+            
+                <a href="../kern/trap/trapentry_S.html">
+            
+                    
+                    trapentry.S
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.11.3" data-path="../kern/trap/trap_h.html">
+            
+                <a href="../kern/trap/trap_h.html">
+            
+                    
+                    trap.h
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.11.4" data-path="../kern/trap/vectors_S.html">
+            
+                <a href="../kern/trap/vectors_S.html">
+            
+                    
+                    vectors.S
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.11.5" data-path="../kern/trap/trap_c_lab1.html">
+            
+                <a href="../kern/trap/trap_c_lab1.html">
+            
+                    
+                    (lab1) trap.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    libs
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.3.1" data-path="atomic_h.html">
+            
+                <a href="atomic_h.html">
+            
+                    
+                    atomic.h
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.2" data-path="defs_h.html">
+            
+                <a href="defs_h.html">
+            
+                    
+                    defs.h
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.3" data-path="dirent_h.html">
+            
+                <a href="dirent_h.html">
+            
+                    
+                    dirent.h
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.4" data-path="elf_h.html">
+            
+                <a href="elf_h.html">
+            
+                    
+                    elf.h
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.5" data-path="error_h.html">
+            
+                <a href="error_h.html">
+            
+                    
+                    error.h
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.6" data-path="hash_c.html">
+            
+                <a href="hash_c.html">
+            
+                    
+                    hash.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.7" data-path="list_h.html">
+            
+                <a href="list_h.html">
+            
+                    
+                    list.h
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.8" data-path="printfmt_c.html">
+            
+                <a href="printfmt_c.html">
+            
+                    
+                    printfmt.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.9" data-path="rand_c.html">
+            
+                <a href="rand_c.html">
+            
+                    
+                    rand.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.10" data-path="skew_heap_h.html">
+            
+                <a href="skew_heap_h.html">
+            
+                    
+                    skew_heap.h
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.11" data-path="stat_h.html">
+            
+                <a href="stat_h.html">
+            
+                    
+                    stat.h
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.12" data-path="stdarg_h.html">
+            
+                <a href="stdarg_h.html">
+            
+                    
+                    stdarg.h
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.13" data-path="stdio_h.html">
+            
+                <a href="stdio_h.html">
+            
+                    
+                    stdio.h
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.14" data-path="stdlib_h.html">
+            
+                <a href="stdlib_h.html">
+            
+                    
+                    stdlib.h
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.15" data-path="string_c.html">
+            
+                <a href="string_c.html">
+            
+                    
+                    string.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.16" data-path="string_h.html">
+            
+                <a href="string_h.html">
+            
+                    
+                    string.h
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.17" data-path="unistd_h.html">
+            
+                <a href="unistd_h.html">
+            
+                    
+                    unistd.h
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3.3.18" data-path="x86_h.html">
+            
+                <a href="x86_h.html">
+            
+                    
+                    x86.h
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../tools/">
+            
+                <a href="../tools/">
+            
+                    
+                    tools
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.4.1" data-path="../tools/boot_ld.html">
+            
+                <a href="../tools/boot_ld.html">
+            
+                    
+                    boot.ld
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4.2" data-path="../tools/function_mk.html">
+            
+                <a href="../tools/function_mk.html">
+            
+                    
+                    function.mk
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4.3" data-path="../tools/gdbinit.html">
+            
+                <a href="../tools/gdbinit.html">
+            
+                    
+                    gdbinit
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4.4" data-path="../tools/grade_sh.html">
+            
+                <a href="../tools/grade_sh.html">
+            
+                    
+                    grade.sh
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4.5" data-path="../tools/kernel_ld.html">
+            
+                <a href="../tools/kernel_ld.html">
+            
+                    
+                    kernel.ld
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4.6" data-path="../tools/mksfs_c.html">
+            
+                <a href="../tools/mksfs_c.html">
+            
+                    
+                    mksfs.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4.7" data-path="../tools/sign_c.html">
+            
+                <a href="../tools/sign_c.html">
+            
+                    
+                    sign.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4.8" data-path="../tools/user_ld.html">
+            
+                <a href="../tools/user_ld.html">
+            
+                    
+                    user.ld
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4.9" data-path="../tools/vector_c.html">
+            
+                <a href="../tools/vector_c.html">
+            
+                    
+                    vector.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../user/">
+            
+                <a href="../user/">
+            
+                    
+                    user
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.5.1" data-path="../user/libs/">
+            
+                <a href="../user/libs/">
+            
+                    
+                    libs
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.5.1.1" data-path="../user/libs/dir_c.html">
+            
+                <a href="../user/libs/dir_c.html">
+            
+                    
+                    dir.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.1.2" data-path="../user/libs/dir_h.html">
+            
+                <a href="../user/libs/dir_h.html">
+            
+                    
+                    dir.h
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.1.3" data-path="../user/libs/file_c.html">
+            
+                <a href="../user/libs/file_c.html">
+            
+                    
+                    file.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.1.4" data-path="../user/libs/file_h.html">
+            
+                <a href="../user/libs/file_h.html">
+            
+                    
+                    file.h
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.1.5" data-path="../user/libs/initcode_S.html">
+            
+                <a href="../user/libs/initcode_S.html">
+            
+                    
+                    initcode.S
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.1.6" data-path="../user/libs/lock_h.html">
+            
+                <a href="../user/libs/lock_h.html">
+            
+                    
+                    lock.h
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.1.7" data-path="../user/libs/panic_c.html">
+            
+                <a href="../user/libs/panic_c.html">
+            
+                    
+                    panic.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.1.8" data-path="../user/libs/stdio_c.html">
+            
+                <a href="../user/libs/stdio_c.html">
+            
+                    
+                    stdio.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.1.9" data-path="../user/libs/syscall_c.html">
+            
+                <a href="../user/libs/syscall_c.html">
+            
+                    
+                    syscall.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.1.10" data-path="../user/libs/syscall_h.html">
+            
+                <a href="../user/libs/syscall_h.html">
+            
+                    
+                    syscall.h
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.1.11" data-path="../user/libs/ulib_c.html">
+            
+                <a href="../user/libs/ulib_c.html">
+            
+                    
+                    ulib.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.1.12" data-path="../user/libs/ulib_h.html">
+            
+                <a href="../user/libs/ulib_h.html">
+            
+                    
+                    ulib.h
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.1.13" data-path="../user/libs/umain_c.html">
+            
+                <a href="../user/libs/umain_c.html">
+            
+                    
+                    umain.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.2" data-path="../user/badarg_c.html">
+            
+                <a href="../user/badarg_c.html">
+            
+                    
+                    badarg.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.3" data-path="../user/badsegment_c.html">
+            
+                <a href="../user/badsegment_c.html">
+            
+                    
+                    badsegment.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.4" data-path="../user/divzero_c.html">
+            
+                <a href="../user/divzero_c.html">
+            
+                    
+                    divzero.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.5" data-path="../user/exit_c.html">
+            
+                <a href="../user/exit_c.html">
+            
+                    
+                    exit.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.6" data-path="../user/faultread_c.html">
+            
+                <a href="../user/faultread_c.html">
+            
+                    
+                    faultread.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.7" data-path="../user/faultreadkernel_c.html">
+            
+                <a href="../user/faultreadkernel_c.html">
+            
+                    
+                    faultreadkernel.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.8" data-path="../user/forktest_c.html">
+            
+                <a href="../user/forktest_c.html">
+            
+                    
+                    forktest.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.9" data-path="../user/forktree_c.html">
+            
+                <a href="../user/forktree_c.html">
+            
+                    
+                    forktree.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.10" data-path="../user/hello_c.html">
+            
+                <a href="../user/hello_c.html">
+            
+                    
+                    hello.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.11" data-path="../user/ls_c.html">
+            
+                <a href="../user/ls_c.html">
+            
+                    
+                    ls.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.12" data-path="../user/matrix_c.html">
+            
+                <a href="../user/matrix_c.html">
+            
+                    
+                    matrix.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.13" data-path="../user/pgdir_c.html">
+            
+                <a href="../user/pgdir_c.html">
+            
+                    
+                    pgdir.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.14" data-path="../user/priority_c.html">
+            
+                <a href="../user/priority_c.html">
+            
+                    
+                    priority.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.15" data-path="../user/sfs_filetest1_c.html">
+            
+                <a href="../user/sfs_filetest1_c.html">
+            
+                    
+                    sfs_filetest1.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.16" data-path="../user/sh_c.html">
+            
+                <a href="../user/sh_c.html">
+            
+                    
+                    sh.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.17" data-path="../user/sleep_c.html">
+            
+                <a href="../user/sleep_c.html">
+            
+                    
+                    sleep.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.18" data-path="../user/sleepkill_c.html">
+            
+                <a href="../user/sleepkill_c.html">
+            
+                    
+                    sleepkill.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.19" data-path="../user/softint_c.html">
+            
+                <a href="../user/softint_c.html">
+            
+                    
+                    softint.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.20" data-path="../user/spin_c.html">
+            
+                <a href="../user/spin_c.html">
+            
+                    
+                    spin.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.21" data-path="../user/testbss_c.html">
+            
+                <a href="../user/testbss_c.html">
+            
+                    
+                    testbss.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.22" data-path="../user/waitkill_c.html">
+            
+                <a href="../user/waitkill_c.html">
+            
+                    
+                    waitkill.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.23" data-path="../user/yield_c.html">
+            
+                <a href="../user/yield_c.html">
+            
+                    
+                    yield.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../Makefile.html">
+            
+                <a href="../Makefile.html">
+            
+                    
+                    Makefile
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../Makefile_lab1.html">
+            
+                <a href="../Makefile_lab1.html">
+            
+                    
+                    (lab1) Makefile
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../../how_to_edit_this_doc.html">
+            
+                <a href="../../how_to_edit_this_doc.html">
+            
+                    
+                    附录1：如何编辑该文档
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >x86.h</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <pre><code class="lang-c">#ifndef __LIBS_X86_H__
+#define __LIBS_X86_H__
+
+#include &lt;defs.h&gt;
+
+#define do_div(n, base) ({                                          \
+            unsigned long __upper, __low, __high, __mod, __base;    \
+            __base = (base);                                        \
+            asm (&quot;&quot; : &quot;=a&quot; (__low), &quot;=d&quot; (__high) : &quot;A&quot; (n));       \
+            __upper = __high;                                       \
+            if (__high != 0) {                                      \
+                __upper = __high % __base;                          \
+                __high = __high / __base;                           \
+            }                                                       \
+            asm (&quot;divl %2&quot; : &quot;=a&quot; (__low), &quot;=d&quot; (__mod)             \
+                : &quot;rm&quot; (__base), &quot;0&quot; (__low), &quot;1&quot; (__upper));       \
+            asm (&quot;&quot; : &quot;=A&quot; (n) : &quot;a&quot; (__low), &quot;d&quot; (__high));        \
+            __mod;                                                  \
+        })
+
+#define barrier() __asm__ __volatile__ (&quot;&quot; ::: &quot;memory&quot;)
+
+static inline uint8_t inb(uint16_t port) __attribute__((always_inline));
+static inline uint16_t inw(uint16_t port) __attribute__((always_inline));
+static inline void insl(uint32_t port, void *addr, int cnt) __attribute__((always_inline));
+static inline void outb(uint16_t port, uint8_t data) __attribute__((always_inline));
+static inline void outw(uint16_t port, uint16_t data) __attribute__((always_inline));
+static inline void outsl(uint32_t port, const void *addr, int cnt) __attribute__((always_inline));
+static inline uint32_t read_ebp(void) __attribute__((always_inline));
+static inline void breakpoint(void) __attribute__((always_inline));
+static inline uint32_t read_dr(unsigned regnum) __attribute__((always_inline));
+static inline void write_dr(unsigned regnum, uint32_t value) __attribute__((always_inline));
+
+/* Pseudo-descriptors used for LGDT, LLDT(not used) and LIDT instructions. */
+struct pseudodesc {
+    uint16_t pd_lim;        // Limit
+    uintptr_t pd_base;      // Base address
+} __attribute__ ((packed));
+
+static inline void lidt(struct pseudodesc *pd) __attribute__((always_inline));
+static inline void sti(void) __attribute__((always_inline));
+static inline void cli(void) __attribute__((always_inline));
+static inline void ltr(uint16_t sel) __attribute__((always_inline));
+static inline uint32_t read_eflags(void) __attribute__((always_inline));
+static inline void write_eflags(uint32_t eflags) __attribute__((always_inline));
+static inline void lcr0(uintptr_t cr0) __attribute__((always_inline));
+static inline void lcr3(uintptr_t cr3) __attribute__((always_inline));
+static inline uintptr_t rcr0(void) __attribute__((always_inline));
+static inline uintptr_t rcr1(void) __attribute__((always_inline));
+static inline uintptr_t rcr2(void) __attribute__((always_inline));
+static inline uintptr_t rcr3(void) __attribute__((always_inline));
+static inline void invlpg(void *addr) __attribute__((always_inline));
+
+static inline uint8_t
+inb(uint16_t port) {
+    uint8_t data;
+    asm volatile (&quot;inb %1, %0&quot; : &quot;=a&quot; (data) : &quot;d&quot; (port) : &quot;memory&quot;);
+    return data;
+}
+
+static inline uint16_t
+inw(uint16_t port) {
+    uint16_t data;
+    asm volatile (&quot;inw %1, %0&quot; : &quot;=a&quot; (data) : &quot;d&quot; (port));
+    return data;
+}
+
+static inline void
+insl(uint32_t port, void *addr, int cnt) {
+    asm volatile (
+        &quot;cld;&quot;
+        &quot;repne; insl;&quot;
+        : &quot;=D&quot; (addr), &quot;=c&quot; (cnt)
+        : &quot;d&quot; (port), &quot;0&quot; (addr), &quot;1&quot; (cnt)
+        : &quot;memory&quot;, &quot;cc&quot;);
+}
+
+static inline void
+outb(uint16_t port, uint8_t data) {
+    asm volatile (&quot;outb %0, %1&quot; :: &quot;a&quot; (data), &quot;d&quot; (port) : &quot;memory&quot;);
+}
+
+static inline void
+outw(uint16_t port, uint16_t data) {
+    asm volatile (&quot;outw %0, %1&quot; :: &quot;a&quot; (data), &quot;d&quot; (port) : &quot;memory&quot;);
+}
+
+static inline void
+outsl(uint32_t port, const void *addr, int cnt) {
+    asm volatile (
+        &quot;cld;&quot;
+        &quot;repne; outsl;&quot;
+        : &quot;=S&quot; (addr), &quot;=c&quot; (cnt)
+        : &quot;d&quot; (port), &quot;0&quot; (addr), &quot;1&quot; (cnt)
+        : &quot;memory&quot;, &quot;cc&quot;);
+}
+
+static inline uint32_t
+read_ebp(void) {
+    uint32_t ebp;
+    asm volatile (&quot;movl %%ebp, %0&quot; : &quot;=r&quot; (ebp));
+    return ebp;
+}
+
+static inline void
+breakpoint(void) {
+    asm volatile (&quot;int $3&quot;);
+}
+
+static inline uint32_t
+read_dr(unsigned regnum) {
+    uint32_t value = 0;
+    switch (regnum) {
+    case 0: asm volatile (&quot;movl %%db0, %0&quot; : &quot;=r&quot; (value)); break;
+    case 1: asm volatile (&quot;movl %%db1, %0&quot; : &quot;=r&quot; (value)); break;
+    case 2: asm volatile (&quot;movl %%db2, %0&quot; : &quot;=r&quot; (value)); break;
+    case 3: asm volatile (&quot;movl %%db3, %0&quot; : &quot;=r&quot; (value)); break;
+    case 6: asm volatile (&quot;movl %%db6, %0&quot; : &quot;=r&quot; (value)); break;
+    case 7: asm volatile (&quot;movl %%db7, %0&quot; : &quot;=r&quot; (value)); break;
+    }
+    return value;
+}
+
+static void
+write_dr(unsigned regnum, uint32_t value) {
+    switch (regnum) {
+    case 0: asm volatile (&quot;movl %0, %%db0&quot; :: &quot;r&quot; (value)); break;
+    case 1: asm volatile (&quot;movl %0, %%db1&quot; :: &quot;r&quot; (value)); break;
+    case 2: asm volatile (&quot;movl %0, %%db2&quot; :: &quot;r&quot; (value)); break;
+    case 3: asm volatile (&quot;movl %0, %%db3&quot; :: &quot;r&quot; (value)); break;
+    case 6: asm volatile (&quot;movl %0, %%db6&quot; :: &quot;r&quot; (value)); break;
+    case 7: asm volatile (&quot;movl %0, %%db7&quot; :: &quot;r&quot; (value)); break;
+    }
+}
+
+static inline void
+lidt(struct pseudodesc *pd) {
+    asm volatile (&quot;lidt (%0)&quot; :: &quot;r&quot; (pd) : &quot;memory&quot;);
+}
+
+static inline void
+sti(void) {
+    asm volatile (&quot;sti&quot;);
+}
+
+static inline void
+cli(void) {
+    asm volatile (&quot;cli&quot; ::: &quot;memory&quot;);
+}
+
+static inline void
+ltr(uint16_t sel) {
+    asm volatile (&quot;ltr %0&quot; :: &quot;r&quot; (sel) : &quot;memory&quot;);
+}
+
+static inline uint32_t
+read_eflags(void) {
+    uint32_t eflags;
+    asm volatile (&quot;pushfl; popl %0&quot; : &quot;=r&quot; (eflags));
+    return eflags;
+}
+
+static inline void
+write_eflags(uint32_t eflags) {
+    asm volatile (&quot;pushl %0; popfl&quot; :: &quot;r&quot; (eflags));
+}
+
+static inline void
+lcr0(uintptr_t cr0) {
+    asm volatile (&quot;mov %0, %%cr0&quot; :: &quot;r&quot; (cr0) : &quot;memory&quot;);
+}
+
+static inline void
+lcr3(uintptr_t cr3) {
+    asm volatile (&quot;mov %0, %%cr3&quot; :: &quot;r&quot; (cr3) : &quot;memory&quot;);
+}
+
+static inline uintptr_t
+rcr0(void) {
+    uintptr_t cr0;
+    asm volatile (&quot;mov %%cr0, %0&quot; : &quot;=r&quot; (cr0) :: &quot;memory&quot;);
+    return cr0;
+}
+
+static inline uintptr_t
+rcr1(void) {
+    uintptr_t cr1;
+    asm volatile (&quot;mov %%cr1, %0&quot; : &quot;=r&quot; (cr1) :: &quot;memory&quot;);
+    return cr1;
+}
+
+static inline uintptr_t
+rcr2(void) {
+    uintptr_t cr2;
+    asm volatile (&quot;mov %%cr2, %0&quot; : &quot;=r&quot; (cr2) :: &quot;memory&quot;);
+    return cr2;
+}
+
+static inline uintptr_t
+rcr3(void) {
+    uintptr_t cr3;
+    asm volatile (&quot;mov %%cr3, %0&quot; : &quot;=r&quot; (cr3) :: &quot;memory&quot;);
+    return cr3;
+}
+
+static inline void
+invlpg(void *addr) {
+    asm volatile (&quot;invlpg (%0)&quot; :: &quot;r&quot; (addr) : &quot;memory&quot;);
+}
+
+static inline int __strcmp(const char *s1, const char *s2) __attribute__((always_inline));
+static inline char *__strcpy(char *dst, const char *src) __attribute__((always_inline));
+static inline void *__memset(void *s, char c, size_t n) __attribute__((always_inline));
+static inline void *__memmove(void *dst, const void *src, size_t n) __attribute__((always_inline));
+static inline void *__memcpy(void *dst, const void *src, size_t n) __attribute__((always_inline));
+
+#ifndef __HAVE_ARCH_STRCMP
+#define __HAVE_ARCH_STRCMP
+static inline int
+__strcmp(const char *s1, const char *s2) {
+    int d0, d1, ret;
+    asm volatile (
+        &quot;1: lodsb;&quot;
+        &quot;scasb;&quot;
+        &quot;jne 2f;&quot;
+        &quot;testb %%al, %%al;&quot;
+        &quot;jne 1b;&quot;
+        &quot;xorl %%eax, %%eax;&quot;
+        &quot;jmp 3f;&quot;
+        &quot;2: sbbl %%eax, %%eax;&quot;
+        &quot;orb $1, %%al;&quot;
+        &quot;3:&quot;
+        : &quot;=a&quot; (ret), &quot;=&amp;S&quot; (d0), &quot;=&amp;D&quot; (d1)
+        : &quot;1&quot; (s1), &quot;2&quot; (s2)
+        : &quot;memory&quot;);
+    return ret;
+}
+
+#endif /* __HAVE_ARCH_STRCMP */
+
+#ifndef __HAVE_ARCH_STRCPY
+#define __HAVE_ARCH_STRCPY
+static inline char *
+__strcpy(char *dst, const char *src) {
+    int d0, d1, d2;
+    asm volatile (
+        &quot;1: lodsb;&quot;
+        &quot;stosb;&quot;
+        &quot;testb %%al, %%al;&quot;
+        &quot;jne 1b;&quot;
+        : &quot;=&amp;S&quot; (d0), &quot;=&amp;D&quot; (d1), &quot;=&amp;a&quot; (d2)
+        : &quot;0&quot; (src), &quot;1&quot; (dst) : &quot;memory&quot;);
+    return dst;
+}
+#endif /* __HAVE_ARCH_STRCPY */
+
+#ifndef __HAVE_ARCH_MEMSET
+#define __HAVE_ARCH_MEMSET
+static inline void *
+__memset(void *s, char c, size_t n) {
+    int d0, d1;
+    asm volatile (
+        &quot;rep; stosb;&quot;
+        : &quot;=&amp;c&quot; (d0), &quot;=&amp;D&quot; (d1)
+        : &quot;0&quot; (n), &quot;a&quot; (c), &quot;1&quot; (s)
+        : &quot;memory&quot;);
+    return s;
+}
+#endif /* __HAVE_ARCH_MEMSET */
+
+#ifndef __HAVE_ARCH_MEMMOVE
+#define __HAVE_ARCH_MEMMOVE
+static inline void *
+__memmove(void *dst, const void *src, size_t n) {
+    if (dst &lt; src) {
+        return __memcpy(dst, src, n);
+    }
+    int d0, d1, d2;
+    asm volatile (
+        &quot;std;&quot;
+        &quot;rep; movsb;&quot;
+        &quot;cld;&quot;
+        : &quot;=&amp;c&quot; (d0), &quot;=&amp;S&quot; (d1), &quot;=&amp;D&quot; (d2)
+        : &quot;0&quot; (n), &quot;1&quot; (n - 1 + src), &quot;2&quot; (n - 1 + dst)
+        : &quot;memory&quot;);
+    return dst;
+}
+#endif /* __HAVE_ARCH_MEMMOVE */
+
+#ifndef __HAVE_ARCH_MEMCPY
+#define __HAVE_ARCH_MEMCPY
+static inline void *
+__memcpy(void *dst, const void *src, size_t n) {
+    int d0, d1, d2;
+    asm volatile (
+        &quot;rep; movsl;&quot;
+        &quot;movl %4, %%ecx;&quot;
+        &quot;andl $3, %%ecx;&quot;
+        &quot;jz 1f;&quot;
+        &quot;rep; movsb;&quot;
+        &quot;1:&quot;
+        : &quot;=&amp;c&quot; (d0), &quot;=&amp;D&quot; (d1), &quot;=&amp;S&quot; (d2)
+        : &quot;0&quot; (n / 4), &quot;g&quot; (n), &quot;1&quot; (dst), &quot;2&quot; (src)
+        : &quot;memory&quot;);
+    return dst;
+}
+#endif /* __HAVE_ARCH_MEMCPY */
+
+#endif /* !__LIBS_X86_H__ */
+</code></pre>
+<p><div id="page-footer" class="localized-footer"><hr><p><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css"></p>
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<div id="gitalk-container" style="margin: 5%"></div>
+<script>
+  const gitalk = new Gitalk({
+    clientID: '04fb515964c291ec14f6',
+    clientSecret: 'd3f22dae66101b238ab91929dc6658952d0c4050',
+    repo: 'ucore-analysis',
+    owner: 'oscourse-tsinghua',
+    admin: ['xyongcn'],
+    createIssueManually: true,
+    id: document.title
+  })
+  gitalk.render('gitalk-container')
+</script>
+<script>
+  require(['gitbook'], function(gitbook) {
+    const gitalk = new Gitalk({
+      clientID: '04fb515964c291ec14f6',
+      clientSecret: 'd3f22dae66101b238ab91929dc6658952d0c4050',
+      repo: 'ucore-analysis',
+      owner: 'oscourse-tsinghua',
+      admin: ['xyongcn'],
+      createIssueManually: true,
+      id: document.title
+    })
+    gitbook.events.bind('page.change', initMygitalk)
+    function initMygitalk() {
+      gitalk.render('gitalk-container')
+    }
+  })
+</script>
+</div></p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="unistd_h.html" class="navigation navigation-prev " aria-label="Previous page: unistd.h">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../tools/" class="navigation navigation-next " aria-label="Next page: tools">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"x86.h","level":"1.3.3.18","depth":3,"next":{"title":"tools","level":"1.3.4","depth":2,"path":"ucore/tools/README.md","ref":"ucore/tools/README.md","articles":[{"title":"boot.ld","level":"1.3.4.1","depth":3,"path":"ucore/tools/boot_ld.md","ref":"ucore/tools/boot_ld.md","articles":[]},{"title":"function.mk","level":"1.3.4.2","depth":3,"path":"ucore/tools/function_mk.md","ref":"ucore/tools/function_mk.md","articles":[]},{"title":"gdbinit","level":"1.3.4.3","depth":3,"path":"ucore/tools/gdbinit.md","ref":"ucore/tools/gdbinit.md","articles":[]},{"title":"grade.sh","level":"1.3.4.4","depth":3,"path":"ucore/tools/grade_sh.md","ref":"ucore/tools/grade_sh.md","articles":[]},{"title":"kernel.ld","level":"1.3.4.5","depth":3,"path":"ucore/tools/kernel_ld.md","ref":"ucore/tools/kernel_ld.md","articles":[]},{"title":"mksfs.c","level":"1.3.4.6","depth":3,"path":"ucore/tools/mksfs_c.md","ref":"ucore/tools/mksfs_c.md","articles":[]},{"title":"sign.c","level":"1.3.4.7","depth":3,"path":"ucore/tools/sign_c.md","ref":"ucore/tools/sign_c.md","articles":[]},{"title":"user.ld","level":"1.3.4.8","depth":3,"path":"ucore/tools/user_ld.md","ref":"ucore/tools/user_ld.md","articles":[]},{"title":"vector.c","level":"1.3.4.9","depth":3,"path":"ucore/tools/vector_c.md","ref":"ucore/tools/vector_c.md","articles":[]}]},"previous":{"title":"unistd.h","level":"1.3.3.17","depth":3,"path":"ucore/libs/unistd_h.md","ref":"ucore/libs/unistd_h.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["chapter-fold","code","search-pro","github","localized-footer","ancre-navigation","-sharing"],"pluginsConfig":{"chapter-fold":{},"github":{"url":"https://oscourse-tsinghua.github.io/ucore-analysis"},"search-pro":{},"search":{},"localized-footer":{"filename":"gitbook/comment.html","hline":"true"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ancre-navigation":{"associatedWithSummary":true,"float":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showLevel":true},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"gitbook/website.css"}},"file":{"path":"ucore/libs/x86_h.md","mtime":"2019-10-29T13:37:49.200Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-10-29T15:09:00.223Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-chapter-fold/chapter-fold.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
