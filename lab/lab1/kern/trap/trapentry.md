@@ -1,4 +1,4 @@
-```x86asm
+```assembly
 #include <memlayout.h>
 
 # vectors.S sends all traps here.

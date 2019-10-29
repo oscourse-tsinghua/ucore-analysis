@@ -1,4 +1,4 @@
-```
+```C
 #include <defs.h>
 #include <stdio.h>
 #include <intr.h>

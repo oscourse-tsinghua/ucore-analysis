@@ -1,4 +1,4 @@
-```
+```C
 #include <defs.h>
 #include <mmu.h>
 #include <memlayout.h>

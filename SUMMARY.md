@@ -21,10 +21,6 @@
                 * [vectors](lab/lab1/kern/trap/vectors.md)
         * [libs](lab/lab1/libs/README.md)
         * [tools](lab/lab1/tools/README.md)
-* [1. 编写文档](1. 编写文档.md)
-* [2. 本地浏览](2. 本地浏览.md)
-* [3. 添加插件](3. 添加插件.md)
-    * [3.1. 参考配置](3.1. 参考配置.md)
-    * [3.2. 评论区](3.2. 评论区.md)
-* [4. 部署网页](4. 部署网页.md)
+* [附录1：如何编辑该文档](how_to_edit_this_doc.md)
+* [测试：gitbook中markdown对html的支持](test_for_html_support.md)
 

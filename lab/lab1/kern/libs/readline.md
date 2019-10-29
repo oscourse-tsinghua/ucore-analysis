@@ -1,4 +1,4 @@
-```cpp
+```C
 #include <stdio.h>
 
 #define BUFSIZE    1024
