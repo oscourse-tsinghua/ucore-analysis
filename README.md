@@ -8,4 +8,6 @@
 ## 修改日志
 
  * 20191027 [shiweiwww](https://github.com/shiweiwww): 配置gitbook格式
- * 20192029 [Yukiteru Lee](https://github.com/wfly1998): 为部分代码块添加高亮，添加了附录1，删除了附录中的模板文件
+ * 20191029 [Yukiteru Lee](https://github.com/wfly1998): 为部分代码块添加高亮；添加了附录1；删除了仓库中的模板文件；添加新的文件结构和lab分支
+ * 20191030 [Yukiteru Lee](https://github.com/wfly1998): 修复了部分文件上的问题；完善了lab分支。文件结构已基本完成，可以开始着手写代码分析
+
