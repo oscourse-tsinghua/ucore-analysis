@@ -3197,67 +3197,67 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <pre><code>OBJPREFIX    := __objs_
+                                <pre><code class="lang-makefile">OBJPREFIX    := __objs_
 
 .SECONDEXPANSION:
-# -------------------- function begin --------------------
+<span class="hljs-comment"># -------------------- function begin --------------------</span>
 
-# list all files in some directories: (#directories, #types)
-listf = $(filter $(if $(2),$(addprefix %.,$(2)),%),\
+<span class="hljs-comment"># list all files in some directories: (#directories, #types)</span>
+listf = <span class="hljs-variable">$(filter $(if $(2)</span>,<span class="hljs-variable">$(addprefix %.,$(2)</span>),%),\
           $(wildcard $(addsuffix $(SLASH)*,$(1))))
 
-# get .o obj files: (#files[, packet])
-toobj = $(addprefix $(OBJDIR)$(SLASH)$(if $(2),$(2)$(SLASH)),\
+<span class="hljs-comment"># get .o obj files: (#files[, packet])</span>
+toobj = <span class="hljs-variable">$(addprefix $(OBJDIR)</span><span class="hljs-variable">$(SLASH)</span><span class="hljs-variable">$(if $(2)</span>,<span class="hljs-variable">$(2)</span><span class="hljs-variable">$(SLASH)</span>),\
         $(addsuffix .o,$(basename $(1))))
 
-# get .d dependency files: (#files[, packet])
-todep = $(patsubst %.o,%.d,$(call toobj,$(1),$(2)))
+<span class="hljs-comment"># get .d dependency files: (#files[, packet])</span>
+todep = <span class="hljs-variable">$(patsubst %.o,%.d,$(call toobj,$(1)</span>,<span class="hljs-variable">$(2)</span>))
 
-totarget = $(addprefix $(BINDIR)$(SLASH),$(1))
+totarget = <span class="hljs-variable">$(addprefix $(BINDIR)</span><span class="hljs-variable">$(SLASH)</span>,<span class="hljs-variable">$(1)</span>)
 
-# change $(name) to $(OBJPREFIX)$(name): (#names)
-packetname = $(if $(1),$(addprefix $(OBJPREFIX),$(1)),$(OBJPREFIX))
+<span class="hljs-comment"># change $(name) to $(OBJPREFIX)$(name): (#names)</span>
+packetname = <span class="hljs-variable">$(if $(1)</span>,<span class="hljs-variable">$(addprefix $(OBJPREFIX)</span>,<span class="hljs-variable">$(1)</span>),<span class="hljs-variable">$(OBJPREFIX)</span>)
 
-# cc compile template, generate rule for dep, obj: (file, cc[, flags, dir])
+<span class="hljs-comment"># cc compile template, generate rule for dep, obj: (file, cc[, flags, dir])</span>
 define cc_template
 $$(call todep,$(1),$(4)): $(1) | $$$$(dir $$$$@)
     @$(2) -I$$(dir $(1)) $(3) -MM $$&lt; -MT &quot;$$(patsubst %.d,%.o,$$@) $$@&quot;&gt; $$@
 $$(call toobj,$(1),$(4)): $(1) | $$$$(dir $$$$@)
     @echo + cc $$&lt;
     $(V)$(2) -I$$(dir $(1)) $(3) -c $$&lt; -o $$@
-ALLOBJS += $$(call toobj,$(1),$(4))
+ALLOBJS += $<span class="hljs-variable">$(call toobj,$(1)</span>,<span class="hljs-variable">$(4)</span>)
 endef
 
-# compile file: (#files, cc[, flags, dir])
+<span class="hljs-comment"># compile file: (#files, cc[, flags, dir])</span>
 define do_cc_compile
 $$(foreach f,$(1),$$(eval $$(call cc_template,$$(f),$(2),$(3),$(4))))
 endef
 
-# add files to packet: (#files, cc[, flags, packet, dir])
+<span class="hljs-comment"># add files to packet: (#files, cc[, flags, packet, dir])</span>
 define do_add_files_to_packet
-__temp_packet__ := $(call packetname,$(4))
+__temp_packet__ := <span class="hljs-variable">$(call packetname,$(4)</span>)
 ifeq ($$(origin $$(__temp_packet__)),undefined)
 $$(__temp_packet__) :=
 endif
-__temp_objs__ := $(call toobj,$(1),$(5))
+__temp_objs__ := <span class="hljs-variable">$(call toobj,$(1)</span>,<span class="hljs-variable">$(5)</span>)
 $$(foreach f,$(1),$$(eval $$(call cc_template,$$(f),$(2),$(3),$(5))))
 $$(__temp_packet__) += $$(__temp_objs__)
 endef
 
-# add objs to packet: (#objs, packet)
+<span class="hljs-comment"># add objs to packet: (#objs, packet)</span>
 define do_add_objs_to_packet
-__temp_packet__ := $(call packetname,$(2))
+__temp_packet__ := <span class="hljs-variable">$(call packetname,$(2)</span>)
 ifeq ($$(origin $$(__temp_packet__)),undefined)
 $$(__temp_packet__) :=
 endif
 $$(__temp_packet__) += $(1)
 endef
 
-# add packets and objs to target (target, #packes, #objs[, cc, flags])
+<span class="hljs-comment"># add packets and objs to target (target, #packes, #objs[, cc, flags])</span>
 define do_create_target
-__temp_target__ = $(call totarget,$(1))
-__temp_objs__ = $$(foreach p,$(call packetname,$(2)),$$($$(p))) $(3)
-TARGETS += $$(__temp_target__)
+__temp_target__ = <span class="hljs-variable">$(call totarget,$(1)</span>)
+__temp_objs__ = $<span class="hljs-variable">$(foreach p,$(call packetname,$(2)</span>),$<span class="hljs-variable">$($$(p)</span>)) <span class="hljs-variable">$(3)</span>
+TARGETS += $<span class="hljs-variable">$(__temp_target__)</span>
 ifneq ($(4),)
 $$(__temp_target__): $$(__temp_objs__) | $$$$(dir $$$$@)
     $(V)$(4) $(5) $$^ -o $$@
@@ -3266,32 +3266,33 @@ $$(__temp_target__): $$(__temp_objs__) | $$$$(dir $$$$@)
 endif
 endef
 
-# finish all
+<span class="hljs-comment"># finish all</span>
 define do_finish_all
-ALLDEPS = $$(ALLOBJS:.o=.d)
+ALLDEPS = $<span class="hljs-variable">$(ALLOBJS:.o=.d)</span>
 $$(sort $$(dir $$(ALLOBJS)) $(BINDIR)$(SLASH) $(OBJDIR)$(SLASH)):
     @$(MKDIR) $$@
 endef
 
-# --------------------  function end  --------------------
-# compile file: (#files, cc[, flags, dir])
-cc_compile = $(eval $(call do_cc_compile,$(1),$(2),$(3),$(4)))
+<span class="hljs-comment"># --------------------  function end  --------------------</span>
+<span class="hljs-comment"># compile file: (#files, cc[, flags, dir])</span>
+cc_compile = <span class="hljs-variable">$(eval $(call do_cc_compile,$(1)</span>,<span class="hljs-variable">$(2)</span>,<span class="hljs-variable">$(3)</span>,<span class="hljs-variable">$(4)</span>))
 
-# add files to packet: (#files, cc[, flags, packet, dir])
-add_files = $(eval $(call do_add_files_to_packet,$(1),$(2),$(3),$(4),$(5)))
+<span class="hljs-comment"># add files to packet: (#files, cc[, flags, packet, dir])</span>
+add_files = <span class="hljs-variable">$(eval $(call do_add_files_to_packet,$(1)</span>,<span class="hljs-variable">$(2)</span>,<span class="hljs-variable">$(3)</span>,<span class="hljs-variable">$(4)</span>,<span class="hljs-variable">$(5)</span>))
 
-# add objs to packet: (#objs, packet)
-add_objs = $(eval $(call do_add_objs_to_packet,$(1),$(2)))
+<span class="hljs-comment"># add objs to packet: (#objs, packet)</span>
+add_objs = <span class="hljs-variable">$(eval $(call do_add_objs_to_packet,$(1)</span>,<span class="hljs-variable">$(2)</span>))
 
-# add packets and objs to target (target, #packes, #objs, cc, [, flags])
-create_target = $(eval $(call do_create_target,$(1),$(2),$(3),$(4),$(5)))
+<span class="hljs-comment"># add packets and objs to target (target, #packes, #objs, cc, [, flags])</span>
+create_target = <span class="hljs-variable">$(eval $(call do_create_target,$(1)</span>,<span class="hljs-variable">$(2)</span>,<span class="hljs-variable">$(3)</span>,<span class="hljs-variable">$(4)</span>,<span class="hljs-variable">$(5)</span>))
 
-read_packet = $(foreach p,$(call packetname,$(1)),$($(p)))
+read_packet = <span class="hljs-variable">$(foreach p,$(call packetname,$(1)</span>),<span class="hljs-variable">$($(p)</span>))
 
-add_dependency = $(eval $(1): $(2))
+add_dependency = <span class="hljs-variable">$(eval $(1)</span>: <span class="hljs-variable">$(2)</span>)
 
-finish_all = $(eval $(call do_finish_all))
-</code></pre><p><div id="page-footer" class="localized-footer"><hr><p><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css"></p>
+finish_all = <span class="hljs-variable">$(eval $(call do_finish_all)</span>)
+</code></pre>
+<p><div id="page-footer" class="localized-footer"><hr><p><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css"></p>
 <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
 <div id="gitalk-container" style="margin: 5%"></div>
 <script>
@@ -3383,7 +3384,7 @@ finish_all = $(eval $(call do_finish_all))
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"function.mk","level":"1.3.4.2","depth":3,"next":{"title":"gdbinit","level":"1.3.4.3","depth":3,"path":"ucore/tools/gdbinit.md","ref":"ucore/tools/gdbinit.md","articles":[]},"previous":{"title":"boot.ld","level":"1.3.4.1","depth":3,"path":"ucore/tools/boot_ld.md","ref":"ucore/tools/boot_ld.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["chapter-fold","code","search-pro","github","localized-footer","ancre-navigation","-sharing"],"pluginsConfig":{"chapter-fold":{},"github":{"url":"https://oscourse-tsinghua.github.io/ucore-analysis"},"search-pro":{},"search":{},"localized-footer":{"filename":"gitbook/comment.html","hline":"true"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ancre-navigation":{"associatedWithSummary":true,"float":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showLevel":true},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"gitbook/website.css"}},"file":{"path":"ucore/tools/function_mk.md","mtime":"2019-10-29T13:39:54.183Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-10-30T02:19:17.285Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"function.mk","level":"1.3.4.2","depth":3,"next":{"title":"gdbinit","level":"1.3.4.3","depth":3,"path":"ucore/tools/gdbinit.md","ref":"ucore/tools/gdbinit.md","articles":[]},"previous":{"title":"boot.ld","level":"1.3.4.1","depth":3,"path":"ucore/tools/boot_ld.md","ref":"ucore/tools/boot_ld.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["chapter-fold","code","search-pro","github","localized-footer","ancre-navigation","-sharing"],"pluginsConfig":{"chapter-fold":{},"github":{"url":"https://oscourse-tsinghua.github.io/ucore-analysis"},"search-pro":{},"search":{},"localized-footer":{"filename":"gitbook/comment.html","hline":"true"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ancre-navigation":{"associatedWithSummary":true,"float":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showLevel":true},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"gitbook/website.css"}},"file":{"path":"ucore/tools/function_mk.md","mtime":"2019-10-30T02:38:21.656Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-10-30T02:41:53.948Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
