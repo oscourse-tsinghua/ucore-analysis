@@ -1,4 +1,4 @@
-```
+```makefile
 OBJPREFIX	:= __objs_
 
 .SECONDEXPANSION:
