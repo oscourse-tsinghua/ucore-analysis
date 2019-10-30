@@ -220,6 +220,6 @@
 	* [Makefile](ucore/Makefile.md)
 	* [(lab1) Makefile](ucore/Makefile_lab1.md)
 * 附录：工具使用
-	* [如何编辑该文档](how_to_edit_this_doc.md)
+	* [如何编辑该文档](tools/how_to_edit_this_doc.md)
 	* [讨论区的维护方法](tools/how_to_update_gitbook_doc.md)
 
