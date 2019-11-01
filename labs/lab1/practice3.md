@@ -1,5 +1,7 @@
 ### 练习3: 分析bootloader进入保护模式的过程
 
+[练习3文档](https://chyyuu.gitbooks.io/ucore_os_docs/content/lab1/lab1_2_1_3_ex3.html)
+
 * 为何开启A20，以及如何开启A20
 * 如何初始化GDT表
 * 如何使能和进入保护模式
@@ -190,31 +192,30 @@
    以下为代码中创建段描述符的宏以及其参数。
 
    ```c
-   #	File:	asm.h
-   #	Line:	4-23
-   
-   /* Assembler macros to create x86 segments */
-   
-   /* Normal segment */
-   #define SEG_NULLASM                                             \
-       .word 0, 0;                                                 \
-       .byte 0, 0, 0, 0
-   
-   #define SEG_ASM(type,base,lim)                                  \
-       .word (((lim) >> 12) & 0xffff), ((base) & 0xffff);          \
-       .byte (((base) >> 16) & 0xff), (0x90 | (type)),             \
-           (0xC0 | (((lim) >> 28) & 0xf)), (((base) >> 24) & 0xff)
-   
-   
-   /* Application segment type bits */
-   #define STA_X       0x8     // Executable segment
-   #define STA_E       0x4     // Expand down (non-executable segments)
-   #define STA_C       0x4     // Conforming code segment (executable only)
-   #define STA_W       0x2     // Writeable (non-executable segments)
-   #define STA_R       0x2     // Readable (executable segments)
-   #define STA_A       0x1     // Accessed
+	//	File:	asm.h
+	//	Line:	4-23
+
+	/* Assembler macros to create x86 segments */
+
+	/* Normal segment */
+	#define SEG_NULLASM                                             \
+		.word 0, 0;                                                 \
+		.byte 0, 0, 0, 0
+
+	#define SEG_ASM(type,base,lim)                                  \
+		.word (((lim) >> 12) & 0xffff), ((base) & 0xffff);          \
+		.byte (((base) >> 16) & 0xff), (0x90 | (type)),             \
+			(0xC0 | (((lim) >> 28) & 0xf)), (((base) >> 24) & 0xff)
+
+	/* Application segment type bits */
+	#define STA_X       0x8     // Executable segment
+	#define STA_E       0x4     // Expand down (non-executable segments)
+	#define STA_C       0x4     // Conforming code segment (executable only)
+	#define STA_W       0x2     // Writeable (non-executable segments)
+	#define STA_R       0x2     // Readable (executable segments)
+	#define STA_A       0x1     // Accessed
    ```
-   
+
    由以上代码可知，代码描述符的类型(type)值为`(0x90 | (STA_X|STA_R))`即`(0x90 | 0x0A) = 0x9A`，数据段描述符的类型(type)值为`(0x90 | STA_W)`即`(0x90 | 0x02) = 0x92`，与文档描述一致。
 
 #### 参考文献
@@ -224,5 +225,45 @@
 
 ### 如何使能和进入保护模式
 
-稍后补充
+#### 背景知识
+
+1. 什么是保护模式
+
+   保护模式与实模式相对应，是在80286处理器之后现代Intel处理器主要的操作模式。在80386处理器或更高版本上，32位保护模式允许使用多个虚拟空间，每个虚拟空间最多具有4GB的可寻址内存，并能通过Rings限制可用的指令集使系统能够执行严格的内存和硬件I/O保护。
+
+#### 问题分析
+
+1. 如何进入保护模式
+
+   在进入保护模式前，需要进行一系列操作：
+
+   1. 禁用所有中断（执行`cli`命令）
+
+   2. 启用*A20 Line*
+
+   3. 使用适用于代码、数据和堆栈的段描述符加载GDT表
+
+   做完准备工作后，就可以切换到保护模式了。
+
+   控制实模式与保护模式切换的开关位于CR0寄存器。CR0是处理器内部的控制寄存器(Control Register, CR)，它是32位的寄存器，包含了一系列用于控制处理器操作模式和运行状态的标志位，它的第1位是保护模式允许位，把该位置设为1后处理器就会进入保护模式。
+
+   ```x86asm
+    #	File:	bootasm.S
+    #	Line:	50-52
+
+    movl %cr0, %eax
+    orl $CR0_PE_ON, %eax
+    movl %eax, %cr0
+   ```
+   
+   由于CR0是32位寄存器，所以我们需要先将其值存入EAX寄存器。EAX寄存器是一个32位寄存器，AX是EAX的低16位。
+
+   在存入数据后，对EAX的值与常量`CR0_PE_ON`进行位或操作，常量`CR0_PE_ON`的值为`0x1`，进行或操作后可使EAX内数值的第1位变为1，即将CR0状态标志位的保护模式允许为打开。
+
+   然后将EAX寄存器内的值传入CR0，这时CR0内第1位的值变成了1，其它位的值也没有发生变化，这就标志着保护模式的启动。
+
+#### 参考文献
+
+* [Protected Mode](https://wiki.osdev.org/Protected_Mode)
+* 《x86汇编语言：从实模式到保护模式》，电子工业出版社；
 
