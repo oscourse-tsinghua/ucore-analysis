@@ -68,7 +68,7 @@
     <link rel="next" href="../lab2/" />
     
     
-    <link rel="prev" href="./" />
+    <link rel="prev" href="practice1.html" />
     
 
     </head>
@@ -429,7 +429,7 @@
                 <a href="../">
             
                     
-                    LABS
+                    lab解析
             
                 </a>
             
@@ -452,7 +452,20 @@
             <ul class="articles">
                 
     
-        <li class="chapter active" data-level="1.2.1.1" data-path="practice3.html">
+        <li class="chapter " data-level="1.2.1.1" data-path="practice1.html">
+            
+                <a href="practice1.html">
+            
+                    
+                    练习1
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.1.2" data-path="practice3.html">
             
                 <a href="practice3.html">
             
@@ -571,7 +584,7 @@
                 <a href="../../ucore/">
             
                     
-                    uCore代码分析
+                    uCore代码
             
                 </a>
             
@@ -3248,7 +3261,8 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-anchor"></i><ul><li><span class="title-icon "></span><a href="#file----asmh"><b></b>File:    asm.h</a></li><li><span class="title-icon "></span><a href="#line----4-23"><b></b>Line:    4-23</a></li><li><span class="title-icon "></span><a href="#define-segnullasm---------------------------------------------"><b></b>define SEG_NULLASM                                             \</a></li><li><span class="title-icon "></span><a href="#define-segasmtypebaselim----------------------------------"><b></b>define SEG_ASM(type,base,lim)                                  \</a></li><li><span class="title-icon "></span><a href="#define-stax-------0x8------executable-segment"><b></b>define STA_X       0x8     // Executable segment</a></li><li><span class="title-icon "></span><a href="#define-stae-------0x4------expand-down-non-executable-segments"><b></b>define STA_E       0x4     // Expand down (non-executable segments)</a></li><li><span class="title-icon "></span><a href="#define-stac-------0x4------conforming-code-segment-executable-only"><b></b>define STA_C       0x4     // Conforming code segment (executable only)</a></li><li><span class="title-icon "></span><a href="#define-staw-------0x2------writeable-non-executable-segments"><b></b>define STA_W       0x2     // Writeable (non-executable segments)</a></li><li><span class="title-icon "></span><a href="#define-star-------0x2------readable-executable-segments"><b></b>define STA_R       0x2     // Readable (executable segments)</a></li><li><span class="title-icon "></span><a href="#define-staa-------0x1------accessed"><b></b>define STA_A       0x1     // Accessed</a></li></ul></div><a href="#file----asmh" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h3 id="&#x7EC3;&#x4E60;3-&#x5206;&#x6790;bootloader&#x8FDB;&#x5165;&#x4FDD;&#x62A4;&#x6A21;&#x5F0F;&#x7684;&#x8FC7;&#x7A0B;"><a name="&#x7EC3;&#x4E60;3-&#x5206;&#x6790;bootloader&#x8FDB;&#x5165;&#x4FDD;&#x62A4;&#x6A21;&#x5F0F;&#x7684;&#x8FC7;&#x7A0B;" class="anchor-navigation-ex-anchor" href="#&#x7EC3;&#x4E60;3-&#x5206;&#x6790;bootloader&#x8FDB;&#x5165;&#x4FDD;&#x62A4;&#x6A21;&#x5F0F;&#x7684;&#x8FC7;&#x7A0B;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7EC3;&#x4E60;3: &#x5206;&#x6790;bootloader&#x8FDB;&#x5165;&#x4FDD;&#x62A4;&#x6A21;&#x5F0F;&#x7684;&#x8FC7;&#x7A0B;</h3>
+                                <h3 id="&#x7EC3;&#x4E60;3-&#x5206;&#x6790;bootloader&#x8FDB;&#x5165;&#x4FDD;&#x62A4;&#x6A21;&#x5F0F;&#x7684;&#x8FC7;&#x7A0B;"><a name="&#x7EC3;&#x4E60;3-&#x5206;&#x6790;bootloader&#x8FDB;&#x5165;&#x4FDD;&#x62A4;&#x6A21;&#x5F0F;&#x7684;&#x8FC7;&#x7A0B;" class="anchor-navigation-ex-anchor" href="#&#x7EC3;&#x4E60;3-&#x5206;&#x6790;bootloader&#x8FDB;&#x5165;&#x4FDD;&#x62A4;&#x6A21;&#x5F0F;&#x7684;&#x8FC7;&#x7A0B;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7EC3;&#x4E60;3: &#x5206;&#x6790;bootloader&#x8FDB;&#x5165;&#x4FDD;&#x62A4;&#x6A21;&#x5F0F;&#x7684;&#x8FC7;&#x7A0B;</h3>
+<p><a href="https://chyyuu.gitbooks.io/ucore_os_docs/content/lab1/lab1_2_1_3_ex3.html" target="_blank">&#x7EC3;&#x4E60;3&#x6587;&#x6863;</a></p>
 <ul>
 <li>&#x4E3A;&#x4F55;&#x5F00;&#x542F;A20&#xFF0C;&#x4EE5;&#x53CA;&#x5982;&#x4F55;&#x5F00;&#x542F;A20</li>
 <li>&#x5982;&#x4F55;&#x521D;&#x59CB;&#x5316;GDT&#x8868;</li>
@@ -3400,36 +3414,75 @@ gdtdesc:</span>
 </code></pre>
 <p><code>gdt</code>&#x4E3A;&#x5B58;&#x50A8;&#x7684;&#x4E24;&#x4E2A;&#x6BB5;&#x63CF;&#x8FF0;&#x7B26;&#xFF08;&#x4EE5;&#x53CA;&#x4E4B;&#x524D;&#x7684;&#x4E00;&#x4E2A;&#x7A7A;&#x7684;&#x6BB5;&#x63CF;&#x8FF0;&#x7B26;&#xFF09;&#xFF0C;<code>gdtdesc</code>&#x4E3A;GDT&#x8868;&#x7684;&#x6BB5;&#x754C;&#x9650;&#x53CA;&#x6BB5;&#x63CF;&#x8FF0;&#x7B26;(<code>gdt</code>)&#x7684;&#x8D77;&#x59CB;&#x5730;&#x5740;&#x3002;&#x4E24;&#x4E2A;&#x6BB5;&#x63CF;&#x8FF0;&#x7B26;&#x5206;&#x522B;&#x4E3A;&#xFF1A;&#x4EE3;&#x7801;&#x6BB5;&#x63CF;&#x8FF0;&#x7B26;&#xFF0C;&#x6570;&#x636E;&#x6BB5;&#x63CF;&#x8FF0;&#x7B26;&#x3002;</p>
 <p>&#x4EE5;&#x4E0B;&#x4E3A;&#x4EE3;&#x7801;&#x4E2D;&#x521B;&#x5EFA;&#x6BB5;&#x63CF;&#x8FF0;&#x7B26;&#x7684;&#x5B8F;&#x4EE5;&#x53CA;&#x5176;&#x53C2;&#x6570;&#x3002;</p>
-<p>```c</p>
-<h1 id="file----asmh"><a name="file----asmh" class="anchor-navigation-ex-anchor" href="#file----asmh"><i class="fa fa-link" aria-hidden="true"></i></a>File:    asm.h</h1>
-<h1 id="line----4-23"><a name="line----4-23" class="anchor-navigation-ex-anchor" href="#line----4-23"><i class="fa fa-link" aria-hidden="true"></i></a>Line:    4-23</h1>
-<p>/<em> Assembler macros to create x86 segments </em>/</p>
-<p>/<em> Normal segment </em>/</p>
-<h1 id="define-segnullasm---------------------------------------------"><a name="define-segnullasm---------------------------------------------" class="anchor-navigation-ex-anchor" href="#define-segnullasm---------------------------------------------"><i class="fa fa-link" aria-hidden="true"></i></a>define SEG_NULLASM                                             \</h1>
-<pre><code>.word 0, 0;                                                 \
-.byte 0, 0, 0, 0
-</code></pre><h1 id="define-segasmtypebaselim----------------------------------"><a name="define-segasmtypebaselim----------------------------------" class="anchor-navigation-ex-anchor" href="#define-segasmtypebaselim----------------------------------"><i class="fa fa-link" aria-hidden="true"></i></a>define SEG_ASM(type,base,lim)                                  \</h1>
-<pre><code>.word (((lim) &gt;&gt; 12) &amp; 0xffff), ((base) &amp; 0xffff);          \
-.byte (((base) &gt;&gt; 16) &amp; 0xff), (0x90 | (type)),             \
-    (0xC0 | (((lim) &gt;&gt; 28) &amp; 0xf)), (((base) &gt;&gt; 24) &amp; 0xff)
-</code></pre></li>
+<pre><code class="lang-c"> <span class="hljs-comment">//    File:    asm.h</span>
+ <span class="hljs-comment">//    Line:    4-23</span>
+
+ <span class="hljs-comment">/* Assembler macros to create x86 segments */</span>
+
+ <span class="hljs-comment">/* Normal segment */</span>
+ <span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> SEG_NULLASM                                             \
+     .word 0, 0;                                                 \
+     .byte 0, 0, 0, 0</span>
+
+ <span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> SEG_ASM(type,base,lim)                                  \
+     .word (((lim) &gt;&gt; 12) &amp; 0xffff), ((base) &amp; 0xffff);          \
+     .byte (((base) &gt;&gt; 16) &amp; 0xff), (0x90 | (type)),             \
+         (0xC0 | (((lim) &gt;&gt; 28) &amp; 0xf)), (((base) &gt;&gt; 24) &amp; 0xff)</span>
+
+ <span class="hljs-comment">/* Application segment type bits */</span>
+ <span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> STA_X       0x8     <span class="hljs-comment">// Executable segment</span></span>
+ <span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> STA_E       0x4     <span class="hljs-comment">// Expand down (non-executable segments)</span></span>
+ <span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> STA_C       0x4     <span class="hljs-comment">// Conforming code segment (executable only)</span></span>
+ <span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> STA_W       0x2     <span class="hljs-comment">// Writeable (non-executable segments)</span></span>
+ <span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> STA_R       0x2     <span class="hljs-comment">// Readable (executable segments)</span></span>
+ <span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> STA_A       0x1     <span class="hljs-comment">// Accessed</span></span>
+</code></pre>
+<p>&#x7531;&#x4EE5;&#x4E0A;&#x4EE3;&#x7801;&#x53EF;&#x77E5;&#xFF0C;&#x4EE3;&#x7801;&#x63CF;&#x8FF0;&#x7B26;&#x7684;&#x7C7B;&#x578B;(type)&#x503C;&#x4E3A;<code>(0x90 | (STA_X|STA_R))</code>&#x5373;<code>(0x90 | 0x0A) = 0x9A</code>&#xFF0C;&#x6570;&#x636E;&#x6BB5;&#x63CF;&#x8FF0;&#x7B26;&#x7684;&#x7C7B;&#x578B;(type)&#x503C;&#x4E3A;<code>(0x90 | STA_W)</code>&#x5373;<code>(0x90 | 0x02) = 0x92</code>&#xFF0C;&#x4E0E;&#x6587;&#x6863;&#x63CF;&#x8FF0;&#x4E00;&#x81F4;&#x3002;</p>
+</li>
 </ol>
-<p>   /<em> Application segment type bits </em>/</p>
-<h1 id="define-stax-------0x8------executable-segment"><a name="define-stax-------0x8------executable-segment" class="anchor-navigation-ex-anchor" href="#define-stax-------0x8------executable-segment"><i class="fa fa-link" aria-hidden="true"></i></a>define STA_X       0x8     // Executable segment</h1>
-<h1 id="define-stae-------0x4------expand-down-non-executable-segments"><a name="define-stae-------0x4------expand-down-non-executable-segments" class="anchor-navigation-ex-anchor" href="#define-stae-------0x4------expand-down-non-executable-segments"><i class="fa fa-link" aria-hidden="true"></i></a>define STA_E       0x4     // Expand down (non-executable segments)</h1>
-<h1 id="define-stac-------0x4------conforming-code-segment-executable-only"><a name="define-stac-------0x4------conforming-code-segment-executable-only" class="anchor-navigation-ex-anchor" href="#define-stac-------0x4------conforming-code-segment-executable-only"><i class="fa fa-link" aria-hidden="true"></i></a>define STA_C       0x4     // Conforming code segment (executable only)</h1>
-<h1 id="define-staw-------0x2------writeable-non-executable-segments"><a name="define-staw-------0x2------writeable-non-executable-segments" class="anchor-navigation-ex-anchor" href="#define-staw-------0x2------writeable-non-executable-segments"><i class="fa fa-link" aria-hidden="true"></i></a>define STA_W       0x2     // Writeable (non-executable segments)</h1>
-<h1 id="define-star-------0x2------readable-executable-segments"><a name="define-star-------0x2------readable-executable-segments" class="anchor-navigation-ex-anchor" href="#define-star-------0x2------readable-executable-segments"><i class="fa fa-link" aria-hidden="true"></i></a>define STA_R       0x2     // Readable (executable segments)</h1>
-<h1 id="define-staa-------0x1------accessed"><a name="define-staa-------0x1------accessed" class="anchor-navigation-ex-anchor" href="#define-staa-------0x1------accessed"><i class="fa fa-link" aria-hidden="true"></i></a>define STA_A       0x1     // Accessed</h1>
-<p>   ```</p>
-<p>   &#x7531;&#x4EE5;&#x4E0A;&#x4EE3;&#x7801;&#x53EF;&#x77E5;&#xFF0C;&#x4EE3;&#x7801;&#x63CF;&#x8FF0;&#x7B26;&#x7684;&#x7C7B;&#x578B;(type)&#x503C;&#x4E3A;<code>(0x90 | (STA_X|STA_R))</code>&#x5373;<code>(0x90 | 0x0A) = 0x9A</code>&#xFF0C;&#x6570;&#x636E;&#x6BB5;&#x63CF;&#x8FF0;&#x7B26;&#x7684;&#x7C7B;&#x578B;(type)&#x503C;&#x4E3A;<code>(0x90 | STA_W)</code>&#x5373;<code>(0x90 | 0x02) = 0x92</code>&#xFF0C;&#x4E0E;&#x6587;&#x6863;&#x63CF;&#x8FF0;&#x4E00;&#x81F4;&#x3002;</p>
 <h4 id="&#x53C2;&#x8003;&#x6587;&#x732E;_1"><a name="&#x53C2;&#x8003;&#x6587;&#x732E;_1" class="anchor-navigation-ex-anchor" href="#&#x53C2;&#x8003;&#x6587;&#x732E;_1"><i class="fa fa-link" aria-hidden="true"></i></a>&#x53C2;&#x8003;&#x6587;&#x732E;</h4>
 <ul>
 <li><a href="https://chyyuu.gitbooks.io/ucore_os_docs/content/lab1/lab1_3_2_1_protection_mode.html" target="_blank">&#x4FDD;&#x62A4;&#x6A21;&#x5F0F;&#x548C;&#x5206;&#x6BB5;&#x673A;&#x5236;</a></li>
 <li><a href="https://wiki.osdev.org/Global_Descriptor_Table" target="_blank">Global Descriptor Table</a></li>
 </ul>
 <h3 id="&#x5982;&#x4F55;&#x4F7F;&#x80FD;&#x548C;&#x8FDB;&#x5165;&#x4FDD;&#x62A4;&#x6A21;&#x5F0F;"><a name="&#x5982;&#x4F55;&#x4F7F;&#x80FD;&#x548C;&#x8FDB;&#x5165;&#x4FDD;&#x62A4;&#x6A21;&#x5F0F;" class="anchor-navigation-ex-anchor" href="#&#x5982;&#x4F55;&#x4F7F;&#x80FD;&#x548C;&#x8FDB;&#x5165;&#x4FDD;&#x62A4;&#x6A21;&#x5F0F;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5982;&#x4F55;&#x4F7F;&#x80FD;&#x548C;&#x8FDB;&#x5165;&#x4FDD;&#x62A4;&#x6A21;&#x5F0F;</h3>
-<p>&#x7A0D;&#x540E;&#x8865;&#x5145;</p>
+<h4 id="&#x80CC;&#x666F;&#x77E5;&#x8BC6;_2"><a name="&#x80CC;&#x666F;&#x77E5;&#x8BC6;_2" class="anchor-navigation-ex-anchor" href="#&#x80CC;&#x666F;&#x77E5;&#x8BC6;_2"><i class="fa fa-link" aria-hidden="true"></i></a>&#x80CC;&#x666F;&#x77E5;&#x8BC6;</h4>
+<ol>
+<li><p>&#x4EC0;&#x4E48;&#x662F;&#x4FDD;&#x62A4;&#x6A21;&#x5F0F;</p>
+<p>&#x4FDD;&#x62A4;&#x6A21;&#x5F0F;&#x4E0E;&#x5B9E;&#x6A21;&#x5F0F;&#x76F8;&#x5BF9;&#x5E94;&#xFF0C;&#x662F;&#x5728;80286&#x5904;&#x7406;&#x5668;&#x4E4B;&#x540E;&#x73B0;&#x4EE3;Intel&#x5904;&#x7406;&#x5668;&#x4E3B;&#x8981;&#x7684;&#x64CD;&#x4F5C;&#x6A21;&#x5F0F;&#x3002;&#x5728;80386&#x5904;&#x7406;&#x5668;&#x6216;&#x66F4;&#x9AD8;&#x7248;&#x672C;&#x4E0A;&#xFF0C;32&#x4F4D;&#x4FDD;&#x62A4;&#x6A21;&#x5F0F;&#x5141;&#x8BB8;&#x4F7F;&#x7528;&#x591A;&#x4E2A;&#x865A;&#x62DF;&#x7A7A;&#x95F4;&#xFF0C;&#x6BCF;&#x4E2A;&#x865A;&#x62DF;&#x7A7A;&#x95F4;&#x6700;&#x591A;&#x5177;&#x6709;4GB&#x7684;&#x53EF;&#x5BFB;&#x5740;&#x5185;&#x5B58;&#xFF0C;&#x5E76;&#x80FD;&#x901A;&#x8FC7;Rings&#x9650;&#x5236;&#x53EF;&#x7528;&#x7684;&#x6307;&#x4EE4;&#x96C6;&#x4F7F;&#x7CFB;&#x7EDF;&#x80FD;&#x591F;&#x6267;&#x884C;&#x4E25;&#x683C;&#x7684;&#x5185;&#x5B58;&#x548C;&#x786C;&#x4EF6;I/O&#x4FDD;&#x62A4;&#x3002;</p>
+</li>
+</ol>
+<h4 id="&#x95EE;&#x9898;&#x5206;&#x6790;_2"><a name="&#x95EE;&#x9898;&#x5206;&#x6790;_2" class="anchor-navigation-ex-anchor" href="#&#x95EE;&#x9898;&#x5206;&#x6790;_2"><i class="fa fa-link" aria-hidden="true"></i></a>&#x95EE;&#x9898;&#x5206;&#x6790;</h4>
+<ol>
+<li><p>&#x5982;&#x4F55;&#x8FDB;&#x5165;&#x4FDD;&#x62A4;&#x6A21;&#x5F0F;</p>
+<p>&#x5728;&#x8FDB;&#x5165;&#x4FDD;&#x62A4;&#x6A21;&#x5F0F;&#x524D;&#xFF0C;&#x9700;&#x8981;&#x8FDB;&#x884C;&#x4E00;&#x7CFB;&#x5217;&#x64CD;&#x4F5C;&#xFF1A;</p>
+<ol>
+<li><p>&#x7981;&#x7528;&#x6240;&#x6709;&#x4E2D;&#x65AD;&#xFF08;&#x6267;&#x884C;<code>cli</code>&#x547D;&#x4EE4;&#xFF09;</p>
+</li>
+<li><p>&#x542F;&#x7528;<em>A20 Line</em></p>
+</li>
+<li><p>&#x4F7F;&#x7528;&#x9002;&#x7528;&#x4E8E;&#x4EE3;&#x7801;&#x3001;&#x6570;&#x636E;&#x548C;&#x5806;&#x6808;&#x7684;&#x6BB5;&#x63CF;&#x8FF0;&#x7B26;&#x52A0;&#x8F7D;GDT&#x8868;</p>
+</li>
+</ol>
+<p>&#x505A;&#x5B8C;&#x51C6;&#x5907;&#x5DE5;&#x4F5C;&#x540E;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x5207;&#x6362;&#x5230;&#x4FDD;&#x62A4;&#x6A21;&#x5F0F;&#x4E86;&#x3002;</p>
+<p>&#x63A7;&#x5236;&#x5B9E;&#x6A21;&#x5F0F;&#x4E0E;&#x4FDD;&#x62A4;&#x6A21;&#x5F0F;&#x5207;&#x6362;&#x7684;&#x5F00;&#x5173;&#x4F4D;&#x4E8E;CR0&#x5BC4;&#x5B58;&#x5668;&#x3002;CR0&#x662F;&#x5904;&#x7406;&#x5668;&#x5185;&#x90E8;&#x7684;&#x63A7;&#x5236;&#x5BC4;&#x5B58;&#x5668;(Control Register, CR)&#xFF0C;&#x5B83;&#x662F;32&#x4F4D;&#x7684;&#x5BC4;&#x5B58;&#x5668;&#xFF0C;&#x5305;&#x542B;&#x4E86;&#x4E00;&#x7CFB;&#x5217;&#x7528;&#x4E8E;&#x63A7;&#x5236;&#x5904;&#x7406;&#x5668;&#x64CD;&#x4F5C;&#x6A21;&#x5F0F;&#x548C;&#x8FD0;&#x884C;&#x72B6;&#x6001;&#x7684;&#x6807;&#x5FD7;&#x4F4D;&#xFF0C;&#x5B83;&#x7684;&#x7B2C;1&#x4F4D;&#x662F;&#x4FDD;&#x62A4;&#x6A21;&#x5F0F;&#x5141;&#x8BB8;&#x4F4D;&#xFF0C;&#x628A;&#x8BE5;&#x4F4D;&#x7F6E;&#x8BBE;&#x4E3A;1&#x540E;&#x5904;&#x7406;&#x5668;&#x5C31;&#x4F1A;&#x8FDB;&#x5165;&#x4FDD;&#x62A4;&#x6A21;&#x5F0F;&#x3002;</p>
+<pre><code class="lang-x86asm"> #    File:    bootasm.S
+ #    Line:    <span class="hljs-number">50</span>-<span class="hljs-number">52</span>
+
+ movl %cr0, %eax
+ orl $CR0_PE_ON, %eax
+ movl %eax, %cr0
+</code></pre>
+<p>&#x7531;&#x4E8E;CR0&#x662F;32&#x4F4D;&#x5BC4;&#x5B58;&#x5668;&#xFF0C;&#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x5148;&#x5C06;&#x5176;&#x503C;&#x5B58;&#x5165;EAX&#x5BC4;&#x5B58;&#x5668;&#x3002;EAX&#x5BC4;&#x5B58;&#x5668;&#x662F;&#x4E00;&#x4E2A;32&#x4F4D;&#x5BC4;&#x5B58;&#x5668;&#xFF0C;AX&#x662F;EAX&#x7684;&#x4F4E;16&#x4F4D;&#x3002;</p>
+<p>&#x5728;&#x5B58;&#x5165;&#x6570;&#x636E;&#x540E;&#xFF0C;&#x5BF9;EAX&#x7684;&#x503C;&#x4E0E;&#x5E38;&#x91CF;<code>CR0_PE_ON</code>&#x8FDB;&#x884C;&#x4F4D;&#x6216;&#x64CD;&#x4F5C;&#xFF0C;&#x5E38;&#x91CF;<code>CR0_PE_ON</code>&#x7684;&#x503C;&#x4E3A;<code>0x1</code>&#xFF0C;&#x8FDB;&#x884C;&#x6216;&#x64CD;&#x4F5C;&#x540E;&#x53EF;&#x4F7F;EAX&#x5185;&#x6570;&#x503C;&#x7684;&#x7B2C;1&#x4F4D;&#x53D8;&#x4E3A;1&#xFF0C;&#x5373;&#x5C06;CR0&#x72B6;&#x6001;&#x6807;&#x5FD7;&#x4F4D;&#x7684;&#x4FDD;&#x62A4;&#x6A21;&#x5F0F;&#x5141;&#x8BB8;&#x4E3A;&#x6253;&#x5F00;&#x3002;</p>
+<p>&#x7136;&#x540E;&#x5C06;EAX&#x5BC4;&#x5B58;&#x5668;&#x5185;&#x7684;&#x503C;&#x4F20;&#x5165;CR0&#xFF0C;&#x8FD9;&#x65F6;CR0&#x5185;&#x7B2C;1&#x4F4D;&#x7684;&#x503C;&#x53D8;&#x6210;&#x4E86;1&#xFF0C;&#x5176;&#x5B83;&#x4F4D;&#x7684;&#x503C;&#x4E5F;&#x6CA1;&#x6709;&#x53D1;&#x751F;&#x53D8;&#x5316;&#xFF0C;&#x8FD9;&#x5C31;&#x6807;&#x5FD7;&#x7740;&#x4FDD;&#x62A4;&#x6A21;&#x5F0F;&#x7684;&#x542F;&#x52A8;&#x3002;</p>
+</li>
+</ol>
+<h4 id="&#x53C2;&#x8003;&#x6587;&#x732E;_2"><a name="&#x53C2;&#x8003;&#x6587;&#x732E;_2" class="anchor-navigation-ex-anchor" href="#&#x53C2;&#x8003;&#x6587;&#x732E;_2"><i class="fa fa-link" aria-hidden="true"></i></a>&#x53C2;&#x8003;&#x6587;&#x732E;</h4>
+<ul>
+<li><a href="https://wiki.osdev.org/Protected_Mode" target="_blank">Protected Mode</a></li>
+<li>&#x300A;x86&#x6C47;&#x7F16;&#x8BED;&#x8A00;&#xFF1A;&#x4ECE;&#x5B9E;&#x6A21;&#x5F0F;&#x5230;&#x4FDD;&#x62A4;&#x6A21;&#x5F0F;&#x300B;&#xFF0C;&#x7535;&#x5B50;&#x5DE5;&#x4E1A;&#x51FA;&#x7248;&#x793E;&#xFF1B;</li>
+</ul>
 <p><div id="page-footer" class="localized-footer"><hr><p><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css"></p>
 <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
 <div id="gitalk-container" style="margin: 5%"></div>
@@ -3506,7 +3559,7 @@ gdtdesc:</span>
 
             
                 
-                <a href="./" class="navigation navigation-prev " aria-label="Previous page: lab1">
+                <a href="practice1.html" class="navigation navigation-prev " aria-label="Previous page: 练习1">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
@@ -3522,7 +3575,7 @@ gdtdesc:</span>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"练习3","level":"1.2.1.1","depth":3,"next":{"title":"lab2","level":"1.2.2","depth":2,"path":"labs/lab2/README.md","ref":"labs/lab2/README.md","articles":[]},"previous":{"title":"lab1","level":"1.2.1","depth":2,"path":"labs/lab1/README.md","ref":"labs/lab1/README.md","articles":[{"title":"练习3","level":"1.2.1.1","depth":3,"path":"labs/lab1/practice3.md","ref":"labs/lab1/practice3.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["chapter-fold","code","search-pro","github","localized-footer","ancre-navigation","-sharing"],"pluginsConfig":{"chapter-fold":{},"github":{"url":"https://oscourse-tsinghua.github.io/ucore-analysis"},"search-pro":{},"search":{},"localized-footer":{"filename":"gitbook/comment.html","hline":"true"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ancre-navigation":{"associatedWithSummary":true,"float":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showLevel":true},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"gitbook/website.css"}},"file":{"path":"labs/lab1/practice3.md","mtime":"2019-10-30T16:20:53.470Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-10-30T16:26:45.814Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"练习3","level":"1.2.1.2","depth":3,"next":{"title":"lab2","level":"1.2.2","depth":2,"path":"labs/lab2/README.md","ref":"labs/lab2/README.md","articles":[]},"previous":{"title":"练习1","level":"1.2.1.1","depth":3,"path":"labs/lab1/practice1.md","ref":"labs/lab1/practice1.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["chapter-fold","code","search-pro","github","localized-footer","ancre-navigation","-sharing"],"pluginsConfig":{"chapter-fold":{},"github":{"url":"https://oscourse-tsinghua.github.io/ucore-analysis"},"search-pro":{},"search":{},"localized-footer":{"filename":"gitbook/comment.html","hline":"true"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ancre-navigation":{"associatedWithSummary":true,"float":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showLevel":true},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"gitbook/website.css"}},"file":{"path":"labs/lab1/practice3.md","mtime":"2019-11-01T04:45:22.350Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-11-01T05:04:06.674Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
