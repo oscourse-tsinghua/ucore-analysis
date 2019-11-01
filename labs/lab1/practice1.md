@@ -152,7 +152,7 @@
 
    2. 链接以上文件，生成内核文件`kernel`（`ld bin/kernel`）
 
-     （其文件格式为：`bin/kernel: ELF 32-bit LSB executable, Intel 80386, version 1 (SYSV), statically linked, not stripped`）
+     其文件格式为：`bin/kernel: ELF 32-bit LSB executable, Intel 80386, version 1 (SYSV), statically linked, not stripped`
 
 3. 编译boot目录下的所有文件（`cc boot/*`）
 	
@@ -208,7 +208,7 @@
    size = fwrite(buf, 1, 512, ofp);
    ```
 
-   该代码定义了长度为512的`char`型数组，将最后两个字节设为`0x55AA`后将其写入文件。
+   该代码定义了长度为512的`char`型数组`buf`，把最后两个字节设为`0x55AA`后将其写入文件。
 
 #### 参考文献
 

@@ -1,3 +1,9 @@
+### 相关练习及分析
+
+* [lab1-练习1](/labs/lab1/practice1.md)
+
+### Makefile
+
 ```makefile
 PROJ	:= challenge
 EMPTY	:=

@@ -1,6 +1,6 @@
 ### 相关练习及分析
 
-* [lab1-练习3](/labs/lab1/practice.md)
+* [lab1-练习3](/labs/lab1/practice3.md)
 
 ### bootasm.S
 
