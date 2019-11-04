@@ -1,3 +1,9 @@
+### 相关练习及分析
+
+* [lab1-练习4](/labs/lab1/practice4.md)
+
+### bootmain.c
+
 ```c
 #include <defs.h>
 #include <x86.h>

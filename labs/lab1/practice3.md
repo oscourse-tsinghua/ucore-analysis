@@ -1,6 +1,7 @@
 ### 练习3: 分析bootloader进入保护模式的过程
 
 [练习3文档](https://chyyuu.gitbooks.io/ucore_os_docs/content/lab1/lab1_2_1_3_ex3.html)
+[相关阅读：保护模式和分段机制](https://chyyuu.gitbooks.io/ucore_os_docs/content/lab1/lab1_3_2_1_protection_mode.html)
 
 * 为何开启A20，以及如何开启A20
 * 如何初始化GDT表

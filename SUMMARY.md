@@ -25,6 +25,7 @@
 	* [lab1](labs/lab1/README.md)
 	    * [练习1](labs/lab1/practice1.md)
 	    * [练习3](labs/lab1/practice3.md)
+	    * [练习4](labs/lab1/practice4.md)
 	* [lab2](labs/lab2/README.md)
 	* [lab3](labs/lab3/README.md)
 	* [lab4](labs/lab4/README.md)
@@ -224,4 +225,5 @@
 * [附录：工具使用](tools/README.md)
 	* [如何编辑该文档](tools/how_to_edit_this_doc.md)
 	* [讨论区的维护方法](tools/how_to_update_gitbook_doc.md)
+	* [使用Travis CI自动化更新gitbook](tools/how_to_auto_update_gitbook_via_travis-ci.md)
 

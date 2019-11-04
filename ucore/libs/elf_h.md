@@ -1,3 +1,9 @@
+### 相关练习及分析
+
+* [lab1-练习4](/labs/lab1/practice4.md)
+
+### elf.h
+
 ```c
 #ifndef __LIBS_ELF_H__
 #define __LIBS_ELF_H__
