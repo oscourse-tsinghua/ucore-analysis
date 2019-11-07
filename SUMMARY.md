@@ -26,6 +26,7 @@
 	    * [练习1](labs/lab1/practice1.md)
 	    * [练习3](labs/lab1/practice3.md)
 	    * [练习4](labs/lab1/practice4.md)
+	    * [练习6](labs/lab1/practice6.md)
 	* [lab2](labs/lab2/README.md)
 	* [lab3](labs/lab3/README.md)
 	* [lab4](labs/lab4/README.md)

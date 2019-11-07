@@ -1,3 +1,9 @@
+### 相关练习及分析
+
+* [lab1-练习6](/labs/lab1/practice6.md)
+
+### trap.c
+
 ```c
 #include <defs.h>
 #include <mmu.h>

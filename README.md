@@ -13,5 +13,6 @@
  * 20191101 [Yukiteru Lee](https://github.com/wfly1998): 修复了部分格式问题；完成了lab1练习1与练习3的编写
  * 20191103 [KaiYu Feng](https://github.com/fky2015): 增加了CI使用文档
  * 20191104 [Yukiteru Lee](https://github.com/wfly1998): 完成了lab1练习4的编写
+ * 20191107 [Yukiteru Lee](https://github.com/wfly1998): 完成了lab1练习6的编写
  
 
