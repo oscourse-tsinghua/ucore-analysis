@@ -154,23 +154,23 @@
 
      其文件格式为：`bin/kernel: ELF 32-bit LSB executable, Intel 80386, version 1 (SYSV), statically linked, not stripped`
 
-3. 编译boot目录下的所有文件（`cc boot/*`）
+   3. 编译boot目录下的所有文件（`cc boot/*`）
 	
-4. 编译用来生成扇区文件的工具`sign.c`（`cc tools/sign.c`）
+   4. 编译用来生成扇区文件的工具`sign.c`（`cc tools/sign.c`）
 	
-5. 链接boot目录编译出的文件，生成文件`bootblock`（`ld bin/bootblock`）
+   5. 链接boot目录编译出的文件，生成文件`bootblock`（`ld bin/bootblock`）
 
-   注意: 在链接`bootblock`时，`ld`命令指定了程序`bootasm`被实际加载到内存的位置为`0x7C00`
+      注意: 在链接`bootblock`时，`ld`命令指定了程序`bootasm`被实际加载到内存的位置为`0x7C00`
    
-6. 将`bootblock`编辑成为符合规范的硬盘主引导扇区
+   6. 将`bootblock`编辑成为符合规范的硬盘主引导扇区
 
-   注意：该步骤未列出执行的命令，但已列出`sign`执行的结果(见`tools/sign.c`第40行)：
+      注意：该步骤未列出执行的命令，但已列出`sign`执行的结果(见`tools/sign.c`第40行)：
 
-   > build 512 bytes boot sector: 'bin/bootblock' success!
+      > build 512 bytes boot sector: 'bin/bootblock' success!
 
-   执行完成后，`bootblock`的文件格式为：`bin/bootblock: DOS/MBR boot sector`
+      执行完成后，`bootblock`的文件格式为：`bin/bootblock: DOS/MBR boot sector`
 
-7. 使用`dd`命令创建空的镜像`ucore.img`，然后将`bootblock`与`kernel`分别写入`ucore.img`，至此创建完成。
+   7. 使用`dd`命令创建空的镜像`ucore.img`，然后将`bootblock`与`kernel`分别写入`ucore.img`，至此创建完成。
 
 #### 参考文献
 

@@ -1,3 +1,9 @@
+### 相关练习及分析
+
+* [lab2-练习1](/labs/lab2/practice1.md)
+
+### default_pmm.c
+
 ```c
 #include <pmm.h>
 #include <list.h>
