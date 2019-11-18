@@ -46,7 +46,7 @@
 
 1. 操作系统镜像文件ucore.img是如何一步一步生成的
 
-   我们先执行`make V=`看一下所得的输出
+   我们先执行`make "V="`查看所得输出
    
    > \+ cc kern/init/init.c
    >
@@ -160,15 +160,36 @@
 	
    5. 链接boot目录编译出的文件，生成文件`bootblock`（`ld bin/bootblock`）
 
-      注意: 在链接`bootblock`时，`ld`命令指定了程序`bootasm`被实际加载到内存的位置为`0x7C00`
+      注意: 在链接`bootblock`时，`ld`命令指定了程序`bootasm`被实际加载到内存的位置为`0x7C00`。另外，进一步分析`Makefile`文件可以得知，`ld`链接后的文件为`bootblock.o`，该文件为Linux下的可执行文件。而后经过`objcopy`命令，将该可执行文件复制并转换为纯粹的，机器可直接执行的二进制文件`bootblock.out`，同时也为其缩小了文件尺寸，从超过1k缩小到了512字节以内，为编辑成主引导扇区提供了条件。
+      
+      ```makefile
+      #	File:	Makefile
+      #	Line:	156
+      
+          @$(OBJCOPY) -S -O binary $(call objfile,bootblock) $(call outfile,bootblock)
+      ```
    
    6. 将`bootblock`编辑成为符合规范的硬盘主引导扇区
 
-      注意：该步骤未列出执行的命令，但已列出`sign`执行的结果(见`tools/sign.c`第40行)：
+      注意：`make "V="`的输出内未列出执行的命令(该命令位于`Makefile`第157行)，但列出了`sign`执行的结果(见下方代码)：
 
       > build 512 bytes boot sector: 'bin/bootblock' success!
 
       执行完成后，`bootblock`的文件格式为：`bin/bootblock: DOS/MBR boot sector`
+      
+      ```makefile
+      #		File:	Makefile
+      #		Line:	157
+      
+          @$(call totarget,sign) $(call outfile,bootblock) $(bootblock)
+      ```
+      
+      ```c
+      //	File:	sign.c
+      //	Line:	40
+      
+          printf("build 512 bytes boot sector: '%s' success!\n", argv[2]);
+      ```
 
    7. 使用`dd`命令创建空的镜像`ucore.img`，然后将`bootblock`与`kernel`分别写入`ucore.img`，至此创建完成。
 
