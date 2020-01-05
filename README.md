@@ -15,5 +15,6 @@
  * 20191104 [Yukiteru Lee](https://github.com/wfly1998): 完成了lab1练习4的编写
  * 20191107 [Yukiteru Lee](https://github.com/wfly1998): 完成了lab1练习6的编写
  * 20191111 [Yukiteru Lee](https://github.com/wfly1998): 开始了lab2练习1的编写
+ * 20200105 [Yukiteru Lee](https://github.com/wfly1998): 完成了lab2练习1的编写
  
 
