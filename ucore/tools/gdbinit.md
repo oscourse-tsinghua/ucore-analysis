@@ -1,3 +1,5 @@
+### gdbinit
+
 ```
 file bin/kernel
 target remote :1234

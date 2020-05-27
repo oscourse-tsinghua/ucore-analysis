@@ -24,6 +24,7 @@
 * [lab解析](labs/README.md)
 	* [lab1](labs/lab1/README.md)
 	    * [练习1](labs/lab1/practice1.md)
+	    * [练习2](labs/lab1/practice2.md)
 	    * [练习3](labs/lab1/practice3.md)
 	    * [练习4](labs/lab1/practice4.md)
 	    * [练习6](labs/lab1/practice6.md)

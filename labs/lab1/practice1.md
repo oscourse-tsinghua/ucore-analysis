@@ -8,7 +8,7 @@
 #### 相关文件
 
 * [Makefile](/ucore/Makefile_lab1.md)
-* [sign.c](/ucore/tools/sign.c)
+* [sign.c](/ucore/tools/sign_c.md)
 
 ### 操作系统镜像文件ucore.img是如何一步一步生成的
 
