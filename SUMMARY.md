@@ -28,7 +28,7 @@
 	    * [练习3](labs/lab1/practice3.md)
 	    * [练习4](labs/lab1/practice4.md)
 	    * [练习6](labs/lab1/practice6.md)
-	    * [扩展练习1](labs/lab1/challenge1.md)
+	    * [扩展练习](labs/lab1/challenge.md)
 	* [lab2](labs/lab2/README.md)
 	    * [练习1](labs/lab2/practice1.md)
 	* [lab3](labs/lab3/README.md)

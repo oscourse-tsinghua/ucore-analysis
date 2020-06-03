@@ -17,6 +17,7 @@
  * 20191111 [Yukiteru Lee](https://github.com/wfly1998): 开始了lab2[练习1](labs/lab2/practice1.md)的编写
  * 20200105 [Yukiteru Lee](https://github.com/wfly1998): 完成了lab2[练习1](labs/lab2/practice1.md)的编写
  * 20200527 [Yukiteru Lee](https://github.com/wfly1998): 完成了lab1[练习2](labs/lab1/practice2.md)的编写；修复了一些小问题；为`README.md`增加了索引
- * 20200529 [Yukiteru Lee](https://github.com/wfly1998): 开始了lab1[扩展练习1](labs/lab1/challenge1.md)的编写
+ * 20200529 [Yukiteru Lee](https://github.com/wfly1998): 开始了lab1[扩展练习](labs/lab1/challenge.md)的编写
+ * 20200603 [Yukiteru Lee](https://github.com/wfly1998): 完成了lab1[扩展练习](labs/lab1/challenge.md)的编写
  
 
