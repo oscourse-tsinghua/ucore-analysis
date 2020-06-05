@@ -75,7 +75,7 @@
 		  > 
           > Find the GDB manual and other documentation resources online at:
 		  > 
-          >     <http://www.gnu.org/software/gdb/documentation/>.
+          > <http://www.gnu.org/software/gdb/documentation/>.
 		  > 
           > For help, type "help".
 		  > 
@@ -115,9 +115,14 @@
 
    启动debug后，我们可以看到*GDB*停在了`0xfff0`位置，这里的`0xfff0`即IP寄存器内的值。如果我们想要知道此时指令所在位置，还需要有CS寄存器的值。
 
-   我们在`gdb`中键入：`info register ip`，可以看到下面返回了
+   我们在`gdb`中键入：`info registers cs eip`，可以看到下面返回了
 
+   > (gdb) info registers cs eip 
+   > 
    > cs             0xf000              61440
+   >
+   > eip            0xfff0              0xfff0
+
 
    那么此时BIOS第一条指令所在位置就是CS:IP所指向的位置，即`0xffff0`了。
 
@@ -127,7 +132,7 @@
    > 
    >    0xffff0:     ljmp   $0xf000,$e05b
 
-   显然这是一条跳转指令，将指令跳转到了`0xfe05b`。我们在`gdb`中键入`setpi`，或者其缩写`si`，可以跳转到下一步指令的位置。
+   显然这是一条跳转指令，将指令跳转到了`0xfe05b`。我们在`gdb`中键入`stepi`，或者其缩写`si`，可以跳转到下一步指令的位置。
 
    然后我们可以继续输入`x/10i 0xfe05b`，可以查看接下来的10条指令，将此处的10改为更大的值，可以查看更多指令，此处请读者自行尝试。
 

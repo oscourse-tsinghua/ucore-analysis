@@ -196,7 +196,7 @@
 
    显然，在`default_pmm.c`中，宏`free_list`和`nr_free`即为变量`free_area`的两个成员，这样写调用更为简便。
    
-   综上，函数`default_init`的作用为，为`free_area`初始化，创建一个双向链表用来存储空闲的内存块。
+   综上，函数`default_init`的作用为，为`free_area`初始化，创建一个双向链表用来存储空闲的内存页。
 
 2. `default_init_memmap`
 
