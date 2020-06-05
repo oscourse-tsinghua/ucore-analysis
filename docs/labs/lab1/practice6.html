@@ -3401,6 +3401,132 @@
 <ul>
 <li><a href="https://baike.baidu.com/item/%E4%B8%AD%E6%96%AD%E6%8F%8F%E8%BF%B0%E7%AC%A6%E8%A1%A8/1907776" target="_blank">&#x4E2D;&#x65AD;&#x63CF;&#x8FF0;&#x7B26;&#x8868;</a></li>
 </ul>
+<h3 id="&#x7F16;&#x7A0B;&#x5B8C;&#x5584;kerntraptrapc&#x4E2D;&#x5BF9;&#x4E2D;&#x65AD;&#x5411;&#x91CF;&#x8868;&#x8FDB;&#x884C;&#x521D;&#x59CB;&#x5316;&#x7684;&#x51FD;&#x6570;idtinit"><a name="&#x7F16;&#x7A0B;&#x5B8C;&#x5584;kerntraptrapc&#x4E2D;&#x5BF9;&#x4E2D;&#x65AD;&#x5411;&#x91CF;&#x8868;&#x8FDB;&#x884C;&#x521D;&#x59CB;&#x5316;&#x7684;&#x51FD;&#x6570;idtinit" class="anchor-navigation-ex-anchor" href="#&#x7F16;&#x7A0B;&#x5B8C;&#x5584;kerntraptrapc&#x4E2D;&#x5BF9;&#x4E2D;&#x65AD;&#x5411;&#x91CF;&#x8868;&#x8FDB;&#x884C;&#x521D;&#x59CB;&#x5316;&#x7684;&#x51FD;&#x6570;idtinit"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7F16;&#x7A0B;&#x5B8C;&#x5584;kern/trap/trap.c&#x4E2D;&#x5BF9;&#x4E2D;&#x65AD;&#x5411;&#x91CF;&#x8868;&#x8FDB;&#x884C;&#x521D;&#x59CB;&#x5316;&#x7684;&#x51FD;&#x6570;idt_init</h3>
+<h4 id="&#x80CC;&#x666F;&#x77E5;&#x8BC6;_1"><a name="&#x80CC;&#x666F;&#x77E5;&#x8BC6;_1" class="anchor-navigation-ex-anchor" href="#&#x80CC;&#x666F;&#x77E5;&#x8BC6;_1"><i class="fa fa-link" aria-hidden="true"></i></a>&#x80CC;&#x666F;&#x77E5;&#x8BC6;</h4>
+<ol>
+<li><p>&#x4EC0;&#x4E48;&#x662F;&#x4E2D;&#x65AD;&#x5411;&#x91CF;&#x8868;&#xFF1F;</p>
+<p>&#x5728;x86&#x67B6;&#x6784;&#x4E0A;&#xFF0C;&#x4E2D;&#x65AD;&#x5411;&#x91CF;&#x8868;&#xFF08;Interrupt Vector Table, IVT&#xFF09;&#x662F;&#x4E00;&#x4E2A;&#x8868;&#xFF0C;&#x7528;&#x4E8E;&#x6307;&#x5B9A;&#x5728;&#x5B9E;&#x6A21;&#x5F0F;&#x4E0B;&#x4F7F;&#x7528;&#x7684;&#x6240;&#x6709;256&#x4E2A;&#x4E2D;&#x65AD;&#x5904;&#x7406;&#x7A0B;&#x5E8F;&#x7684;&#x5730;&#x5740;&#x3002;</p>
+<p>IVT&#x901A;&#x5E38;&#x4F4D;&#x4E8E;0000:0000H&#x5904;&#xFF0C;&#x5927;&#x5C0F;&#x4E3A;400H&#x5B57;&#x8282;&#xFF08;&#x6BCF;&#x4E2A;&#x4E2D;&#x65AD;4&#x5B57;&#x8282;&#xFF09;&#x3002;&#x5C3D;&#x7BA1;&#x53EF;&#x4EE5;&#x5728;&#x8F83;&#x65B0;&#x7684;CPU&#x4E0A;&#x4F7F;&#x7528;LIDT&#x6307;&#x4EE4;&#x66F4;&#x6539;&#x9ED8;&#x8BA4;&#x5730;&#x5740;&#xFF0C;&#x4F46;&#x662F;&#x901A;&#x5E38;&#x4E0D;&#x8FD9;&#x6837;&#x505A;&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x4E0D;&#x65B9;&#x4FBF;&#x4E14;&#x4E0E;&#x5176;&#x4ED6;&#x5B9E;&#x73B0;&#x548C;/&#x6216;&#x8F83;&#x65E7;&#x7684;&#x8F6F;&#x4EF6;&#xFF08;&#x4F8B;&#x5982;MS-DOS&#x7A0B;&#x5E8F;&#xFF09;&#x4E0D;&#x517C;&#x5BB9;&#x3002;&#x4F46;&#x662F;&#xFF0C;&#x8BF7;&#x6CE8;&#x610F;&#xFF0C;&#x4EE3;&#x7801;&#x5FC5;&#x987B;&#x4FDD;&#x7559;&#x5728;RAM&#x7684;&#x7B2C;&#x4E00;&#x4E2A;MiB&#x4E2D;&#x3002;</p>
+</li>
+<li><p>&#x4EC0;&#x4E48;&#x662F;IDT&#xFF1F;</p>
+<p>&#x4E2D;&#x65AD;&#x63CF;&#x8FF0;&#x7B26;&#x8868;&#xFF08;Interrupt Description Table, IDT&#xFF09;&#x662F;&#x7279;&#x5B9A;&#x4E8E;IA-32&#x4F53;&#x7CFB;&#x7ED3;&#x6784;&#x3002;&#x5B83;&#x662F;&#x5B9E;&#x6A21;&#x5F0F;&#x4E2D;&#x65AD;&#x5411;&#x91CF;&#x8868;&#xFF08;IVT&#xFF09;&#x7684;&#x4FDD;&#x62A4;&#x6A21;&#x5F0F;&#x526F;&#x672C;&#xFF0C;&#x5B83;&#x544A;&#x8BC9;&#x4E2D;&#x65AD;&#x670D;&#x52A1;&#x4F8B;&#x7A0B;&#xFF08;Interrupt Service Routines, ISR&#xFF09;&#x6240;&#x5728;&#x7684;&#x4F4D;&#x7F6E;&#xFF08;&#x6BCF;&#x4E2A;&#x4E2D;&#x65AD;&#x5411;&#x91CF;&#x4E00;&#x4E2A;&#xFF09;&#x3002;&#x5B83;&#x7684;&#x7ED3;&#x6784;&#x7C7B;&#x4F3C;&#x4E8E;&#x5168;&#x5C40;&#x63CF;&#x8FF0;&#x7B26;&#x8868;&#x3002;</p>
+<p>IDT&#x6761;&#x76EE;&#x79F0;&#x4E3A;&#x95E8;&#x3002;&#x5B83;&#x53EF;&#x4EE5;&#x5305;&#x542B;&#x4E2D;&#x65AD;&#x95E8;&#xFF0C;&#x4EFB;&#x52A1;&#x95E8;&#x548C;&#x9677;&#x9631;&#x95E8;&#x3002;</p>
+<p>&#x5728;&#x5B9E;&#x65BD;IDT&#x4E4B;&#x524D;&#xFF0C;&#x8BF7;&#x786E;&#x4FDD;&#x60A8;&#x5177;&#x6709;&#x6709;&#x6548;&#x7684;GDT&#x3002;</p>
+</li>
+</ol>
+<h4 id="&#x95EE;&#x9898;&#x5206;&#x6790;_1"><a name="&#x95EE;&#x9898;&#x5206;&#x6790;_1" class="anchor-navigation-ex-anchor" href="#&#x95EE;&#x9898;&#x5206;&#x6790;_1"><i class="fa fa-link" aria-hidden="true"></i></a>&#x95EE;&#x9898;&#x5206;&#x6790;</h4>
+<ol>
+<li><p>&#x5982;&#x4F55;&#x5BF9;&#x4E2D;&#x65AD;&#x5411;&#x91CF;&#x8868;&#x8FDB;&#x884C;&#x521D;&#x59CB;&#x5316;&#xFF1F;</p>
+<p>&#x6211;&#x4EEC;&#x5148;&#x770B;&#x8BE5;&#x5B9E;&#x9A8C;&#x7684;&#x8BF4;&#x660E;&#xFF1A;</p>
+<pre><code class="lang-c"><span class="hljs-comment">//    File:    trap.c</span>
+<span class="hljs-comment">//    Line:    37-48</span>
+
+<span class="hljs-comment">/* LAB1 YOUR CODE : STEP 2 */</span>
+<span class="hljs-comment">/* (1) Where are the entry addrs of each Interrupt Service Routine (ISR)?
+ *     All ISR&apos;s entry addrs are stored in __vectors. where is uintptr_t __vectors[] ?
+ *     __vectors[] is in kern/trap/vector.S which is produced by tools/vector.c
+ *     (try &quot;make&quot; command in lab1, then you will find vector.S in kern/trap DIR)
+ *     You can use  &quot;extern uintptr_t __vectors[];&quot; to define this extern variable which will be used later.
+ * (2) Now you should setup the entries of ISR in Interrupt Description Table (IDT).
+ *     Can you see idt[256] in this file? Yes, it&apos;s IDT! you can use SETGATE macro to setup each item of IDT
+ * (3) After setup the contents of IDT, you will let CPU know where is the IDT by using &apos;lidt&apos; instruction.
+ *     You don&apos;t know the meaning of this instruction? just google it! and check the libs/x86.h to know more.
+ *     Notice: the argument of lidt is idt_pd. try to find it!
+ */</span>
+</code></pre>
+<p>&#x7531;&#x8BE5;&#x8BF4;&#x660E;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x770B;&#x51FA;&#xFF0C;&#x9700;&#x8981;&#x505A;&#x7684;&#x7B2C;&#x4E00;&#x6B65;&#x662F;&#x5C06;<code>vector.S</code>&#x4F5C;&#x4E3A;&#x4E2D;&#x65AD;&#x5411;&#x91CF;&#x5F15;&#x5165;&#x4EE3;&#x7801;&#x5185;&#xFF0C;&#x8BF4;&#x660E;&#x4E2D;&#x5DF2;&#x7ECF;&#x7ED9;&#x51FA;&#x63D0;&#x793A;&#xFF0C;&#x4F7F;&#x7528;<code>extern uintptr_t __vectors[];</code>&#x5373;&#x53EF;&#x3002;</p>
+<p>&#x7B2C;&#x4E8C;&#x6B65;&#x5219;&#x662F;&#x5BF9;IDT&#x8FDB;&#x884C;&#x521D;&#x59CB;&#x5316;&#xFF0C;&#x5373;&#x5BF9;&#x53D8;&#x91CF;<code>idt</code>&#x8FDB;&#x884C;&#x8BBE;&#x7F6E;&#xFF0C;&#x8FD9;&#x91CC;&#x63D0;&#x793A;&#x6211;&#x4EEC;&#x4F7F;&#x7528;&#x5B8F;<code>SETGATE</code>&#x6765;&#x8BBE;&#x7F6E;IDT&#x7684;&#x6BCF;&#x4E00;&#x9879;&#x3002;</p>
+<p>&#x6211;&#x4EEC;&#x5148;&#x6765;&#x770B;<code>SETGATE</code>&#x53CA;&#x5176;&#x8BF4;&#x660E;&#xFF1A;</p>
+<pre><code class="lang-c"><span class="hljs-comment">//    File:    mmu.h</span>
+<span class="hljs-comment">//    Line:    62-81</span>
+
+<span class="hljs-comment">/* *
+ * Set up a normal interrupt/trap gate descriptor
+ *   - istrap: 1 for a trap (= exception) gate, 0 for an interrupt gate
+ *   - sel: Code segment selector for interrupt/trap handler
+ *   - off: Offset in code segment for interrupt/trap handler
+ *   - dpl: Descriptor Privilege Level - the privilege level required
+ *          for software to invoke this interrupt/trap gate explicitly
+ *          using an int instruction.
+ * */</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> SETGATE(gate, istrap, sel, off, dpl) {            \
+    (gate).gd_off_15_0 = (uint32_t)(off) &amp; 0xffff;        \
+    (gate).gd_ss = (sel);                                \
+    (gate).gd_args = 0;                                    \
+    (gate).gd_rsv1 = 0;                                    \
+    (gate).gd_type = (istrap) ? STS_TG32 : STS_IG32;    \
+    (gate).gd_s = 0;                                    \
+    (gate).gd_dpl = (dpl);                                \
+    (gate).gd_p = 1;                                    \
+    (gate).gd_off_31_16 = (uint32_t)(off) &gt;&gt; 16;        \
+}</span>
+</code></pre>
+<p>&#x6211;&#x4EEC;&#x521A;&#x6253;&#x5F00;<code>trap.c</code>&#x6587;&#x4EF6;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#xFF0C;&#x53D8;&#x91CF;<code>idt</code>&#x5176;&#x5B9E;&#x662F;&#x7A7A;&#x7684;&#xFF1A;</p>
+<pre><code class="lang-c"><span class="hljs-comment">//    File:    trap.c</span>
+<span class="hljs-comment">//    Line:    28</span>
+
+<span class="hljs-keyword">static</span> <span class="hljs-keyword">struct</span> gatedesc idt[<span class="hljs-number">256</span>] = <span class="hljs-number">0</span>;
+</code></pre>
+<p>&#x5728;<code>SETGATE</code>&#x4E2D;&#x4E5F;&#x53EF;&#x4EE5;&#x770B;&#x51FA;&#xFF0C;&#x8FD9;&#x4E2A;&#x5B8F;&#x4E00;&#x76F4;&#x5728;&#x4FEE;&#x6539;&#x53C2;&#x6570;<code>gate</code>&#x7684;&#x503C;&#xFF0C;&#x5BF9;&#x6BD4;&#x8BE5;&#x53C2;&#x6570;&#x7684;&#x6210;&#x5458;&#x4EE5;&#x53CA;<code>idt</code>&#x7684;&#x7C7B;&#x578B;<code>struct gatedesc</code>&#xFF0C;&#x5F88;&#x660E;&#x663E;&#x5C31;&#x53EF;&#x4EE5;&#x5F97;&#x77E5;&#xFF0C;&#x8981;&#x4F20;&#x5165;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x5C31;&#x662F;<code>idt</code>&#x4E86;&#x3002;</p>
+<p>&#x518D;&#x770B;&#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;<code>istrap</code>&#x7684;&#x89E3;&#x91CA;&#xFF0C;&#x4F20;&#x5165;<code>1</code>&#x8868;&#x793A;&#x8FD9;&#x662F;&#x4E00;&#x4E2A;<code>trap</code>&#xFF0C;&#x7B49;&#x6548;&#x4E8E;<code>exception</code>&#xFF0C;&#x4F20;&#x5165;<code>0</code>&#x8868;&#x793A;&#x8FD9;&#x662F;&#x4E00;&#x4E2A;<code>interrupt gate</code>&#xFF0C;&#x6240;&#x4EE5;&#x5BF9;&#x6240;&#x6709;&#x7684;&#x4E2D;&#x65AD;&#xFF0C;&#x6211;&#x4EEC;&#x8981;&#x4F20;&#x5165;&#x7684;&#x5C31;&#x662F;<code>0</code>&#x4E86;&#x3002;</p>
+<p>&#x7B2C;&#x4E09;&#x4E2A;&#x53C2;&#x6570;<code>sel</code>&#x6307;&#x7684;&#x662F;&#x4EE3;&#x7801;&#x6BB5;&#x9009;&#x62E9;&#x5B50;&#xFF0C;&#x770B;&#x5230;&#x8FD9;&#x4E2A;&#x5C31;&#x4F1A;&#x8054;&#x60F3;&#x5230;GDT&#x8868;&#x4E2D;&#x4E5F;&#x8BBE;&#x7F6E;&#x8FC7;&#x76F8;&#x5173;&#x7684;&#x4E1C;&#x897F;&#x3002;&#x8FD9;&#x91CC;&#x7684;&#x63CF;&#x8FF0;&#x53EF;&#x80FD;&#x6709;&#x70B9;&#x4E0D;&#x592A;&#x6E05;&#x695A;&#xFF0C;&#x4F46;&#x662F;&#x7ECF;&#x8FC7;&#x4E00;&#x756A;&#x8FFD;&#x67E5;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x627E;&#x5230;<code>memlayout.h</code>&#xFF0C;&#x67E5;&#x770B;&#x6CE8;&#x91CA;&#x53EF;&#x4EE5;&#x4E86;&#x89E3;&#x5230;&#xFF0C;<code>SEG</code>&#x5F00;&#x5934;&#x7684;&#x662F;&#x6BB5;&#x4EE3;&#x7801;&#xFF0C;<code>GD</code>&#x5F00;&#x5934;&#x7684;&#x662F;&#x6BB5;&#x63CF;&#x8FF0;&#x7B26;&#xFF0C;&#x90A3;&#x4E48;&#x5F88;&#x663E;&#x7136;&#x6211;&#x4EEC;&#x5E94;&#x8BE5;&#x9009;&#x62E9;&#x7684;&#x662F;<code>GD</code>&#x5F00;&#x5934;&#x7684;&#x4E86;&#x3002;</p>
+<pre><code class="lang-c"><span class="hljs-comment">//    File:    memlayout.h</span>
+<span class="hljs-comment">//    Line:    6-18</span>
+
+<span class="hljs-comment">/* global segment number */</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> SEG_KTEXT    1</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> SEG_KDATA    2</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> SEG_UTEXT    3</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> SEG_UDATA    4</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> SEG_TSS        5</span>
+
+<span class="hljs-comment">/* global descriptor numbers */</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> GD_KTEXT    ((SEG_KTEXT) &lt;&lt; 3)        <span class="hljs-comment">// kernel text</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> GD_KDATA    ((SEG_KDATA) &lt;&lt; 3)        <span class="hljs-comment">// kernel data</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> GD_UTEXT    ((SEG_UTEXT) &lt;&lt; 3)        <span class="hljs-comment">// user text</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> GD_UDATA    ((SEG_UDATA) &lt;&lt; 3)        <span class="hljs-comment">// user data</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> GD_TSS        ((SEG_TSS) &lt;&lt; 3)        <span class="hljs-comment">// task segment selector</span></span>
+</code></pre>
+<p>&#x7136;&#x540E;&#x662F;&#x5177;&#x4F53;&#x7684;&#x63CF;&#x8FF0;&#x7B26;&#x7684;&#x9009;&#x62E9;&#xFF0C;&#x8FD9;&#x91CC;&#x8981;&#x6C42;&#x662F;&#x4EE3;&#x7801;&#x6BB5;&#xFF0C;&#x6392;&#x51FA;&#x4EE5;<code>DATA</code>&#x7ED3;&#x5C3E;&#x7684;&#x6570;&#x636E;&#x6BB5;&#x9009;&#x62E9;&#x5B50;&#xFF0C;&#x7136;&#x540E;&#x73B0;&#x5728;&#x662F;&#x5904;&#x4E8E;&#x5185;&#x6838;&#x6001;&#xFF0C;&#x6392;&#x9664;<code>GD_UTEXT</code>&#xFF0C;&#x53EF;&#x4EE5;&#x5F97;&#x77E5;&#x8FD9;&#x91CC;&#x5E94;&#x8BE5;&#x9009;&#x62E9;&#x7684;&#x662F;<code>GD_KTEXT</code>&#x4E86;&#x3002;</p>
+<p>&#x63A5;&#x7740;&#x662F;&#x9700;&#x8981;&#x6267;&#x884C;&#x4EE3;&#x7801;&#x7684;&#x504F;&#x79FB;<code>off</code>&#xFF0C;&#x4E2D;&#x65AD;&#x9700;&#x8981;&#x6267;&#x884C;&#x7684;&#x5F53;&#x7136;&#x662F;&#x4E2D;&#x65AD;&#x5411;&#x91CF;&#x54AF;&#xFF0C;&#x6240;&#x4EE5;&#x8FD9;&#x91CC;&#x6211;&#x4EEC;&#x9009;&#x62E9;&#x4F7F;&#x7528;<code>__vectors</code>&#x53D8;&#x91CF;&#x3002;</p>
+<p>&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x662F;&#x7279;&#x6743;&#x7EA7;&#x63CF;&#x8FF0;&#x7B26;DPL&#xFF0C;&#x6211;&#x4EEC;&#x521A;&#x624D;&#x5728;&#x8FFD;&#x67E5;<code>memlayout.h</code>&#x65F6;&#x4E5F;&#x6709;&#x53D1;&#x73B0;&#xFF0C;&#x8FD9;&#x91CC;&#x5B9A;&#x4E49;&#x4E86;<code>DPL_KERNEL</code>&#x548C;<code>DPL_USER</code>&#xFF0C;&#x4F5C;&#x4E3A;&#x5185;&#x6838;&#x6001;&#x7684;&#x4E2D;&#x65AD;&#xFF0C;&#x5F53;&#x7136;&#x5E94;&#x8BE5;&#x9009;&#x62E9;<code>DPL_KERNEL</code>&#x3002;</p>
+<p><code>SETGATE</code>&#x5B8C;&#x6210;&#x4E4B;&#x540E;&#xFF0C;&#x4E0D;&#x8981;&#x5FD8;&#x8BB0;&#x6267;&#x884C;&#x4E00;&#x4E0B;<code>lidt</code>&#x6307;&#x4EE4;&#x3002;&#x90A3;&#x4E48;&#x8BF4;&#x5230;&#x8FD9;&#x91CC;&#xFF0C;&#x9700;&#x8981;&#x7F16;&#x5199;&#x7684;&#x4EE3;&#x7801;&#x5C31;&#x547C;&#x4E4B;&#x6B32;&#x51FA;&#x4E86;&#x3002;</p>
+<pre><code class="lang-c"><span class="hljs-comment">//    File:    trap.c</span>
+
+<span class="hljs-keyword">extern</span> <span class="hljs-keyword">uintptr_t</span> __vectors[];
+<span class="hljs-keyword">int</span> i;
+<span class="hljs-keyword">for</span> (i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-keyword">sizeof</span>(idt) / <span class="hljs-keyword">sizeof</span>(<span class="hljs-keyword">struct</span> gatedesc); i ++)
+    SETGATE(idt[i], <span class="hljs-number">0</span>, GD_KTEXT, __vectors[i], DPL_KERNEL);
+lidt(&amp;idt_pd);
+</code></pre>
+</li>
+</ol>
+<h4 id="&#x53C2;&#x8003;&#x6587;&#x732E;_1"><a name="&#x53C2;&#x8003;&#x6587;&#x732E;_1" class="anchor-navigation-ex-anchor" href="#&#x53C2;&#x8003;&#x6587;&#x732E;_1"><i class="fa fa-link" aria-hidden="true"></i></a>&#x53C2;&#x8003;&#x6587;&#x732E;</h4>
+<ul>
+<li><a href="https://wiki.osdev.org/Interrupt_Vector_Table" target="_blank">Interrupt Vector Table - OSDev Wiki</a></li>
+<li><a href="https://wiki.osdev.org/Interrupt_Descriptor_Table" target="_blank">Interrupt Descriptor Table - OSDev Wiki</a></li>
+</ul>
+<h3 id="&#x5BF9;&#x65F6;&#x949F;&#x4E2D;&#x65AD;&#x8FDB;&#x884C;&#x5904;&#x7406;"><a name="&#x5BF9;&#x65F6;&#x949F;&#x4E2D;&#x65AD;&#x8FDB;&#x884C;&#x5904;&#x7406;" class="anchor-navigation-ex-anchor" href="#&#x5BF9;&#x65F6;&#x949F;&#x4E2D;&#x65AD;&#x8FDB;&#x884C;&#x5904;&#x7406;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5BF9;&#x65F6;&#x949F;&#x4E2D;&#x65AD;&#x8FDB;&#x884C;&#x5904;&#x7406;</h3>
+<h4 id="&#x95EE;&#x9898;&#x5206;&#x6790;_2"><a name="&#x95EE;&#x9898;&#x5206;&#x6790;_2" class="anchor-navigation-ex-anchor" href="#&#x95EE;&#x9898;&#x5206;&#x6790;_2"><i class="fa fa-link" aria-hidden="true"></i></a>&#x95EE;&#x9898;&#x5206;&#x6790;</h4>
+<ol>
+<li><p>&#x5982;&#x4F55;&#x5BF9;&#x65F6;&#x949F;&#x4E2D;&#x65AD;&#x8FDB;&#x884C;&#x5904;&#x7406;&#xFF1F;</p>
+<pre><code class="lang-c"><span class="hljs-keyword">case</span> IRQ_OFFSET + IRQ_TIMER:
+    <span class="hljs-comment">/* LAB1 YOUR CODE : STEP 3 */</span>
+    <span class="hljs-comment">/* handle the timer interrupt */</span>
+    <span class="hljs-comment">/* (1) After a timer interrupt, you should record this event using a global variable (increase it), such as ticks in kern/driver/clock.c
+     * (2) Every TICK_NUM cycle, you can print some info using a funciton, such as print_ticks().
+     * (3) Too Simple? Yes, I think so!
+     */</span>
+    ticks ++;
+    <span class="hljs-keyword">if</span> (ticks % TICK_NUM == <span class="hljs-number">0</span>)
+        print_ticks();
+    <span class="hljs-keyword">break</span>;
+</code></pre>
+<p>&#x6839;&#x636E;&#x63D0;&#x793A;&#xFF0C;&#x6211;&#x4EEC;&#x5F88;&#x5BB9;&#x6613;&#x5C31;&#x80FD;&#x5728;&#x8BE5;&#x4F4D;&#x7F6E;&#x5199;&#x51FA;&#x4EE5;&#x4E0A;&#x4EE3;&#x7801;&#x3002;</p>
+<p>&#x5F88;&#x7B80;&#x5355;&#x5417;&#xFF1F;</p>
+<p>&#x662F;&#x7684;&#xFF0C;&#x975E;&#x5E38;&#x7B80;&#x5355;&#x3002;</p>
+</li>
+</ol>
 <p><div id="page-footer" class="localized-footer"><hr><p><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css"></p>
 <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
 <div id="gitalk-container" style="margin: 5%"></div>
@@ -3493,7 +3619,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"练习6","level":"1.2.1.5","depth":3,"next":{"title":"扩展练习","level":"1.2.1.6","depth":3,"path":"labs/lab1/challenge.md","ref":"labs/lab1/challenge.md","articles":[]},"previous":{"title":"练习4","level":"1.2.1.4","depth":3,"path":"labs/lab1/practice4.md","ref":"labs/lab1/practice4.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["chapter-fold","code","search-pro","github","localized-footer","ancre-navigation","-sharing"],"pluginsConfig":{"chapter-fold":{},"github":{"url":"https://oscourse-tsinghua.github.io/ucore-analysis"},"search-pro":{},"search":{},"localized-footer":{"filename":"gitbook/comment.html","hline":"true"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ancre-navigation":{"associatedWithSummary":true,"float":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showLevel":true},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"gitbook/website.css"}},"file":{"path":"labs/lab1/practice6.md","mtime":"2019-11-07T01:35:52.533Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-06-03T03:32:04.795Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"练习6","level":"1.2.1.5","depth":3,"next":{"title":"扩展练习","level":"1.2.1.6","depth":3,"path":"labs/lab1/challenge.md","ref":"labs/lab1/challenge.md","articles":[]},"previous":{"title":"练习4","level":"1.2.1.4","depth":3,"path":"labs/lab1/practice4.md","ref":"labs/lab1/practice4.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["chapter-fold","code","search-pro","github","localized-footer","ancre-navigation","-sharing"],"pluginsConfig":{"chapter-fold":{},"github":{"url":"https://oscourse-tsinghua.github.io/ucore-analysis"},"search-pro":{},"search":{},"localized-footer":{"filename":"gitbook/comment.html","hline":"true"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ancre-navigation":{"associatedWithSummary":true,"float":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showLevel":true},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"gitbook/website.css"}},"file":{"path":"labs/lab1/practice6.md","mtime":"2020-06-05T01:19:05.169Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-06-05T01:48:39.284Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
