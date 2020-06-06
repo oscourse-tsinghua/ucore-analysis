@@ -3384,7 +3384,7 @@
 <h4 id="&#x7EC3;&#x4E60;&#x5185;&#x5BB9;"><a name="&#x7EC3;&#x4E60;&#x5185;&#x5BB9;" class="anchor-navigation-ex-anchor" href="#&#x7EC3;&#x4E60;&#x5185;&#x5BB9;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7EC3;&#x4E60;&#x5185;&#x5BB9;</h4>
 <p>&#x7ED3;&#x5408; &#x6E05;&#x534E;&#x5927;&#x5B66;&#x51FA;&#x7248;&#x793E; &#x4E25;&#x851A;&#x654F; &#x300A;&#x6570;&#x636E;&#x7ED3;&#x6784;&#x300B;&#xFF0C;&#x7B2C;196~198&#x9875;&#xFF0C;&#x7B2C;8.2&#x8282;&#xFF0C;&#x4E86;&#x89E3;First Fit&#x7B97;&#x6CD5;&#xFF0C;&#x5E76;&#x91CD;&#x5199;&#x4EE5;&#x4E0B;&#x51FD;&#x6570;&#xFF1A;<code>default_init</code>&#xFF0C;<code>default_init_memmap</code>&#xFF0C;<code>default_alloc_pages</code>&#xFF0C;<code>default_free_pages</code>&#x3002;</p>
 <h4 id="&#x7EC3;&#x4E60;&#x7EC6;&#x8282;"><a name="&#x7EC3;&#x4E60;&#x7EC6;&#x8282;" class="anchor-navigation-ex-anchor" href="#&#x7EC3;&#x4E60;&#x7EC6;&#x8282;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7EC3;&#x4E60;&#x7EC6;&#x8282;</h4>
-<pre><code class="lang-C"><span class="hljs-comment">//    File:    default_pmm.c</span>
+<pre><code class="lang-c"><span class="hljs-comment">//    File:    default_pmm.c</span>
 <span class="hljs-comment">//    Line:    18-95</span>
 
 <span class="hljs-comment">/*
@@ -3488,18 +3488,19 @@
 <h4 id="&#x4EE3;&#x7801;&#x89E3;&#x6790;"><a name="&#x4EE3;&#x7801;&#x89E3;&#x6790;" class="anchor-navigation-ex-anchor" href="#&#x4EE3;&#x7801;&#x89E3;&#x6790;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4EE3;&#x7801;&#x89E3;&#x6790;</h4>
 <ol>
 <li><p><code>default_init</code></p>
-<p>&#x8BE5;&#x51FD;&#x6570;&#x4EE3;&#x7801;&#x4E3A;</p>
-<pre><code class="lang-C"><span class="hljs-comment">//    File:    default_pmm.c</span>
-<span class="hljs-comment">//    Line:    101-105</span>
+<p>&#x5728;&#x8FD9;&#x4E4B;&#x524D;&#xFF0C;&#x6211;&#x4EEC;&#x5148;&#x6839;&#x636E;&#x8981;&#x6C42;&#xFF0C;&#x6253;&#x5F00;<code>libs/list.h</code>&#x5E76;&#x8BA4;&#x771F;&#x67E5;&#x770B;&#x3002;&#x7136;&#x540E;&#xFF0C;&#x6211;&#x4EEC;&#x518D;&#x6765;&#x770B;&#x4E00;&#x904D;&#x6CE8;&#x91CA;&#xFF1A;</p>
+<pre><code class="lang-c"><span class="hljs-comment">//    File:    default_pmm.c</span>
 
-<span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span>
-<span class="hljs-title">default_init</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span> </span>{
-    list_init(&amp;free_list);
-    nr_free = <span class="hljs-number">0</span>;
-}
+<span class="hljs-comment">/*
+ * (2) `default_init`:
+ *  You can reuse the demo `default_init` function to initialize the `free_list`
+ * and set `nr_free` to 0. `free_list` is used to record the free memory blocks.
+ * `nr_free` is the total number of the free memory blocks.
+ */</span>
 </code></pre>
-<p>&#x6CE8;&#x610F;&#xFF0C;&#x5728;&#x5148;&#x524D;&#x66FE;&#x5B9A;&#x4E49;&#x4E86;<code>free_area</code>&#x4E0E;&#x4E24;&#x4E2A;&#x76F8;&#x5173;&#x7684;&#x5B8F;<code>free_list</code>&#xFF0C;<code>nr_free</code>&#xFF1A;</p>
-<pre><code class="lang-C"><span class="hljs-comment">//    File:    default_pmm.c</span>
+<p>&#x8FD9;&#x91CC;&#x544A;&#x8BC9;&#x6211;&#x4EEC;&#xFF0C;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x505A;&#x7684;&#x662F;&#x521D;&#x59CB;&#x5316;<code>free_list</code>&#xFF0C;&#x7136;&#x540E;&#x5C06;<code>nr_free</code>&#x8BBE;&#x4E3A;<code>0</code>&#x3002;</p>
+<p>&#x53EF;&#x4EE5;&#x770B;&#x5230;&#xFF0C;&#x5728;&#x8BE5;&#x51FD;&#x6570;&#x4E4B;&#x524D;&#xFF0C;&#x66FE;&#x5B9A;&#x4E49;&#x4E86;<code>free_area</code>&#x4E0E;&#x4E24;&#x4E2A;&#x76F8;&#x5173;&#x7684;&#x5B8F;<code>free_list</code>&#xFF0C;<code>nr_free</code>&#xFF1A;</p>
+<pre><code class="lang-c"><span class="hljs-comment">//    File:    default_pmm.c</span>
 <span class="hljs-comment">//    Line:    96-99</span>
 
 <span class="hljs-keyword">free_area_t</span> free_area;
@@ -3508,7 +3509,7 @@
 <span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> nr_free (free_area.nr_free)</span>
 </code></pre>
 <p>&#x5176;&#x4E2D;&#xFF0C;<code>free_area_t</code>&#x7684;&#x5B9A;&#x4E49;&#x4E3A;</p>
-<pre><code class="lang-C"><span class="hljs-comment">//    File:    memlayout.h</span>
+<pre><code class="lang-c"><span class="hljs-comment">//    File:    memlayout.h</span>
 <span class="hljs-comment">//    Line:    155-158</span>
 
 <span class="hljs-comment">/* free_area_t - maintains a doubly linked list to record free (unused) pages */</span>
@@ -3518,10 +3519,86 @@
 } <span class="hljs-keyword">free_area_t</span>;
 </code></pre>
 <p>&#x663E;&#x7136;&#xFF0C;&#x5728;<code>default_pmm.c</code>&#x4E2D;&#xFF0C;&#x5B8F;<code>free_list</code>&#x548C;<code>nr_free</code>&#x5373;&#x4E3A;&#x53D8;&#x91CF;<code>free_area</code>&#x7684;&#x4E24;&#x4E2A;&#x6210;&#x5458;&#xFF0C;&#x8FD9;&#x6837;&#x5199;&#x8C03;&#x7528;&#x66F4;&#x4E3A;&#x7B80;&#x4FBF;&#x3002;</p>
-<p>&#x7EFC;&#x4E0A;&#xFF0C;&#x51FD;&#x6570;<code>default_init</code>&#x7684;&#x4F5C;&#x7528;&#x4E3A;&#xFF0C;&#x4E3A;<code>free_area</code>&#x521D;&#x59CB;&#x5316;&#xFF0C;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x53CC;&#x5411;&#x94FE;&#x8868;&#x7528;&#x6765;&#x5B58;&#x50A8;&#x7A7A;&#x95F2;&#x7684;&#x5185;&#x5B58;&#x9875;&#x3002;</p>
+<p>&#x90A3;&#x4E48;&#xFF0C;&#x5982;&#x4F55;&#x5BF9;<code>free_list</code>&#x8FDB;&#x884C;&#x521D;&#x59CB;&#x5316;&#x5462;&#xFF1F;&#x6211;&#x4EEC;&#x628A;&#x76EE;&#x5149;&#x8F6C;&#x5411;<code>list.h</code>&#xFF0C;&#x53D1;&#x73B0;&#x6709;&#x8FD9;&#x6837;&#x4E00;&#x6BB5;&#x4EE3;&#x7801;&#xFF1A;</p>
+<pre><code class="lang-c"><span class="hljs-comment">//    File:    default_pmm.c</span>
+
+<span class="hljs-comment">/* *
+ * list_init - initialize a new entry
+ * @elm:        new entry to be initialized
+ * */</span>
+<span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">inline</span> <span class="hljs-keyword">void</span>
+<span class="hljs-title">list_init</span><span class="hljs-params">(list_entry_t *elm)</span> </span>{
+    elm-&gt;prev = elm-&gt;next = elm;
+}
+</code></pre>
+<p>&#x663E;&#x7136;&#xFF0C;&#x8FD9;&#x5C31;&#x662F;&#x7528;&#x6765;&#x521D;&#x59CB;&#x5316;<code>list</code>&#x7684;&#x3002;&#x597D;&#x4E86;&#xFF0C;&#x95EE;&#x9898;&#x89E3;&#x51B3;&#x4E86;&#xFF0C;&#x6700;&#x7EC8;&#x7684;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-c"><span class="hljs-comment">//    File:    default_pmm.c</span>
+
+<span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span>
+<span class="hljs-title">default_init</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span> </span>{
+    list_init(&amp;free_list);
+    nr_free = <span class="hljs-number">0</span>;
+}
+</code></pre>
 </li>
 <li><p><code>default_init_memmap</code></p>
-<pre><code class="lang-C"><span class="hljs-comment">//    File:    default_pmm.c</span>
+<p>&#x8FD8;&#x662F;&#x5148;&#x6765;&#x770B;&#x6CE8;&#x91CA;&#xFF1A;</p>
+<pre><code class="lang-c"><span class="hljs-comment">//    File:    default_pmm.c</span>
+
+<span class="hljs-comment">/*
+ * (3) `default_init_memmap`:
+ *  CALL GRAPH: `kern_init` --&gt; `pmm_init` --&gt; `page_init` --&gt; `init_memmap` --&gt;
+ * `pmm_manager` --&gt; `init_memmap`.
+ *  This function is used to initialize a free block (with parameter `addr_base`,
+ * `page_number`). In order to initialize a free block, firstly, you should
+ * initialize each page (defined in memlayout.h) in this free block. This
+ * procedure includes:
+ *  - Setting the bit `PG_property` of `p-&gt;flags`, which means this page is
+ * valid. P.S. In function `pmm_init` (in pmm.c), the bit `PG_reserved` of
+ * `p-&gt;flags` is already set.
+ *  - If this page is free and is not the first page of a free block,
+ * `p-&gt;property` should be set to 0.
+ *  - If this page is free and is the first page of a free block, `p-&gt;property`
+ * should be set to be the total number of pages in the block.
+ *  - `p-&gt;ref` should be 0, because now `p` is free and has no reference.
+ *  After that, We can use `p-&gt;page_link` to link this page into `free_list`.
+ * (e.g.: `list_add_before(&amp;free_list, &amp;(p-&gt;page_link));` )
+ *  Finally, we should update the sum of the free memory blocks: `nr_free += n`.
+ */</span>
+</code></pre>
+<p>&#x8BE5;&#x51FD;&#x6570;&#x7684;&#x529F;&#x80FD;&#x662F;&#x521D;&#x59CB;&#x5316;&#x4E00;&#x4E2A;&#x5185;&#x5B58;&#x5757;&#xFF0C;</p>
+<p>&#x4E3A;&#x4E86;&#x521D;&#x59CB;&#x5316;&#x4E00;&#x4E2A;&#x7A7A;&#x95F2;&#x7684;&#x5185;&#x5B58;&#x5757;&#xFF0C;&#x9996;&#x5148;&#x4F60;&#x9700;&#x8981;&#x521D;&#x59CB;&#x5316;&#x8BE5;&#x7A7A;&#x95F2;&#x7684;&#x5185;&#x5B58;&#x5757;&#x4E2D;&#x6BCF;&#x4E00;&#x9875;&#x3002;&#x8FD9;&#x4E2A;&#x8FC7;&#x7A0B;&#x5305;&#x62EC;&#xFF1A;</p>
+<ul>
+<li><p>&#x8BBE;&#x7F6E;<code>p-&gt;flags</code>&#x7684;<code>PG_property</code>&#x4F4D;&#xFF0C;&#x8FD9;&#x610F;&#x5473;&#x7740;&#x8FD9;&#x4E00;&#x9875;&#x662F;&#x53EF;&#x7528;&#x7684;&#x3002;P.S. &#x5728;&#x51FD;&#x6570;<code>pmm_init</code>&#xFF08;&#x5728;<code>pmm.c</code>&#x4E2D;&#xFF09;&#xFF0C;<code>PG_reserved</code>&#x4F4D;&#x5DF2;&#x7ECF;&#x88AB;&#x8BBE;&#x7F6E;&#x597D;&#x3002;</p>
+</li>
+<li><p>&#x5982;&#x679C;&#x8BE5;&#x9875;&#x662F;&#x53EF;&#x7528;&#x7684;&#x800C;&#x4E14;&#x4E0D;&#x662F;&#x4E00;&#x4E2A;&#x7A7A;&#x95F2;&#x5185;&#x5B58;&#x5757;&#x7684;&#x7B2C;&#x4E00;&#x9875;&#xFF0C;&#x90A3;&#x4E48;<code>p-&gt;property</code>&#x5E94;&#x8BE5;&#x88AB;&#x8BBE;&#x7F6E;&#x4E3A;<code>0</code>&#x3002;</p>
+</li>
+<li><p>&#x5982;&#x679C;&#x8BE5;&#x9875;&#x662F;&#x53EF;&#x7528;&#x7684;&#x800C;&#x4E14;&#x662F;&#x4E00;&#x4E2A;&#x7A7A;&#x95F2;&#x5185;&#x5B58;&#x5757;&#x7684;&#x7B2C;&#x4E00;&#x9875;&#xFF0C;&#x90A3;&#x4E48;<code>p-&gt;property</code>&#x5E94;&#x8BE5;&#x88AB;&#x8BBE;&#x7F6E;&#x4E3A;&#x8BE5;&#x5757;&#x7684;&#x603B;&#x9875;&#x6570;&#x3002;</p>
+</li>
+<li><p><code>p-&gt;ref</code>&#x5E94;&#x8BE5;&#x88AB;&#x8BBE;&#x4E3A;<code>0</code>,&#x56E0;&#x4E3A;&#x73B0;&#x5728;<code>p</code>&#x662F;&#x53EF;&#x7528;&#x7684;&#x800C;&#x4E14;&#x4E0D;&#x542B;&#x6709;&#x5F15;&#x7528;&#x3002;</p>
+</li>
+</ul>
+<p>&#x5728;&#x8FD9;&#x4E4B;&#x540E;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;<code>p-&gt;page_link</code>&#x6765;&#x5C06;&#x8BE5;&#x9875;&#x8FDE;&#x63A5;&#x5230;<code>free_list</code>&#x3002;&#xFF08;&#x4F8B;&#x5982;&#xFF1A;<code>list_add_before(&amp;free_list, &amp;(p-&gt;page_link));</code>&#xFF09;</p>
+<p>&#x6700;&#x540E;&#xFF0C;&#x6211;&#x4EEC;&#x5E94;&#x8BE5;&#x66F4;&#x65B0;&#x7A7A;&#x95F2;&#x5185;&#x5B58;&#x5757;&#x7684;&#x603B;&#x6570;&#xFF1A;<code>nr_free += n</code>&#x3002;</p>
+<p>&#x4EE5;&#x4E0A;&#x4E3A;&#x6CE8;&#x91CA;&#x7684;&#x542B;&#x4E49;&#x3002;&#x90A3;&#x4E48;&#xFF0C;&#x5728;&#x6B64;&#x9700;&#x8981;&#x63D0;&#x8D77;&#x7684;&#x662F;&#xFF0C;&#x5728;<code>memlayout.h</code>&#x4E2D;&#x5B9A;&#x4E49;&#x4E86;&#x4E24;&#x4E2A;&#x5B8F;&#x4EE5;&#x53CA;&#x5BF9;&#x5176;&#x7684;&#x4E00;&#x7CFB;&#x5217;&#x64CD;&#x4F5C;&#xFF1A;</p>
+<pre><code class="lang-c"><span class="hljs-comment">//    File:    memlayout.h</span>
+<span class="hljs-comment">//    Line:    106-115</span>
+
+<span class="hljs-comment">/* Flags describing the status of a page frame */</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> PG_reserved                 0       <span class="hljs-comment">// if this bit=1: the Page is reserved for kernel, cannot be used in alloc/free_pages; otherwise, this bit=0 </span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> PG_property                 1       <span class="hljs-comment">// if this bit=1: the Page is the head page of a free memory block(contains some continuous_addrress pages), and can be used in alloc_pages; if this bit=0: if the Page is the the head page of a free memory block, then this Page and the memory block is alloced. Or this Page isn&apos;t the head page.</span></span>
+
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> SetPageReserved(page)       set_bit(PG_reserved, &amp;((page)-&gt;flags))</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> ClearPageReserved(page)     clear_bit(PG_reserved, &amp;((page)-&gt;flags))</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> PageReserved(page)          test_bit(PG_reserved, &amp;((page)-&gt;flags))</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> SetPageProperty(page)       set_bit(PG_property, &amp;((page)-&gt;flags))</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> ClearPageProperty(page)     clear_bit(PG_property, &amp;((page)-&gt;flags))</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> PageProperty(page)          test_bit(PG_property, &amp;((page)-&gt;flags))</span>
+</code></pre>
+<p>&#x8FD9;&#x4E24;&#x4E2A;&#x5B8F;&#x662F;&#x5185;&#x5B58;&#x5757;&#x6240;&#x5728;<code>page</code>&#x7684;flag&#xFF0C;&#x5176;&#x4E2D;&#xFF0C;<code>PG_reserved</code>&#x662F;flag&#x7684;&#x7B2C;0&#x4F4D;&#xFF0C;&#x5F53;&#x5176;&#x503C;&#x4E3A;<code>1</code>&#x65F6;&#x8868;&#x793A;&#x8BE5;&#x9875;&#x662F;&#x5185;&#x6838;&#x9884;&#x7559;&#x9875;&#xFF0C;&#x4E0D;&#x80FD;&#x88AB;<code>alloc</code>&#x6216;<code>free_pages</code>&#x4F7F;&#x7528;&#xFF1B;<code>PG_property</code>&#x662F;flag&#x7684;&#x7B2C;&#x4E00;&#x4F4D;&#xFF0C;&#x5F53;&#x5176;&#x503C;&#x4E3A;<code>1</code>&#x65F6;&#x8868;&#x793A;&#x8BE5;&#x9875;&#x662F;&#x4E00;&#x4E2A;&#x7A7A;&#x95F2;&#x5185;&#x5B58;&#x5757;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x9875;&#xFF0C;&#x53EF;&#x4EE5;&#x88AB;<code>alloc_pages</code>&#x4F7F;&#x7528;&#xFF0C;&#x5F53;&#x5176;&#x503C;&#x4E3A;<code>0</code>&#x65F6;&#xFF0C;&#x5982;&#x679C;&#x6B64;&#x9875;&#x662F;&#x4E00;&#x4E2A;&#x7A7A;&#x95F2;&#x5185;&#x5B58;&#x5757;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x9875;&#xFF0C;&#x90A3;&#x4E48;&#x8BE5;&#x9875;&#x4EE5;&#x53CA;&#x8BE5;&#x5185;&#x5B58;&#x5757;&#x5DF2;&#x7ECF;&#x88AB;&#x5206;&#x914D;&#x3002;</p>
+<p>&#x4EE5;&#x4E0B;&#x51E0;&#x4E2A;&#x5B8F;(&#x51FD;&#x6570;)&#x5747;&#x4E3A;&#x5BF9;&#x8FD9;&#x4E24;&#x4E2A;flag&#x7684;&#x64CD;&#x4F5C;&#xFF0C;&#x4E0D;&#x518D;&#x505A;&#x8D58;&#x8FF0;&#x3002;</p>
+<p>&#x90A3;&#x4E48;&#x6839;&#x636E;&#x63D0;&#x793A;&#xFF0C;&#x6211;&#x4EEC;&#x5F88;&#x5BB9;&#x6613;&#x5C31;&#x53EF;&#x4EE5;&#x5199;&#x51FA;&#x4EE5;&#x4E0B;&#x4EE3;&#x7801;&#xFF1A;</p>
+<pre><code class="lang-c"><span class="hljs-comment">//    File:    default_pmm.c</span>
 <span class="hljs-comment">//    Line:    107-120</span>
 
 <span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span>
@@ -3539,30 +3616,73 @@
     list_add(&amp;free_list, &amp;(base-&gt;page_link));
 }
 </code></pre>
-<p>&#x636E;&#x89E3;&#x91CA;&#x53EF;&#x77E5;&#xFF0C;&#x8BE5;&#x51FD;&#x6570;&#x4F5C;&#x7528;&#x4E3A;&#xFF1A;&#x521D;&#x59CB;&#x5316;&#x4E00;&#x4E2A;&#x7A7A;&#x95F2;&#x7684;&#x5185;&#x5B58;&#x5757;&#x3002;</p>
-<p>&#x5728;&#x6B64;&#x9700;&#x8981;&#x63D0;&#x8D77;&#x7684;&#x662F;&#xFF0C;&#x5728;<code>memlayout.h</code>&#x4E2D;&#x5B9A;&#x4E49;&#x4E86;&#x4E24;&#x4E2A;&#x5B8F;&#x4EE5;&#x53CA;&#x5BF9;&#x5176;&#x7684;&#x4E00;&#x7CFB;&#x5217;&#x64CD;&#x4F5C;&#xFF1A;</p>
-<pre><code class="lang-C"><span class="hljs-comment">//    File:    memlayout.h</span>
-<span class="hljs-comment">//    Line:    106-115</span>
-
-<span class="hljs-comment">/* Flags describing the status of a page frame */</span>
-<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> PG_reserved                 0       <span class="hljs-comment">// if this bit=1: the Page is reserved for kernel, cannot be used in alloc/free_pages; otherwise, this bit=0 </span></span>
-<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> PG_property                 1       <span class="hljs-comment">// if this bit=1: the Page is the head page of a free memory block(contains some continuous_addrress pages), and can be used in alloc_pages; if this bit=0: if the Page is the the head page of a free memory block, then this Page and the memory block is alloced. Or this Page isn&apos;t the head page.</span></span>
-
-<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> SetPageReserved(page)       set_bit(PG_reserved, &amp;((page)-&gt;flags))</span>
-<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> ClearPageReserved(page)     clear_bit(PG_reserved, &amp;((page)-&gt;flags))</span>
-<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> PageReserved(page)          test_bit(PG_reserved, &amp;((page)-&gt;flags))</span>
-<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> SetPageProperty(page)       set_bit(PG_property, &amp;((page)-&gt;flags))</span>
-<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> ClearPageProperty(page)     clear_bit(PG_property, &amp;((page)-&gt;flags))</span>
-<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> PageProperty(page)          test_bit(PG_property, &amp;((page)-&gt;flags))</span>
-</code></pre>
-<p>&#x8FD9;&#x4E24;&#x4E2A;&#x5B8F;&#x662F;&#x5185;&#x5B58;&#x5757;&#x6240;&#x5728;<code>page</code>&#x7684;flag&#xFF0C;&#x5176;&#x4E2D;&#xFF0C;<code>PG_reserved</code>&#x662F;flag&#x7684;&#x7B2C;0&#x4F4D;&#xFF0C;&#x5F53;&#x5176;&#x503C;&#x4E3A;<code>1</code>&#x65F6;&#x8868;&#x793A;&#x8BE5;&#x9875;&#x662F;&#x5185;&#x6838;&#x9884;&#x7559;&#x9875;&#xFF0C;&#x4E0D;&#x80FD;&#x88AB;<code>alloc</code>&#x6216;<code>free_pages</code>&#x4F7F;&#x7528;&#xFF1B;<code>PG_property</code>&#x662F;flag&#x7684;&#x7B2C;&#x4E00;&#x4F4D;&#xFF0C;&#x5F53;&#x5176;&#x503C;&#x4E3A;<code>1</code>&#x65F6;&#x8868;&#x793A;&#x8BE5;&#x9875;&#x662F;&#x4E00;&#x4E2A;&#x7A7A;&#x95F2;&#x5185;&#x5B58;&#x5757;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x9875;&#xFF0C;&#x53EF;&#x4EE5;&#x88AB;<code>alloc_pages</code>&#x4F7F;&#x7528;&#xFF0C;&#x5F53;&#x5176;&#x503C;&#x4E3A;<code>0</code>&#x65F6;&#xFF0C;&#x5982;&#x679C;&#x6B64;&#x9875;&#x662F;&#x4E00;&#x4E2A;&#x7A7A;&#x95F2;&#x5185;&#x5B58;&#x5757;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x9875;&#xFF0C;&#x90A3;&#x4E48;&#x8BE5;&#x9875;&#x4EE5;&#x53CA;&#x8BE5;&#x5185;&#x5B58;&#x5757;&#x5DF2;&#x7ECF;&#x88AB;&#x5206;&#x914D;&#x3002;</p>
-<p>&#x4EE5;&#x4E0B;&#x51E0;&#x4E2A;&#x5B8F;(&#x51FD;&#x6570;)&#x5747;&#x4E3A;&#x5BF9;&#x8FD9;&#x4E24;&#x4E2A;flag&#x7684;&#x64CD;&#x4F5C;&#xFF0C;&#x4E0D;&#x518D;&#x505A;&#x8D58;&#x8FF0;&#x3002;</p>
-<p>&#x6240;&#x4EE5;<code>default_init_memmap</code>&#x51FD;&#x6570;&#x5728;&#x6267;&#x884C;&#x65F6;&#xFF0C;&#x9996;&#x5148;&#x9700;&#x5224;&#x65AD;&#x8981;&#x521D;&#x59CB;&#x5316;&#x7684;&#x5185;&#x5B58;&#x5757;&#x9875;&#x6570;&#x662F;&#x5426;&#x4E3A;&#x6B63;&#x503C;&#xFF0C;&#x7136;&#x540E;&#x5728;&#x5FAA;&#x73AF;&#x4E2D;&#x5BF9;&#x5176;&#x8FDB;&#x884C;&#x521D;&#x59CB;&#x5316;&#x3002;&#x7531;&#x4ECB;&#x7ECD;&#x4E2D;&#x7684;&#x8C03;&#x7528;&#x8DEF;&#x5F84;&#x53EF;&#x77E5;&#xFF0C;&#x8BE5;&#x51FD;&#x6570;&#x7531;&#x5185;&#x6838;&#x8C03;&#x7528;&#xFF08;<code>kern_init</code>&#xFF09;&#xFF0C;&#x6240;&#x4EE5;&#x9700;&#x4F7F;&#x7528;<code>PageReserved</code>&#x5224;&#x65AD;&#x6BCF;&#x4E00;&#x9875;&#x662F;&#x5426;&#x4E3A;&#x5185;&#x6838;&#x9884;&#x7559;&#x9875;&#xFF0C;&#x7136;&#x540E;&#x5C06;&#x8BE5;&#x9875;&#x7684;&#x53C2;&#x6570;&#x521D;&#x59CB;&#x5316;&#x4E3A;0&#x3002;</p>
-<p>&#x5FAA;&#x73AF;&#x7ED3;&#x675F;&#x540E;&#xFF0C;&#x5C06;&#x9996;&#x9875;&#x7684;<code>property</code>&#x8BBE;&#x4E3A;&#x8BE5;&#x5185;&#x5B58;&#x5757;&#x7684;&#x603B;&#x9875;&#x6570;&#xFF0C;&#x7136;&#x540E;&#x5C06;&#x5176;<code>Property</code>&#x8FD9;&#x4E2A;flag&#x7684;&#x503C;&#x8BBE;&#x4E3A;<code>1</code>&#x3002;&#x9700;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x662F;&#xFF0C;&#x524D;&#x8005;&#x4E3A;&#x9875;&#x7684;&#x53C2;&#x6570;<code>property</code>&#xFF0C;&#x540E;&#x8005;&#x4E3A;&#x9875;&#x7684;flag&#x4E2D;&#x4E00;&#x4E2A;bit&#xFF0C;&#x4E8C;&#x8005;&#x6709;&#x533A;&#x522B;&#x3002;</p>
-<p>&#x4EE5;&#x4E0A;&#x4E00;&#x7CFB;&#x5217;&#x64CD;&#x4F5C;&#x7ED3;&#x675F;&#x540E;&#xFF0C;&#x5C06;&#x8BE5;&#x5185;&#x5B58;&#x5757;&#x6DFB;&#x52A0;&#x5230;<code>free_area</code>&#x4E2D;&#xFF0C;&#x51FD;&#x6570;&#x7ED3;&#x675F;&#x3002;</p>
+<p>&#x9700;&#x8981;&#x8BF4;&#x660E;&#x7684;&#x662F;&#xFF0C;&#x6700;&#x540E;&#x7684;<code>list_add</code>&#x8FC7;&#x7A0B;&#xFF0C;&#x6CE8;&#x91CA;&#x4E2D;&#x53EA;&#x662F;&#x4E3E;&#x4E86;&#x4F8B;&#x5B50;&#xFF0C;&#x5E76;&#x4E0D;&#x662F;&#x771F;&#x7684;&#x8981;&#x8FD9;&#x6837;&#x5199;&#xFF0C;&#x5426;&#x5219;&#x4EE3;&#x7801;&#x4F1A;&#x65E0;&#x6CD5;&#x6B63;&#x5E38;&#x8FD0;&#x884C;&#x3002;</p>
 </li>
 <li><p><code>default_alloc_pages</code></p>
-<pre><code class="lang-C"><span class="hljs-comment">//    File:    default_pmm.c</span>
+<p>&#x8001;&#x89C4;&#x77E9;&#xFF0C;&#x5148;&#x770B;&#x6CE8;&#x91CA;&#xFF1A;</p>
+<pre><code class="lang-c"><span class="hljs-comment">//    File:    default_pmm.c</span>
+
+<span class="hljs-comment">/*
+ * (4) `default_alloc_pages`:
+ *  Search for the first free block (block size &gt;= n) in the free list and reszie
+ * the block found, returning the address of this block as the address required by
+ * `malloc`.
+ *  (4.1)
+ *      So you should search the free list like this:
+ *          list_entry_t le = &amp;free_list;
+ *          while((le=list_next(le)) != &amp;free_list) {
+ *          ...
+ *      (4.1.1)
+ *          In the while loop, get the struct `page` and check if `p-&gt;property`
+ *      (recording the num of free pages in this block) &gt;= n.
+ *              struct Page *p = le2page(le, page_link);
+ *              if(p-&gt;property &gt;= n){ ...
+ *      (4.1.2)
+ *          If we find this `p`, it means we&apos;ve found a free block with its size
+ *      &gt;= n, whose first `n` pages can be malloced. Some flag bits of this page
+ *      should be set as the following: `PG_reserved = 1`, `PG_property = 0`.
+ *      Then, unlink the pages from `free_list`.
+ *          (4.1.2.1)
+ *              If `p-&gt;property &gt; n`, we should re-calculate number of the rest
+ *          pages of this free block. (e.g.: `le2page(le,page_link))-&gt;property
+ *          = p-&gt;property - n;`)
+ *          (4.1.3)
+ *              Re-caluclate `nr_free` (number of the the rest of all free block).
+ *          (4.1.4)
+ *              return `p`.
+ *      (4.2)
+ *          If we can not find a free block with its size &gt;=n, then return NULL.
+ */</span>
+</code></pre>
+<p>(4) <code>default_alloc_pages</code>&#xFF1A;</p>
+<p>&#x5728;&#x7A7A;&#x95F4;&#x7684;&#x5185;&#x5B58;&#x94FE;&#x8868;&#x4E2D;&#x641C;&#x7D22;&#x7B2C;&#x4E00;&#x4E2A;&#x53EF;&#x7528;&#x7684;&#x5185;&#x5B58;&#x5757;&#xFF08;&#x5757;&#x5C3A;&#x5BF8;&gt;=n&#xFF09;&#x5E76;&#x91CD;&#x65B0;&#x8BBE;&#x7F6E;&#x53D1;&#x73B0;&#x5757;&#x7684;&#x5C3A;&#x5BF8;&#xFF0C;&#x7136;&#x540E;&#x8BE5;&#x5757;&#x4F5C;&#x4E3A;&#x88AB;<code>malloc</code>&#x8C03;&#x7528;&#x5F97;&#x5230;&#x7684;&#x5730;&#x5740;&#x88AB;&#x8FD4;&#x56DE;&#x3002;</p>
+<ul>
+<li><p>(4.1) &#x6240;&#x4EE5;&#x4F60;&#x5E94;&#x8BE5;&#x5728;&#x7A7A;&#x95F2;&#x7684;&#x5185;&#x5B58;&#x94FE;&#x8868;&#x4E2D;&#x50CF;&#x8FD9;&#x6837;&#x641C;&#x7D22;&#xFF1A;</p>
+<pre><code class="lang-c"><span class="hljs-keyword">list_entry_t</span> le = &amp;free_list;
+<span class="hljs-keyword">while</span> ((le=list_next(le)) != &amp;free_list) {...}
+</code></pre>
+<ul>
+<li><p>(4.1.1) &#x5728;<code>while</code>&#x5FAA;&#x73AF;&#x4E2D;&#xFF0C;&#x83B7;&#x5F97;&#x7ED3;&#x6784;&#x4F53;<code>page</code>&#x5E76;&#x68C0;&#x67E5;&#x8BE5;&#x5757;&#x6240;&#x542B;&#x7A7A;&#x95F2;&#x9875;&#x6570;&#xFF08;<code>p-&gt;property</code>&#xFF09;&#x662F;&#x5426;&#x5927;&#x4E8E;&#x7B49;&#x4E8E;<code>n</code></p>
+<pre><code class="lang-c"><span class="hljs-keyword">struct</span> Page *p = le2page(le, page_link);
+<span class="hljs-keyword">if</span> (p-&gt;property &gt;= n) {...}
+</code></pre>
+</li>
+<li><p>(4.1.2) &#x5982;&#x679C;&#x6211;&#x4EEC;&#x627E;&#x5230;&#x8FD9;&#x4E2A;<code>p</code>&#xFF0C;&#x8FD9;&#x5C31;&#x610F;&#x5473;&#x7740;&#x6211;&#x4EEC;&#x627E;&#x5230;&#x4E86;&#x4E00;&#x4E2A;&#x5C3A;&#x5BF8;&#x5927;&#x4E8E;&#x7B49;&#x4E8E;<code>n</code>&#x7684;&#x7A7A;&#x95F2;&#x5185;&#x5B58;&#x5757;&#xFF0C;&#x5B83;&#x7684;&#x524D;<code>n</code>&#x9875;&#x53EF;&#x4EE5;&#x88AB;&#x7533;&#x8BF7;&#x3002;&#x8BE5;&#x9875;&#x7684;&#x4E00;&#x4E9B;&#x6807;&#x5FD7;&#x4F4D;&#x5E94;&#x8BE5;&#x88AB;&#x8BBE;&#x7F6E;&#x4E3A;&#xFF1A;<code>PG_reserved = 1</code>&#xFF0C;<code>PG_property = 0</code>&#x3002;&#x7136;&#x540E;&#xFF0C;&#x53D6;&#x6D88;&#x8BE5;&#x9875;&#x4E0E;<code>free_list</code>&#x7684;&#x94FE;&#x63A5;&#x3002;</p>
+<ul>
+<li>(4.1.2.1) &#x5982;&#x679C;<code>p-&gt;property</code>&#x5927;&#x4E8E;<code>n</code>&#xFF0C;&#x6211;&#x4EEC;&#x5E94;&#x8BE5;&#x91CD;&#x65B0;&#x8BA1;&#x7B97;&#x8BE5;&#x5185;&#x5B58;&#x5757;&#x7684;&#x5269;&#x4F59;&#x9875;&#x6570;&#x3002;&#xFF08;&#x4F8B;&#x5982;&#xFF1A;<code>le2page(le, page_link)-&gt;property = p-&gt;property - n;</code>&#xFF09;</li>
+</ul>
+</li>
+<li><p>(4.1.3) &#x91CD;&#x65B0;&#x8BA1;&#x7B97;<code>nr_free</code>&#xFF08;&#x5269;&#x4F59;&#x6240;&#x6709;&#x7A7A;&#x95F2;&#x5185;&#x5B58;&#x9875;&#x7684;&#x6570;&#x91CF;&#xFF09;&#xFF08;&#x8BD1;&#x8005;&#x6CE8;&#xFF1A;&#x539F;&#x7FFB;&#x8BD1;&#x4E3A;&#x5757;&#xFF09;&#x3002;</p>
+</li>
+<li><p>(4.1.4) &#x8FD4;&#x56DE;<code>p</code>&#x3002;</p>
+</li>
+</ul>
+</li>
+<li><p>(4.2) &#x5982;&#x679C;&#x6211;&#x4EEC;&#x6CA1;&#x6709;&#x627E;&#x5230;&#x5C3A;&#x5BF8;&#x5927;&#x4E8E;&#x7B49;&#x4E8E;<code>n</code>&#x7684;&#x7A7A;&#x95F2;&#x5185;&#x5B58;&#x5757;&#xFF0C;&#x90A3;&#x4E48;&#x8FD4;&#x56DE;<code>NULL</code>&#x3002;</p>
+</li>
+</ul>
+<p>&#x636E;&#x89E3;&#x91CA;&#x53EF;&#x77E5;&#xFF0C;&#x8BE5;&#x51FD;&#x6570;&#x4F5C;&#x7528;&#x4E3A;&#x5206;&#x914D;&#x5185;&#x5B58;&#xFF0C;&#x5373;&#x5728;&#x7A7A;&#x95F2;&#x5757;&#x7684;&#x94FE;&#x8868;&#x5185;&#x641C;&#x7D22;&#x7B2C;&#x4E00;&#x4E2A;&#x7A7A;&#x95F2;&#x7684;&#x5185;&#x5B58;&#x5757;&#xFF0C;&#x5E76;&#x91CD;&#x65B0;&#x8BBE;&#x7F6E;&#x8BE5;&#x5757;&#x7684;&#x5C3A;&#x5BF8;&#x3002;&#x7ED3;&#x5408;&#x4EE5;&#x4E0A;&#x8BB2;&#x89E3;&#x5F88;&#x5BB9;&#x6613;&#x7406;&#x89E3;&#xFF0C;&#x4EE3;&#x7801;&#x4E5F;&#x5F88;&#x5BB9;&#x6613;&#x5199;&#x51FA;&#xFF1A;</p>
+<pre><code class="lang-c"><span class="hljs-comment">//    File:    default_pmm.c</span>
 <span class="hljs-comment">//    Line:    122-148</span>
 
 <span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">struct</span> Page *
@@ -3581,22 +3701,54 @@
         }
     }
     <span class="hljs-keyword">if</span> (page != <span class="hljs-literal">NULL</span>) {
-        list_del(&amp;(page-&gt;page_link));
         <span class="hljs-keyword">if</span> (page-&gt;property &gt; n) {
             <span class="hljs-keyword">struct</span> Page *p = page + n;
             p-&gt;property = page-&gt;property - n;
-            list_add(&amp;free_list, &amp;(p-&gt;page_link));
+            SetPageProperty(p);
+            list_add_after(&amp;(page-&gt;page_link), &amp;(p-&gt;page_link));
         }
+        list_del(&amp;(page-&gt;page_link));
         nr_free -= n;
         ClearPageProperty(page);
     }
     <span class="hljs-keyword">return</span> page;
 }
 </code></pre>
-<p>&#x636E;&#x89E3;&#x91CA;&#x53EF;&#x77E5;&#xFF0C;&#x8BE5;&#x51FD;&#x6570;&#x4F5C;&#x7528;&#x4E3A;&#x5206;&#x914D;&#x5185;&#x5B58;&#xFF0C;&#x5373;&#x5728;&#x7A7A;&#x95F2;&#x5757;&#x7684;&#x94FE;&#x8868;&#x5185;&#x641C;&#x7D22;&#x7B2C;&#x4E00;&#x4E2A;&#x7A7A;&#x95F2;&#x7684;&#x5185;&#x5B58;&#x5757;&#xFF0C;&#x5E76;&#x91CD;&#x65B0;&#x8BBE;&#x7F6E;&#x8BE5;&#x5757;&#x7684;&#x5C3A;&#x5BF8;&#x3002;&#x7ED3;&#x5408;&#x4EE5;&#x4E0A;&#x8BB2;&#x89E3;&#x5F88;&#x5BB9;&#x6613;&#x7406;&#x89E3;&#xFF0C;&#x4E0D;&#x518D;&#x8D58;&#x8FF0;&#x3002;</p>
 </li>
 <li><p><code>default_free_pages</code></p>
-<pre><code class="lang-C"><span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span>
+<pre><code class="lang-c"><span class="hljs-comment">//    File:    default_pmm.c</span>
+
+<span class="hljs-comment">/*
+ * (5) `default_free_pages`:
+ *  re-link the pages into the free list, and may merge small free blocks into
+ * the big ones.
+ *  (5.1)
+ *      According to the base address of the withdrawed blocks, search the free
+ *  list for its correct position (with address from low to high), and insert
+ *  the pages. (May use `list_next`, `le2page`, `list_add_before`)
+ *  (5.2)
+ *      Reset the fields of the pages, such as `p-&gt;ref` and `p-&gt;flags` (PageProperty)
+ *  (5.3)
+ *      Try to merge blocks at lower or higher addresses. Notice: This should
+ *  change some pages&apos; `p-&gt;property` correctly.
+ */</span>
+</code></pre>
+<p>(5) <code>default_free_pages</code>&#xFF1A;</p>
+<p>&#x91CD;&#x65B0;&#x5C06;&#x9875;&#x8FDE;&#x63A5;&#x5230;&#x7A7A;&#x95F2;&#x5185;&#x5B58;&#x5217;&#x8868;&#x4E2D;&#xFF0C;&#x6709;&#x53EF;&#x80FD;&#x5C06;&#x4E00;&#x4E9B;&#x5C0F;&#x7684;&#x5185;&#x5B58;&#x5757;&#x5408;&#x5E76;&#x4E3A;&#x4E00;&#x4E2A;&#x5927;&#x7684;&#x5185;&#x5B58;&#x5757;&#x3002;</p>
+<ul>
+<li><p>(5.1) &#x901A;&#x8FC7;&#x72EC;&#x7ACB;&#x5185;&#x5B58;&#x5757;&#x7684;<code>base</code>&#x5730;&#x5740;&#xFF0C;&#x641C;&#x7D22;&#x5B83;&#x6B63;&#x786E;&#x7684;&#x4F4D;&#x7F6E;&#xFF08;&#x4ECE;&#x4F4E;&#x5230;&#x9AD8;&#xFF09;&#xFF0C;&#x5E76;&#x63D2;&#x5165;&#x8BE5;&#x9875;&#x3002;&#xFF08;&#x53EF;&#x80FD;&#x4F7F;&#x7528;<code>list_next</code>&#xFF0C;<code>le2page</code>&#xFF0C;<code>list_add_before</code>&#xFF09;</p>
+</li>
+<li><p>(5.2) &#x91CD;&#x7F6E;&#x8FD9;&#x4E9B;&#x9875;&#x7684;&#x53C2;&#x6570;&#xFF0C;&#x4F8B;&#x5982;<code>p-&gt;ref</code>&#x548C;<code>p-&gt;flags</code>&#xFF08;<code>PageProperty</code>&#xFF09;&#x3002;</p>
+</li>
+<li><p>(5.3) &#x5C1D;&#x8BD5;&#x5408;&#x5E76;&#x4F4E;&#x6216;&#x9AD8;&#x5730;&#x5740;&#x7684;&#x5185;&#x5B58;&#x5757;&#x3002;&#x6CE8;&#x610F;&#xFF1A;&#x5E94;&#x8BE5;&#x6B63;&#x786E;&#x4FEE;&#x6539;&#x4E00;&#x4E9B;&#x9875;&#x7684;<code>p-&gt;property</code>&#x3002;</p>
+</li>
+</ul>
+<p>&#x8FD9;&#x90E8;&#x5206;&#x4EE3;&#x7801;&#x7684;&#x987A;&#x5E8F;&#x53EF;&#x80FD;&#x548C;&#x6CE8;&#x91CA;&#x4E0D;&#x592A;&#x4E00;&#x6837;&#xFF0C;&#x4F46;&#x65E0;&#x4F24;&#x5927;&#x96C5;&#x3002;&#x96BE;&#x70B9;&#x5728;&#x4E8E;&#x5185;&#x5B58;&#x5757;&#x7684;&#x5408;&#x5E76;&#x3002;</p>
+<p>&#x63D0;&#x793A;&#x4E00;&#x4E0B;&#xFF0C;&#x5F53;&#x5408;&#x5E76;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5BF9;&#x4E8E;&#x67D0;&#x4E00;&#x5185;&#x5B58;&#x5757;&#x4E2D;&#x7684;&#x7B2C;&#x4E00;&#x9875;<code>p</code>&#xFF0C;&#x5F53;<code>p + p-&gt;property == base</code>&#x6216;&#x8005;<code>base + base-&gt;property == p</code>&#x65F6;&#x5C31;&#x8BE5;&#x5C06;&#x8FD9;&#x4E24;&#x5757;&#x5408;&#x5E76;&#x4E86;&#x3002;</p>
+<p>&#x597D;&#x4E86;&#xFF0C;&#x8BDD;&#x4E0D;&#x591A;&#x8BF4;&#xFF0C;&#x4E0A;&#x4EE3;&#x7801;&#x3002;</p>
+<pre><code class="lang-c"><span class="hljs-comment">//    File:    default_pmm.c</span>
+
+<span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span>
 <span class="hljs-title">default_free_pages</span><span class="hljs-params">(<span class="hljs-keyword">struct</span> Page *base, size_t n)</span> </span>{
     assert(n &gt; <span class="hljs-number">0</span>);
     <span class="hljs-keyword">struct</span> Page *p = base;
@@ -3627,16 +3779,6 @@
     list_add(&amp;free_list, &amp;(base-&gt;page_link));
 }
 </code></pre>
-<p>&#x636E;&#x89E3;&#x91CA;&#x53EF;&#x77E5;&#xFF0C;&#x8BE5;&#x51FD;&#x6570;&#x4F5C;&#x7528;&#x4E3A;&#x91CA;&#x653E;&#x5185;&#x5B58;&#xFF0C;&#x5373;&#x5C06;&#x5185;&#x5B58;&#x9875;&#x91CD;&#x65B0;&#x8FDE;&#x63A5;&#x5230;&#x7A7A;&#x95F2;&#x5757;&#x7684;&#x94FE;&#x8868;&#x4E2D;&#xFF0C;&#x6709;&#x53EF;&#x80FD;&#x4F1A;&#x5C06;&#x51E0;&#x4E2A;&#x5C0F;&#x7684;&#x7A7A;&#x95F2;&#x5185;&#x5B58;&#x5757;&#x5408;&#x5E76;&#x4E3A;&#x4E00;&#x4E2A;&#x5927;&#x7684;&#x5185;&#x5B58;&#x5757;&#x3002;</p>
-<p>&#x7ED3;&#x5408;&#x4EE5;&#x4E0A;&#x8BB2;&#x89E3;&#xFF0C;&#x5F88;&#x5BB9;&#x6613;&#x53EF;&#x4EE5;&#x770B;&#x51FA;&#xFF0C;&#x8BE5;&#x4EE3;&#x7801;&#x8FDB;&#x884C;&#x7684;&#x64CD;&#x4F5C;&#x4E3A;&#xFF1A;</p>
-<ol>
-<li><p>&#x5C06;&#x88AB;&#x56DE;&#x6536;&#x7684;&#x5185;&#x5B58;&#x9875;&#x521D;&#x59CB;&#x5316;&#xFF1B;</p>
-</li>
-<li><p>&#x5728;&#x7A7A;&#x95F2;&#x5185;&#x5B58;&#x5757;&#x4E2D;&#x641C;&#x7D22;&#xFF0C;&#x662F;&#x5426;&#x6709;&#x7A7A;&#x95F2;&#x5185;&#x5B58;&#x5757;&#x4E0E;&#x8BE5;&#x5185;&#x5B58;&#x5757;&#x524D;&#x540E;&#x76F8;&#x90BB;&#xFF0C;&#x82E5;&#x76F8;&#x90BB;&#x5219;&#x5C06;&#x5176;&#x5408;&#x5E76;&#x3002;</p>
-</li>
-<li><p>&#x5C06;&#x8BE5;&#x5185;&#x5B58;&#x5757;&#x91CD;&#x65B0;&#x63D2;&#x5165;&#x56DE;&#x94FE;&#x8868;&#x3002;</p>
-</li>
-</ol>
 </li>
 </ol>
 <h4 id="&#x53C2;&#x8003;&#x6587;&#x732E;"><a name="&#x53C2;&#x8003;&#x6587;&#x732E;" class="anchor-navigation-ex-anchor" href="#&#x53C2;&#x8003;&#x6587;&#x732E;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x53C2;&#x8003;&#x6587;&#x732E;</h4>
@@ -3738,7 +3880,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"练习1","level":"1.2.2.1","depth":3,"next":{"title":"lab3","level":"1.2.3","depth":2,"path":"labs/lab3/README.md","ref":"labs/lab3/README.md","articles":[]},"previous":{"title":"lab2","level":"1.2.2","depth":2,"path":"labs/lab2/README.md","ref":"labs/lab2/README.md","articles":[{"title":"练习1","level":"1.2.2.1","depth":3,"path":"labs/lab2/practice1.md","ref":"labs/lab2/practice1.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["chapter-fold","code","search-pro","github","localized-footer","ancre-navigation","-sharing"],"pluginsConfig":{"chapter-fold":{},"github":{"url":"https://oscourse-tsinghua.github.io/ucore-analysis"},"search-pro":{},"search":{},"localized-footer":{"filename":"gitbook/comment.html","hline":"true"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ancre-navigation":{"associatedWithSummary":true,"float":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showLevel":true},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"gitbook/website.css"}},"file":{"path":"labs/lab2/practice1.md","mtime":"2020-06-04T01:17:03.437Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-06-05T01:48:39.284Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"练习1","level":"1.2.2.1","depth":3,"next":{"title":"lab3","level":"1.2.3","depth":2,"path":"labs/lab3/README.md","ref":"labs/lab3/README.md","articles":[]},"previous":{"title":"lab2","level":"1.2.2","depth":2,"path":"labs/lab2/README.md","ref":"labs/lab2/README.md","articles":[{"title":"练习1","level":"1.2.2.1","depth":3,"path":"labs/lab2/practice1.md","ref":"labs/lab2/practice1.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["chapter-fold","code","search-pro","github","localized-footer","ancre-navigation","-sharing"],"pluginsConfig":{"chapter-fold":{},"github":{"url":"https://oscourse-tsinghua.github.io/ucore-analysis"},"search-pro":{},"search":{},"localized-footer":{"filename":"gitbook/comment.html","hline":"true"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ancre-navigation":{"associatedWithSummary":true,"float":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showLevel":true},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"gitbook/website.css"}},"file":{"path":"labs/lab2/practice1.md","mtime":"2020-06-06T08:22:35.008Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-06-06T08:22:40.596Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
