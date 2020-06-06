@@ -20,5 +20,6 @@
  * 20200529 [Yukiteru Lee](https://github.com/wfly1998): 开始了[lab1-扩展练习](labs/lab1/challenge.md)的编写
  * 20200603 [Yukiteru Lee](https://github.com/wfly1998): 完成了[lab1-扩展练习](labs/lab1/challenge.md)的编写
  * 20200605 [Yukiteru Lee](https://github.com/wfly1998): 对[lab1-练习6](labs/lab1/practice6.md)和[lab1-扩展练习](labs/lab1/challenge.md)进行了补充
+ * 20200606 [Yukiteru Lee](https://github.com/wfly1998): 重写了[lab2-练习1](labs/lab2/practice1.md)
  
 

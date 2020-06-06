@@ -43,7 +43,7 @@
 
 #### 练习细节
 
-```C
+```c
 //	File:	default_pmm.c
 //	Line:	18-95
 
@@ -156,22 +156,24 @@
 
 1. `default_init`
 
-   该函数代码为
+   在这之前，我们先根据要求，打开`libs/list.h`并认真查看。然后，我们再来看一遍注释：
 
-   ```C
+   ```c
    //	File:	default_pmm.c
-   //	Line:	101-105
 
-   static void
-   default_init(void) {
-       list_init(&free_list);
-       nr_free = 0;
-   }
+   /*
+    * (2) `default_init`:
+    *  You can reuse the demo `default_init` function to initialize the `free_list`
+    * and set `nr_free` to 0. `free_list` is used to record the free memory blocks.
+    * `nr_free` is the total number of the free memory blocks.
+	*/
    ```
 
-   注意，在先前曾定义了`free_area`与两个相关的宏`free_list`，`nr_free`：
+   这里告诉我们，我们需要做的是初始化`free_list`，然后将`nr_free`设为`0`。
 
-   ```C
+   可以看到，在该函数之前，曾定义了`free_area`与两个相关的宏`free_list`，`nr_free`：
+
+   ```c
    //	File:	default_pmm.c
    //	Line:	96-99
 
@@ -183,7 +185,7 @@
 
    其中，`free_area_t`的定义为
 
-   ```C
+   ```c
    //	File:	memlayout.h
    //	Line:	155-158
 
@@ -195,36 +197,82 @@
    ```
 
    显然，在`default_pmm.c`中，宏`free_list`和`nr_free`即为变量`free_area`的两个成员，这样写调用更为简便。
-   
-   综上，函数`default_init`的作用为，为`free_area`初始化，创建一个双向链表用来存储空闲的内存页。
 
-2. `default_init_memmap`
+   那么，如何对`free_list`进行初始化呢？我们把目光转向`list.h`，发现有这样一段代码：
 
-   ```C
+   ```c
    //	File:	default_pmm.c
-   //	Line:	107-120
 
-   static void
-   default_init_memmap(struct Page *base, size_t n) {
-       assert(n > 0);
-       struct Page *p = base;
-       for (; p != base + n; p ++) {
-           assert(PageReserved(p));
-           p->flags = p->property = 0;
-           set_page_ref(p, 0);
-       }
-       base->property = n;
-       SetPageProperty(base);
-       nr_free += n;
-       list_add(&free_list, &(base->page_link));
+   /* *
+    * list_init - initialize a new entry
+    * @elm:        new entry to be initialized
+    * */
+   static inline void
+   list_init(list_entry_t *elm) {
+       elm->prev = elm->next = elm;
    }
    ```
 
-   据解释可知，该函数作用为：初始化一个空闲的内存块。
+   显然，这就是用来初始化`list`的。好了，问题解决了，最终的代码如下：
 
-   在此需要提起的是，在`memlayout.h`中定义了两个宏以及对其的一系列操作：
+   ```c
+   //	File:	default_pmm.c
 
-   ```C
+   static void
+   default_init(void) {
+       list_init(&free_list);
+       nr_free = 0;
+   }
+   ```
+
+2. `default_init_memmap`
+
+   还是先来看注释：
+
+   ```c
+   //	File:	default_pmm.c
+
+   /*
+    * (3) `default_init_memmap`:
+    *  CALL GRAPH: `kern_init` --> `pmm_init` --> `page_init` --> `init_memmap` -->
+    * `pmm_manager` --> `init_memmap`.
+    *  This function is used to initialize a free block (with parameter `addr_base`,
+    * `page_number`). In order to initialize a free block, firstly, you should
+    * initialize each page (defined in memlayout.h) in this free block. This
+    * procedure includes:
+    *  - Setting the bit `PG_property` of `p->flags`, which means this page is
+    * valid. P.S. In function `pmm_init` (in pmm.c), the bit `PG_reserved` of
+    * `p->flags` is already set.
+    *  - If this page is free and is not the first page of a free block,
+    * `p->property` should be set to 0.
+    *  - If this page is free and is the first page of a free block, `p->property`
+    * should be set to be the total number of pages in the block.
+    *  - `p->ref` should be 0, because now `p` is free and has no reference.
+    *  After that, We can use `p->page_link` to link this page into `free_list`.
+    * (e.g.: `list_add_before(&free_list, &(p->page_link));` )
+    *  Finally, we should update the sum of the free memory blocks: `nr_free += n`.
+	*/
+   ```
+
+   该函数的功能是初始化一个内存块，
+
+   为了初始化一个空闲的内存块，首先你需要初始化该空闲的内存块中每一页。这个过程包括：
+
+   * 设置`p->flags`的`PG_property`位，这意味着这一页是可用的。P.S. 在函数`pmm_init`（在`pmm.c`中），`PG_reserved`位已经被设置好。
+
+   * 如果该页是可用的而且不是一个空闲内存块的第一页，那么`p->property`应该被设置为`0`。
+
+   * 如果该页是可用的而且是一个空闲内存块的第一页，那么`p->property`应该被设置为该块的总页数。
+
+   * `p->ref`应该被设为`0`,因为现在`p`是可用的而且不含有引用。
+
+   在这之后，我们可以使用`p->page_link`来将该页连接到`free_list`。（例如：`list_add_before(&free_list, &(p->page_link));`）
+
+   最后，我们应该更新空闲内存块的总数：`nr_free += n`。
+
+   以上为注释的含义。那么，在此需要提起的是，在`memlayout.h`中定义了两个宏以及对其的一系列操作：
+
+   ```c
    //	File:	memlayout.h
    //	Line:	106-115
 
@@ -244,15 +292,101 @@
 
    以下几个宏(函数)均为对这两个flag的操作，不再做赘述。
 
-   所以`default_init_memmap`函数在执行时，首先需判断要初始化的内存块页数是否为正值，然后在循环中对其进行初始化。由介绍中的调用路径可知，该函数由内核调用（`kern_init`），所以需使用`PageReserved`判断每一页是否为内核预留页，然后将该页的参数初始化为0。
+   那么根据提示，我们很容易就可以写出以下代码：
 
-   循环结束后，将首页的`property`设为该内存块的总页数，然后将其`Property`这个flag的值设为`1`。需要注意的是，前者为页的参数`property`，后者为页的flag中一个bit，二者有区别。
+   ```c
+   //	File:	default_pmm.c
+   //	Line:	107-120
 
-   以上一系列操作结束后，将该内存块添加到`free_area`中，函数结束。
+   static void
+   default_init_memmap(struct Page *base, size_t n) {
+       assert(n > 0);
+       struct Page *p = base;
+       for (; p != base + n; p ++) {
+           assert(PageReserved(p));
+           p->flags = p->property = 0;
+           set_page_ref(p, 0);
+       }
+       base->property = n;
+       SetPageProperty(base);
+       nr_free += n;
+       list_add(&free_list, &(base->page_link));
+   }
+   ```
+
+   需要说明的是，最后的`list_add`过程，注释中只是举了例子，并不是真的要这样写，否则代码会无法正常运行。
 
 3. `default_alloc_pages`
 
-   ```C
+   老规矩，先看注释：
+
+   ```c
+   //	File:	default_pmm.c
+
+   /*
+    * (4) `default_alloc_pages`:
+    *  Search for the first free block (block size >= n) in the free list and reszie
+    * the block found, returning the address of this block as the address required by
+    * `malloc`.
+    *  (4.1)
+    *      So you should search the free list like this:
+    *          list_entry_t le = &free_list;
+    *          while((le=list_next(le)) != &free_list) {
+    *          ...
+    *      (4.1.1)
+    *          In the while loop, get the struct `page` and check if `p->property`
+    *      (recording the num of free pages in this block) >= n.
+    *              struct Page *p = le2page(le, page_link);
+    *              if(p->property >= n){ ...
+    *      (4.1.2)
+    *          If we find this `p`, it means we've found a free block with its size
+    *      >= n, whose first `n` pages can be malloced. Some flag bits of this page
+    *      should be set as the following: `PG_reserved = 1`, `PG_property = 0`.
+    *      Then, unlink the pages from `free_list`.
+    *          (4.1.2.1)
+    *              If `p->property > n`, we should re-calculate number of the rest
+    *          pages of this free block. (e.g.: `le2page(le,page_link))->property
+    *          = p->property - n;`)
+    *          (4.1.3)
+    *              Re-caluclate `nr_free` (number of the the rest of all free block).
+    *          (4.1.4)
+    *              return `p`.
+    *      (4.2)
+    *          If we can not find a free block with its size >=n, then return NULL.
+	*/
+   ```
+
+   (4) `default_alloc_pages`：
+
+   在空间的内存链表中搜索第一个可用的内存块（块尺寸>=n）并重新设置发现块的尺寸，然后该块作为被`malloc`调用得到的地址被返回。
+
+   * (4.1) 所以你应该在空闲的内存链表中像这样搜索：
+
+     ```c
+	 list_entry_t le = &free_list;
+	 while ((le=list_next(le)) != &free_list) {...}
+	 ```
+
+	 * (4.1.1) 在`while`循环中，获得结构体`page`并检查该块所含空闲页数（`p->property`）是否大于等于`n`
+
+       ```c
+       struct Page *p = le2page(le, page_link);
+       if (p->property >= n) {...}
+       ```
+
+     * (4.1.2) 如果我们找到这个`p`，这就意味着我们找到了一个尺寸大于等于`n`的空闲内存块，它的前`n`页可以被申请。该页的一些标志位应该被设置为：`PG_reserved = 1`，`PG_property = 0`。然后，取消该页与`free_list`的链接。
+
+       * (4.1.2.1) 如果`p->property`大于`n`，我们应该重新计算该内存块的剩余页数。（例如：`le2page(le, page_link)->property = p->property - n;`）
+
+     * (4.1.3) 重新计算`nr_free`（剩余所有空闲内存页的数量）（译者注：原翻译为块）。
+
+     * (4.1.4) 返回`p`。
+
+   * (4.2) 如果我们没有找到尺寸大于等于`n`的空闲内存块，那么返回`NULL`。
+
+   据解释可知，该函数作用为分配内存，即在空闲块的链表内搜索第一个空闲的内存块，并重新设置该块的尺寸。结合以上讲解很容易理解，代码也很容易写出：
+
+   ```c
    //	File:	default_pmm.c
    //	Line:	122-148
 
@@ -272,12 +406,13 @@
            }
        }
        if (page != NULL) {
-           list_del(&(page->page_link));
            if (page->property > n) {
                struct Page *p = page + n;
                p->property = page->property - n;
-               list_add(&free_list, &(p->page_link));
+               SetPageProperty(p);
+               list_add_after(&(page->page_link), &(p->page_link));
            }
+           list_del(&(page->page_link));
            nr_free -= n;
            ClearPageProperty(page);
        }
@@ -285,11 +420,46 @@
    }
    ```
 
-   据解释可知，该函数作用为分配内存，即在空闲块的链表内搜索第一个空闲的内存块，并重新设置该块的尺寸。结合以上讲解很容易理解，不再赘述。
-
 4. `default_free_pages`
 
-   ```C
+   ```c
+   //	File:	default_pmm.c
+
+   /*
+    * (5) `default_free_pages`:
+    *  re-link the pages into the free list, and may merge small free blocks into
+    * the big ones.
+    *  (5.1)
+    *      According to the base address of the withdrawed blocks, search the free
+    *  list for its correct position (with address from low to high), and insert
+    *  the pages. (May use `list_next`, `le2page`, `list_add_before`)
+    *  (5.2)
+    *      Reset the fields of the pages, such as `p->ref` and `p->flags` (PageProperty)
+    *  (5.3)
+    *      Try to merge blocks at lower or higher addresses. Notice: This should
+    *  change some pages' `p->property` correctly.
+    */
+   ```
+   
+   (5) `default_free_pages`：
+
+   重新将页连接到空闲内存列表中，有可能将一些小的内存块合并为一个大的内存块。
+
+   * (5.1) 通过独立内存块的`base`地址，搜索它正确的位置（从低到高），并插入该页。（可能使用`list_next`，`le2page`，`list_add_before`）
+
+   * (5.2) 重置这些页的参数，例如`p->ref`和`p->flags`（`PageProperty`）。
+
+   * (5.3) 尝试合并低或高地址的内存块。注意：应该正确修改一些页的`p->property`。
+
+   这部分代码的顺序可能和注释不太一样，但无伤大雅。难点在于内存块的合并。
+
+   提示一下，当合并的时候，对于某一内存块中的第一页`p`，当`p + p->property == base`或者`base + base->property == p`时就该将这两块合并了。
+
+   好了，话不多说，上代码。
+
+   ```c
+   //	File:	default_pmm.c
+
    static void
    default_free_pages(struct Page *base, size_t n) {
        assert(n > 0);
@@ -321,16 +491,6 @@
        list_add(&free_list, &(base->page_link));
    }
    ```
-
-   据解释可知，该函数作用为释放内存，即将内存页重新连接到空闲块的链表中，有可能会将几个小的空闲内存块合并为一个大的内存块。
-
-   结合以上讲解，很容易可以看出，该代码进行的操作为：
-
-   1. 将被回收的内存页初始化；
-
-   2. 在空闲内存块中搜索，是否有空闲内存块与该内存块前后相邻，若相邻则将其合并。
-
-   3. 将该内存块重新插入回链表。
 
 #### 参考文献
 
