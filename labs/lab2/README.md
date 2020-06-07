@@ -5,8 +5,10 @@
 ## 实验内容
 
 * [练习1](/labs/lab2/practice1.md)
+* [练习2](/labs/lab2/practice2.md)
 
 ## 相关文件
 
 * [练习1: default_pmm.c](/ucore/kern/mm/default_pmm_c.md)
+* [练习2: pmm.c](/ucore/kern/mm/pmm_c.md)
 

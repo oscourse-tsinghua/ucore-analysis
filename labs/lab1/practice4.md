@@ -208,4 +208,5 @@
 
 * [ELF文件格式概述](https://chyyuu.gitbooks.io/ucore_os_docs/content/lab1/lab1_3_2_4_elf.html)
 * [ELF](https://wiki.osdev.org/ELF)
+* [关于lab1中的bootloader和ucore的连接问题](https://piazza.com/class/i5j09fnsl7k5x0?cid=72)
 

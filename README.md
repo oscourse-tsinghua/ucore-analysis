@@ -14,12 +14,11 @@
  * 20191103 [KaiYu Feng](https://github.com/fky2015): 增加了[CI使用文档](tools/how_to_auto_update_gitbook_via_travis-ci.md)
  * 20191104 [Yukiteru Lee](https://github.com/wfly1998): 完成了[lab1-练习4](labs/lab1/practice4.md)的编写
  * 20191107 [Yukiteru Lee](https://github.com/wfly1998): 完成了[lab1-练习6](labs/lab1/practice6.md)的编写
- * 20191111 [Yukiteru Lee](https://github.com/wfly1998): 开始了[lab2-练习1](labs/lab2/practice1.md)的编写
  * 20200105 [Yukiteru Lee](https://github.com/wfly1998): 完成了[lab2-练习1](labs/lab2/practice1.md)的编写
  * 20200527 [Yukiteru Lee](https://github.com/wfly1998): 完成了[lab1-练习2](labs/lab1/practice2.md)的编写；修复了一些小问题；为`README.md`增加了索引
- * 20200529 [Yukiteru Lee](https://github.com/wfly1998): 开始了[lab1-扩展练习](labs/lab1/challenge.md)的编写
  * 20200603 [Yukiteru Lee](https://github.com/wfly1998): 完成了[lab1-扩展练习](labs/lab1/challenge.md)的编写
  * 20200605 [Yukiteru Lee](https://github.com/wfly1998): 对[lab1-练习6](labs/lab1/practice6.md)和[lab1-扩展练习](labs/lab1/challenge.md)进行了补充
  * 20200606 [Yukiteru Lee](https://github.com/wfly1998): 重写了[lab2-练习1](labs/lab2/practice1.md)
+ * 20200607 [Yukiteru Lee](https://github.com/wfly1998): 添加了[lab1-Piazza优质问题/笔记收集](labs/lab1/collection.md)
  
 

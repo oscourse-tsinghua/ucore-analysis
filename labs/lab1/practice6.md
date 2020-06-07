@@ -190,10 +190,13 @@
    lidt(&idt_pd);
    ```
 
+   注：更详细的解释见参考文献中piazza里陈老师的回答。
+
 #### 参考文献
 
 * [Interrupt Vector Table - OSDev Wiki](https://wiki.osdev.org/Interrupt_Vector_Table)
 * [Interrupt Descriptor Table - OSDev Wiki](https://wiki.osdev.org/Interrupt_Descriptor_Table)
+* [关于lab1的SETGATE函数](https://piazza.com/class/i5j09fnsl7k5x0?cid=102)
 
 ### 对时钟中断进行处理
 

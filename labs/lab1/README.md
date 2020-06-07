@@ -10,6 +10,7 @@
 * [练习4](/labs/lab1/practice4.md)
 * [练习6](/labs/lab1/practice6.md)
 * [扩展练习](/labs/lab1/challenge.md)
+* [Piazza优质问题/笔记收集](/labs/lab1/collection.md)
 
 ## 相关文件
 
