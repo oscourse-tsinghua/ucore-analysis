@@ -151,6 +151,8 @@
 
    再看第二个参数`istrap`的解释，传入`1`表示这是一个`trap`，等效于`exception`，传入`0`表示这是一个`interrupt gate`，所以对所有的中断，我们要传入的就是`0`了。
 
+   **注**：此处有争议，具体见参考文献*SETGATE宏的第二个参数istrap的设置*。
+
    第三个参数`sel`指的是代码段选择子，看到这个就会联想到GDT表中也设置过相关的东西。这里的描述可能有点不太清楚，但是经过一番追查，我们可以找到`memlayout.h`，查看注释可以了解到，`SEG`开头的是段代码，`GD`开头的是段描述符，那么很显然我们应该选择的是`GD`开头的了。
 
    ```c
@@ -176,7 +178,7 @@
 
    接着是需要执行代码的偏移`off`，中断需要执行的当然是中断向量咯，所以这里我们选择使用`__vectors`变量。
 
-   最后一个是特权级描述符DPL，我们刚才在追查`memlayout.h`时也有发现，这里定义了`DPL_KERNEL`和`DPL_USER`，作为内核态的中断，当然应该选择`DPL_KERNEL`。
+   最后一个是调用该中断需要的特权级，即特权级描述符DPL，我们刚才在追查`memlayout.h`时也有发现，这里定义了`DPL_KERNEL`和`DPL_USER`，作为内核态的中断，应该只允许内核调用，不允许用户调用，当然应该选择`DPL_KERNEL`。
 
    `SETGATE`完成之后，不要忘记执行一下`lidt`指令。那么说到这里，需要编写的代码就呼之欲出了。
 
@@ -197,6 +199,7 @@
 * [Interrupt Vector Table - OSDev Wiki](https://wiki.osdev.org/Interrupt_Vector_Table)
 * [Interrupt Descriptor Table - OSDev Wiki](https://wiki.osdev.org/Interrupt_Descriptor_Table)
 * [关于lab1的SETGATE函数](https://piazza.com/class/i5j09fnsl7k5x0?cid=102)
+* [SETGATE宏的第二个参数istrap的设置](https://piazza.com/class/i5j09fnsl7k5x0?cid=125)
 
 ### 对时钟中断进行处理
 

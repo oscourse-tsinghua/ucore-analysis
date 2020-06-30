@@ -86,6 +86,12 @@ get_pte(pde_t *pgdir, uintptr_t la, bool create) {
 
 这里说明，宏`PDX(la)`用来获取一级页表（页目录）索引，`PTX(la)`用来获取二级页表索引，`PGOFF(la)`用来获取页偏移。`la`即`get_pte`传入的参数，需要被映射的线性地址。
 
+由于`page2pa`得到的是`page table`的物理地址，而`page table`是对齐到4K的，所以其地址的低12为均为`0`，可以用来存储一些标志位。
+
+PDE的具体结构见Intel文档中关于32位页表部分，低12位为标志位，高20位为地址。所以物理地址对标志位进行*或运算*得到的就是PDE，将PDE的标志位去掉（即调用`PDE_ADDR`）得到的就是物理地址。
+
+此外，由于这时已经启动了页机制（在`entry.S`中），对内存的操作使用的均为内核虚地址而非物理地址，所以进行操作前需要将物理地址通过`KADDR`进行转换。
+
 解释到这里，再加上`get_pte`中详细的注释，写出代码也就不难了吧。
 
 ```c
@@ -112,10 +118,14 @@ get_pte(pde_t *pgdir, uintptr_t la, bool create) {
 
 1. 请描述页目录项（Page Directory Entry）和页表项（Page Table Entry）中每个组成部分的含义以及对ucore而言的潜在用处。
 
-   更新中
+   详情见参考文献。
 
 2. 如果ucore执行过程中访问内存，出现了页访问异常，请问硬件要做哪些事情？
 
-   更新中
+   引发页异常中断，将外存的数据换入到内存。详情见lab3。
 
+#### 参考文献
+
+* [Intel® 64 and IA-32 ArchitecturesSoftware Developer’s Manual](https://software.intel.com/sites/default/files/managed/39/c5/325462-sdm-vol-1-2abcd-3abcd.pdf)
+  * Chap. 4.3, Vol. 3，介绍32位页表
 
