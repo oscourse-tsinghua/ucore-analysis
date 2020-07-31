@@ -21,5 +21,5 @@
  * 20200606 [Yukiteru Lee](https://github.com/wfly1998): 重写了[lab2-练习1](labs/lab2/practice1.md)
  * 20200607 [Yukiteru Lee](https://github.com/wfly1998): 添加了[lab1-Piazza优质问题/笔记收集](labs/lab1/collection.md)
  * 20200630 [Yukiteru Lee](https://github.com/wfly1998): 完成了[lab2-练习2](labs/lab2/practice2.md)的编写
- 
+ * 20200731 [Yukiteru Lee](https://github.com/wfly1998): 完成了[lab2-练习3](labs/lab2/practice3.md)的编写
 

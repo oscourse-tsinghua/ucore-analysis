@@ -16,9 +16,15 @@ jobs:
       uses: actions/setup-node@v2.1.0
       with:
         node-version: '10.21.0'
-    - name: Run a multi-line script
+    - name: Build
       run: |
           npm install gitbook-cli -g
           gitbook install
           gitbook build
           mv _book docs
+    - name: Deploy
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./docs
+
