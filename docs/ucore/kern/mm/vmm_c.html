@@ -1,0 +1,4126 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>vmm.c · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-chapter-fold/chapter-fold.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-code/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-ancre-navigation/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../../../gitbook/website.css">
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="vmm_h.html" />
+    
+    
+    <link rel="prev" href="swap_h.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../../">
+            
+                <a href="../../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.1" data-path="../../../lab/lab1/">
+            
+                <a href="../../../lab/lab1/">
+            
+                    
+                    lab1
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.1.1" data-path="../../../lab/lab1/boot/">
+            
+                <a href="../../../lab/lab1/boot/">
+            
+                    
+                    boot
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.1.1.1" data-path="../../../lab/lab1/boot/bootasm.html">
+            
+                <a href="../../../lab/lab1/boot/bootasm.html">
+            
+                    
+                    bootasm
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.1.1.2" data-path="../../../lab/lab1/boot/bootmain.html">
+            
+                <a href="../../../lab/lab1/boot/bootmain.html">
+            
+                    
+                    bootmain
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.1.2" data-path="../../../lab/lab1/kern/">
+            
+                <a href="../../../lab/lab1/kern/">
+            
+                    
+                    kern
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.1.2.1" data-path="../../../lab/lab1/kern/debug/">
+            
+                <a href="../../../lab/lab1/kern/debug/">
+            
+                    
+                    debug
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.1.2.1.1" data-path="../../../lab/lab1/kern/debug/kmonitor.html">
+            
+                <a href="../../../lab/lab1/kern/debug/kmonitor.html">
+            
+                    
+                    kmonitor
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.1.2.1.2" data-path="../../../lab/lab1/kern/debug/panic.html">
+            
+                <a href="../../../lab/lab1/kern/debug/panic.html">
+            
+                    
+                    panic
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.1.2.2" data-path="../../../lab/lab1/kern/init/">
+            
+                <a href="../../../lab/lab1/kern/init/">
+            
+                    
+                    init
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.1.2.2.1" data-path="../../../lab/lab1/kern/init/init.html">
+            
+                <a href="../../../lab/lab1/kern/init/init.html">
+            
+                    
+                    init
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.1.2.3" data-path="../../../lab/lab1/kern/libs/">
+            
+                <a href="../../../lab/lab1/kern/libs/">
+            
+                    
+                    libs
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.1.2.3.1" data-path="../../../lab/lab1/kern/libs/readline.html">
+            
+                <a href="../../../lab/lab1/kern/libs/readline.html">
+            
+                    
+                    readline
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.1.2.4" data-path="../../../lab/lab1/kern/mm/">
+            
+                <a href="../../../lab/lab1/kern/mm/">
+            
+                    
+                    mm
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.1.2.4.1" data-path="../../../lab/lab1/kern/mm/pmm.html">
+            
+                <a href="../../../lab/lab1/kern/mm/pmm.html">
+            
+                    
+                    pmm
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.1.2.5" data-path="../../../lab/lab1/kern/trap/">
+            
+                <a href="../../../lab/lab1/kern/trap/">
+            
+                    
+                    trap
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.1.2.5.1" data-path="../../../lab/lab1/kern/trap/trap.html">
+            
+                <a href="../../../lab/lab1/kern/trap/trap.html">
+            
+                    
+                    trap
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.1.2.5.2" data-path="../../../lab/lab1/kern/trap/trapentry.html">
+            
+                <a href="../../../lab/lab1/kern/trap/trapentry.html">
+            
+                    
+                    trapentry
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.1.2.5.3" data-path="../../../lab/lab1/kern/trap/vectors.html">
+            
+                <a href="../../../lab/lab1/kern/trap/vectors.html">
+            
+                    
+                    vectors
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.1.3" data-path="../../../lab/lab1/libs/">
+            
+                <a href="../../../lab/lab1/libs/">
+            
+                    
+                    libs
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.1.4" data-path="../../../lab/lab1/tools/">
+            
+                <a href="../../../lab/lab1/tools/">
+            
+                    
+                    tools
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../../../labs/">
+            
+                <a href="../../../labs/">
+            
+                    
+                    lab解析
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../../../labs/lab1/">
+            
+                <a href="../../../labs/lab1/">
+            
+                    
+                    lab1
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.1" data-path="../../../labs/lab1/practice1.html">
+            
+                <a href="../../../labs/lab1/practice1.html">
+            
+                    
+                    练习1
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2" data-path="../../../labs/lab1/practice2.html">
+            
+                <a href="../../../labs/lab1/practice2.html">
+            
+                    
+                    练习2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.3" data-path="../../../labs/lab1/practice3.html">
+            
+                <a href="../../../labs/lab1/practice3.html">
+            
+                    
+                    练习3
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.4" data-path="../../../labs/lab1/practice4.html">
+            
+                <a href="../../../labs/lab1/practice4.html">
+            
+                    
+                    练习4
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.5" data-path="../../../labs/lab1/practice6.html">
+            
+                <a href="../../../labs/lab1/practice6.html">
+            
+                    
+                    练习6
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.6" data-path="../../../labs/lab1/challenge.html">
+            
+                <a href="../../../labs/lab1/challenge.html">
+            
+                    
+                    扩展练习
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.7" data-path="../../../labs/lab1/collection.html">
+            
+                <a href="../../../labs/lab1/collection.html">
+            
+                    
+                    Piazza优质问题/笔记收集
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../../../labs/lab2/">
+            
+                <a href="../../../labs/lab2/">
+            
+                    
+                    lab2
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.2.1" data-path="../../../labs/lab2/practice1.html">
+            
+                <a href="../../../labs/lab2/practice1.html">
+            
+                    
+                    练习1
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.2" data-path="../../../labs/lab2/practice2.html">
+            
+                <a href="../../../labs/lab2/practice2.html">
+            
+                    
+                    练习2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.3" data-path="../../../labs/lab2/practice3.html">
+            
+                <a href="../../../labs/lab2/practice3.html">
+            
+                    
+                    练习3
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../../../labs/lab3/">
+            
+                <a href="../../../labs/lab3/">
+            
+                    
+                    lab3
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../../../labs/lab4/">
+            
+                <a href="../../../labs/lab4/">
+            
+                    
+                    lab4
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../../../labs/lab5/">
+            
+                <a href="../../../labs/lab5/">
+            
+                    
+                    lab5
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="../../../labs/lab6/">
+            
+                <a href="../../../labs/lab6/">
+            
+                    
+                    lab6
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="../../../labs/lab7/">
+            
+                <a href="../../../labs/lab7/">
+            
+                    
+                    lab7
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="../../../labs/lab8/">
+            
+                <a href="../../../labs/lab8/">
+            
+                    
+                    lab8
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    uCore代码
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../../boot/">
+            
+                <a href="../../boot/">
+            
+                    
+                    boot
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1.1" data-path="../../boot/asm_h.html">
+            
+                <a href="../../boot/asm_h.html">
+            
+                    
+                    asm.h
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.2" data-path="../../boot/bootasm_S.html">
+            
+                <a href="../../boot/bootasm_S.html">
+            
+                    
+                    bootasm.S
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.3" data-path="../../boot/bootmain_c.html">
+            
+                <a href="../../boot/bootmain_c.html">
+            
+                    
+                    bootmain.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.4" data-path="../../boot/bootasm_S_lab1.html">
+            
+                <a href="../../boot/bootasm_S_lab1.html">
+            
+                    
+                    (lab1) bootasm.S
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    kern
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.2.1" data-path="../debug/">
+            
+                <a href="../debug/">
+            
+                    
+                    debug
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.2.1.1" data-path="../debug/assert_h.html">
+            
+                <a href="../debug/assert_h.html">
+            
+                    
+                    assert.h
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.1.2" data-path="../debug/kdebug_c.html">
+            
+                <a href="../debug/kdebug_c.html">
+            
+                    
+                    kdebug.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.1.3" data-path="../debug/kdebug_h.html">
+            
+                <a href="../debug/kdebug_h.html">
+            
+                    
+                    kdebug.h
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.1.4" data-path="../debug/kmonitor_c.html">
+            
+                <a href="../debug/kmonitor_c.html">
+            
+                    
+                    kmonitor.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.1.5" data-path="../debug/kmonitor_h.html">
+            
+                <a href="../debug/kmonitor_h.html">
+            
+                    
+                    kmonitor.h
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.1.6" data-path="../debug/panic_c.html">
+            
+                <a href="../debug/panic_c.html">
+            
+                    
+                    panic.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.1.7" data-path="../debug/stab_h.html">
+            
+                <a href="../debug/stab_h.html">
+            
+                    
+                    stab.h
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.1.8" data-path="../debug/kdebug_c_lab1.html">
+            
+                <a href="../debug/kdebug_c_lab1.html">
+            
+                    
+                    (lab1) kdebug.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.2" data-path="../driver/">
+            
+                <a href="../driver/">
+            
+                    
+                    driver
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.2.2.1" data-path="../driver/clock_c.html">
+            
+                <a href="../driver/clock_c.html">
+            
+                    
+                    clock.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.2.2" data-path="../driver/clock_h.html">
+            
+                <a href="../driver/clock_h.html">
+            
+                    
+                    clock.h
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.2.3" data-path="../driver/console_c.html">
+            
+                <a href="../driver/console_c.html">
+            
+                    
+                    console.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.2.4" data-path="../driver/console_h.html">
+            
+                <a href="../driver/console_h.html">
+            
+                    
+                    console.h
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.2.5" data-path="../driver/ide_c.html">
+            
+                <a href="../driver/ide_c.html">
+            
+                    
+                    ide.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.2.6" data-path="../driver/ide_h.html">
+            
+                <a href="../driver/ide_h.html">
+            
+                    
+                    ide.h
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.2.7" data-path="../driver/intr_c.html">
+            
+                <a href="../driver/intr_c.html">
+            
+                    
+                    intr.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.2.8" data-path="../driver/intr_h.html">
+            
+                <a href="../driver/intr_h.html">
+            
+                    
+                    intr.h
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.2.9" data-path="../driver/kbdreg_h.html">
+            
+                <a href="../driver/kbdreg_h.html">
+            
+                    
+                    kbdreg.h
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.2.10" data-path="../driver/picirq_c.html">
+            
+                <a href="../driver/picirq_c.html">
+            
+                    
+                    picirq.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.2.11" data-path="../driver/picirq_h.html">
+            
+                <a href="../driver/picirq_h.html">
+            
+                    
+                    picirq.h
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.3" data-path="../fs/">
+            
+                <a href="../fs/">
+            
+                    
+                    fs
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.2.3.1" data-path="../fs/devs/">
+            
+                <a href="../fs/devs/">
+            
+                    
+                    devs
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.2.3.1.1" data-path="../fs/devs/dev_c.html">
+            
+                <a href="../fs/devs/dev_c.html">
+            
+                    
+                    dev.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.3.1.2" data-path="../fs/devs/dev_disk0_c.html">
+            
+                <a href="../fs/devs/dev_disk0_c.html">
+            
+                    
+                    dev_disk0.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.3.1.3" data-path="../fs/devs/dev_h.html">
+            
+                <a href="../fs/devs/dev_h.html">
+            
+                    
+                    dev.h
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.3.1.4" data-path="../fs/devs/dev_stdin_c.html">
+            
+                <a href="../fs/devs/dev_stdin_c.html">
+            
+                    
+                    dev_stdin.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.3.1.5" data-path="../fs/devs/dev_stdout_c.html">
+            
+                <a href="../fs/devs/dev_stdout_c.html">
+            
+                    
+                    dev_stdout.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.3.2" data-path="../fs/sfs/">
+            
+                <a href="../fs/sfs/">
+            
+                    
+                    sfs
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.2.3.2.1" data-path="../fs/sfs/bitmap_c.html">
+            
+                <a href="../fs/sfs/bitmap_c.html">
+            
+                    
+                    bitmap.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.3.2.2" data-path="../fs/sfs/bitmap_h.html">
+            
+                <a href="../fs/sfs/bitmap_h.html">
+            
+                    
+                    bitmap.h
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.3.2.3" data-path="../fs/sfs/sfs_c.html">
+            
+                <a href="../fs/sfs/sfs_c.html">
+            
+                    
+                    sfs.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.3.2.4" data-path="../fs/sfs/sfs_fs_c.html">
+            
+                <a href="../fs/sfs/sfs_fs_c.html">
+            
+                    
+                    sfs_fs.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.3.2.5" data-path="../fs/sfs/sfs_h.html">
+            
+                <a href="../fs/sfs/sfs_h.html">
+            
+                    
+                    sfs.h
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.3.2.6" data-path="../fs/sfs/sfs_inode_c.html">
+            
+                <a href="../fs/sfs/sfs_inode_c.html">
+            
+                    
+                    sfs_inode.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.3.2.7" data-path="../fs/sfs/sfs_io_c.html">
+            
+                <a href="../fs/sfs/sfs_io_c.html">
+            
+                    
+                    sfs_io.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.3.2.8" data-path="../fs/sfs/sfs_lock_c.html">
+            
+                <a href="../fs/sfs/sfs_lock_c.html">
+            
+                    
+                    sfs_lock.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.3.3" data-path="../fs/swap/">
+            
+                <a href="../fs/swap/">
+            
+                    
+                    swap
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.2.3.3.1" data-path="../fs/swap/swapfs_c.html">
+            
+                <a href="../fs/swap/swapfs_c.html">
+            
+                    
+                    swapfs.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.3.3.2" data-path="../fs/swap/swapfs_h.html">
+            
+                <a href="../fs/swap/swapfs_h.html">
+            
+                    
+                    swapfs.h
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.3.4" data-path="../fs/vfs/README.md">
+            
+                <span>
+            
+                    
+                    vfs
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.2.3.4.1" data-path="../fs/vfs/inode_c.html">
+            
+                <a href="../fs/vfs/inode_c.html">
+            
+                    
+                    inode.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.3.4.2" data-path="../fs/vfs/inode_h.html">
+            
+                <a href="../fs/vfs/inode_h.html">
+            
+                    
+                    inode.h
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.3.4.3" data-path="../fs/vfs/README_md.html">
+            
+                <a href="../fs/vfs/README_md.html">
+            
+                    
+                    README.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.3.4.4" data-path="../fs/vfs/vfs_c.html">
+            
+                <a href="../fs/vfs/vfs_c.html">
+            
+                    
+                    vfs.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.3.4.5" data-path="../fs/vfs/vfsdev_c.html">
+            
+                <a href="../fs/vfs/vfsdev_c.html">
+            
+                    
+                    vfsdev.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.3.4.6" data-path="../fs/vfs/vfsfile_c.html">
+            
+                <a href="../fs/vfs/vfsfile_c.html">
+            
+                    
+                    vfsfile.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.3.4.7" data-path="../fs/vfs/vfs_h.html">
+            
+                <a href="../fs/vfs/vfs_h.html">
+            
+                    
+                    vfs.h
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.3.4.8" data-path="../fs/vfs/vfslookup_c.html">
+            
+                <a href="../fs/vfs/vfslookup_c.html">
+            
+                    
+                    vfslookup.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.3.4.9" data-path="../fs/vfs/vfspath_c.html">
+            
+                <a href="../fs/vfs/vfspath_c.html">
+            
+                    
+                    vfspath.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.3.5" data-path="../fs/file_c.html">
+            
+                <a href="../fs/file_c.html">
+            
+                    
+                    file.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.3.6" data-path="../fs/file_h.html">
+            
+                <a href="../fs/file_h.html">
+            
+                    
+                    file.h
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.3.7" data-path="../fs/fs_c.html">
+            
+                <a href="../fs/fs_c.html">
+            
+                    
+                    fs.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.3.8" data-path="../fs/fs_h.html">
+            
+                <a href="../fs/fs_h.html">
+            
+                    
+                    fs.h
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.3.9" data-path="../fs/iobuf_c.html">
+            
+                <a href="../fs/iobuf_c.html">
+            
+                    
+                    iobuf.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.3.10" data-path="../fs/iobuf_h.html">
+            
+                <a href="../fs/iobuf_h.html">
+            
+                    
+                    iobuf.h
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.3.11" data-path="../fs/sysfile_c.html">
+            
+                <a href="../fs/sysfile_c.html">
+            
+                    
+                    sysfile.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.3.12" data-path="../fs/sysfile_h.html">
+            
+                <a href="../fs/sysfile_h.html">
+            
+                    
+                    sysfile.h
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.4" data-path="../init/">
+            
+                <a href="../init/">
+            
+                    
+                    init
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.2.4.1" data-path="../init/entry_S.html">
+            
+                <a href="../init/entry_S.html">
+            
+                    
+                    entry.S
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.4.2" data-path="../init/init_c.html">
+            
+                <a href="../init/init_c.html">
+            
+                    
+                    init.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.4.3" data-path="../init/init_c_lab1.html">
+            
+                <a href="../init/init_c_lab1.html">
+            
+                    
+                    (lab1) init.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.5" data-path="../libs/">
+            
+                <a href="../libs/">
+            
+                    
+                    libs
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.2.5.1" data-path="../libs/readline_c.html">
+            
+                <a href="../libs/readline_c.html">
+            
+                    
+                    readline.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.5.2" data-path="../libs/stdio_c.html">
+            
+                <a href="../libs/stdio_c.html">
+            
+                    
+                    stdio.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.5.3" data-path="../libs/string_c.html">
+            
+                <a href="../libs/string_c.html">
+            
+                    
+                    string.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.6" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    mm
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.2.6.1" data-path="default_pmm_c.html">
+            
+                <a href="default_pmm_c.html">
+            
+                    
+                    default_pmm.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.6.2" data-path="default_pmm_h.html">
+            
+                <a href="default_pmm_h.html">
+            
+                    
+                    default_pmm.h
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.6.3" data-path="kmalloc_c.html">
+            
+                <a href="kmalloc_c.html">
+            
+                    
+                    kmalloc.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.6.4" data-path="kmalloc_h.html">
+            
+                <a href="kmalloc_h.html">
+            
+                    
+                    kmalloc.h
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.6.5" data-path="memlayout_h.html">
+            
+                <a href="memlayout_h.html">
+            
+                    
+                    memlayout.h
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.6.6" data-path="mmu_h.html">
+            
+                <a href="mmu_h.html">
+            
+                    
+                    mmu.h
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.6.7" data-path="pmm_c.html">
+            
+                <a href="pmm_c.html">
+            
+                    
+                    pmm.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.6.8" data-path="pmm_h.html">
+            
+                <a href="pmm_h.html">
+            
+                    
+                    pmm.h
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.6.9" data-path="swap_c.html">
+            
+                <a href="swap_c.html">
+            
+                    
+                    swap.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.6.10" data-path="swap_fifo_c.html">
+            
+                <a href="swap_fifo_c.html">
+            
+                    
+                    swap_fifo.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.6.11" data-path="swap_fifo_h.html">
+            
+                <a href="swap_fifo_h.html">
+            
+                    
+                    swap_fifo.h
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.6.12" data-path="swap_h.html">
+            
+                <a href="swap_h.html">
+            
+                    
+                    swap.h
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3.2.6.13" data-path="vmm_c.html">
+            
+                <a href="vmm_c.html">
+            
+                    
+                    vmm.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.6.14" data-path="vmm_h.html">
+            
+                <a href="vmm_h.html">
+            
+                    
+                    vmm.h
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.6.15" data-path="pmm_c_lab2.html">
+            
+                <a href="pmm_c_lab2.html">
+            
+                    
+                    (lab2) pmm.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.6.16" data-path="vmm_c_lab3.html">
+            
+                <a href="vmm_c_lab3.html">
+            
+                    
+                    (lab3) vmm.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.7" data-path="../process/">
+            
+                <a href="../process/">
+            
+                    
+                    process
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.2.7.1" data-path="../process/entry_S.html">
+            
+                <a href="../process/entry_S.html">
+            
+                    
+                    entry.S
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.7.2" data-path="../process/proc_c.html">
+            
+                <a href="../process/proc_c.html">
+            
+                    
+                    proc.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.7.3" data-path="../process/proc_h.html">
+            
+                <a href="../process/proc_h.html">
+            
+                    
+                    proc.h
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.7.4" data-path="../process/switch_S.html">
+            
+                <a href="../process/switch_S.html">
+            
+                    
+                    switch.S
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.7.5" data-path="../process/proc_c_lab4.html">
+            
+                <a href="../process/proc_c_lab4.html">
+            
+                    
+                    (lab4) proc.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.7.6" data-path="../process/proc_c_lab5.html">
+            
+                <a href="../process/proc_c_lab5.html">
+            
+                    
+                    (lab5) proc.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.8" data-path="../schedule/">
+            
+                <a href="../schedule/">
+            
+                    
+                    schedule
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.2.8.1" data-path="../schedule/default_sched_c.html">
+            
+                <a href="../schedule/default_sched_c.html">
+            
+                    
+                    default_sched.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.8.2" data-path="../schedule/default_sched_h.html">
+            
+                <a href="../schedule/default_sched_h.html">
+            
+                    
+                    default_sched.h
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.8.3" data-path="../schedule/default_sched_stride_c.html">
+            
+                <a href="../schedule/default_sched_stride_c.html">
+            
+                    
+                    default_sched_stride.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.8.4" data-path="../schedule/sched_c.html">
+            
+                <a href="../schedule/sched_c.html">
+            
+                    
+                    sched.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.8.5" data-path="../schedule/sched_h.html">
+            
+                <a href="../schedule/sched_h.html">
+            
+                    
+                    sched.h
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.9" data-path="../sync/">
+            
+                <a href="../sync/">
+            
+                    
+                    sync
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.2.9.1" data-path="../sync/check_sync_c.html">
+            
+                <a href="../sync/check_sync_c.html">
+            
+                    
+                    check_sync.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.9.2" data-path="../sync/monitor_c.html">
+            
+                <a href="../sync/monitor_c.html">
+            
+                    
+                    monitor.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.9.3" data-path="../sync/monitor_h.html">
+            
+                <a href="../sync/monitor_h.html">
+            
+                    
+                    monitor.h
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.9.4" data-path="../sync/sem_c.html">
+            
+                <a href="../sync/sem_c.html">
+            
+                    
+                    sem.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.9.5" data-path="../sync/sem_h.html">
+            
+                <a href="../sync/sem_h.html">
+            
+                    
+                    sem.h
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.9.6" data-path="../sync/sync_h.html">
+            
+                <a href="../sync/sync_h.html">
+            
+                    
+                    sync.h
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.9.7" data-path="../sync/wait_c.html">
+            
+                <a href="../sync/wait_c.html">
+            
+                    
+                    wait.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.9.8" data-path="../sync/wait_h.html">
+            
+                <a href="../sync/wait_h.html">
+            
+                    
+                    wait.h
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.10" data-path="../syscall/">
+            
+                <a href="../syscall/">
+            
+                    
+                    syscall
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.2.10.1" data-path="../syscall/syscall_c.html">
+            
+                <a href="../syscall/syscall_c.html">
+            
+                    
+                    syscall.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.10.2" data-path="../syscall/syscall_h.html">
+            
+                <a href="../syscall/syscall_h.html">
+            
+                    
+                    syscall.h
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.11" data-path="../trap/">
+            
+                <a href="../trap/">
+            
+                    
+                    trap
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.2.11.1" data-path="../trap/trap_c.html">
+            
+                <a href="../trap/trap_c.html">
+            
+                    
+                    trap.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.11.2" data-path="../trap/trapentry_S.html">
+            
+                <a href="../trap/trapentry_S.html">
+            
+                    
+                    trapentry.S
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.11.3" data-path="../trap/trap_h.html">
+            
+                <a href="../trap/trap_h.html">
+            
+                    
+                    trap.h
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.11.4" data-path="../trap/vectors_S.html">
+            
+                <a href="../trap/vectors_S.html">
+            
+                    
+                    vectors.S
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.11.5" data-path="../trap/trap_c_lab1.html">
+            
+                <a href="../trap/trap_c_lab1.html">
+            
+                    
+                    (lab1) trap.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../../libs/">
+            
+                <a href="../../libs/">
+            
+                    
+                    libs
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.3.1" data-path="../../libs/atomic_h.html">
+            
+                <a href="../../libs/atomic_h.html">
+            
+                    
+                    atomic.h
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.2" data-path="../../libs/defs_h.html">
+            
+                <a href="../../libs/defs_h.html">
+            
+                    
+                    defs.h
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.3" data-path="../../libs/dirent_h.html">
+            
+                <a href="../../libs/dirent_h.html">
+            
+                    
+                    dirent.h
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.4" data-path="../../libs/elf_h.html">
+            
+                <a href="../../libs/elf_h.html">
+            
+                    
+                    elf.h
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.5" data-path="../../libs/error_h.html">
+            
+                <a href="../../libs/error_h.html">
+            
+                    
+                    error.h
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.6" data-path="../../libs/hash_c.html">
+            
+                <a href="../../libs/hash_c.html">
+            
+                    
+                    hash.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.7" data-path="../../libs/list_h.html">
+            
+                <a href="../../libs/list_h.html">
+            
+                    
+                    list.h
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.8" data-path="../../libs/printfmt_c.html">
+            
+                <a href="../../libs/printfmt_c.html">
+            
+                    
+                    printfmt.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.9" data-path="../../libs/rand_c.html">
+            
+                <a href="../../libs/rand_c.html">
+            
+                    
+                    rand.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.10" data-path="../../libs/skew_heap_h.html">
+            
+                <a href="../../libs/skew_heap_h.html">
+            
+                    
+                    skew_heap.h
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.11" data-path="../../libs/stat_h.html">
+            
+                <a href="../../libs/stat_h.html">
+            
+                    
+                    stat.h
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.12" data-path="../../libs/stdarg_h.html">
+            
+                <a href="../../libs/stdarg_h.html">
+            
+                    
+                    stdarg.h
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.13" data-path="../../libs/stdio_h.html">
+            
+                <a href="../../libs/stdio_h.html">
+            
+                    
+                    stdio.h
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.14" data-path="../../libs/stdlib_h.html">
+            
+                <a href="../../libs/stdlib_h.html">
+            
+                    
+                    stdlib.h
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.15" data-path="../../libs/string_c.html">
+            
+                <a href="../../libs/string_c.html">
+            
+                    
+                    string.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.16" data-path="../../libs/string_h.html">
+            
+                <a href="../../libs/string_h.html">
+            
+                    
+                    string.h
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.17" data-path="../../libs/unistd_h.html">
+            
+                <a href="../../libs/unistd_h.html">
+            
+                    
+                    unistd.h
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.18" data-path="../../libs/x86_h.html">
+            
+                <a href="../../libs/x86_h.html">
+            
+                    
+                    x86.h
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../../tools/">
+            
+                <a href="../../tools/">
+            
+                    
+                    tools
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.4.1" data-path="../../tools/boot_ld.html">
+            
+                <a href="../../tools/boot_ld.html">
+            
+                    
+                    boot.ld
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4.2" data-path="../../tools/function_mk.html">
+            
+                <a href="../../tools/function_mk.html">
+            
+                    
+                    function.mk
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4.3" data-path="../../tools/gdbinit.html">
+            
+                <a href="../../tools/gdbinit.html">
+            
+                    
+                    gdbinit
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4.4" data-path="../../tools/grade_sh.html">
+            
+                <a href="../../tools/grade_sh.html">
+            
+                    
+                    grade.sh
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4.5" data-path="../../tools/kernel_ld.html">
+            
+                <a href="../../tools/kernel_ld.html">
+            
+                    
+                    kernel.ld
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4.6" data-path="../../tools/mksfs_c.html">
+            
+                <a href="../../tools/mksfs_c.html">
+            
+                    
+                    mksfs.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4.7" data-path="../../tools/sign_c.html">
+            
+                <a href="../../tools/sign_c.html">
+            
+                    
+                    sign.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4.8" data-path="../../tools/user_ld.html">
+            
+                <a href="../../tools/user_ld.html">
+            
+                    
+                    user.ld
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4.9" data-path="../../tools/vector_c.html">
+            
+                <a href="../../tools/vector_c.html">
+            
+                    
+                    vector.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../../user/">
+            
+                <a href="../../user/">
+            
+                    
+                    user
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.5.1" data-path="../../user/libs/">
+            
+                <a href="../../user/libs/">
+            
+                    
+                    libs
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.5.1.1" data-path="../../user/libs/dir_c.html">
+            
+                <a href="../../user/libs/dir_c.html">
+            
+                    
+                    dir.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.1.2" data-path="../../user/libs/dir_h.html">
+            
+                <a href="../../user/libs/dir_h.html">
+            
+                    
+                    dir.h
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.1.3" data-path="../../user/libs/file_c.html">
+            
+                <a href="../../user/libs/file_c.html">
+            
+                    
+                    file.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.1.4" data-path="../../user/libs/file_h.html">
+            
+                <a href="../../user/libs/file_h.html">
+            
+                    
+                    file.h
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.1.5" data-path="../../user/libs/initcode_S.html">
+            
+                <a href="../../user/libs/initcode_S.html">
+            
+                    
+                    initcode.S
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.1.6" data-path="../../user/libs/lock_h.html">
+            
+                <a href="../../user/libs/lock_h.html">
+            
+                    
+                    lock.h
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.1.7" data-path="../../user/libs/panic_c.html">
+            
+                <a href="../../user/libs/panic_c.html">
+            
+                    
+                    panic.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.1.8" data-path="../../user/libs/stdio_c.html">
+            
+                <a href="../../user/libs/stdio_c.html">
+            
+                    
+                    stdio.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.1.9" data-path="../../user/libs/syscall_c.html">
+            
+                <a href="../../user/libs/syscall_c.html">
+            
+                    
+                    syscall.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.1.10" data-path="../../user/libs/syscall_h.html">
+            
+                <a href="../../user/libs/syscall_h.html">
+            
+                    
+                    syscall.h
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.1.11" data-path="../../user/libs/ulib_c.html">
+            
+                <a href="../../user/libs/ulib_c.html">
+            
+                    
+                    ulib.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.1.12" data-path="../../user/libs/ulib_h.html">
+            
+                <a href="../../user/libs/ulib_h.html">
+            
+                    
+                    ulib.h
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.1.13" data-path="../../user/libs/umain_c.html">
+            
+                <a href="../../user/libs/umain_c.html">
+            
+                    
+                    umain.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.2" data-path="../../user/badarg_c.html">
+            
+                <a href="../../user/badarg_c.html">
+            
+                    
+                    badarg.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.3" data-path="../../user/badsegment_c.html">
+            
+                <a href="../../user/badsegment_c.html">
+            
+                    
+                    badsegment.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.4" data-path="../../user/divzero_c.html">
+            
+                <a href="../../user/divzero_c.html">
+            
+                    
+                    divzero.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.5" data-path="../../user/exit_c.html">
+            
+                <a href="../../user/exit_c.html">
+            
+                    
+                    exit.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.6" data-path="../../user/faultread_c.html">
+            
+                <a href="../../user/faultread_c.html">
+            
+                    
+                    faultread.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.7" data-path="../../user/faultreadkernel_c.html">
+            
+                <a href="../../user/faultreadkernel_c.html">
+            
+                    
+                    faultreadkernel.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.8" data-path="../../user/forktest_c.html">
+            
+                <a href="../../user/forktest_c.html">
+            
+                    
+                    forktest.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.9" data-path="../../user/forktree_c.html">
+            
+                <a href="../../user/forktree_c.html">
+            
+                    
+                    forktree.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.10" data-path="../../user/hello_c.html">
+            
+                <a href="../../user/hello_c.html">
+            
+                    
+                    hello.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.11" data-path="../../user/ls_c.html">
+            
+                <a href="../../user/ls_c.html">
+            
+                    
+                    ls.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.12" data-path="../../user/matrix_c.html">
+            
+                <a href="../../user/matrix_c.html">
+            
+                    
+                    matrix.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.13" data-path="../../user/pgdir_c.html">
+            
+                <a href="../../user/pgdir_c.html">
+            
+                    
+                    pgdir.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.14" data-path="../../user/priority_c.html">
+            
+                <a href="../../user/priority_c.html">
+            
+                    
+                    priority.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.15" data-path="../../user/sfs_filetest1_c.html">
+            
+                <a href="../../user/sfs_filetest1_c.html">
+            
+                    
+                    sfs_filetest1.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.16" data-path="../../user/sh_c.html">
+            
+                <a href="../../user/sh_c.html">
+            
+                    
+                    sh.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.17" data-path="../../user/sleep_c.html">
+            
+                <a href="../../user/sleep_c.html">
+            
+                    
+                    sleep.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.18" data-path="../../user/sleepkill_c.html">
+            
+                <a href="../../user/sleepkill_c.html">
+            
+                    
+                    sleepkill.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.19" data-path="../../user/softint_c.html">
+            
+                <a href="../../user/softint_c.html">
+            
+                    
+                    softint.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.20" data-path="../../user/spin_c.html">
+            
+                <a href="../../user/spin_c.html">
+            
+                    
+                    spin.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.21" data-path="../../user/testbss_c.html">
+            
+                <a href="../../user/testbss_c.html">
+            
+                    
+                    testbss.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.22" data-path="../../user/waitkill_c.html">
+            
+                <a href="../../user/waitkill_c.html">
+            
+                    
+                    waitkill.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.23" data-path="../../user/yield_c.html">
+            
+                <a href="../../user/yield_c.html">
+            
+                    
+                    yield.c
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../../Makefile.html">
+            
+                <a href="../../Makefile.html">
+            
+                    
+                    Makefile
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../../Makefile_lab1.html">
+            
+                <a href="../../Makefile_lab1.html">
+            
+                    
+                    (lab1) Makefile
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../../../tools/">
+            
+                <a href="../../../tools/">
+            
+                    
+                    附录：工具使用
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../../../tools/how_to_edit_this_doc.html">
+            
+                <a href="../../../tools/how_to_edit_this_doc.html">
+            
+                    
+                    如何编辑该文档
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../../../tools/how_to_update_gitbook_doc.html">
+            
+                <a href="../../../tools/how_to_update_gitbook_doc.html">
+            
+                    
+                    讨论区的维护方法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../../../tools/how_to_auto_update_gitbook_via_travis-ci.html">
+            
+                <a href="../../../tools/how_to_auto_update_gitbook_via_travis-ci.html">
+            
+                    
+                    使用Travis CI自动化更新gitbook
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../../.." >vmm.c</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <pre><code class="lang-c"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;vmm.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;sync.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;string.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;assert.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;error.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;pmm.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;x86.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;swap.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;kmalloc.h&gt;</span></span>
+
+<span class="hljs-comment">/* 
+  vmm design include two parts: mm_struct (mm) &amp; vma_struct (vma)
+  mm is the memory manager for the set of continuous virtual memory  
+  area which have the same PDT. vma is a continuous virtual memory area.
+  There a linear link list for vma &amp; a redblack link list for vma in mm.
+---------------
+  mm related functions:
+   golbal functions
+     struct mm_struct * mm_create(void)
+     void mm_destroy(struct mm_struct *mm)
+     int do_pgfault(struct mm_struct *mm, uint32_t error_code, uintptr_t addr)
+--------------
+  vma related functions:
+   global functions
+     struct vma_struct * vma_create (uintptr_t vm_start, uintptr_t vm_end,...)
+     void insert_vma_struct(struct mm_struct *mm, struct vma_struct *vma)
+     struct vma_struct * find_vma(struct mm_struct *mm, uintptr_t addr)
+   local functions
+     inline void check_vma_overlap(struct vma_struct *prev, struct vma_struct *next)
+---------------
+   check correctness functions
+     void check_vmm(void);
+     void check_vma_struct(void);
+     void check_pgfault(void);
+*/</span>
+
+<span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">check_vmm</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span></span>;
+<span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">check_vma_struct</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span></span>;
+<span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">check_pgfault</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span></span>;
+
+<span class="hljs-comment">// mm_create -  alloc a mm_struct &amp; initialize it.</span>
+<span class="hljs-function"><span class="hljs-keyword">struct</span> mm_struct *
+<span class="hljs-title">mm_create</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span> </span>{
+    <span class="hljs-keyword">struct</span> mm_struct *mm = kmalloc(<span class="hljs-keyword">sizeof</span>(<span class="hljs-keyword">struct</span> mm_struct));
+
+    <span class="hljs-keyword">if</span> (mm != <span class="hljs-literal">NULL</span>) {
+        list_init(&amp;(mm-&gt;mmap_list));
+        mm-&gt;mmap_cache = <span class="hljs-literal">NULL</span>;
+        mm-&gt;pgdir = <span class="hljs-literal">NULL</span>;
+        mm-&gt;map_count = <span class="hljs-number">0</span>;
+
+        <span class="hljs-keyword">if</span> (swap_init_ok) swap_init_mm(mm);
+        <span class="hljs-keyword">else</span> mm-&gt;sm_priv = <span class="hljs-literal">NULL</span>;
+
+        set_mm_count(mm, <span class="hljs-number">0</span>);
+        sem_init(&amp;(mm-&gt;mm_sem), <span class="hljs-number">1</span>);
+    }    
+    <span class="hljs-keyword">return</span> mm;
+}
+
+<span class="hljs-comment">// vma_create - alloc a vma_struct &amp; initialize it. (addr range: vm_start~vm_end)</span>
+<span class="hljs-function"><span class="hljs-keyword">struct</span> vma_struct *
+<span class="hljs-title">vma_create</span><span class="hljs-params">(uintptr_t vm_start, uintptr_t vm_end, uint32_t vm_flags)</span> </span>{
+    <span class="hljs-keyword">struct</span> vma_struct *vma = kmalloc(<span class="hljs-keyword">sizeof</span>(<span class="hljs-keyword">struct</span> vma_struct));
+
+    <span class="hljs-keyword">if</span> (vma != <span class="hljs-literal">NULL</span>) {
+        vma-&gt;vm_start = vm_start;
+        vma-&gt;vm_end = vm_end;
+        vma-&gt;vm_flags = vm_flags;
+    }
+    <span class="hljs-keyword">return</span> vma;
+}
+
+
+<span class="hljs-comment">// find_vma - find a vma  (vma-&gt;vm_start &lt;= addr &lt;= vma_vm_end)</span>
+<span class="hljs-function"><span class="hljs-keyword">struct</span> vma_struct *
+<span class="hljs-title">find_vma</span><span class="hljs-params">(<span class="hljs-keyword">struct</span> mm_struct *mm, uintptr_t addr)</span> </span>{
+    <span class="hljs-keyword">struct</span> vma_struct *vma = <span class="hljs-literal">NULL</span>;
+    <span class="hljs-keyword">if</span> (mm != <span class="hljs-literal">NULL</span>) {
+        vma = mm-&gt;mmap_cache;
+        <span class="hljs-keyword">if</span> (!(vma != <span class="hljs-literal">NULL</span> &amp;&amp; vma-&gt;vm_start &lt;= addr &amp;&amp; vma-&gt;vm_end &gt; addr)) {
+                <span class="hljs-keyword">bool</span> found = <span class="hljs-number">0</span>;
+                <span class="hljs-keyword">list_entry_t</span> *<span class="hljs-built_in">list</span> = &amp;(mm-&gt;mmap_list), *le = <span class="hljs-built_in">list</span>;
+                <span class="hljs-keyword">while</span> ((le = list_next(le)) != <span class="hljs-built_in">list</span>) {
+                    vma = le2vma(le, list_link);
+                    <span class="hljs-keyword">if</span> (vma-&gt;vm_start&lt;=addr &amp;&amp; addr &lt; vma-&gt;vm_end) {
+                        found = <span class="hljs-number">1</span>;
+                        <span class="hljs-keyword">break</span>;
+                    }
+                }
+                <span class="hljs-keyword">if</span> (!found) {
+                    vma = <span class="hljs-literal">NULL</span>;
+                }
+        }
+        <span class="hljs-keyword">if</span> (vma != <span class="hljs-literal">NULL</span>) {
+            mm-&gt;mmap_cache = vma;
+        }
+    }
+    <span class="hljs-keyword">return</span> vma;
+}
+
+
+<span class="hljs-comment">// check_vma_overlap - check if vma1 overlaps vma2 ?</span>
+<span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">inline</span> <span class="hljs-keyword">void</span>
+<span class="hljs-title">check_vma_overlap</span><span class="hljs-params">(<span class="hljs-keyword">struct</span> vma_struct *prev, <span class="hljs-keyword">struct</span> vma_struct *next)</span> </span>{
+    assert(prev-&gt;vm_start &lt; prev-&gt;vm_end);
+    assert(prev-&gt;vm_end &lt;= next-&gt;vm_start);
+    assert(next-&gt;vm_start &lt; next-&gt;vm_end);
+}
+
+
+<span class="hljs-comment">// insert_vma_struct -insert vma in mm&apos;s list link</span>
+<span class="hljs-function"><span class="hljs-keyword">void</span>
+<span class="hljs-title">insert_vma_struct</span><span class="hljs-params">(<span class="hljs-keyword">struct</span> mm_struct *mm, <span class="hljs-keyword">struct</span> vma_struct *vma)</span> </span>{
+    assert(vma-&gt;vm_start &lt; vma-&gt;vm_end);
+    <span class="hljs-keyword">list_entry_t</span> *<span class="hljs-built_in">list</span> = &amp;(mm-&gt;mmap_list);
+    <span class="hljs-keyword">list_entry_t</span> *le_prev = <span class="hljs-built_in">list</span>, *le_next;
+
+        <span class="hljs-keyword">list_entry_t</span> *le = <span class="hljs-built_in">list</span>;
+        <span class="hljs-keyword">while</span> ((le = list_next(le)) != <span class="hljs-built_in">list</span>) {
+            <span class="hljs-keyword">struct</span> vma_struct *mmap_prev = le2vma(le, list_link);
+            <span class="hljs-keyword">if</span> (mmap_prev-&gt;vm_start &gt; vma-&gt;vm_start) {
+                <span class="hljs-keyword">break</span>;
+            }
+            le_prev = le;
+        }
+
+    le_next = list_next(le_prev);
+
+    <span class="hljs-comment">/* check overlap */</span>
+    <span class="hljs-keyword">if</span> (le_prev != <span class="hljs-built_in">list</span>) {
+        check_vma_overlap(le2vma(le_prev, list_link), vma);
+    }
+    <span class="hljs-keyword">if</span> (le_next != <span class="hljs-built_in">list</span>) {
+        check_vma_overlap(vma, le2vma(le_next, list_link));
+    }
+
+    vma-&gt;vm_mm = mm;
+    list_add_after(le_prev, &amp;(vma-&gt;list_link));
+
+    mm-&gt;map_count ++;
+}
+
+<span class="hljs-comment">// mm_destroy - free mm and mm internal fields</span>
+<span class="hljs-function"><span class="hljs-keyword">void</span>
+<span class="hljs-title">mm_destroy</span><span class="hljs-params">(<span class="hljs-keyword">struct</span> mm_struct *mm)</span> </span>{
+    assert(mm_count(mm) == <span class="hljs-number">0</span>);
+
+    <span class="hljs-keyword">list_entry_t</span> *<span class="hljs-built_in">list</span> = &amp;(mm-&gt;mmap_list), *le;
+    <span class="hljs-keyword">while</span> ((le = list_next(<span class="hljs-built_in">list</span>)) != <span class="hljs-built_in">list</span>) {
+        list_del(le);
+        kfree(le2vma(le, list_link));  <span class="hljs-comment">//kfree vma        </span>
+    }
+    kfree(mm); <span class="hljs-comment">//kfree mm</span>
+    mm=<span class="hljs-literal">NULL</span>;
+}
+
+<span class="hljs-function"><span class="hljs-keyword">int</span>
+<span class="hljs-title">mm_map</span><span class="hljs-params">(<span class="hljs-keyword">struct</span> mm_struct *mm, uintptr_t addr, size_t len, uint32_t vm_flags,
+       <span class="hljs-keyword">struct</span> vma_struct **vma_store)</span> </span>{
+    <span class="hljs-keyword">uintptr_t</span> start = ROUNDDOWN(addr, PGSIZE), end = ROUNDUP(addr + len, PGSIZE);
+    <span class="hljs-keyword">if</span> (!USER_ACCESS(start, end)) {
+        <span class="hljs-keyword">return</span> -E_INVAL;
+    }
+
+    assert(mm != <span class="hljs-literal">NULL</span>);
+
+    <span class="hljs-keyword">int</span> ret = -E_INVAL;
+
+    <span class="hljs-keyword">struct</span> vma_struct *vma;
+    <span class="hljs-keyword">if</span> ((vma = find_vma(mm, start)) != <span class="hljs-literal">NULL</span> &amp;&amp; end &gt; vma-&gt;vm_start) {
+        <span class="hljs-keyword">goto</span> out;
+    }
+    ret = -E_NO_MEM;
+
+    <span class="hljs-keyword">if</span> ((vma = vma_create(start, end, vm_flags)) == <span class="hljs-literal">NULL</span>) {
+        <span class="hljs-keyword">goto</span> out;
+    }
+    insert_vma_struct(mm, vma);
+    <span class="hljs-keyword">if</span> (vma_store != <span class="hljs-literal">NULL</span>) {
+        *vma_store = vma;
+    }
+    ret = <span class="hljs-number">0</span>;
+
+out:
+    <span class="hljs-keyword">return</span> ret;
+}
+
+<span class="hljs-function"><span class="hljs-keyword">int</span>
+<span class="hljs-title">dup_mmap</span><span class="hljs-params">(<span class="hljs-keyword">struct</span> mm_struct *to, <span class="hljs-keyword">struct</span> mm_struct *from)</span> </span>{
+    assert(to != <span class="hljs-literal">NULL</span> &amp;&amp; from != <span class="hljs-literal">NULL</span>);
+    <span class="hljs-keyword">list_entry_t</span> *<span class="hljs-built_in">list</span> = &amp;(from-&gt;mmap_list), *le = <span class="hljs-built_in">list</span>;
+    <span class="hljs-keyword">while</span> ((le = list_prev(le)) != <span class="hljs-built_in">list</span>) {
+        <span class="hljs-keyword">struct</span> vma_struct *vma, *nvma;
+        vma = le2vma(le, list_link);
+        nvma = vma_create(vma-&gt;vm_start, vma-&gt;vm_end, vma-&gt;vm_flags);
+        <span class="hljs-keyword">if</span> (nvma == <span class="hljs-literal">NULL</span>) {
+            <span class="hljs-keyword">return</span> -E_NO_MEM;
+        }
+
+        insert_vma_struct(to, nvma);
+
+        <span class="hljs-keyword">bool</span> share = <span class="hljs-number">0</span>;
+        <span class="hljs-keyword">if</span> (copy_range(to-&gt;pgdir, from-&gt;pgdir, vma-&gt;vm_start, vma-&gt;vm_end, share) != <span class="hljs-number">0</span>) {
+            <span class="hljs-keyword">return</span> -E_NO_MEM;
+        }
+    }
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+
+<span class="hljs-function"><span class="hljs-keyword">void</span>
+<span class="hljs-title">exit_mmap</span><span class="hljs-params">(<span class="hljs-keyword">struct</span> mm_struct *mm)</span> </span>{
+    assert(mm != <span class="hljs-function"><span class="hljs-literal">NULL</span> &amp;&amp; <span class="hljs-title">mm_count</span><span class="hljs-params">(mm)</span> </span>== <span class="hljs-number">0</span>);
+    <span class="hljs-keyword">pde_t</span> *pgdir = mm-&gt;pgdir;
+    <span class="hljs-keyword">list_entry_t</span> *<span class="hljs-built_in">list</span> = &amp;(mm-&gt;mmap_list), *le = <span class="hljs-built_in">list</span>;
+    <span class="hljs-keyword">while</span> ((le = list_next(le)) != <span class="hljs-built_in">list</span>) {
+        <span class="hljs-keyword">struct</span> vma_struct *vma = le2vma(le, list_link);
+        unmap_range(pgdir, vma-&gt;vm_start, vma-&gt;vm_end);
+    }
+    <span class="hljs-keyword">while</span> ((le = list_next(le)) != <span class="hljs-built_in">list</span>) {
+        <span class="hljs-keyword">struct</span> vma_struct *vma = le2vma(le, list_link);
+        exit_range(pgdir, vma-&gt;vm_start, vma-&gt;vm_end);
+    }
+}
+
+<span class="hljs-function"><span class="hljs-keyword">bool</span>
+<span class="hljs-title">copy_from_user</span><span class="hljs-params">(<span class="hljs-keyword">struct</span> mm_struct *mm, <span class="hljs-keyword">void</span> *dst, <span class="hljs-keyword">const</span> <span class="hljs-keyword">void</span> *src, size_t len, <span class="hljs-keyword">bool</span> writable)</span> </span>{
+    <span class="hljs-keyword">if</span> (!user_mem_check(mm, (<span class="hljs-keyword">uintptr_t</span>)src, len, writable)) {
+        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+    }
+    <span class="hljs-built_in">memcpy</span>(dst, src, len);
+    <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;
+}
+
+<span class="hljs-function"><span class="hljs-keyword">bool</span>
+<span class="hljs-title">copy_to_user</span><span class="hljs-params">(<span class="hljs-keyword">struct</span> mm_struct *mm, <span class="hljs-keyword">void</span> *dst, <span class="hljs-keyword">const</span> <span class="hljs-keyword">void</span> *src, size_t len)</span> </span>{
+    <span class="hljs-keyword">if</span> (!user_mem_check(mm, (<span class="hljs-keyword">uintptr_t</span>)dst, len, <span class="hljs-number">1</span>)) {
+        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+    }
+    <span class="hljs-built_in">memcpy</span>(dst, src, len);
+    <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;
+}
+
+<span class="hljs-comment">// vmm_init - initialize virtual memory management</span>
+<span class="hljs-comment">//          - now just call check_vmm to check correctness of vmm</span>
+<span class="hljs-function"><span class="hljs-keyword">void</span>
+<span class="hljs-title">vmm_init</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span> </span>{
+    check_vmm();
+}
+
+<span class="hljs-comment">// check_vmm - check correctness of vmm</span>
+<span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span>
+<span class="hljs-title">check_vmm</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span> </span>{
+    <span class="hljs-keyword">size_t</span> nr_free_pages_store = nr_free_pages();
+
+    check_vma_struct();
+    check_pgfault();
+
+    <span class="hljs-comment">//assert(nr_free_pages_store == nr_free_pages());</span>
+
+    cprintf(<span class="hljs-string">&quot;check_vmm() succeeded.\n&quot;</span>);
+}
+
+<span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span>
+<span class="hljs-title">check_vma_struct</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span> </span>{
+    <span class="hljs-keyword">size_t</span> nr_free_pages_store = nr_free_pages();
+
+    <span class="hljs-keyword">struct</span> mm_struct *mm = mm_create();
+    assert(mm != <span class="hljs-literal">NULL</span>);
+
+    <span class="hljs-keyword">int</span> step1 = <span class="hljs-number">10</span>, step2 = step1 * <span class="hljs-number">10</span>;
+
+    <span class="hljs-keyword">int</span> i;
+    <span class="hljs-keyword">for</span> (i = step1; i &gt;= <span class="hljs-number">1</span>; i --) {
+        <span class="hljs-keyword">struct</span> vma_struct *vma = vma_create(i * <span class="hljs-number">5</span>, i * <span class="hljs-number">5</span> + <span class="hljs-number">2</span>, <span class="hljs-number">0</span>);
+        assert(vma != <span class="hljs-literal">NULL</span>);
+        insert_vma_struct(mm, vma);
+    }
+
+    <span class="hljs-keyword">for</span> (i = step1 + <span class="hljs-number">1</span>; i &lt;= step2; i ++) {
+        <span class="hljs-keyword">struct</span> vma_struct *vma = vma_create(i * <span class="hljs-number">5</span>, i * <span class="hljs-number">5</span> + <span class="hljs-number">2</span>, <span class="hljs-number">0</span>);
+        assert(vma != <span class="hljs-literal">NULL</span>);
+        insert_vma_struct(mm, vma);
+    }
+
+    <span class="hljs-keyword">list_entry_t</span> *le = list_next(&amp;(mm-&gt;mmap_list));
+
+    <span class="hljs-keyword">for</span> (i = <span class="hljs-number">1</span>; i &lt;= step2; i ++) {
+        assert(le != &amp;(mm-&gt;mmap_list));
+        <span class="hljs-keyword">struct</span> vma_struct *mmap = le2vma(le, list_link);
+        assert(mmap-&gt;vm_start == i * <span class="hljs-number">5</span> &amp;&amp; mmap-&gt;vm_end == i * <span class="hljs-number">5</span> + <span class="hljs-number">2</span>);
+        le = list_next(le);
+    }
+
+    <span class="hljs-keyword">for</span> (i = <span class="hljs-number">5</span>; i &lt;= <span class="hljs-number">5</span> * step2; i +=<span class="hljs-number">5</span>) {
+        <span class="hljs-keyword">struct</span> vma_struct *vma1 = find_vma(mm, i);
+        assert(vma1 != <span class="hljs-literal">NULL</span>);
+        <span class="hljs-keyword">struct</span> vma_struct *vma2 = find_vma(mm, i+<span class="hljs-number">1</span>);
+        assert(vma2 != <span class="hljs-literal">NULL</span>);
+        <span class="hljs-keyword">struct</span> vma_struct *vma3 = find_vma(mm, i+<span class="hljs-number">2</span>);
+        assert(vma3 == <span class="hljs-literal">NULL</span>);
+        <span class="hljs-keyword">struct</span> vma_struct *vma4 = find_vma(mm, i+<span class="hljs-number">3</span>);
+        assert(vma4 == <span class="hljs-literal">NULL</span>);
+        <span class="hljs-keyword">struct</span> vma_struct *vma5 = find_vma(mm, i+<span class="hljs-number">4</span>);
+        assert(vma5 == <span class="hljs-literal">NULL</span>);
+
+        assert(vma1-&gt;vm_start == i  &amp;&amp; vma1-&gt;vm_end == i  + <span class="hljs-number">2</span>);
+        assert(vma2-&gt;vm_start == i  &amp;&amp; vma2-&gt;vm_end == i  + <span class="hljs-number">2</span>);
+    }
+
+    <span class="hljs-keyword">for</span> (i =<span class="hljs-number">4</span>; i&gt;=<span class="hljs-number">0</span>; i--) {
+        <span class="hljs-keyword">struct</span> vma_struct *vma_below_5= find_vma(mm,i);
+        <span class="hljs-keyword">if</span> (vma_below_5 != <span class="hljs-literal">NULL</span> ) {
+           cprintf(<span class="hljs-string">&quot;vma_below_5: i %x, start %x, end %x\n&quot;</span>,i, vma_below_5-&gt;vm_start, vma_below_5-&gt;vm_end); 
+        }
+        assert(vma_below_5 == <span class="hljs-literal">NULL</span>);
+    }
+
+    mm_destroy(mm);
+
+  <span class="hljs-comment">//  assert(nr_free_pages_store == nr_free_pages());</span>
+
+    cprintf(<span class="hljs-string">&quot;check_vma_struct() succeeded!\n&quot;</span>);
+}
+
+<span class="hljs-keyword">struct</span> mm_struct *check_mm_struct;
+
+<span class="hljs-comment">// check_pgfault - check correctness of pgfault handler</span>
+<span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span>
+<span class="hljs-title">check_pgfault</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span> </span>{
+    <span class="hljs-keyword">size_t</span> nr_free_pages_store = nr_free_pages();
+
+    check_mm_struct = mm_create();
+    assert(check_mm_struct != <span class="hljs-literal">NULL</span>);
+
+    <span class="hljs-keyword">struct</span> mm_struct *mm = check_mm_struct;
+    <span class="hljs-keyword">pde_t</span> *pgdir = mm-&gt;pgdir = boot_pgdir;
+    assert(pgdir[<span class="hljs-number">0</span>] == <span class="hljs-number">0</span>);
+
+    <span class="hljs-keyword">struct</span> vma_struct *vma = vma_create(<span class="hljs-number">0</span>, PTSIZE, VM_WRITE);
+    assert(vma != <span class="hljs-literal">NULL</span>);
+
+    insert_vma_struct(mm, vma);
+
+    <span class="hljs-keyword">uintptr_t</span> addr = <span class="hljs-number">0x100</span>;
+    assert(find_vma(mm, addr) == vma);
+
+    <span class="hljs-keyword">int</span> i, sum = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">for</span> (i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">100</span>; i ++) {
+        *(<span class="hljs-keyword">char</span> *)(addr + i) = i;
+        sum += i;
+    }
+    <span class="hljs-keyword">for</span> (i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">100</span>; i ++) {
+        sum -= *(<span class="hljs-keyword">char</span> *)(addr + i);
+    }
+    assert(sum == <span class="hljs-number">0</span>);
+
+    page_remove(pgdir, ROUNDDOWN(addr, PGSIZE));
+    free_page(pde2page(pgdir[<span class="hljs-number">0</span>]));
+    pgdir[<span class="hljs-number">0</span>] = <span class="hljs-number">0</span>;
+
+    mm-&gt;pgdir = <span class="hljs-literal">NULL</span>;
+    mm_destroy(mm);
+    check_mm_struct = <span class="hljs-literal">NULL</span>;
+
+    assert(nr_free_pages_store == nr_free_pages());
+
+    cprintf(<span class="hljs-string">&quot;check_pgfault() succeeded!\n&quot;</span>);
+}
+<span class="hljs-comment">//page fault number</span>
+<span class="hljs-keyword">volatile</span> <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">int</span> pgfault_num=<span class="hljs-number">0</span>;
+
+<span class="hljs-comment">/* do_pgfault - interrupt handler to process the page fault execption
+ * @mm         : the control struct for a set of vma using the same PDT
+ * @error_code : the error code recorded in trapframe-&gt;tf_err which is setted by x86 hardware
+ * @addr       : the addr which causes a memory access exception, (the contents of the CR2 register)
+ *
+ * CALL GRAPH: trap--&gt; trap_dispatch--&gt;pgfault_handler--&gt;do_pgfault
+ * The processor provides ucore&apos;s do_pgfault function with two items of information to aid in diagnosing
+ * the exception and recovering from it.
+ *   (1) The contents of the CR2 register. The processor loads the CR2 register with the
+ *       32-bit linear address that generated the exception. The do_pgfault fun can
+ *       use this address to locate the corresponding page directory and page-table
+ *       entries.
+ *   (2) An error code on the kernel stack. The error code for a page fault has a format different from
+ *       that for other exceptions. The error code tells the exception handler three things:
+ *         -- The P flag   (bit 0) indicates whether the exception was due to a not-present page (0)
+ *            or to either an access rights violation or the use of a reserved bit (1).
+ *         -- The W/R flag (bit 1) indicates whether the memory access that caused the exception
+ *            was a read (0) or write (1).
+ *         -- The U/S flag (bit 2) indicates whether the processor was executing at user mode (1)
+ *            or supervisor mode (0) at the time of the exception.
+ */</span>
+<span class="hljs-function"><span class="hljs-keyword">int</span>
+<span class="hljs-title">do_pgfault</span><span class="hljs-params">(<span class="hljs-keyword">struct</span> mm_struct *mm, uint32_t error_code, uintptr_t addr)</span> </span>{
+    <span class="hljs-keyword">int</span> ret = -E_INVAL;
+    <span class="hljs-comment">//try to find a vma which include addr</span>
+    <span class="hljs-keyword">struct</span> vma_struct *vma = find_vma(mm, addr);
+
+    pgfault_num++;
+    <span class="hljs-comment">//If the addr is in the range of a mm&apos;s vma?</span>
+    <span class="hljs-keyword">if</span> (vma == <span class="hljs-literal">NULL</span> || vma-&gt;vm_start &gt; addr) {
+        cprintf(<span class="hljs-string">&quot;not valid addr %x, and  can not find it in vma\n&quot;</span>, addr);
+        <span class="hljs-keyword">goto</span> failed;
+    }
+    <span class="hljs-comment">//check the error_code</span>
+    <span class="hljs-keyword">switch</span> (error_code &amp; <span class="hljs-number">3</span>) {
+    <span class="hljs-keyword">default</span>:
+            <span class="hljs-comment">/* error code flag : default is 3 ( W/R=1, P=1): write, present */</span>
+    <span class="hljs-keyword">case</span> <span class="hljs-number">2</span>: <span class="hljs-comment">/* error code flag : (W/R=1, P=0): write, not present */</span>
+        <span class="hljs-keyword">if</span> (!(vma-&gt;vm_flags &amp; VM_WRITE)) {
+            cprintf(<span class="hljs-string">&quot;do_pgfault failed: error code flag = write AND not present, but the addr&apos;s vma cannot write\n&quot;</span>);
+            <span class="hljs-keyword">goto</span> failed;
+        }
+        <span class="hljs-keyword">break</span>;
+    <span class="hljs-keyword">case</span> <span class="hljs-number">1</span>: <span class="hljs-comment">/* error code flag : (W/R=0, P=1): read, present */</span>
+        cprintf(<span class="hljs-string">&quot;do_pgfault failed: error code flag = read AND present\n&quot;</span>);
+        <span class="hljs-keyword">goto</span> failed;
+    <span class="hljs-keyword">case</span> <span class="hljs-number">0</span>: <span class="hljs-comment">/* error code flag : (W/R=0, P=0): read, not present */</span>
+        <span class="hljs-keyword">if</span> (!(vma-&gt;vm_flags &amp; (VM_READ | VM_EXEC))) {
+            cprintf(<span class="hljs-string">&quot;do_pgfault failed: error code flag = read AND not present, but the addr&apos;s vma cannot read or exec\n&quot;</span>);
+            <span class="hljs-keyword">goto</span> failed;
+        }
+    }
+    <span class="hljs-comment">/* IF (write an existed addr ) OR
+     *    (write an non_existed addr &amp;&amp; addr is writable) OR
+     *    (read  an non_existed addr &amp;&amp; addr is readable)
+     * THEN
+     *    continue process
+     */</span>
+    <span class="hljs-keyword">uint32_t</span> perm = PTE_U;
+    <span class="hljs-keyword">if</span> (vma-&gt;vm_flags &amp; VM_WRITE) {
+        perm |= PTE_W;
+    }
+    addr = ROUNDDOWN(addr, PGSIZE);
+
+    ret = -E_NO_MEM;
+
+    <span class="hljs-keyword">pte_t</span> *ptep=<span class="hljs-literal">NULL</span>;
+    <span class="hljs-comment">/*LAB3 EXERCISE 1: YOUR CODE
+    * Maybe you want help comment, BELOW comments can help you finish the code
+    *
+    * Some Useful MACROs and DEFINEs, you can use them in below implementation.
+    * MACROs or Functions:
+    *   get_pte : get an pte and return the kernel virtual address of this pte for la
+    *             if the PT contians this pte didn&apos;t exist, alloc a page for PT (notice the 3th parameter &apos;1&apos;)
+    *   pgdir_alloc_page : call alloc_page &amp; page_insert functions to allocate a page size memory &amp; setup
+    *             an addr map pa&lt;---&gt;la with linear address la and the PDT pgdir
+    * DEFINES:
+    *   VM_WRITE  : If vma-&gt;vm_flags &amp; VM_WRITE == 1/0, then the vma is writable/non writable
+    *   PTE_W           0x002                   // page table/directory entry flags bit : Writeable
+    *   PTE_U           0x004                   // page table/directory entry flags bit : User can access
+    * VARIABLES:
+    *   mm-&gt;pgdir : the PDT of these vma
+    *
+    */</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">if</span> 0</span>
+    <span class="hljs-comment">/*LAB3 EXERCISE 1: YOUR CODE*/</span>
+    ptep = ???              <span class="hljs-comment">//(1) try to find a pte, if pte&apos;s PT(Page Table) isn&apos;t existed, then create a PT.</span>
+    <span class="hljs-keyword">if</span> (*ptep == <span class="hljs-number">0</span>) {
+                            <span class="hljs-comment">//(2) if the phy addr isn&apos;t exist, then alloc a page &amp; map the phy addr with logical addr</span>
+
+    }
+    <span class="hljs-keyword">else</span> {
+    <span class="hljs-comment">/*LAB3 EXERCISE 2: YOUR CODE
+    * Now we think this pte is a  swap entry, we should load data from disk to a page with phy addr,
+    * and map the phy addr with logical addr, trigger swap manager to record the access situation of this page.
+    *
+    *  Some Useful MACROs and DEFINEs, you can use them in below implementation.
+    *  MACROs or Functions:
+    *    swap_in(mm, addr, &amp;page) : alloc a memory page, then according to the swap entry in PTE for addr,
+    *                               find the addr of disk page, read the content of disk page into this memroy page
+    *    page_insert &#xFF1A; build the map of phy addr of an Page with the linear addr la
+    *    swap_map_swappable &#xFF1A; set the page swappable
+    */</span>
+    <span class="hljs-comment">/*
+     * LAB5 CHALLENGE ( the implmentation Copy on Write)
+        There are 2 situlations when code comes here.
+          1) *ptep &amp; PTE_P == 1, it means one process try to write a readonly page. 
+             If the vma includes this addr is writable, then we can set the page writable by rewrite the *ptep.
+             This method could be used to implement the Copy on Write (COW) thchnology(a fast fork process method).
+          2) *ptep &amp; PTE_P == 0 &amp; but *ptep!=0, it means this pte is a  swap entry.
+             We should add the LAB3&apos;s results here.
+     */</span>
+        <span class="hljs-keyword">if</span>(swap_init_ok) {
+            <span class="hljs-keyword">struct</span> Page *page=<span class="hljs-literal">NULL</span>;
+                                    <span class="hljs-comment">//(1&#xFF09;According to the mm AND addr, try to load the content of right disk page</span>
+                                    <span class="hljs-comment">//    into the memory which page managed.</span>
+                                    <span class="hljs-comment">//(2) According to the mm, addr AND page, setup the map of phy addr &lt;---&gt; logical addr</span>
+                                    <span class="hljs-comment">//(3) make the page swappable.</span>
+                                    <span class="hljs-comment">//(4) [NOTICE]: you myabe need to update your lab3&apos;s implementation for LAB5&apos;s normal execution.</span>
+        }
+        <span class="hljs-keyword">else</span> {
+            cprintf(<span class="hljs-string">&quot;no swap_init_ok but ptep is %x, failed\n&quot;</span>,*ptep);
+            <span class="hljs-keyword">goto</span> failed;
+        }
+   }
+<span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span>
+    <span class="hljs-comment">// try to find a pte, if pte&apos;s PT(Page Table) isn&apos;t existed, then create a PT.</span>
+    <span class="hljs-comment">// (notice the 3th parameter &apos;1&apos;)</span>
+    <span class="hljs-keyword">if</span> ((ptep = get_pte(mm-&gt;pgdir, addr, <span class="hljs-number">1</span>)) == <span class="hljs-literal">NULL</span>) {
+        cprintf(<span class="hljs-string">&quot;get_pte in do_pgfault failed\n&quot;</span>);
+        <span class="hljs-keyword">goto</span> failed;
+    }
+
+    <span class="hljs-keyword">if</span> (*ptep == <span class="hljs-number">0</span>) { <span class="hljs-comment">// if the phy addr isn&apos;t exist, then alloc a page &amp; map the phy addr with logical addr</span>
+        <span class="hljs-keyword">if</span> (pgdir_alloc_page(mm-&gt;pgdir, addr, perm) == <span class="hljs-literal">NULL</span>) {
+            cprintf(<span class="hljs-string">&quot;pgdir_alloc_page in do_pgfault failed\n&quot;</span>);
+            <span class="hljs-keyword">goto</span> failed;
+        }
+    }
+    <span class="hljs-keyword">else</span> {
+        <span class="hljs-keyword">struct</span> Page *page=<span class="hljs-literal">NULL</span>;
+        cprintf(<span class="hljs-string">&quot;do pgfault: ptep %x, pte %x\n&quot;</span>,ptep, *ptep);
+        <span class="hljs-keyword">if</span> (*ptep &amp; PTE_P) {
+            <span class="hljs-comment">//if process write to this existed readonly page (PTE_P means existed), then should be here now.</span>
+            <span class="hljs-comment">//we can implement the delayed memory space copy for fork child process (AKA copy on write, COW).</span>
+            <span class="hljs-comment">//we didn&apos;t implement now, we will do it in future.</span>
+            panic(<span class="hljs-string">&quot;error write a non-writable pte&quot;</span>);
+            <span class="hljs-comment">//page = pte2page(*ptep);</span>
+        } <span class="hljs-keyword">else</span>{
+           <span class="hljs-comment">// if this pte is a swap entry, then load data from disk to a page with phy addr</span>
+           <span class="hljs-comment">// and call page_insert to map the phy addr with logical addr</span>
+           <span class="hljs-keyword">if</span>(swap_init_ok) {               
+               <span class="hljs-keyword">if</span> ((ret = swap_in(mm, addr, &amp;page)) != <span class="hljs-number">0</span>) {
+                   cprintf(<span class="hljs-string">&quot;swap_in in do_pgfault failed\n&quot;</span>);
+                   <span class="hljs-keyword">goto</span> failed;
+               }    
+
+           }  
+           <span class="hljs-keyword">else</span> {
+            cprintf(<span class="hljs-string">&quot;no swap_init_ok but ptep is %x, failed\n&quot;</span>,*ptep);
+            <span class="hljs-keyword">goto</span> failed;
+           }
+       } 
+       page_insert(mm-&gt;pgdir, page, addr, perm);
+       swap_map_swappable(mm, addr, page, <span class="hljs-number">1</span>);
+       page-&gt;pra_vaddr = addr;
+   }
+   ret = <span class="hljs-number">0</span>;
+failed:
+    <span class="hljs-keyword">return</span> ret;
+}
+
+<span class="hljs-function"><span class="hljs-keyword">bool</span>
+<span class="hljs-title">user_mem_check</span><span class="hljs-params">(<span class="hljs-keyword">struct</span> mm_struct *mm, uintptr_t addr, size_t len, <span class="hljs-keyword">bool</span> write)</span> </span>{
+    <span class="hljs-keyword">if</span> (mm != <span class="hljs-literal">NULL</span>) {
+        <span class="hljs-keyword">if</span> (!USER_ACCESS(addr, addr + len)) {
+            <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+        }
+        <span class="hljs-keyword">struct</span> vma_struct *vma;
+        <span class="hljs-keyword">uintptr_t</span> start = addr, end = addr + len;
+        <span class="hljs-keyword">while</span> (start &lt; end) {
+            <span class="hljs-keyword">if</span> ((vma = find_vma(mm, start)) == <span class="hljs-literal">NULL</span> || start &lt; vma-&gt;vm_start) {
+                <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+            }
+            <span class="hljs-keyword">if</span> (!(vma-&gt;vm_flags &amp; ((write) ? VM_WRITE : VM_READ))) {
+                <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+            }
+            <span class="hljs-keyword">if</span> (write &amp;&amp; (vma-&gt;vm_flags &amp; VM_STACK)) {
+                <span class="hljs-keyword">if</span> (start &lt; vma-&gt;vm_start + PGSIZE) { <span class="hljs-comment">//check stack start &amp; size</span>
+                    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+                }
+            }
+            start = vma-&gt;vm_end;
+        }
+        <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;
+    }
+    <span class="hljs-keyword">return</span> KERN_ACCESS(addr, addr + len);
+}
+
+<span class="hljs-function"><span class="hljs-keyword">bool</span>
+<span class="hljs-title">copy_string</span><span class="hljs-params">(<span class="hljs-keyword">struct</span> mm_struct *mm, <span class="hljs-keyword">char</span> *dst, <span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> *src, size_t maxn)</span> </span>{
+    <span class="hljs-keyword">size_t</span> alen, part = ROUNDDOWN((<span class="hljs-keyword">uintptr_t</span>)src + PGSIZE, PGSIZE) - (<span class="hljs-keyword">uintptr_t</span>)src;
+    <span class="hljs-keyword">while</span> (<span class="hljs-number">1</span>) {
+        <span class="hljs-keyword">if</span> (part &gt; maxn) {
+            part = maxn;
+        }
+        <span class="hljs-keyword">if</span> (!user_mem_check(mm, (<span class="hljs-keyword">uintptr_t</span>)src, part, <span class="hljs-number">0</span>)) {
+            <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+        }
+        <span class="hljs-keyword">if</span> ((alen = strnlen(src, part)) &lt; part) {
+            <span class="hljs-built_in">memcpy</span>(dst, src, alen + <span class="hljs-number">1</span>);
+            <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;
+        }
+        <span class="hljs-keyword">if</span> (part == maxn) {
+            <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+        }
+        <span class="hljs-built_in">memcpy</span>(dst, src, part);
+        dst += part, src += part, maxn -= part;
+        part = PGSIZE;
+    }
+}
+</code></pre>
+<p><div id="page-footer" class="localized-footer"><hr><p><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css"></p>
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<div id="gitalk-container" style="margin: 5%"></div>
+<script>
+  const gitalk = new Gitalk({
+    clientID: '04fb515964c291ec14f6',
+    clientSecret: 'd3f22dae66101b238ab91929dc6658952d0c4050',
+    repo: 'ucore-analysis',
+    owner: 'oscourse-tsinghua',
+    admin: ['xyongcn'],
+    createIssueManually: true,
+    id: document.title
+  })
+  gitalk.render('gitalk-container')
+</script>
+<script>
+  require(['gitbook'], function(gitbook) {
+    const gitalk = new Gitalk({
+      clientID: '04fb515964c291ec14f6',
+      clientSecret: 'd3f22dae66101b238ab91929dc6658952d0c4050',
+      repo: 'ucore-analysis',
+      owner: 'oscourse-tsinghua',
+      admin: ['xyongcn'],
+      createIssueManually: true,
+      id: document.title
+    })
+    gitbook.events.bind('page.change', initMygitalk)
+    function initMygitalk() {
+      gitalk.render('gitalk-container')
+    }
+  })
+</script>
+</div></p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="swap_h.html" class="navigation navigation-prev " aria-label="Previous page: swap.h">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="vmm_h.html" class="navigation navigation-next " aria-label="Next page: vmm.h">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"vmm.c","level":"1.3.2.6.13","depth":4,"next":{"title":"vmm.h","level":"1.3.2.6.14","depth":4,"path":"ucore/kern/mm/vmm_h.md","ref":"ucore/kern/mm/vmm_h.md","articles":[]},"previous":{"title":"swap.h","level":"1.3.2.6.12","depth":4,"path":"ucore/kern/mm/swap_h.md","ref":"ucore/kern/mm/swap_h.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["chapter-fold","code","search-pro","github","localized-footer","ancre-navigation","-sharing"],"pluginsConfig":{"chapter-fold":{},"github":{"url":"https://oscourse-tsinghua.github.io/ucore-analysis"},"search-pro":{},"search":{},"localized-footer":{"filename":"gitbook/comment.html","hline":"true"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ancre-navigation":{"associatedWithSummary":true,"float":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showLevel":true},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"gitbook/website.css"}},"file":{"path":"ucore/kern/mm/vmm_c.md","mtime":"2020-07-31T04:14:14.492Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-07-31T04:34:41.375Z"},"basePath":"../../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../../gitbook/gitbook.js"></script>
+    <script src="../../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-chapter-fold/chapter-fold.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
