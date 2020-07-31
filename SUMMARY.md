@@ -33,6 +33,7 @@
 	* [lab2](labs/lab2/README.md)
 	    * [练习1](labs/lab2/practice1.md)
 	    * [练习2](labs/lab2/practice2.md)
+	    * [练习3](labs/lab2/practice3.md)
 	* [lab3](labs/lab3/README.md)
 	* [lab4](labs/lab4/README.md)
 	* [lab5](labs/lab5/README.md)
