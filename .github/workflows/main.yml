@@ -1,0 +1,24 @@
+name: Github Pages
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install Node.js
+      uses: actions/setup-node@v2.1.0
+      with:
+        node-version: '10.21.0'
+    - name: Run a multi-line script
+      run: |
+          npm install gitbook-cli -g
+          gitbook install
+          gitbook build
+          mv _book docs
